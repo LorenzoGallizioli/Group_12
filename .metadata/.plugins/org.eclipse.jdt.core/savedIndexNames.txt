@@ -1,0 +1,1 @@
+INDEX VERSION 1.132+/Users/lorenzogallizioli/Documents/git/Group_12/.metadata/.plugins/org.eclipse.jdt.core
