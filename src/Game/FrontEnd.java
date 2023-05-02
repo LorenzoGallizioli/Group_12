@@ -14,6 +14,7 @@ import javax.swing.JPanel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
+import javax.swing.JCheckBox;
 
 public class FrontEnd {
 
@@ -39,6 +40,7 @@ public class FrontEnd {
 		});
 	}
 
+	int players = 0;
 	/**
 	 * Create the application.
 	 */
@@ -51,32 +53,76 @@ public class FrontEnd {
 	 */
 	
 	private void initialize() {
-		
+			
 		lblMyShelfie.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		frame = new JFrame();
 		frame.setBounds(100, 100, 854, 559);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
+		//pannello a sinistra
 		JPanel pnlSetPlayer = new JPanel();
-		pnlSetPlayer.setBackground(new Color(255, 255, 0));
+		pnlSetPlayer.setBackground(new Color(255, 255, 255));
 		pnlSetPlayer.setBounds(10, 10, 287, 502);
 		frame.getContentPane().add(pnlSetPlayer);
+		pnlSetPlayer.setLayout(null);
+		
+		JCheckBox chckbxGiocatori2 = new JCheckBox("2 giocatori");
+		chckbxGiocatori2.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		chckbxGiocatori2.setBounds(24, 86, 153, 72);
+		pnlSetPlayer.add(chckbxGiocatori2);
+		
+		JCheckBox chckbxGiocatori3 = new JCheckBox("3 giocatori");
+		chckbxGiocatori3.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		chckbxGiocatori3.setBounds(24, 176, 153, 72);
+		pnlSetPlayer.add(chckbxGiocatori3);
+		
+		JCheckBox chckbxGiocatori4 = new JCheckBox("4 giocatori");
+		chckbxGiocatori4.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		chckbxGiocatori4.setBounds(24, 269, 153, 72);
+		pnlSetPlayer.add(chckbxGiocatori4);
+		
+		JLabel lblMostraPlayerNum = new JLabel("");
+		lblMostraPlayerNum.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblMostraPlayerNum.setBounds(321, 113, 171, 32);
+		frame.getContentPane().add(lblMostraPlayerNum);
+		
+		JButton btnConfermaSetPlayer = new JButton("Conferma");
+		btnConfermaSetPlayer.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(chckbxGiocatori4.isSelected()==true) {
+					players = 4;
+				}
+				if(chckbxGiocatori3.isSelected()==true) {
+					players = 3;
+				}
+				if(chckbxGiocatori2.isSelected()==true) {
+					players = 2;
+				}
+				if(chckbxGiocatori4.isSelected()==false && chckbxGiocatori3.isSelected()==false && chckbxGiocatori2.isSelected()==false) {
+					System.out.println("errore, seleziona un numero di giocatori!");
+				}
+				pnlSetPlayer.setVisible(false);
+				lblMostraPlayerNum.setText("Giocatori: "+ players);
+			}
+		});
+		btnConfermaSetPlayer.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		btnConfermaSetPlayer.setBounds(24, 378, 153, 57);
+		pnlSetPlayer.add(btnConfermaSetPlayer);
 		pnlSetPlayer.setVisible(false);
 		
-		JButton btnNuovaPartita = new JButton("Nuova partita"); //bottone centrale, serve per avviare una nuova partita
-		btnNuovaPartita.addActionListener(new ActionListener() {
+		JButton btnSelezioneGiocatori = new JButton("Seleziona Giocatori"); //bottone centrale, serve per avviare una nuova partita
+		btnSelezioneGiocatori.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				pnlSetPlayer.setVisible(true);
 			}
 		});
-		btnNuovaPartita.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		btnNuovaPartita.setBounds(307, 68, 161, 52);
-		frame.getContentPane().add(btnNuovaPartita);
+		btnSelezioneGiocatori.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		btnSelezioneGiocatori.setBounds(311, 51, 191, 52);
+		frame.getContentPane().add(btnSelezioneGiocatori);
+		
 		
 		
 		
 	}
-	
-	
 }
