@@ -67,26 +67,43 @@ public class FrontEnd {
 		frame.getContentPane().add(pnlSetPlayer);
 		pnlSetPlayer.setLayout(null);
 		
+		//bottone apertura pannello sinistro, per poter selezionare quanti giocatori parteciperanno
+		JButton btnSelezioneGiocatori = new JButton("Seleziona Giocatori"); //bottone centrale, serve per avviare una nuova partita
+		btnSelezioneGiocatori.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				pnlSetPlayer.setVisible(true);
+			}
+		});
+		btnSelezioneGiocatori.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		btnSelezioneGiocatori.setBounds(311, 51, 191, 52);
+		frame.getContentPane().add(btnSelezioneGiocatori);
+		
+		//checkbox DUE GIOCATORI
 		JCheckBox chckbxGiocatori2 = new JCheckBox("2 giocatori");
 		chckbxGiocatori2.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		chckbxGiocatori2.setBounds(24, 86, 153, 72);
 		pnlSetPlayer.add(chckbxGiocatori2);
 		
+		//checkbox TRE GIOCATORI
 		JCheckBox chckbxGiocatori3 = new JCheckBox("3 giocatori");
 		chckbxGiocatori3.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		chckbxGiocatori3.setBounds(24, 176, 153, 72);
 		pnlSetPlayer.add(chckbxGiocatori3);
 		
+		//checkbox QUATTRO GIOCATORI
 		JCheckBox chckbxGiocatori4 = new JCheckBox("4 giocatori");
 		chckbxGiocatori4.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		chckbxGiocatori4.setBounds(24, 269, 153, 72);
 		pnlSetPlayer.add(chckbxGiocatori4);
 		
+		//label che mostra il numero di giocatori selezionati
 		JLabel lblMostraPlayerNum = new JLabel("");
 		lblMostraPlayerNum.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblMostraPlayerNum.setBounds(321, 113, 171, 32);
 		frame.getContentPane().add(lblMostraPlayerNum);
 		
+		//bottone conferma giocatori
+		//a seconda della checkbox selezionata
 		JButton btnConfermaSetPlayer = new JButton("Conferma");
 		btnConfermaSetPlayer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -111,15 +128,7 @@ public class FrontEnd {
 		pnlSetPlayer.add(btnConfermaSetPlayer);
 		pnlSetPlayer.setVisible(false);
 		
-		JButton btnSelezioneGiocatori = new JButton("Seleziona Giocatori"); //bottone centrale, serve per avviare una nuova partita
-		btnSelezioneGiocatori.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				pnlSetPlayer.setVisible(true);
-			}
-		});
-		btnSelezioneGiocatori.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		btnSelezioneGiocatori.setBounds(311, 51, 191, 52);
-		frame.getContentPane().add(btnSelezioneGiocatori);
+		
 		
 		
 		
