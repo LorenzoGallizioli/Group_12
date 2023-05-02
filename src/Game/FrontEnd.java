@@ -18,11 +18,7 @@ import javax.swing.JCheckBox;
 
 public class FrontEnd {
 
-	private JFrame frame;
-	/**
-	 * @wbp.nonvisual location=73,14
-	 */
-	private final JLabel lblMyShelfie = new JLabel("MY SHELFIE");
+	private JFrame frmMyShelfie;
 
 	/**
 	 * Launch the application.
@@ -32,7 +28,7 @@ public class FrontEnd {
 			public void run() {
 				try {
 					FrontEnd window = new FrontEnd();
-					window.frame.setVisible(true);
+					window.frmMyShelfie.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -53,18 +49,17 @@ public class FrontEnd {
 	 */
 	
 	private void initialize() {
-			
-		lblMyShelfie.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		frame = new JFrame();
-		frame.setBounds(100, 100, 854, 559);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		frmMyShelfie = new JFrame();
+		frmMyShelfie.setTitle("MY SHELFIE");
+		frmMyShelfie.setBounds(100, 100, 854, 559);
+		frmMyShelfie.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmMyShelfie.getContentPane().setLayout(null);
 		
 		//pannello a sinistra
 		JPanel pnlSetPlayer = new JPanel();
 		pnlSetPlayer.setBackground(new Color(255, 255, 255));
-		pnlSetPlayer.setBounds(10, 10, 287, 502);
-		frame.getContentPane().add(pnlSetPlayer);
+		pnlSetPlayer.setBounds(10, 130, 201, 382);
+		frmMyShelfie.getContentPane().add(pnlSetPlayer);
 		pnlSetPlayer.setLayout(null);
 		
 		//bottone apertura pannello sinistro, per poter selezionare quanti giocatori parteciperanno
@@ -75,32 +70,32 @@ public class FrontEnd {
 			}
 		});
 		btnSelezioneGiocatori.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		btnSelezioneGiocatori.setBounds(311, 51, 191, 52);
-		frame.getContentPane().add(btnSelezioneGiocatori);
+		btnSelezioneGiocatori.setBounds(10, 10, 191, 52);
+		frmMyShelfie.getContentPane().add(btnSelezioneGiocatori);
 		
 		//checkbox DUE GIOCATORI
 		JCheckBox chckbxGiocatori2 = new JCheckBox("2 giocatori");
 		chckbxGiocatori2.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		chckbxGiocatori2.setBounds(24, 86, 153, 72);
+		chckbxGiocatori2.setBounds(24, 20, 153, 72);
 		pnlSetPlayer.add(chckbxGiocatori2);
 		
 		//checkbox TRE GIOCATORI
 		JCheckBox chckbxGiocatori3 = new JCheckBox("3 giocatori");
 		chckbxGiocatori3.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		chckbxGiocatori3.setBounds(24, 176, 153, 72);
+		chckbxGiocatori3.setBounds(24, 110, 153, 72);
 		pnlSetPlayer.add(chckbxGiocatori3);
 		
 		//checkbox QUATTRO GIOCATORI
 		JCheckBox chckbxGiocatori4 = new JCheckBox("4 giocatori");
 		chckbxGiocatori4.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		chckbxGiocatori4.setBounds(24, 269, 153, 72);
+		chckbxGiocatori4.setBounds(24, 203, 153, 72);
 		pnlSetPlayer.add(chckbxGiocatori4);
 		
 		//label che mostra il numero di giocatori selezionati
 		JLabel lblMostraPlayerNum = new JLabel("");
 		lblMostraPlayerNum.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblMostraPlayerNum.setBounds(321, 113, 171, 32);
-		frame.getContentPane().add(lblMostraPlayerNum);
+		lblMostraPlayerNum.setBounds(10, 72, 171, 32);
+		frmMyShelfie.getContentPane().add(lblMostraPlayerNum);
 		
 		//bottone conferma giocatori
 		//a seconda della checkbox selezionata
@@ -124,14 +119,13 @@ public class FrontEnd {
 			}
 		});
 		btnConfermaSetPlayer.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		btnConfermaSetPlayer.setBounds(24, 378, 153, 57);
+		btnConfermaSetPlayer.setBounds(24, 303, 153, 57);
 		pnlSetPlayer.add(btnConfermaSetPlayer);
+		
+		JPanel panel = new JPanel();
+		panel.setBounds(328, 10, 502, 502);
+		frmMyShelfie.getContentPane().add(panel);
 		pnlSetPlayer.setVisible(false);
-		
-		
-		
-		
-		
 		
 	}
 }
