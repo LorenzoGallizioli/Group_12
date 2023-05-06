@@ -105,6 +105,19 @@ public class FrontEnd extends JFrame {
 		lblMostraPlayerNum.setBounds(10, 72, 171, 32);
 		formMyShelfie.getContentPane().add(lblMostraPlayerNum);
 		
+		//Pannello che mostra la tavola da gioco
+		JPanel pnlTavola = new JPanel(new GridLayout(8,8));
+		pnlTavola.setBounds(328, 10, 502, 502);
+		formMyShelfie.getContentPane().add(pnlTavola);
+		pnlSetPlayer.setVisible(false);
+		pnlTavola.setPreferredSize(new Dimension(8,8));
+		for(int col = 0; col<9;col++) {
+			for(int riga = 0; riga<9; riga++) {
+				Tavola.tavolaDaGioco[col][riga] = new JPanel();
+				pnlTavola.add((Component) Tavola.tavolaDaGioco[col][riga]);
+			}
+		}
+		
 		//bottone conferma giocatori
 		//a seconda della checkbox selezionata
 		JButton btnConfermaSetPlayer = new JButton("Conferma");
@@ -124,6 +137,7 @@ public class FrontEnd extends JFrame {
 				}
 				pnlSetPlayer.setVisible(false);
 				lblMostraPlayerNum.setText("Giocatori: "+ Tavola.numPlayers);
+				pnlTavola.setVisible(true);
 				
 			}
 		});
@@ -131,13 +145,8 @@ public class FrontEnd extends JFrame {
 		btnConfermaSetPlayer.setBounds(24, 303, 153, 57);
 		pnlSetPlayer.add(btnConfermaSetPlayer);
 		
-		JPanel pnlTavola = new JPanel(new GridLayout(8,8));
-		pnlTavola.setBounds(328, 10, 502, 502);
-		formMyShelfie.getContentPane().add(pnlTavola);
-		pnlSetPlayer.setVisible(false);
-		pnlTavola.setPreferredSize(new Dimension(8,8));
-
-		//pnlTavola.add((Component)Tavola.tavolaDaGioco[1][1]);
+		
+		
 		
 	
 		
