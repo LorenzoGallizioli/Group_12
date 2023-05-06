@@ -36,7 +36,7 @@ public class FrontEnd {
 		});
 	}
 
-	int players = 0;
+	
 	/**
 	 * Create the application.
 	 */
@@ -103,19 +103,20 @@ public class FrontEnd {
 		btnConfermaSetPlayer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(chckbxGiocatori4.isSelected()==true) {
-					players = 4;
+					Tavola.numPlayers = 4;
 				}
 				if(chckbxGiocatori3.isSelected()==true) {
-					players = 3;
+					Tavola.numPlayers = 3;
 				}
 				if(chckbxGiocatori2.isSelected()==true) {
-					players = 2;
+					Tavola.numPlayers = 2;
 				}
 				if(chckbxGiocatori4.isSelected()==false && chckbxGiocatori3.isSelected()==false && chckbxGiocatori2.isSelected()==false) {
 					System.out.println("errore, seleziona un numero di giocatori!");
 				}
 				pnlSetPlayer.setVisible(false);
-				lblMostraPlayerNum.setText("Giocatori: "+ players);
+				lblMostraPlayerNum.setText("Giocatori: "+ Tavola.numPlayers);
+				
 			}
 		});
 		btnConfermaSetPlayer.setFont(new Font("Tahoma", Font.PLAIN, 16));

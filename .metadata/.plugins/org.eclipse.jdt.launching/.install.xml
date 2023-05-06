@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <dirs>
     <entry loc="/Applications/Eclipse.app/Contents/Eclipse/plugins/org.eclipse.justj.openjdk.hotspot.jre.full.macosx.x86_64_17.0.6.v20230204-1729/jre" stamp="1678378463000"/>
+    <entry loc="C:\Users\Davide\.p2\pool\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.6.v20230204-1729\jre" stamp="1677088177334"/>
     <entry loc="/Applications/Eclipse.app/Contents/Eclipse/plugins/org.eclipse.justj.openjdk.hotspot.jre.full.macosx.x86_64_17.0.6.v20230204-1729" stamp="1678378463000"/>
     <entry loc="/Library/Java/JavaVirtualMachines/jdk-20.jdk/Contents/Home" stamp="1680633919173"/>
+    <entry loc="C:\Users\Davide\.p2\pool\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.6.v20230204-1729" stamp="1677088177335"/>
 </dirs>

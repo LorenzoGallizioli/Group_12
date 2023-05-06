@@ -2,9 +2,10 @@ package Game;
 
 public class Tavola {
 	
+	static int  numPlayers = 0;
 	public Tessera[][] tavolaDaGioco = new Tessera[9][9];
 	
-	public void Creatavola(int numPlayers) {
+	public void Creatavola() {
 		
 		switch(numPlayers) {
 		
@@ -20,6 +21,10 @@ public class Tavola {
 			
 			break;
 		
+		default:
+				
+			break;
+	
 		
 		}
 		
