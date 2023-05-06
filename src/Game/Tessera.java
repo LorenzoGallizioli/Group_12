@@ -8,6 +8,7 @@ package Game;
 public class Tessera {
 	
 	protected Colore colore;
+	protected Oggetto oggetto;
 	
 	/**
 	 * Il costruttore della classe.
@@ -17,6 +18,26 @@ public class Tessera {
 	 */
 	public Tessera(Colore colore) {
 		this.colore = colore;
+		switch(colore) {
+			case VERDE:
+				this.oggetto = Oggetto.GATTI;
+				break;
+			case GIALLO:
+				this.oggetto = Oggetto.GIOCHI;
+				break;
+			case BLU:
+				this.oggetto = Oggetto.CORNICI;
+				break;
+			case BIANCO:
+				this.oggetto = Oggetto.LIBRI;
+				break;
+			case CIANO:
+				this.oggetto = Oggetto.TROFEI;
+				break;
+			case MAGENTA:
+				this.oggetto = Oggetto.PIANTE;
+				break;
+		}
 	}
 
 	/**
