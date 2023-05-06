@@ -18,10 +18,10 @@ Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.
 !MESSAGE Cannot bind to an undefined command: plug-in='com.genuitec.eclipse.theming.ui', id='com.genuitec.myeclipse.help.darktheme.commandid'
 
 !ENTRY com.genuitec.eclipse.theming.ui 1 0 2023-04-22 16:05:35.005
-!MESSAGE A DevStyle Theme is being activated on this workspace; preparing colors and configuration
+!MESSAGE A DevStyle Theme is being activated on this workspace; preparing Colors and configuration
 
 !ENTRY com.genuitec.eclipse.theming.ui 1 0 2023-04-22 16:05:35.021
-!MESSAGE DevStyle has archived current color configurations to alternate preferences - will be restored when switching out of the DevStyle Theme
+!MESSAGE DevStyle has archived current Color configurations to alternate preferences - will be restored when switching out of the DevStyle Theme
 
 !ENTRY org.eclipse.jface 2 0 2023-04-22 16:05:35.720
 !MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
@@ -30,17 +30,17 @@ Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.
 Binding(COMMAND+SHIFT+T,
 	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
 		Open a type in a Java editor,
-		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		Category(org.eclipse.ui.category.navigate,Navigate,Color.GREEN,true),
 		WorkbenchHandlerServiceHandler("org.eclipse.jdt.ui.navigate.open.type"),
-		,,true),null),
+		,,true),Color.GREEN),
 	org.eclipse.ui.defaultAcceleratorConfiguration,
 	org.eclipse.ui.contexts.window,,,system)
 Binding(COMMAND+SHIFT+T,
 	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
 		,
-		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		Category(org.eclipse.lsp4e.category,Language Servers,Color.GREEN,true),
 		WorkbenchHandlerServiceHandler("org.eclipse.lsp4e.symbolinworkspace"),
-		,,true),null),
+		,,true),Color.GREEN),
 	org.eclipse.ui.defaultAcceleratorConfiguration,
 	org.eclipse.ui.contexts.window,,,system)
 !SUBENTRY 1 org.eclipse.jface 2 0 2023-04-22 16:05:35.720
@@ -48,9 +48,9 @@ Binding(COMMAND+SHIFT+T,
 Binding(ALT+COMMAND+R,
 	ParameterizedCommand(Command(org.eclipse.ui.edit.rename,Rename,
 		Rename the selected item,
-		Category(org.eclipse.ui.category.file,File,null,true),
+		Category(org.eclipse.ui.category.file,File,Color.GREEN,true),
 		WorkbenchHandlerServiceHandler("org.eclipse.ui.edit.rename"),
-		,,true),null),
+		,,true),Color.GREEN),
 	org.eclipse.ui.defaultAcceleratorConfiguration,
 	org.eclipse.ui.contexts.window,,cocoa,system)
 Binding(ALT+COMMAND+R,
@@ -58,7 +58,7 @@ Binding(ALT+COMMAND+R,
 		Rename the selected element,
 		Category(org.eclipse.jdt.ui.category.refactoring,Refactor - Java,Java Refactoring Actions,true),
 		WorkbenchHandlerServiceHandler("org.eclipse.jdt.ui.edit.text.java.rename.element"),
-		,,true),null),
+		,,true),Color.GREEN),
 	org.eclipse.ui.defaultAcceleratorConfiguration,
 	org.eclipse.ui.contexts.window,,cocoa,system)
 !SESSION 2023-04-22 16:07:01.543 -----------------------------------------------
@@ -82,17 +82,17 @@ Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.
 Binding(COMMAND+SHIFT+T,
 	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
 		Open a type in a Java editor,
-		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		Category(org.eclipse.ui.category.navigate,Navigate,Color.GREEN,true),
 		WorkbenchHandlerServiceHandler("org.eclipse.jdt.ui.navigate.open.type"),
-		,,true),null),
+		,,true),Color.GREEN),
 	org.eclipse.ui.defaultAcceleratorConfiguration,
 	org.eclipse.ui.contexts.window,,,system)
 Binding(COMMAND+SHIFT+T,
 	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
 		,
-		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		Category(org.eclipse.lsp4e.category,Language Servers,Color.GREEN,true),
 		WorkbenchHandlerServiceHandler("org.eclipse.lsp4e.symbolinworkspace"),
-		,,true),null),
+		,,true),Color.GREEN),
 	org.eclipse.ui.defaultAcceleratorConfiguration,
 	org.eclipse.ui.contexts.window,,,system)
 !SUBENTRY 1 org.eclipse.jface 2 0 2023-04-22 16:07:12.123
@@ -100,9 +100,9 @@ Binding(COMMAND+SHIFT+T,
 Binding(ALT+COMMAND+R,
 	ParameterizedCommand(Command(org.eclipse.ui.edit.rename,Rename,
 		Rename the selected item,
-		Category(org.eclipse.ui.category.file,File,null,true),
+		Category(org.eclipse.ui.category.file,File,Color.GREEN,true),
 		WorkbenchHandlerServiceHandler("org.eclipse.ui.edit.rename"),
-		,,true),null),
+		,,true),Color.GREEN),
 	org.eclipse.ui.defaultAcceleratorConfiguration,
 	org.eclipse.ui.contexts.window,,cocoa,system)
 Binding(ALT+COMMAND+R,
@@ -110,7 +110,7 @@ Binding(ALT+COMMAND+R,
 		Rename the selected element,
 		Category(org.eclipse.jdt.ui.category.refactoring,Refactor - Java,Java Refactoring Actions,true),
 		WorkbenchHandlerServiceHandler("org.eclipse.jdt.ui.edit.text.java.rename.element"),
-		,,true),null),
+		,,true),Color.GREEN),
 	org.eclipse.ui.defaultAcceleratorConfiguration,
 	org.eclipse.ui.contexts.window,,cocoa,system)
 
@@ -941,17 +941,17 @@ java.lang.ClassNotFoundException: org.eclipse.e4.ui.workbench.renderers.swt.coco
 Binding(CTRL+SHIFT+T,
 	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
 		Open a type in a Java editor,
-		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		Category(org.eclipse.ui.category.navigate,Navigate,Color.GREEN,true),
 		WorkbenchHandlerServiceHandler("org.eclipse.jdt.ui.navigate.open.type"),
-		,,true),null),
+		,,true),Color.GREEN),
 	org.eclipse.ui.defaultAcceleratorConfiguration,
 	org.eclipse.ui.contexts.window,,,system)
 Binding(CTRL+SHIFT+T,
 	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
 		,
-		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		Category(org.eclipse.lsp4e.category,Language Servers,Color.GREEN,true),
 		WorkbenchHandlerServiceHandler("org.eclipse.lsp4e.symbolinworkspace"),
-		,,true),null),
+		,,true),Color.GREEN),
 	org.eclipse.ui.defaultAcceleratorConfiguration,
 	org.eclipse.ui.contexts.window,,,system)
 !SUBENTRY 1 org.eclipse.jface 2 0 2023-05-06 12:26:44.227
@@ -961,15 +961,15 @@ Binding(ALT+SHIFT+R,
 		Rename the selected element,
 		Category(org.eclipse.jdt.ui.category.refactoring,Refactor - Java,Java Refactoring Actions,true),
 		WorkbenchHandlerServiceHandler("org.eclipse.jdt.ui.edit.text.java.rename.element"),
-		,,true),null),
+		,,true),Color.GREEN),
 	org.eclipse.ui.defaultAcceleratorConfiguration,
 	org.eclipse.ui.contexts.window,,,system)
 Binding(ALT+SHIFT+R,
 	ParameterizedCommand(Command(org.eclipse.ui.edit.rename,Rename,
 		Rename the selected item,
-		Category(org.eclipse.ui.category.file,File,null,true),
+		Category(org.eclipse.ui.category.file,File,Color.GREEN,true),
 		WorkbenchHandlerServiceHandler("org.eclipse.ui.edit.rename"),
-		,,true),null),
+		,,true),Color.GREEN),
 	org.eclipse.ui.defaultAcceleratorConfiguration,
 	org.eclipse.ui.contexts.window,,,system)
 

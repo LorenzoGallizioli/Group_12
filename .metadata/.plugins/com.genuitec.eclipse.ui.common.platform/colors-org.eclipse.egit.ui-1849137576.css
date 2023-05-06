@@ -22,22 +22,22 @@
 * Override this with a more specific selector.
 */
 .MPart Composite > StyledText.org-eclipse-egit-ui-CommitAndDiffComponent {
-background-color: inherit;
-color: inherit;
+background-Color: inherit;
+Color: inherit;
 }
 
 /*
 * Use a darker background for the tables in the Git history page. The default dark theme assigns
-* a slightly lighter background otherwise; we want the default background color as is used for
+* a slightly lighter background otherwise; we want the default background Color as is used for
 * other views (#272c30; decimal 39,44,48).
 */
 Table.org-eclipse-egit-ui-GitHistoryPage {
-background-color: inherit;
+background-Color: inherit;
 }
 
 /*
 * Same for the staged/unstaged tree viewers in the staging view.
 */
 .MPart Section Tree.org-eclipse-egit-ui-StagingView {
-background-color: inherit;
+background-Color: inherit;
 }

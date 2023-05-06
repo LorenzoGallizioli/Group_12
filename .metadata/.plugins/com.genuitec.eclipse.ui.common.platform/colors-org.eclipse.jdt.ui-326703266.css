@@ -10,7 +10,7 @@
 *
 * Contributors:
 *     Lars Vogel <Lars.Vogel@gmail.com> - initial API and implementation
-*     Andrea Guarinoni <andrea.guarinoni@gmail.com> - intial color schema definition
+*     Andrea Guarinoni <andrea.guarinoni@gmail.com> - intial Color schema definition
 *******************************************************************************/
 
 /* ############################## JDT syntax highlighting ############################## */
@@ -19,14 +19,14 @@
 
 
 BulletListBlock > StyledText {
-background-color: #394146;
-color: #b3bbc1;
+background-Color: #394146;
+Color: #b3bbc1;
 }
 
 FormatterPreferenceSectionComposite {
-background-color:#49535a;
-color:#ebedef;
-swt-titlebar-color: #c7cdd1;
+background-Color:#49535a;
+Color:#ebedef;
+swt-titlebar-Color: #c7cdd1;
 }
 
 #BreadcrumbComposite > Composite,
@@ -42,9 +42,9 @@ swt-titlebar-color: #c7cdd1;
 * Bug 465666
 *
 * Note: as we can't change the arrow to black, we configure
-* the background with the lighter color used for the background
-* of toolbars and make the foreground color brighter too.
+* the background with the lighter Color used for the background
+* of toolbars and make the foreground Color brighter too.
 */
-background-color:#49535a;
-color: white;
+background-Color:#49535a;
+Color: white;
 }

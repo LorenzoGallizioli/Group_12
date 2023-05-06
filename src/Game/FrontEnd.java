@@ -8,6 +8,7 @@ import javax.swing.JLabel;
 import java.awt.BorderLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.LayoutManager;
 
 import javax.swing.JButton;
 import javax.swing.SpringLayout;
@@ -61,14 +62,12 @@ public class FrontEnd extends JFrame {
 		formMyShelfie.setTitle("MY SHELFIE");
 		formMyShelfie.setBounds(100, 100, 854, 559);
 		formMyShelfie.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		formMyShelfie.getContentPane().setLayout(null);
 		
 		//pannello a sinistra
 		JPanel pnlSetPlayer = new JPanel();
 		pnlSetPlayer.setBackground(new Color(255, 255, 255));
 		pnlSetPlayer.setBounds(10, 130, 201, 382);
 		formMyShelfie.getContentPane().add(pnlSetPlayer);
-		pnlSetPlayer.setLayout(null);
 		
 		//bottone apertura pannello sinistro, per poter selezionare quanti giocatori parteciperanno
 		JButton btnSelezioneGiocatori = new JButton("Seleziona Giocatori"); //bottone centrale, serve per avviare una nuova partita
@@ -111,12 +110,14 @@ public class FrontEnd extends JFrame {
 		formMyShelfie.getContentPane().add(pnlTavola);
 		pnlSetPlayer.setVisible(false);
 		pnlTavola.setPreferredSize(new Dimension(8,8));
-		for(int col = 0; col<9;col++) {
-			for(int riga = 0; riga<9; riga++) {
-				Tavola.tavolaDaGioco[col][riga] = new JPanel();
-				pnlTavola.add((Component) Tavola.tavolaDaGioco[col][riga]);
+		
+		/*for(int col = 0; col<8; col++) {
+			for(int riga = 0; riga<8; riga++) {
+				
+				
 			}
-		}
+		}*/
+		pnlTavola.add((Component)Tavola.tavolaDaGioco[1][1]);
 		
 		//bottone conferma giocatori
 		//a seconda della checkbox selezionata

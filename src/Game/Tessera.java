@@ -2,33 +2,36 @@ package Game;
 
 import java.awt.Color;
 
+import javax.swing.JPanel;
+
 /**
  * Definisce le tessere da inserire nella libreria.
  * 
  * @author lorenzogallizioli
  */
-public class Tessera {
+public class Tessera extends JPanel{
 	
-	protected Color colore;
+	protected Color Color;
 	
 	/**
 	 * Il costruttore della classe.
 	 * 
-	 * @param colore
-	 * 	 Il colore della tessera.
+	 * @param Color
+	 * 	 Il Color della tessera.
 	 */
-	public Tessera(Color colore) {
-		this.colore = colore;	
+	public Tessera(Color Color) {
+		super();
+		this.Color = Color;	
 	}
 
 	/**
-	 * Restituisce il colore della tessera.
+	 * Restituisce il Color della tessera.
 	 * 
 	 * @return Color
-	 * 	 Il colore della tessera.
+	 * 	 Il Color della tessera.
 	 */
-	public Color getColore() {
-		return colore;
+	public Color getColor() {
+		return Color;
 	}
 
 }
