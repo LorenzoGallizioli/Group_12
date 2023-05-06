@@ -7,6 +7,8 @@ import java.awt.Window.Type;
 import javax.swing.JLabel;
 import java.awt.BorderLayout;
 import java.awt.Font;
+import java.awt.GridLayout;
+
 import javax.swing.JButton;
 import javax.swing.SpringLayout;
 import javax.swing.SwingConstants;
@@ -14,9 +16,15 @@ import javax.swing.JPanel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
+import java.awt.Component;
+import java.awt.Dimension;
+
 import javax.swing.JCheckBox;
 
-public class FrontEnd {
+import javax.swing.border.EmptyBorder;
+
+
+public class FrontEnd extends JFrame {
 
 	private JFrame formMyShelfie;
 
@@ -123,10 +131,15 @@ public class FrontEnd {
 		btnConfermaSetPlayer.setBounds(24, 303, 153, 57);
 		pnlSetPlayer.add(btnConfermaSetPlayer);
 		
-		JPanel panel = new JPanel();
-		panel.setBounds(328, 10, 502, 502);
-		formMyShelfie.getContentPane().add(panel);
+		JPanel pnlTavola = new JPanel(new GridLayout(8,8));
+		pnlTavola.setBounds(328, 10, 502, 502);
+		formMyShelfie.getContentPane().add(pnlTavola);
 		pnlSetPlayer.setVisible(false);
+		pnlTavola.setPreferredSize(new Dimension(8,8));
+
+		//pnlTavola.add((Component)Tavola.tavolaDaGioco[1][1]);
+		
+	
 		
 	}
 }
