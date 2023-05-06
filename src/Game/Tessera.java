@@ -1,16 +1,13 @@
 package Game;
 
-import java.awt.Color;
-
 /**
  * Definisce le tessere da inserire nella libreria.
  * 
  * @author lorenzogallizioli
- *
  */
 public class Tessera {
 	
-	protected Color colore;
+	protected Colore colore;
 	
 	/**
 	 * Il costruttore della classe.
@@ -18,7 +15,7 @@ public class Tessera {
 	 * @param colore
 	 * 	 Il colore della tessera.
 	 */
-	public Tessera(Color colore) {
+	public Tessera(Colore colore) {
 		this.colore = colore;
 	}
 
@@ -28,7 +25,7 @@ public class Tessera {
 	 * @return Color
 	 * 	 Il colore della tessera.
 	 */
-	public Color getColore() {
+	public Colore getColore() {
 		return colore;
 	}
 
@@ -38,7 +35,7 @@ public class Tessera {
 	 * @param colore
 	 * 	 Il colore da settare.
 	 */
-	public void setColore(Color colore) {
+	public void setColore(Colore colore) {
 		this.colore = colore;
 	}
 

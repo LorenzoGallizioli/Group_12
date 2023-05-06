@@ -4,7 +4,6 @@ package Game;
  * Definisce le librerie (una per ciascun giocatore) da riempire con le tessere prese dalla Tavola.
  * 
  * @author lorenzogallizioli
- *
  */
 public class Libreria {
 	
@@ -31,7 +30,7 @@ public class Libreria {
 	 * @param colonna
 	 * 	 La colonna della matrice.
 	 */
-	public void inserisci(Tessera tessera, int riga, int colonna) {
+	public void inserisciTessera(Tessera tessera, int riga, int colonna) {
 		libreria[riga][colonna] = tessera;
 	}
 

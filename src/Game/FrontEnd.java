@@ -18,7 +18,7 @@ import javax.swing.JCheckBox;
 
 public class FrontEnd {
 
-	private JFrame frmMyShelfie;
+	private JFrame formMyShelfie;
 
 	/**
 	 * Launch the application.
@@ -28,7 +28,7 @@ public class FrontEnd {
 			public void run() {
 				try {
 					FrontEnd window = new FrontEnd();
-					window.frmMyShelfie.setVisible(true);
+					window.formMyShelfie.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -49,17 +49,17 @@ public class FrontEnd {
 	 */
 	
 	private void initialize() {
-		frmMyShelfie = new JFrame();
-		frmMyShelfie.setTitle("MY SHELFIE");
-		frmMyShelfie.setBounds(100, 100, 854, 559);
-		frmMyShelfie.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frmMyShelfie.getContentPane().setLayout(null);
+		formMyShelfie = new JFrame();
+		formMyShelfie.setTitle("MY SHELFIE");
+		formMyShelfie.setBounds(100, 100, 854, 559);
+		formMyShelfie.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		formMyShelfie.getContentPane().setLayout(null);
 		
 		//pannello a sinistra
 		JPanel pnlSetPlayer = new JPanel();
 		pnlSetPlayer.setBackground(new Color(255, 255, 255));
 		pnlSetPlayer.setBounds(10, 130, 201, 382);
-		frmMyShelfie.getContentPane().add(pnlSetPlayer);
+		formMyShelfie.getContentPane().add(pnlSetPlayer);
 		pnlSetPlayer.setLayout(null);
 		
 		//bottone apertura pannello sinistro, per poter selezionare quanti giocatori parteciperanno
@@ -71,7 +71,7 @@ public class FrontEnd {
 		});
 		btnSelezioneGiocatori.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		btnSelezioneGiocatori.setBounds(10, 10, 191, 52);
-		frmMyShelfie.getContentPane().add(btnSelezioneGiocatori);
+		formMyShelfie.getContentPane().add(btnSelezioneGiocatori);
 		
 		//checkbox DUE GIOCATORI
 		JCheckBox chckbxGiocatori2 = new JCheckBox("2 giocatori");
@@ -95,7 +95,7 @@ public class FrontEnd {
 		JLabel lblMostraPlayerNum = new JLabel("");
 		lblMostraPlayerNum.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblMostraPlayerNum.setBounds(10, 72, 171, 32);
-		frmMyShelfie.getContentPane().add(lblMostraPlayerNum);
+		formMyShelfie.getContentPane().add(lblMostraPlayerNum);
 		
 		//bottone conferma giocatori
 		//a seconda della checkbox selezionata
@@ -124,7 +124,7 @@ public class FrontEnd {
 		
 		JPanel panel = new JPanel();
 		panel.setBounds(328, 10, 502, 502);
-		frmMyShelfie.getContentPane().add(panel);
+		formMyShelfie.getContentPane().add(panel);
 		pnlSetPlayer.setVisible(false);
 		
 	}
