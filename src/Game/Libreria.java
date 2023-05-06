@@ -1,24 +1,24 @@
 package Game;
 
 /**
- * La libreria (una per ciascun giocatore) da riempire con le tessere prese dalla Tavola.
+ * Definisce le librerie (una per ciascun giocatore) da riempire con le tessere prese dalla Tavola.
  * 
  * @author lorenzogallizioli
  *
  */
 public class Libreria {
 	
-	// TODO invece di Object ci sarà il tipo di oggetti contenuti nella libreria.
-	protected Object libreria[][] = new Object[5][5];
+	protected Tessera libreria[][] = new Tessera[5][5];
+	
 	/**
 	 * Il costruttore della classe.
 	 */
 	public Libreria() {
-		  for(int i=0; i<=4; i=i+1) {
-		      for(int j=0; j<=4; j=j+1) {
+		for(int i=0; i<=4; i=i+1) {
+			for(int j=0; j<=4; j=j+1) {
 		        libreria[i][j]=null;
-		      }
 		    }
+		}
 	}
 
 	/**
@@ -31,7 +31,19 @@ public class Libreria {
 	 * @param colonna
 	 * 	 La colonna della matrice.
 	 */
-	public void inserisci(Object tessera, int riga, int colonna) {
+	public void inserisci(Tessera tessera, int riga, int colonna) {
 		libreria[riga][colonna] = tessera;
 	}
+
+	/**
+	 * Restituisce la libreria.
+	 * 
+	 * @return libreria
+	 * 	 La libreria
+	 */
+	public Tessera[][] getLibreria() {
+		return libreria;
+	}
+	
+	
 }
