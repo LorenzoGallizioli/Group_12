@@ -44,5 +44,4 @@ public class Libreria {
 		return libreria;
 	}
 	
-	
 }
