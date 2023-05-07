@@ -6,7 +6,7 @@ public class Main {
 		FrontEnd.Finestra(args);
 		/*
 		 * Esempio di come dichiarare una tessera blu:
-		 * Tessera t = Tessera(Colore.BLU);
+		 * Tessera t = Tessera(Color.BLU);
 		 */
 	}
 

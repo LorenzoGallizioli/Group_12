@@ -15,7 +15,7 @@ public class Libreria {
 	public Libreria() {
 		for(int i=0; i<=4; i++) {
 			for(int j=0; j<=4; j=j+1) {
-		        libreria[i][j]=null;
+		        libreria[i][j]=Color.YELLOW;
 		    }
 		}
 	}

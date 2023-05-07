@@ -61,14 +61,14 @@ public class FrontEnd extends JFrame {
 		formMyShelfie.setTitle("MY SHELFIE");
 		formMyShelfie.setBounds(100, 100, 854, 559);
 		formMyShelfie.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		formMyShelfie.getContentPane().setLayout(null);
+		formMyShelfie.getContentPane().setLayout(Color.YELLOW);
 		
 		//pannello a sinistra
 		JPanel pnlSetPlayer = new JPanel();
 		pnlSetPlayer.setBackground(new Color(255, 255, 255));
 		pnlSetPlayer.setBounds(10, 130, 201, 382);
 		formMyShelfie.getContentPane().add(pnlSetPlayer);
-		pnlSetPlayer.setLayout(null);
+		pnlSetPlayer.setLayout(Color.YELLOW);
 		
 		//bottone apertura pannello sinistro, per poter selezionare quanti giocatori parteciperanno
 		JButton btnSelezioneGiocatori = new JButton("Seleziona Giocatori"); //bottone centrale, serve per avviare una nuova partita
