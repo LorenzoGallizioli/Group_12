@@ -23,8 +23,11 @@ import java.awt.Dimension;
 import javax.swing.JCheckBox;
 
 import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JTable;
+import javax.swing.JScrollPane;
+
 
 
 public class FrontEnd extends JFrame {
@@ -109,11 +112,14 @@ public class FrontEnd extends JFrame {
 		formMyShelfie.getContentPane().add(lblMostraPlayerNum);
 		pnlSetPlayer.setVisible(false);
 		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(248, 62, 582, 413);
+		formMyShelfie.getContentPane().add(scrollPane);
+		
 		//tabella che mostra la tavola da gioco
-		JTable tableTavola = new JTable(9,9);
-		tableTavola.setBounds(280, 53, 503, 413);
-		formMyShelfie.getContentPane().add(tableTavola);
-		DefaultTableModel model = (DefaultTableModel) tableTavola.getModel();
+		JTable tableTavola_1 = new JTable(9,9);
+		scrollPane.setViewportView(tableTavola_1);
+		DefaultTableModel model = (DefaultTableModel) tableTavola_1.getModel();
 		
 		//bottone conferma giocatori
 		//a seconda della checkbox selezionata
@@ -134,14 +140,16 @@ public class FrontEnd extends JFrame {
 				}
 				pnlSetPlayer.setVisible(false);
 				lblMostraPlayerNum.setText("Giocatori: "+ Tavola.numPlayers);
-				tableTavola.setVisible(true);
-				Tavola t = new Tavola();
+				tableTavola_1.setVisible(true);
 				
-				for(int col = 0; col<9;col++) {
-					for(int riga = 0; riga<9; riga++) {
-						model.setDataVector(Tavola.tavolaDaGioco,new Object[] {"Colonna 1", "Colonna 2", "Colonna 3", "Colonna 4", "Colonna 5", "Colonna 6", "Colonna 7", "Colonna 8", "Colonna 9"});
+				for(int riga =0;riga<9;riga++) {
+					for(int col =0;col<9;col++) {
+						if(Tavola.tavolaDaGioco[riga][col] != null) {
+						tableTavola_1.setBackground(Tavola.tavolaDaGioco[riga][col].getColor());
+						}
 					}
 				}
+				
 			}
 				
 		});

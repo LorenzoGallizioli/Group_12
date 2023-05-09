@@ -10,9 +10,9 @@ public class Tavola{
 	static int  numPlayers = 0;
 	
 	
-	public static Object[][] tavolaDaGioco = new Tessera[9][9];
+	public static Tessera[][] tavolaDaGioco = new Tessera[9][9];
 	
-	public static void tavola() {
+	public static void tavola() {	
 
 		tavolaDaGioco[0][0] = new Tessera(null);
 		tavolaDaGioco[0][1] = new Tessera(null);
