@@ -1,5 +1,7 @@
 package Game;
 
+import java.awt.Color;
+
 /**
  * Definisce le librerie (una per ciascun giocatore) da riempire con le tessere prese dalla Tavola.
  * 
@@ -15,7 +17,7 @@ public class Libreria {
 	public Libreria() {
 		for(int i=0; i<=4; i++) {
 			for(int j=0; j<=4; j=j+1) {
-		        libreria[i][j]=Color.YELLOW;
+		        libreria[i][j].Color=Color.YELLOW;
 		    }
 		}
 	}

@@ -8,6 +8,7 @@ import javax.swing.JLabel;
 import java.awt.BorderLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.LayoutManager;
 
 import javax.swing.JButton;
 import javax.swing.SpringLayout;
@@ -22,11 +23,14 @@ import java.awt.Dimension;
 import javax.swing.JCheckBox;
 
 import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.JTable;
 
 
 public class FrontEnd extends JFrame {
 
 	private JFrame formMyShelfie;
+	private JTable tableTavola;
 
 	/**
 	 * Launch the application.
@@ -61,14 +65,13 @@ public class FrontEnd extends JFrame {
 		formMyShelfie.setTitle("MY SHELFIE");
 		formMyShelfie.setBounds(100, 100, 854, 559);
 		formMyShelfie.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		formMyShelfie.getContentPane().setLayout(Color.YELLOW);
+		formMyShelfie.getContentPane().setLayout(null);
 		
 		//pannello a sinistra
 		JPanel pnlSetPlayer = new JPanel();
 		pnlSetPlayer.setBackground(new Color(255, 255, 255));
 		pnlSetPlayer.setBounds(10, 130, 201, 382);
 		formMyShelfie.getContentPane().add(pnlSetPlayer);
-		pnlSetPlayer.setLayout(Color.YELLOW);
 		
 		//bottone apertura pannello sinistro, per poter selezionare quanti giocatori parteciperanno
 		JButton btnSelezioneGiocatori = new JButton("Seleziona Giocatori"); //bottone centrale, serve per avviare una nuova partita
@@ -78,7 +81,7 @@ public class FrontEnd extends JFrame {
 			}
 		});
 		btnSelezioneGiocatori.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		btnSelezioneGiocatori.setBounds(10, 10, 191, 52);
+		btnSelezioneGiocatori.setBounds(10, 8, 191, 52);
 		formMyShelfie.getContentPane().add(btnSelezioneGiocatori);
 		
 		//checkbox DUE GIOCATORI
@@ -102,21 +105,15 @@ public class FrontEnd extends JFrame {
 		//label che mostra il numero di giocatori selezionati
 		JLabel lblMostraPlayerNum = new JLabel("");
 		lblMostraPlayerNum.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblMostraPlayerNum.setBounds(10, 72, 171, 32);
+		lblMostraPlayerNum.setBounds(10, 64, 191, 42);
 		formMyShelfie.getContentPane().add(lblMostraPlayerNum);
-		
-		//Pannello che mostra la tavola da gioco
-		JPanel pnlTavola = new JPanel(new GridLayout(8,8));
-		pnlTavola.setBounds(328, 10, 502, 502);
-		formMyShelfie.getContentPane().add(pnlTavola);
 		pnlSetPlayer.setVisible(false);
-		pnlTavola.setPreferredSize(new Dimension(8,8));
-		for(int col = 0; col<9;col++) {
-			for(int riga = 0; riga<9; riga++) {
-				Tavola.tavolaDaGioco[col][riga] = new JPanel();
-				pnlTavola.add((Component) Tavola.tavolaDaGioco[col][riga]);
-			}
-		}
+		
+		//tabella che mostra la tavola da gioco
+		JTable tableTavola = new JTable(9,9);
+		tableTavola.setBounds(280, 53, 503, 413);
+		formMyShelfie.getContentPane().add(tableTavola);
+		DefaultTableModel model = (DefaultTableModel) tableTavola.getModel();
 		
 		//bottone conferma giocatori
 		//a seconda della checkbox selezionata
@@ -137,13 +134,22 @@ public class FrontEnd extends JFrame {
 				}
 				pnlSetPlayer.setVisible(false);
 				lblMostraPlayerNum.setText("Giocatori: "+ Tavola.numPlayers);
-				pnlTavola.setVisible(true);
+				tableTavola.setVisible(true);
+				Tavola t = new Tavola();
 				
+				for(int col = 0; col<9;col++) {
+					for(int riga = 0; riga<9; riga++) {
+						model.setDataVector(Tavola.tavolaDaGioco,new Object[] {"Colonna 1", "Colonna 2", "Colonna 3", "Colonna 4", "Colonna 5", "Colonna 6", "Colonna 7", "Colonna 8", "Colonna 9"});
+					}
+				}
 			}
+				
 		});
 		btnConfermaSetPlayer.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		btnConfermaSetPlayer.setBounds(24, 303, 153, 57);
 		pnlSetPlayer.add(btnConfermaSetPlayer);
+		
+		
 		
 		
 		

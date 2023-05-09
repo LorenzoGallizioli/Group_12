@@ -1,12 +1,16 @@
 package Game;
 
 import java.awt.Color;
+import java.awt.Component;
 
-public class Tavola {
+import javax.swing.JTable;
+
+public class Tavola{
 	
 	static int  numPlayers = 0;
 	
-	public static Object[][] tavolaDaGioco = new Object[9][9];
+	
+	public static Object[][] tavolaDaGioco = new Tessera[9][9];
 	
 	public static void tavola() {
 

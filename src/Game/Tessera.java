@@ -1,13 +1,16 @@
 package Game;
 
 import java.awt.Color;
+import java.awt.Component;
+
+import javax.swing.JTable;
 
 /**
  * Definisce le tessere da inserire nella libreria.
  * 
  * @author lorenzogallizioli
  */
-public class Tessera {
+public class Tessera{
 	
 	protected Color Color;
 	
@@ -20,7 +23,6 @@ public class Tessera {
 	public Tessera(Color Color) {
 		this.Color = Color;	
 	}
-	
 	
 	
 	/**
