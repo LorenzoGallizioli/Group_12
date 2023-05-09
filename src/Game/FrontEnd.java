@@ -116,12 +116,15 @@ public class FrontEnd extends JFrame {
 		pnlSetPlayer.setVisible(false);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(248, 62, 582, 413);
+		scrollPane.setBounds(248, 64, 582, 426);
 		formMyShelfie.getContentPane().add(scrollPane);
 		
 		//tabella che mostra la tavola da gioco
 		JTable tableTavola_1 = new JTable(9,9);
 		scrollPane.setViewportView(tableTavola_1);
+		tableTavola_1.setRowHeight(44);
+		
+		tableTavola_1.doLayout();
 		
 		//bottone conferma giocatori
 		//a seconda della checkbox selezionata
@@ -148,21 +151,17 @@ public class FrontEnd extends JFrame {
 				//inizializzo la matrice tavola da gioco
 				Tavola tavola = new Tavola();
 				
+				TableCellRenderer cellColora = new CustomCellColore(); 
 				
-				
-				TableCellRenderer cellColora = new CustomCellColore();
-				
+				//scansiono tutta la matrice
 				for (int row = 0; row < 9; row++) {
 				    for (int col = 0; col < 9; col++) {
-				        Color cellColor = tavola.tavolaDaGioco[row][col].getColor();
-				        tableTavola_1.setValueAt(cellColor, row, col);
-				        tableTavola_1.getColumnModel().getColumn(col).setCellRenderer(cellColora);
+				    	
+				        Color cellColor = tavola.tavolaDaGioco[row][col].getColor();//prendo il colore di una determinata posizione della matrice
+				        tableTavola_1.setValueAt(cellColor, row, col);//Imposto il colore desiderato alla giusta casella
+				        tableTavola_1.getColumnModel().getColumn(col).setCellRenderer(cellColora);//applico il colore alla casella utilizzando la classe CustomCellColore
 				    }
-				}
-						
-						
-				
-				
+				}	
 			}
 				
 		});
