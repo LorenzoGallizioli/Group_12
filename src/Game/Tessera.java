@@ -12,7 +12,7 @@ import javax.swing.JTable;
  */
 public class Tessera{
 	
-	protected Color Color;
+	protected Color Colore;
 	
 	/**
 	 * Il costruttore della classe.
@@ -20,8 +20,8 @@ public class Tessera{
 	 * @param Color
 	 * 	 Il Color della tessera.
 	 */
-	public Tessera(Color Color) {
-		this.Color = Color;	
+	public Tessera(Color Colore) {
+		this.Colore = Colore;	
 	}
 	
 	
@@ -32,7 +32,7 @@ public class Tessera{
 	 * 	 Il Color della tessera.
 	 */
 	public Color getColor() {
-		return Color;
+		return Colore;
 	}
 
 }

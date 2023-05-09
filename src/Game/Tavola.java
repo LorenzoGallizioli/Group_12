@@ -1,9 +1,7 @@
 package Game;
 
 import java.awt.Color;
-import java.awt.Component;
 
-import javax.swing.JTable;
 
 public class Tavola{
 	
@@ -12,9 +10,9 @@ public class Tavola{
 	
 	public static Tessera[][] tavolaDaGioco = new Tessera[9][9];
 	
-	public static void tavola() {	
+	public Tavola() {	
 
-		tavolaDaGioco[0][0] = new Tessera(null);
+		tavolaDaGioco[0][0] = new Tessera(Color.YELLOW);
 		tavolaDaGioco[0][1] = new Tessera(null);
 		tavolaDaGioco[0][2] = new Tessera(null);
 		tavolaDaGioco[0][3] = new Tessera(null);

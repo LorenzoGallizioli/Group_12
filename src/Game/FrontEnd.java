@@ -64,6 +64,9 @@ public class FrontEnd extends JFrame {
 	 */
 	
 	private void initialize() {
+		Tavola t = new Tavola();//inizializzo la matrice tavola da gioco
+		Tessera tessera = Tavola.tavolaDaGioco[0][0];
+		
 		formMyShelfie = new JFrame();
 		formMyShelfie.setTitle("MY SHELFIE");
 		formMyShelfie.setBounds(100, 100, 854, 559);
@@ -119,7 +122,6 @@ public class FrontEnd extends JFrame {
 		//tabella che mostra la tavola da gioco
 		JTable tableTavola_1 = new JTable(9,9);
 		scrollPane.setViewportView(tableTavola_1);
-		DefaultTableModel model = (DefaultTableModel) tableTavola_1.getModel();
 		
 		//bottone conferma giocatori
 		//a seconda della checkbox selezionata
@@ -128,6 +130,7 @@ public class FrontEnd extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				if(chckbxGiocatori4.isSelected()==true) {
 					Tavola.numPlayers = 4;
+					
 				}
 				if(chckbxGiocatori3.isSelected()==true) {
 					Tavola.numPlayers = 3;
@@ -142,10 +145,11 @@ public class FrontEnd extends JFrame {
 				lblMostraPlayerNum.setText("Giocatori: "+ Tavola.numPlayers);
 				tableTavola_1.setVisible(true);
 				
+				
 				for(int riga =0;riga<9;riga++) {
 					for(int col =0;col<9;col++) {
-						if(Tavola.tavolaDaGioco[riga][col] != null) {
-						tableTavola_1.setBackground(Tavola.tavolaDaGioco[riga][col].getColor());
+						if(t != null) {
+						tableTavola_1.setBackground(t.tavolaDaGioco[riga][col].getColor());
 						}
 					}
 				}
