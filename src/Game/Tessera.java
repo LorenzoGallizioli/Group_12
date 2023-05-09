@@ -31,6 +31,7 @@ public class Tessera{
 	 * @return Color
 	 * 	 Il Color della tessera.
 	 */
+	
 	public Color getColor() {
 		return Colore;
 	}

@@ -12,7 +12,7 @@ public class Tavola{
 	
 	public Tavola() {	
 
-		tavolaDaGioco[0][0] = new Tessera(Color.YELLOW);
+		tavolaDaGioco[0][0] = new Tessera(Color.BLUE);
 		tavolaDaGioco[0][1] = new Tessera(null);
 		tavolaDaGioco[0][2] = new Tessera(null);
 		tavolaDaGioco[0][3] = new Tessera(null);

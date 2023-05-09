@@ -25,6 +25,7 @@ import javax.swing.JCheckBox;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableCellRenderer;
 import javax.swing.JTable;
 import javax.swing.JScrollPane;
 
@@ -64,8 +65,7 @@ public class FrontEnd extends JFrame {
 	 */
 	
 	private void initialize() {
-		Tavola t = new Tavola();//inizializzo la matrice tavola da gioco
-		Tessera tessera = Tavola.tavolaDaGioco[0][0];
+		
 		
 		formMyShelfie = new JFrame();
 		formMyShelfie.setTitle("MY SHELFIE");
@@ -145,14 +145,23 @@ public class FrontEnd extends JFrame {
 				lblMostraPlayerNum.setText("Giocatori: "+ Tavola.numPlayers);
 				tableTavola_1.setVisible(true);
 				
+				//inizializzo la matrice tavola da gioco
+				Tavola tavola = new Tavola();
 				
-				for(int riga =0;riga<9;riga++) {
-					for(int col =0;col<9;col++) {
-						if(t != null) {
-						tableTavola_1.setBackground(t.tavolaDaGioco[riga][col].getColor());
-						}
-					}
+				
+				
+				TableCellRenderer cellColora = new CustomCellColore();
+				
+				for (int row = 0; row < 9; row++) {
+				    for (int col = 0; col < 9; col++) {
+				        Color cellColor = tavola.tavolaDaGioco[row][col].getColor();
+				        tableTavola_1.setValueAt(cellColor, row, col);
+				        tableTavola_1.getColumnModel().getColumn(col).setCellRenderer(cellColora);
+				    }
 				}
+						
+						
+				
 				
 			}
 				
@@ -161,12 +170,9 @@ public class FrontEnd extends JFrame {
 		btnConfermaSetPlayer.setBounds(24, 303, 153, 57);
 		pnlSetPlayer.add(btnConfermaSetPlayer);
 		
-		
-		
-		
-		
-		
 	
 		
 	}
 }
+
+
