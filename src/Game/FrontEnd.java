@@ -128,6 +128,10 @@ public class FrontEnd extends JFrame {
 		        if (chckbxGiocatori2.isSelected()) {
 		            chckbxGiocatori4.setSelected(false);
 		            chckbxGiocatori3.setSelected(false);
+		            
+		          //mostra i textbox per l'inserimento dei nomi dei players
+					txtNomeP1.setVisible(true);
+					txtNomeP2.setVisible(true);
 		        }
 		    }
 		});
@@ -137,6 +141,11 @@ public class FrontEnd extends JFrame {
 		        if (chckbxGiocatori3.isSelected()) {
 		            chckbxGiocatori2.setSelected(false);
 		            chckbxGiocatori4.setSelected(false);
+		            
+		          //mostra i textbox per l'inserimento dei nomi dei players
+					txtNomeP1.setVisible(true);
+					txtNomeP2.setVisible(true);
+					txtNomeP3.setVisible(true);
 		        }
 		    }
 		});
@@ -159,23 +168,44 @@ public class FrontEnd extends JFrame {
 		//labels che mostrano i nomi dei giocatori
 		JLabel lblNomeP1 = new JLabel("");
 		lblNomeP1.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNomeP1.setBounds(268, 532, 110, 42);
+		lblNomeP1.setBounds(256, 523, 110, 27);
 		formMyShelfie.getContentPane().add(lblNomeP1);
 		
 		JLabel lblNomeP2 = new JLabel("");
 		lblNomeP2.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNomeP2.setBounds(445, 532, 110, 42);
+		lblNomeP2.setBounds(420, 523, 110, 27);
 		formMyShelfie.getContentPane().add(lblNomeP2);
 		
 		JLabel lblNomeP3 = new JLabel("");
 		lblNomeP3.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNomeP3.setBounds(573, 532, 110, 42);
+		lblNomeP3.setBounds(568, 523, 110, 27);
 		formMyShelfie.getContentPane().add(lblNomeP3);
 		
 		JLabel lblNomeP4 = new JLabel("");
 		lblNomeP4.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNomeP4.setBounds(758, 532, 110, 42);
+		lblNomeP4.setBounds(758, 523, 110, 27);
 		formMyShelfie.getContentPane().add(lblNomeP4);
+		
+		//labels punti giocatori
+		JLabel lblPuntiP1 = new JLabel("");
+		lblPuntiP1.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblPuntiP1.setBounds(256, 561, 110, 27);
+		formMyShelfie.getContentPane().add(lblPuntiP1);
+		
+		JLabel lblPuntiP2 = new JLabel("");
+		lblPuntiP2.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblPuntiP2.setBounds(420, 561, 110, 27);
+		formMyShelfie.getContentPane().add(lblPuntiP2);
+		
+		JLabel lblPuntiP3 = new JLabel("");
+		lblPuntiP3.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblPuntiP3.setBounds(568, 561, 110, 27);
+		formMyShelfie.getContentPane().add(lblPuntiP3);
+		
+		JLabel lblPuntiP4 = new JLabel("");
+		lblPuntiP4.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblPuntiP4.setBounds(758, 561, 110, 27);
+		formMyShelfie.getContentPane().add(lblPuntiP4);
 		
 		//label che mostra il numero di giocatori selezionati
 		JLabel lblMostraPlayerNum = new JLabel("");
@@ -202,11 +232,12 @@ public class FrontEnd extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				if(chckbxGiocatori4.isSelected()==true) {
 					Tavola.numPlayers = 4;
+					giocatori.clear(); //pulisco la lista
 					
-					Giocatore g1 = new Giocatore(txtNomeP1.getText(),01,true,false);
-					Giocatore g2 = new Giocatore(txtNomeP2.getText(),02,false,false);
-					Giocatore g3 = new Giocatore(txtNomeP3.getText(),03,false,false);
-					Giocatore g4 = new Giocatore(txtNomeP4.getText(),04,false,false);
+					Giocatore g1 = new Giocatore(txtNomeP1.getText(),01,1,true,false);
+					Giocatore g2 = new Giocatore(txtNomeP2.getText(),02,0,false,false);
+					Giocatore g3 = new Giocatore(txtNomeP3.getText(),03,0,false,false);
+					Giocatore g4 = new Giocatore(txtNomeP4.getText(),04,0,false,false);
 					
 					giocatori.add(g1);
 					giocatori.add(g2);
@@ -216,9 +247,28 @@ public class FrontEnd extends JFrame {
 				}
 				if(chckbxGiocatori3.isSelected()==true) {
 					Tavola.numPlayers = 3;
+					
+					giocatori.clear();//pulisco la lista
+					
+					Giocatore g1 = new Giocatore(txtNomeP1.getText(),01,0,true,false);
+					Giocatore g2 = new Giocatore(txtNomeP2.getText(),02,0,false,false);
+					Giocatore g3 = new Giocatore(txtNomeP3.getText(),03,0,false,false);
+					
+					giocatori.add(g1);
+					giocatori.add(g2);
+					giocatori.add(g3);
+					
 				}
 				if(chckbxGiocatori2.isSelected()==true) {
 					Tavola.numPlayers = 2;
+					
+					giocatori.clear();//pulisco la lista
+					
+					Giocatore g1 = new Giocatore(txtNomeP1.getText(),01,0,true,false);
+					Giocatore g2 = new Giocatore(txtNomeP2.getText(),02,0,false,false);
+					
+					giocatori.add(g1);
+					giocatori.add(g2);
 				}
 				if(chckbxGiocatori4.isSelected()==false && chckbxGiocatori3.isSelected()==false && chckbxGiocatori2.isSelected()==false) {
 					System.out.println("errore, seleziona un numero di giocatori!");
@@ -241,13 +291,23 @@ public class FrontEnd extends JFrame {
 				}
 				
 				lblNomeP1.setText(giocatori.get(0).getNome());
-				lblNomeP2.setText(giocatori.get(1).getNome());
-				lblNomeP3.setText(giocatori.get(2).getNome());
-				lblNomeP4.setText(giocatori.get(3).getNome());
-			}
-			
-			
+				lblNomeP2.setText(giocatori.get(1).getNome());				
 				
+				
+				lblPuntiP1.setText(""+giocatori.get(0).getPunti());
+				lblPuntiP2.setText(""+giocatori.get(1).getPunti());
+				
+				if(giocatori.size()==4) {
+					lblPuntiP3.setText(""+giocatori.get(2).getPunti());
+					lblPuntiP4.setText(""+giocatori.get(3).getPunti());
+					lblNomeP3.setText(giocatori.get(2).getNome());
+					lblNomeP4.setText(giocatori.get(3).getNome());
+				}
+				else if(giocatori.size()==3){
+					lblPuntiP3.setText(""+giocatori.get(2).getPunti());
+					lblNomeP3.setText(giocatori.get(2).getNome());
+				}
+			}
 		});
 		btnConfermaSetPlayer.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		btnConfermaSetPlayer.setBounds(47, 326, 101, 29);
@@ -277,8 +337,6 @@ public class FrontEnd extends JFrame {
 		txtNomeP4.setColumns(10);
 		txtNomeP4.setBounds(20, 189, 96, 19);
 		pnlSetPlayer.add(txtNomeP4);
-		
-		
 		
 		txtNomeP1.setVisible(false);
 		txtNomeP2.setVisible(false);

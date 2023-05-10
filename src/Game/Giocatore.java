@@ -6,13 +6,17 @@ public class Giocatore {
 	
 	private String nome;
 	private int id;
+	private int punti;
+	
+
 	private Boolean giocatoreSedia;
 	private Boolean finePartita;
 	
-	public Giocatore(String nome, int id, Boolean giocatoreSedia, Boolean finePartita) {
+	public Giocatore(String nome, int id, int punti, Boolean giocatoreSedia, Boolean finePartita) {
 		super();
 		this.nome = nome;
 		this.id = id;
+		this.punti = punti;
 		this.giocatoreSedia = giocatoreSedia;
 		this.finePartita = finePartita;
 	}
@@ -31,6 +35,14 @@ public class Giocatore {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+	
+	public int getPunti() {
+		return punti;
+	}
+
+	public void setPunti(int punti) {
+		this.punti = punti;
 	}
 
 	public Boolean getGiocatoreSedia() {
