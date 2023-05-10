@@ -96,6 +96,7 @@ public class FrontEnd extends JFrame {
 		chckbxGiocatori2.setBounds(24, 20, 153, 72);
 		pnlSetPlayer.add(chckbxGiocatori2);
 		
+		
 		//checkbox TRE GIOCATORI
 		JCheckBox chckbxGiocatori3 = new JCheckBox("3 giocatori");
 		chckbxGiocatori3.setFont(new Font("Tahoma", Font.PLAIN, 15));
@@ -107,6 +108,35 @@ public class FrontEnd extends JFrame {
 		chckbxGiocatori4.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		chckbxGiocatori4.setBounds(24, 203, 153, 72);
 		pnlSetPlayer.add(chckbxGiocatori4);
+		
+		//listener checkbox
+		// checkbox 2
+		chckbxGiocatori2.addActionListener(new ActionListener() {
+		    public void actionPerformed(ActionEvent e) {
+		        if (chckbxGiocatori2.isSelected()) {
+		            chckbxGiocatori4.setSelected(false);
+		            chckbxGiocatori3.setSelected(false);
+		        }
+		    }
+		});
+		// checkbox 3
+		chckbxGiocatori3.addActionListener(new ActionListener() {
+		    public void actionPerformed(ActionEvent e) {
+		        if (chckbxGiocatori3.isSelected()) {
+		            chckbxGiocatori2.setSelected(false);
+		            chckbxGiocatori4.setSelected(false);
+		        }
+		    }
+		});
+		// checkbox 4
+		chckbxGiocatori4.addActionListener(new ActionListener() {
+		    public void actionPerformed(ActionEvent e) {
+		        if (chckbxGiocatori4.isSelected()) {
+		            chckbxGiocatori2.setSelected(false);
+		            chckbxGiocatori3.setSelected(false);
+		        }
+		    }
+		});
 		
 		//label che mostra il numero di giocatori selezionati
 		JLabel lblMostraPlayerNum = new JLabel("");

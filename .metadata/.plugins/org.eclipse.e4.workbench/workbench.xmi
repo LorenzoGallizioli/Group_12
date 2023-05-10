@@ -2074,7 +2074,7 @@
   <commands xmi:id="_v7taK-EWEe2adOCxah0C6g" elementId="org.eclipse.ui.externalTools.commands.OpenExternalToolsConfigurations" commandName="External Tools..." description="Open external tools launch configuration dialog" category="_v7nTQeEWEe2adOCxah0C6g"/>
   <commands xmi:id="_v7taLOEWEe2adOCxah0C6g" elementId="org.eclipse.debug.ui.commands.TerminateAll" commandName="Terminate/Disconnect All" description="Terminate/Disconnect All" category="_v7nTQeEWEe2adOCxah0C6g"/>
   <commands xmi:id="_v7taLeEWEe2adOCxah0C6g" elementId="org.eclipse.jdt.debug.ui.command.OpenFromClipboard" commandName="Open from Clipboard" description="Opens a Java element or a Java stack trace from clipboard" category="_v7nTMOEWEe2adOCxah0C6g"/>
-  <commands xmi:id="_v7taLuEWEe2adOCxah0C6g" elementId="com.genuitec.eclipse.webclipse.evergreen.checkForUpdates" commandName="Check for Updates" category="_v7nTSuEWEe2adOCxah0C6g"/>
+  <commands xmi:id="_v7taLuEWEe2adOCxah0C6g" elementId="com.genuitec.eclipse.webclipse.everBLACK.checkForUpdates" commandName="Check for Updates" category="_v7nTSuEWEe2adOCxah0C6g"/>
   <commands xmi:id="_v7uA4OEWEe2adOCxah0C6g" elementId="org.eclipse.ui.edit.text.deletePrevious" commandName="Delete Previous" description="Delete the previous character" category="_v7msKOEWEe2adOCxah0C6g"/>
   <commands xmi:id="_v7uA4eEWEe2adOCxah0C6g" elementId="org.eclipse.ui.edit.text.select.lineStart" commandName="Select Line Start" description="Select to the beginning of the line of text" category="_v7msKOEWEe2adOCxah0C6g"/>
   <commands xmi:id="_v7uA4uEWEe2adOCxah0C6g" elementId="org.eclipse.egit.ui.commit.Reword" commandName="Reword Commit" category="_v7nTSuEWEe2adOCxah0C6g"/>
