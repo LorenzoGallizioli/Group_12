@@ -96,7 +96,7 @@ public class FrontEnd extends JFrame {
 			}
 		});
 		btnSelezioneGiocatori.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		btnSelezioneGiocatori.setBounds(10, 10, 191, 52);
+		btnSelezioneGiocatori.setBounds(10, 67, 191, 52);
 		formMyShelfie.getContentPane().add(btnSelezioneGiocatori);
 		pnlSetPlayer.setLayout(null);
 		
@@ -207,6 +207,25 @@ public class FrontEnd extends JFrame {
 		lblPuntiP4.setBounds(758, 561, 110, 27);
 		formMyShelfie.getContentPane().add(lblPuntiP4);
 		
+		//checkbox inizia/finisce partita
+		JCheckBox chckbxStartStop = new JCheckBox("Inizia partita");
+		chckbxStartStop.setBounds(10, 7, 191, 45);
+		formMyShelfie.getContentPane().add(chckbxStartStop);
+		chckbxStartStop.setVisible(false);
+		
+		chckbxStartStop.addActionListener(new ActionListener() {//listener che "ascolta" l'attivazione della checkbox
+		    public void actionPerformed(ActionEvent e) {
+		        if(chckbxStartStop.isSelected()==true && chckbxStartStop.getText()=="Fine partita") {
+		        	chckbxStartStop.setText("Inizia partita");
+		        	chckbxStartStop.setSelected(false);
+		        }
+		        else if(chckbxStartStop.isSelected()==true && chckbxStartStop.getText()=="Inizia partita") {
+		        	chckbxStartStop.setText("Fine partita");
+		        	chckbxStartStop.setSelected(false);
+		        }
+		    }
+		});
+		
 		//label che mostra il numero di giocatori selezionati
 		JLabel lblMostraPlayerNum = new JLabel("");
 		lblMostraPlayerNum.setFont(new Font("Tahoma", Font.PLAIN, 16));
@@ -308,7 +327,9 @@ public class FrontEnd extends JFrame {
 					lblPuntiP3.setText(""+giocatori.get(2).getPunti());
 					lblNomeP3.setText(giocatori.get(2).getNome());
 				}
+				chckbxStartStop.setVisible(true);
 			}
+			
 		});
 		btnConfermaSetPlayer.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		btnConfermaSetPlayer.setBounds(47, 326, 101, 29);
@@ -338,6 +359,9 @@ public class FrontEnd extends JFrame {
 		txtNomeP4.setColumns(10);
 		txtNomeP4.setBounds(20, 189, 96, 19);
 		pnlSetPlayer.add(txtNomeP4);
+		
+		
+		
 		
 		txtNomeP1.setVisible(false);
 		txtNomeP2.setVisible(false);
