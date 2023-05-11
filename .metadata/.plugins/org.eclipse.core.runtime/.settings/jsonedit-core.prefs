@@ -1,7 +1,7 @@
 Color.YELLOWColor=216,216,216
 defaultColor=216,216,216
 eclipse.preferences.version=1
-nullColor=216,216,216
-overriddenByCSS=,defaultColor,Color.YELLOWColor,stringColor,valueColor,nullColor,
+Color.BLACKColor=216,216,216
+overriddenByCSS=,defaultColor,Color.YELLOWColor,stringColor,valueColor,Color.BLACKColor,
 stringColor=255,198,0
 valueColor=190,214,255

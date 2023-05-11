@@ -10,6 +10,8 @@ import javax.swing.JTable;
  * 
  * @author lorenzogallizioli
  */
+
+
 public class Tessera{
 	
 	protected Color Colore;

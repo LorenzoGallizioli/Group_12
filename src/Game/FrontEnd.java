@@ -279,7 +279,8 @@ public class FrontEnd extends JFrame {
 				
 				//inizializzo la matrice tavola da gioco
 				Tavola tavola = new Tavola();
-				TableCellRenderer cellColora = new CustomCellColore(); 
+				TableCellRenderer cellColora = new CustomCellColore();
+				Tavola.generaTavola();
 				//scansiono tutta la matrice
 				for (int row = 0; row < 9; row++) {
 				    for (int col = 0; col < 9; col++) {
