@@ -78,13 +78,13 @@ public class Giocatore {
 	}
 
 	/**
-	 * Imposta i punti del giocatore.
+	 * Aggiungi punti.
 	 * 
 	 * @param punti
-	 * 	 Punti da impostare.
+	 * 	 Punti da aggiungere.
 	 */
-	public void setPunti(int punti) {
-		this.punti = punti;
+	public void addPunti(int punti) {
+		this.punti += punti;
 	}
 
 	/**

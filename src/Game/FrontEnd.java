@@ -47,6 +47,10 @@ public class FrontEnd extends JFrame {
 	private JTextField txtNomeP2;
 	private JTextField txtNomeP3;
 	private JTextField txtNomeP4;
+	private JTable table;
+	private JTable table_1;
+	private JTable table_2;
+	private JTable table_3;
 
 	/**
 	 * Lancia il programma.
@@ -221,6 +225,24 @@ public class FrontEnd extends JFrame {
 		    }
 		});
 		
+		// Librerie giocatori.
+		table = new JTable();
+		table.setBounds(875, 23, 147, 115);
+		formMyShelfie.getContentPane().add(table);
+		
+		table_1 = new JTable();
+		table_1.setBounds(875, 150, 147, 115);
+		formMyShelfie.getContentPane().add(table_1);
+		
+		table_2 = new JTable();
+		table_2.setBounds(875, 277, 147, 115);
+		formMyShelfie.getContentPane().add(table_2);
+		
+		table_3 = new JTable();
+		table_3.setBounds(875, 404, 147, 115);
+		formMyShelfie.getContentPane().add(table_3);
+		
+
 		// Label mostrante il numero di giocatori selezionati.
 		JLabel lblMostraPlayerNum = new JLabel("");
 		lblMostraPlayerNum.setFont(new Font("Tahoma", Font.PLAIN, 16));
@@ -234,6 +256,7 @@ public class FrontEnd extends JFrame {
 		
 		// Tabella che mostra la tavola da gioco.
 		JTable tableTavola_1 = new JTable(9,9);
+		tableTavola_1.setShowGrid(false);
 		scrollPane.setViewportView(tableTavola_1);
 		tableTavola_1.setRowHeight(51);
 		tableTavola_1.doLayout();
@@ -242,6 +265,7 @@ public class FrontEnd extends JFrame {
 		JButton btnConfermaSetPlayer = new JButton("Conferma");
 		btnConfermaSetPlayer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				TableCellRenderer obiettiviColora = new CustomCellColore();
 				if (chckbxGiocatori4.isSelected() == true) {
 					Tavola.numPlayers = 4;
 					giocatori.clear(); // Pulisco la lista.
@@ -254,7 +278,15 @@ public class FrontEnd extends JFrame {
 					giocatori.add(g1);
 					giocatori.add(g2);
 					giocatori.add(g3);
-					giocatori.add(g4);	
+					giocatori.add(g4);
+					for (int row = 0; row < 9; row++) {
+					    for (int col = 0; col < 9; col++) {
+					        Color cellColor = ObiettiviPersonali.tessere[row][col].getColor(); // Prendo il colore di una determinata posizione della matrice.
+					        tableTavola_1.setValueAt(cellColor, row, col); // Imposto il colore desiderato alla giusta casella.
+					        tableTavola_1.getColumnModel().getColumn(col).setCellRenderer(obiettiviColora); // Applico il colore alla casella utilizzando la classe CustomCellColore.
+					    }
+					}
+					
 				}
 				if (chckbxGiocatori3.isSelected() == true) {
 					Tavola.numPlayers = 3;
@@ -355,5 +387,4 @@ public class FrontEnd extends JFrame {
 		txtNomeP3.setVisible(false);
 		txtNomeP4.setVisible(false);		
 	}
-	
 }
