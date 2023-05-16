@@ -332,6 +332,7 @@ public class FrontEnd extends JFrame {
 				        tableTavola_1.getColumnModel().getColumn(col).setCellRenderer(cellColora); // Applico il colore alla casella utilizzando la classe CustomCellColore.
 				    }
 				}
+			
 				
 				lblNomeP1.setText(giocatori.get(0).getNome());
 				lblNomeP2.setText(giocatori.get(1).getNome());				
