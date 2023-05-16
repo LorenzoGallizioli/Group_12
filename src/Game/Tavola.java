@@ -3,14 +3,20 @@ package Game;
 import java.awt.Color;
 import java.util.Random;
 
-
+/**
+ * Definisce la tavola da gioco.
+ * 
+ * @author davidedellanno
+ */
 public class Tavola{
 	
 	static int  numPlayers = 0;
 	
-	
 	public static Tessera[][] tavolaDaGioco = new Tessera[9][9];
 	
+	/**
+	 * Costruttore della classe Tavola.
+	 */
 	public Tavola() {
 		tavolaDaGioco[0][0] = new Tessera(Color.BLACK);
 		tavolaDaGioco[1][0] = new Tessera(Color.BLACK);
@@ -102,11 +108,11 @@ public class Tavola{
 		tavolaDaGioco[7][8] = new Tessera(Color.BLACK);
 		tavolaDaGioco[8][8] = new Tessera(Color.BLACK);
 		
-		
+		// Definisco il campo da gioco a seconda del numero di giocatori.
 		switch(numPlayers) {
 		
+		// Se si gioca in 2 rimuovo le caselle destinate a 3 e 4 giocatori.
 		case 2:
-			//rimuovo le caselle per 4 giocatori
 			tavolaDaGioco[4][0] = new Tessera(Color.BLACK);
 			tavolaDaGioco[3][1] = new Tessera(Color.BLACK);
 			tavolaDaGioco[7][3] = new Tessera(Color.BLACK);
@@ -115,8 +121,6 @@ public class Tavola{
 			tavolaDaGioco[1][5] = new Tessera(Color.BLACK);
 			tavolaDaGioco[5][7] = new Tessera(Color.BLACK);
 			tavolaDaGioco[4][8] = new Tessera(Color.BLACK);
-			
-			//rimuovo le caselle per 3 giocatori
 			tavolaDaGioco[5][0] = new Tessera(Color.BLACK);
 			tavolaDaGioco[2][2] = new Tessera(Color.BLACK);
 			tavolaDaGioco[6][2] = new Tessera(Color.BLACK);
@@ -125,11 +129,10 @@ public class Tavola{
 			tavolaDaGioco[2][6] = new Tessera(Color.BLACK);
 			tavolaDaGioco[6][6] = new Tessera(Color.BLACK);
 			tavolaDaGioco[3][8] = new Tessera(Color.BLACK);
+			break;
 			
-		break;
-			
+		// Se si gioca in 3 rimuovo le caselle destinate a 4 giocatori.
 		case 3:
-			//rimuovo le caselle per 4 giocatori
 			tavolaDaGioco[4][0] = new Tessera(Color.BLACK);
 			tavolaDaGioco[3][1] = new Tessera(Color.BLACK);
 			tavolaDaGioco[7][3] = new Tessera(Color.BLACK);
@@ -138,33 +141,29 @@ public class Tavola{
 			tavolaDaGioco[1][5] = new Tessera(Color.BLACK);
 			tavolaDaGioco[5][7] = new Tessera(Color.BLACK);
 			tavolaDaGioco[4][8] = new Tessera(Color.BLACK);
-		break;
+			break;
 			
-			
-		default:
-				
-		break;
-		
+		// Se si gioca in 4 mantengo tutte le caselle.
+		default:		
+			break;
 		}
-		
-		
 		
 	}
 	
+	/**
+	 * Metodo che permette di generatre la tavola in modo randomico. 
+	 */
 	public static void generaTavola() {
 		Color[] colori = {Color.green, Color.WHITE, Color.yellow, Color.CYAN, Color.blue, Color.PINK};
 		Random rand = new Random();
-		
 		for(int i =0;i<9;i++) {
 			for(int j =0; j<9;j++) {
 				if(tavolaDaGioco[i][j].Colore == Color.WHITE) {
-				int coloreRand = rand.nextInt(6);
-				tavolaDaGioco[i][j].Colore = colori[coloreRand];
+					int coloreRand = rand.nextInt(6);
+					tavolaDaGioco[i][j].Colore = colori[coloreRand];
 				}
 			}
 		}
-		
 	}
 	
 }
-

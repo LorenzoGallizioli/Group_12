@@ -10,8 +10,6 @@ import javax.swing.JTable;
  * 
  * @author lorenzogallizioli
  */
-
-
 public class Tessera{
 	
 	protected Color Colore;
@@ -33,7 +31,6 @@ public class Tessera{
 	 * @return Color
 	 * 	 Il Color della tessera.
 	 */
-	
 	public Color getColor() {
 		return Colore;
 	}
