@@ -134,6 +134,8 @@ public class FrontEnd extends JFrame {
 		          // Textbox per l'inserimento dei nomi dei giocatori.
 					txtNomeP1.setVisible(true);
 					txtNomeP2.setVisible(true);
+					txtNomeP3.setVisible(false);
+					txtNomeP4.setVisible(false);
 		        }
 		    }
 		});
@@ -146,6 +148,7 @@ public class FrontEnd extends JFrame {
 					txtNomeP1.setVisible(true);
 					txtNomeP2.setVisible(true);
 					txtNomeP3.setVisible(true);
+					txtNomeP4.setVisible(false);
 		        }
 		    }
 		});
@@ -246,7 +249,7 @@ public class FrontEnd extends JFrame {
 		// Label mostrante il numero di giocatori selezionati.
 		JLabel lblMostraPlayerNum = new JLabel("");
 		lblMostraPlayerNum.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblMostraPlayerNum.setBounds(1001, 25, 187, 20);
+		lblMostraPlayerNum.setBounds(1042, 23, 187, 20);
 		formMyShelfie.getContentPane().add(lblMostraPlayerNum);
 		pnlSetPlayer.setVisible(false);
 		
@@ -279,13 +282,21 @@ public class FrontEnd extends JFrame {
 					giocatori.add(g2);
 					giocatori.add(g3);
 					giocatori.add(g4);
-					for (int row = 0; row < 9; row++) {
-					    for (int col = 0; col < 9; col++) {
-					        Color cellColor = ObiettiviPersonali.tessere[row][col].getColor(); // Prendo il colore di una determinata posizione della matrice.
-					        tableTavola_1.setValueAt(cellColor, row, col); // Imposto il colore desiderato alla giusta casella.
-					        tableTavola_1.getColumnModel().getColumn(col).setCellRenderer(obiettiviColora); // Applico il colore alla casella utilizzando la classe CustomCellColore.
-					    }
-					}
+					
+					table.setVisible(true);
+					table_1.setVisible(true);
+					table_2.setVisible(true);
+					table_3.setVisible(true);
+					
+					//necessita di un FIX, genera errore se si selezionano 4 giocatori.
+					
+					//for (int row = 0; row < 9; row++) {
+					//    for (int col = 0; col < 9; col++) {
+					//       Color cellColor = ObiettiviPersonali.tessere[row][col].getColor(); // Prendo il colore di una determinata posizione della matrice.
+					//        tableTavola_1.setValueAt(cellColor, row, col); // Imposto il colore desiderato alla giusta casella.
+					//        tableTavola_1.getColumnModel().getColumn(col).setCellRenderer(obiettiviColora); // Applico il colore alla casella utilizzando la classe CustomCellColore.
+					//    }
+					//}
 					
 				}
 				if (chckbxGiocatori3.isSelected() == true) {
@@ -300,6 +311,11 @@ public class FrontEnd extends JFrame {
 					giocatori.add(g1);
 					giocatori.add(g2);
 					giocatori.add(g3);
+					
+					table.setVisible(true);
+					table_1.setVisible(true);
+					table_2.setVisible(true);
+					table_3.setVisible(false);
 				}
 				if (chckbxGiocatori2.isSelected() == true) {
 					Tavola.numPlayers = 2;
@@ -311,6 +327,11 @@ public class FrontEnd extends JFrame {
 					
 					giocatori.add(g1);
 					giocatori.add(g2);
+					
+					table.setVisible(true);
+					table_1.setVisible(true);
+					table_2.setVisible(false);
+					table_3.setVisible(false);
 				}
 				if (chckbxGiocatori4.isSelected() == false && chckbxGiocatori3.isSelected() == false && chckbxGiocatori2.isSelected() == false) {
 					System.out.println("errore, seleziona un numero di giocatori!");
@@ -360,24 +381,27 @@ public class FrontEnd extends JFrame {
 		
 		txtNomeP1 = new JTextField();
 		txtNomeP1.setText("P1");
-		txtNomeP1.setToolTipText("");
+		txtNomeP1.setToolTipText("Giocatore1\n");
 		txtNomeP1.setBounds(20, 103, 96, 19);
 		pnlSetPlayer.add(txtNomeP1);
 		txtNomeP1.setColumns(10);
 		
 		txtNomeP2 = new JTextField();
+		txtNomeP2.setToolTipText("Giocatore2");
 		txtNomeP2.setText("P2");
 		txtNomeP2.setColumns(10);
 		txtNomeP2.setBounds(20, 131, 96, 19);
 		pnlSetPlayer.add(txtNomeP2);
 		
 		txtNomeP3 = new JTextField();
+		txtNomeP3.setToolTipText("Giocatore3");
 		txtNomeP3.setText("P3");
 		txtNomeP3.setColumns(10);
 		txtNomeP3.setBounds(20, 160, 96, 19);
 		pnlSetPlayer.add(txtNomeP3);
 		
 		txtNomeP4 = new JTextField();
+		txtNomeP4.setToolTipText("Giocatore4");
 		txtNomeP4.setText("P4");
 		txtNomeP4.setColumns(10);
 		txtNomeP4.setBounds(20, 189, 96, 19);
