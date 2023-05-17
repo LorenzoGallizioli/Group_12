@@ -232,19 +232,26 @@ public class FrontEnd extends JFrame {
 		table = new JTable(6,5);
 		table.setBounds(875, 23, 147, 115);
 		formMyShelfie.getContentPane().add(table);
+		table.setRowHeight(20);
+		table.doLayout();
 		
-		table_1 = new JTable();
+		table_1 = new JTable(6,5);
 		table_1.setBounds(875, 150, 147, 115);
 		formMyShelfie.getContentPane().add(table_1);
+		table_1.setRowHeight(20);
+		table_1.doLayout();
 		
-		table_2 = new JTable();
+		table_2 = new JTable(6,5);
 		table_2.setBounds(875, 277, 147, 115);
 		formMyShelfie.getContentPane().add(table_2);
+		table_2.setRowHeight(20);
+		table_2.doLayout();
 		
-		table_3 = new JTable();
+		table_3 = new JTable(6,5);
 		table_3.setBounds(875, 404, 147, 115);
 		formMyShelfie.getContentPane().add(table_3);
-		
+		table_3.setRowHeight(20);
+		table_3.doLayout();
 
 		// Label mostrante il numero di giocatori selezionati.
 		JLabel lblMostraPlayerNum = new JLabel("");
@@ -288,18 +295,51 @@ public class FrontEnd extends JFrame {
 					table_2.setVisible(true);
 					table_3.setVisible(true);
 					
-					//necessita di un FIX, genera errore se si selezionano 4 giocatori.
-					ObiettiviPersonali obi = new ObiettiviPersonali();
+					//tavola1
 					ObiettiviPersonali.generaObiettivoPersonale();
 					TableCellRenderer obiColora = new CustomCellColore();
 					
 					for (int row = 0; row < 6; row++) {
 					    for (int col = 0; col < 5; col++) {
-					        Color cellColor = obi.obiettivo[row][col].getColor(); // Prendo il colore di una determinata posizione della matrice.
+					        Color cellColor = ObiettiviPersonali.obiettivo[row][col].getColor(); // Prendo il colore di una determinata posizione della matrice.
 					        table.setValueAt(cellColor, row, col); // Imposto il colore desiderato alla giusta casella.
 					        table.getColumnModel().getColumn(col).setCellRenderer(obiColora); // Applico il colore alla casella utilizzando la classe CustomCellColore.
 					    }
 					}
+					//tavola 2
+					ObiettiviPersonali.generaObiettivoPersonale();
+					
+					for (int row = 0; row < 6; row++) {
+					    for (int col = 0; col < 5; col++) {
+					        Color cellColor = ObiettiviPersonali.obiettivo[row][col].getColor(); // Prendo il colore di una determinata posizione della matrice.
+					        table_1.setValueAt(cellColor, row, col); // Imposto il colore desiderato alla giusta casella.
+					        table_1.getColumnModel().getColumn(col).setCellRenderer(obiColora); // Applico il colore alla casella utilizzando la classe CustomCellColore.
+					    }
+					}
+					
+					//tavola 3
+					ObiettiviPersonali.generaObiettivoPersonale();
+					
+					for (int row = 0; row < 6; row++) {
+					    for (int col = 0; col < 5; col++) {
+					        Color cellColor = ObiettiviPersonali.obiettivo[row][col].getColor(); // Prendo il colore di una determinata posizione della matrice.
+					        table_2.setValueAt(cellColor, row, col); // Imposto il colore desiderato alla giusta casella.
+					        table_2.getColumnModel().getColumn(col).setCellRenderer(obiColora); // Applico il colore alla casella utilizzando la classe CustomCellColore.
+					    }
+					}
+					
+					//tavola 4
+					ObiettiviPersonali.generaObiettivoPersonale();
+					
+					for (int row = 0; row < 6; row++) {
+					    for (int col = 0; col < 5; col++) {
+					        Color cellColor = ObiettiviPersonali.obiettivo[row][col].getColor(); // Prendo il colore di una determinata posizione della matrice.
+					        table_3.setValueAt(cellColor, row, col); // Imposto il colore desiderato alla giusta casella.
+					        table_3.getColumnModel().getColumn(col).setCellRenderer(obiColora); // Applico il colore alla casella utilizzando la classe CustomCellColore.
+					    }
+					}
+					
+					
 					
 					
 				}
@@ -320,6 +360,40 @@ public class FrontEnd extends JFrame {
 					table_1.setVisible(true);
 					table_2.setVisible(true);
 					table_3.setVisible(false);
+					
+					//tavola1
+					ObiettiviPersonali.generaObiettivoPersonale();
+					TableCellRenderer obiColora = new CustomCellColore();
+					
+					for (int row = 0; row < 6; row++) {
+					    for (int col = 0; col < 5; col++) {
+					        Color cellColor = ObiettiviPersonali.obiettivo[row][col].getColor(); // Prendo il colore di una determinata posizione della matrice.
+					        table.setValueAt(cellColor, row, col); // Imposto il colore desiderato alla giusta casella.
+					        table.getColumnModel().getColumn(col).setCellRenderer(obiColora); // Applico il colore alla casella utilizzando la classe CustomCellColore.
+					    }
+					}
+					//tavola 2
+					ObiettiviPersonali.generaObiettivoPersonale();
+					
+					for (int row = 0; row < 6; row++) {
+					    for (int col = 0; col < 5; col++) {
+					        Color cellColor = ObiettiviPersonali.obiettivo[row][col].getColor(); // Prendo il colore di una determinata posizione della matrice.
+					        table_1.setValueAt(cellColor, row, col); // Imposto il colore desiderato alla giusta casella.
+					        table_1.getColumnModel().getColumn(col).setCellRenderer(obiColora); // Applico il colore alla casella utilizzando la classe CustomCellColore.
+					    }
+					}
+					
+					//tavola 3
+					ObiettiviPersonali.generaObiettivoPersonale();
+					
+					for (int row = 0; row < 6; row++) {
+					    for (int col = 0; col < 5; col++) {
+					        Color cellColor = ObiettiviPersonali.obiettivo[row][col].getColor(); // Prendo il colore di una determinata posizione della matrice.
+					        table_2.setValueAt(cellColor, row, col); // Imposto il colore desiderato alla giusta casella.
+					        table_2.getColumnModel().getColumn(col).setCellRenderer(obiColora); // Applico il colore alla casella utilizzando la classe CustomCellColore.
+					    }
+					}
+					
 				}
 				if (chckbxGiocatori2.isSelected() == true) {
 					Tavola.numPlayers = 2;
@@ -336,6 +410,30 @@ public class FrontEnd extends JFrame {
 					table_1.setVisible(true);
 					table_2.setVisible(false);
 					table_3.setVisible(false);
+					
+					//tavola1
+					ObiettiviPersonali.generaObiettivoPersonale();
+					TableCellRenderer obiColora = new CustomCellColore();
+					
+					for (int row = 0; row < 6; row++) {
+					    for (int col = 0; col < 5; col++) {
+					        Color cellColor = ObiettiviPersonali.obiettivo[row][col].getColor(); // Prendo il colore di una determinata posizione della matrice.
+					        table.setValueAt(cellColor, row, col); // Imposto il colore desiderato alla giusta casella.
+					        table.getColumnModel().getColumn(col).setCellRenderer(obiColora); // Applico il colore alla casella utilizzando la classe CustomCellColore.
+					    }
+					}
+					//tavola 2
+					ObiettiviPersonali.generaObiettivoPersonale();
+					
+					for (int row = 0; row < 6; row++) {
+					    for (int col = 0; col < 5; col++) {
+					        Color cellColor = ObiettiviPersonali.obiettivo[row][col].getColor(); // Prendo il colore di una determinata posizione della matrice.
+					        table_1.setValueAt(cellColor, row, col); // Imposto il colore desiderato alla giusta casella.
+					        table_1.getColumnModel().getColumn(col).setCellRenderer(obiColora); // Applico il colore alla casella utilizzando la classe CustomCellColore.
+					    }
+					}
+					
+					
 				}
 				if (chckbxGiocatori4.isSelected() == false && chckbxGiocatori3.isSelected() == false && chckbxGiocatori2.isSelected() == false) {
 					System.out.println("errore, seleziona un numero di giocatori!");
