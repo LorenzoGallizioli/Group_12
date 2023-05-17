@@ -6,7 +6,7 @@ import java.awt.Component;
 import javax.swing.JTable;
 
 /**
- * Definisce le tessere da inserire nella libreria.
+ * Definisce le obiettivo da inserire nella libreria.
  * 
  * @author lorenzogallizioli
  */

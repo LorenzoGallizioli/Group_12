@@ -5,26 +5,31 @@ import java.util.Random;
 
 public class ObiettiviPersonali {
 	
-	static Tessera[][] tessere = new Tessera[6][5];
+	public static Tessera[][] obiettivo = new Tessera[6][5];
 	
 	/**
 	 * Costruttore della classe ObiettiviPersonali.
 	 */
 	public ObiettiviPersonali() {
-		
+		for(int righe =0;righe<6;righe++) {
+			for(int col = 0;col<5;col++) {
+				obiettivo[righe][col]= new Tessera(Color.gray);
+			}
+		}
 	}
 	
 	public static void generaObiettivoPersonale() {
 		Color[] colori = {Color.green, Color.WHITE, Color.yellow, Color.CYAN, Color.blue, Color.PINK};
 		Random rand = new Random();
-		for (int i = 0; i < 9; i++) {
-			for (int j = 0; j < 9; j++) {
-				if (rand.nextInt(10) < 9) {
-					tessere[i][j].Colore = Color.BLACK;
+		int prob = rand.nextInt(10);
+		for (int i = 0; i < 6; i++) {
+			for (int j = 0; j < 5; j++) {
+				if (prob < 8) {
+					obiettivo[i][j] = new Tessera(Color.BLACK);
 				}
 				else {
 					int coloreRand = rand.nextInt(6);
-					tessere[i][j].Colore = colori[coloreRand];
+					obiettivo[i][j] =new Tessera(colori[coloreRand]);
 				}
 			}
 		}

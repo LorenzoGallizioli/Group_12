@@ -3,7 +3,7 @@ package Game;
 import java.awt.Color;
 
 /**
- * Definisce le librerie (una per ciascun giocatore) da riempire con le tessere prese dalla Tavola.
+ * Definisce le librerie (una per ciascun giocatore) da riempire con le obiettivo prese dalla Tavola.
  * 
  * @author lorenzogallizioli
  */

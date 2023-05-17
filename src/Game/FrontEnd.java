@@ -229,7 +229,7 @@ public class FrontEnd extends JFrame {
 		});
 		
 		// Librerie giocatori.
-		table = new JTable();
+		table = new JTable(6,5);
 		table.setBounds(875, 23, 147, 115);
 		formMyShelfie.getContentPane().add(table);
 		
@@ -268,7 +268,7 @@ public class FrontEnd extends JFrame {
 		JButton btnConfermaSetPlayer = new JButton("Conferma");
 		btnConfermaSetPlayer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				TableCellRenderer obiettiviColora = new CustomCellColore();
+				
 				if (chckbxGiocatori4.isSelected() == true) {
 					Tavola.numPlayers = 4;
 					giocatori.clear(); // Pulisco la lista.
@@ -289,14 +289,18 @@ public class FrontEnd extends JFrame {
 					table_3.setVisible(true);
 					
 					//necessita di un FIX, genera errore se si selezionano 4 giocatori.
+					ObiettiviPersonali obi = new ObiettiviPersonali();
+					ObiettiviPersonali.generaObiettivoPersonale();
+					TableCellRenderer obiColora = new CustomCellColore();
 					
-					//for (int row = 0; row < 9; row++) {
-					//    for (int col = 0; col < 9; col++) {
-					//       Color cellColor = ObiettiviPersonali.tessere[row][col].getColor(); // Prendo il colore di una determinata posizione della matrice.
-					//        tableTavola_1.setValueAt(cellColor, row, col); // Imposto il colore desiderato alla giusta casella.
-					//        tableTavola_1.getColumnModel().getColumn(col).setCellRenderer(obiettiviColora); // Applico il colore alla casella utilizzando la classe CustomCellColore.
-					//    }
-					//}
+					for (int row = 0; row < 6; row++) {
+					    for (int col = 0; col < 5; col++) {
+					        Color cellColor = obi.obiettivo[row][col].getColor(); // Prendo il colore di una determinata posizione della matrice.
+					        table.setValueAt(cellColor, row, col); // Imposto il colore desiderato alla giusta casella.
+					        table.getColumnModel().getColumn(col).setCellRenderer(obiColora); // Applico il colore alla casella utilizzando la classe CustomCellColore.
+					    }
+					}
+					
 					
 				}
 				if (chckbxGiocatori3.isSelected() == true) {
