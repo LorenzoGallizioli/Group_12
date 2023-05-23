@@ -95,7 +95,7 @@ public class FrontEnd extends JFrame {
 		formMyShelfie.getContentPane().add(pnlSetPlayer);
 		
 		// Bottone apertura pannello sinistro, dove si sceglie il numero di giocatori.
-		JButton btnSelezioneGiocatori = new JButton("Seleziona Giocatori"); //bottone centrale, avvia una nuova partita.
+		JButton btnSelezioneGiocatori = new JButton("Seleziona Giocatori"); // Bottone centrale, avvia una nuova partita.
 		btnSelezioneGiocatori.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				pnlSetPlayer.setVisible(true);
@@ -109,19 +109,19 @@ public class FrontEnd extends JFrame {
 		// Crea checkbox 2 GIOCATORI.
 		JCheckBox chckbxGiocatori2 = new JCheckBox("2 giocatori");
 		chckbxGiocatori2.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		chckbxGiocatori2.setBounds(3, 5, 95, 27);
+		chckbxGiocatori2.setBounds(3, 5, 113, 27);
 		pnlSetPlayer.add(chckbxGiocatori2);
 		
 		// Crea checkbox 3 GIOCATORI.
 		JCheckBox chckbxGiocatori3 = new JCheckBox("3 giocatori");
 		chckbxGiocatori3.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		chckbxGiocatori3.setBounds(103, 5, 95, 27);
+		chckbxGiocatori3.setBounds(3, 35, 131, 27);
 		pnlSetPlayer.add(chckbxGiocatori3);
 		
 		// Crea checkbox 4 GIOCATORI.
 		JCheckBox chckbxGiocatori4 = new JCheckBox("4 giocatori");
 		chckbxGiocatori4.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		chckbxGiocatori4.setBounds(53, 37, 95, 27);
+		chckbxGiocatori4.setBounds(3, 64, 113, 27);
 		pnlSetPlayer.add(chckbxGiocatori4);
 		
 		// Metodi che definiscono i listener delle checkbox.
@@ -187,7 +187,7 @@ public class FrontEnd extends JFrame {
 		lblNomeP4.setBounds(758, 523, 110, 27);
 		formMyShelfie.getContentPane().add(lblNomeP4);
 		
-		//labels punti giocatori
+		// Labels punti giocatori.
 		JLabel lblPuntiP1 = new JLabel("");
 		lblPuntiP1.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblPuntiP1.setBounds(256, 561, 110, 27);
@@ -275,7 +275,6 @@ public class FrontEnd extends JFrame {
 		JButton btnConfermaSetPlayer = new JButton("Conferma");
 		btnConfermaSetPlayer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
 				if (chckbxGiocatori4.isSelected() == true) {
 					Tavola.numPlayers = 4;
 					giocatori.clear(); // Pulisco la lista.
@@ -295,7 +294,7 @@ public class FrontEnd extends JFrame {
 					table_2.setVisible(true);
 					table_3.setVisible(true);
 					
-					//tavola1
+					// Tavola 1.
 					ObiettiviPersonali.generaObiettivoPersonale();
 					TableCellRenderer obiColora = new CustomCellColore();
 					
@@ -306,7 +305,7 @@ public class FrontEnd extends JFrame {
 					        table.getColumnModel().getColumn(col).setCellRenderer(obiColora); // Applico il colore alla casella utilizzando la classe CustomCellColore.
 					    }
 					}
-					//tavola 2
+					// Tavola 2.
 					ObiettiviPersonali.generaObiettivoPersonale();
 					
 					for (int row = 0; row < 6; row++) {
@@ -317,7 +316,7 @@ public class FrontEnd extends JFrame {
 					    }
 					}
 					
-					//tavola 3
+					// Tavola 3.
 					ObiettiviPersonali.generaObiettivoPersonale();
 					
 					for (int row = 0; row < 6; row++) {
@@ -328,7 +327,7 @@ public class FrontEnd extends JFrame {
 					    }
 					}
 					
-					//tavola 4
+					// Tavola 4.
 					ObiettiviPersonali.generaObiettivoPersonale();
 					
 					for (int row = 0; row < 6; row++) {
@@ -339,14 +338,12 @@ public class FrontEnd extends JFrame {
 					    }
 					}
 					
-					
-					
-					
 				}
+				
 				if (chckbxGiocatori3.isSelected() == true) {
 					Tavola.numPlayers = 3;
 					
-					giocatori.clear();//pulisco la lista
+					giocatori.clear();// Pulisco la lista.
 					
 					Giocatore g1 = new Giocatore(txtNomeP1.getText(),01,0,true);
 					Giocatore g2 = new Giocatore(txtNomeP2.getText(),02,0,false);
@@ -361,7 +358,7 @@ public class FrontEnd extends JFrame {
 					table_2.setVisible(true);
 					table_3.setVisible(false);
 					
-					//tavola1
+					// Tavola 1.
 					ObiettiviPersonali.generaObiettivoPersonale();
 					TableCellRenderer obiColora = new CustomCellColore();
 					
@@ -372,7 +369,7 @@ public class FrontEnd extends JFrame {
 					        table.getColumnModel().getColumn(col).setCellRenderer(obiColora); // Applico il colore alla casella utilizzando la classe CustomCellColore.
 					    }
 					}
-					//tavola 2
+					// Tavola 2.
 					ObiettiviPersonali.generaObiettivoPersonale();
 					
 					for (int row = 0; row < 6; row++) {
@@ -383,7 +380,7 @@ public class FrontEnd extends JFrame {
 					    }
 					}
 					
-					//tavola 3
+					// Tavola 3.
 					ObiettiviPersonali.generaObiettivoPersonale();
 					
 					for (int row = 0; row < 6; row++) {
@@ -392,13 +389,13 @@ public class FrontEnd extends JFrame {
 					        table_2.setValueAt(cellColor, row, col); // Imposto il colore desiderato alla giusta casella.
 					        table_2.getColumnModel().getColumn(col).setCellRenderer(obiColora); // Applico il colore alla casella utilizzando la classe CustomCellColore.
 					    }
-					}
-					
+					}					
 				}
+
 				if (chckbxGiocatori2.isSelected() == true) {
 					Tavola.numPlayers = 2;
 					
-					giocatori.clear();//pulisco la lista
+					giocatori.clear(); // Pulisco la lista.
 					
 					Giocatore g1 = new Giocatore(txtNomeP1.getText(),01,0,true);
 					Giocatore g2 = new Giocatore(txtNomeP2.getText(),02,0,false);
@@ -411,7 +408,7 @@ public class FrontEnd extends JFrame {
 					table_2.setVisible(false);
 					table_3.setVisible(false);
 					
-					//tavola1
+					// Tavola 1.
 					ObiettiviPersonali.generaObiettivoPersonale();
 					TableCellRenderer obiColora = new CustomCellColore();
 					
@@ -422,7 +419,7 @@ public class FrontEnd extends JFrame {
 					        table.getColumnModel().getColumn(col).setCellRenderer(obiColora); // Applico il colore alla casella utilizzando la classe CustomCellColore.
 					    }
 					}
-					//tavola 2
+					// Tavola 2.
 					ObiettiviPersonali.generaObiettivoPersonale();
 					
 					for (int row = 0; row < 6; row++) {
@@ -435,6 +432,7 @@ public class FrontEnd extends JFrame {
 					
 					
 				}
+				
 				if (chckbxGiocatori4.isSelected() == false && chckbxGiocatori3.isSelected() == false && chckbxGiocatori2.isSelected() == false) {
 					System.out.println("errore, seleziona un numero di giocatori!");
 				}

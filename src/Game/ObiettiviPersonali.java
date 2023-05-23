@@ -11,9 +11,9 @@ public class ObiettiviPersonali {
 	 * Costruttore della classe ObiettiviPersonali.
 	 */
 	public ObiettiviPersonali() {
-		for(int righe =0;righe<6;righe++) {
-			for(int col = 0;col<5;col++) {
-				obiettivo[righe][col]= new Tessera(Color.gray);
+		for(int righe = 0; righe < 6; righe++) {
+			for(int col = 0; col < 5; col++) {
+				obiettivo[righe][col] = new Tessera(Color.gray);
 			}
 		}
 	}
@@ -35,4 +35,5 @@ public class ObiettiviPersonali {
 			}
 		}
 	}
+	
 }
