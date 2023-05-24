@@ -1,6 +1,6 @@
 package ObbiettiviCollettivi;
 
-import Game.Libreria;
+import Game.Tessera;
 
 /**
  * Two groups each containing 4 tiles of the same type in a 2x2 square. 
@@ -8,7 +8,8 @@ import Game.Libreria;
  */
 public class Obiettivo4 extends ObiettivoComune{
 	
-	public boolean check (Libreria libreria) {
+	public boolean check(Tessera[][] libreria) {
+		// TODO Auto-generated method stub
 		return false;
 	}
 	

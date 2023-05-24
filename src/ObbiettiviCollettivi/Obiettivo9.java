@@ -1,13 +1,13 @@
 package ObbiettiviCollettivi;
 
-import Game.Libreria;
+import Game.Tessera;
 
 /**
  * Two columns each formed by 6 different types of tiles.
  */
 public class Obiettivo9 extends ObiettivoComune {
 	
-	public boolean check (Libreria libreria) {
+	public boolean check (Tessera[][] libreria) {
 		
 		return false;
 	}

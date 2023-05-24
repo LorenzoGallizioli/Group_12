@@ -1,7 +1,10 @@
 package ObbiettiviCollettivi;
 
-import Game.Libreria;
+import Game.Tessera;
 
+/**
+ * Classe madre degli obiettivi.
+ */
 public abstract class ObiettivoComune {
 	
 	/**
@@ -13,6 +16,6 @@ public abstract class ObiettivoComune {
 	 * @return
 	 * 	 TRUE se corrispondono, FALSE altrimenti.
 	 */
-	public abstract boolean check(Libreria libreria);
+	public abstract boolean check(Tessera[][] libreria);
 	
 }

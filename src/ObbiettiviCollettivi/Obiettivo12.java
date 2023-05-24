@@ -1,6 +1,6 @@
 package ObbiettiviCollettivi;
 
-import Game.Libreria;
+import Game.Tessera;
 
 /**
  * Five columns of increasing or decreasing height. 
@@ -9,8 +9,7 @@ import Game.Libreria;
  */
 public class Obiettivo12 extends ObiettivoComune {
 	
-	public boolean check (Libreria libreria) {
-		
+	public boolean check(Tessera[][] libreria) {
 		return false;
 	}
 
