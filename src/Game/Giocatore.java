@@ -1,11 +1,18 @@
 package Game;
 
+import java.awt.Color;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
 public class Giocatore {
 	
 	private String nome;
 	private int id;
 	private int punti;
 	private Boolean giocatoreSedia;
+	
+	private Tessera[][] obiettivo = new Tessera[6][5];
 	
 	/**
 	 * Il costruttore della classe Giocatore.
@@ -19,14 +26,49 @@ public class Giocatore {
 	 * @param giocatore_sedia
 	 * 	 TRUE se il giocatore ha la sedia, FALSE altrimenti.
 	 */
+	
+	
 	public Giocatore(String nome, int id, int punti, Boolean giocatore_sedia) {
-		super();
 		this.nome = nome;
 		this.id = id;
 		this.punti = punti;
 		this.giocatoreSedia = giocatore_sedia;
+		this.obiettivo = generaObiettivoPersonale();
+	
 	}
 	
+	
+	public Tessera[][] generaObiettivoPersonale() {
+		Color[] colori = {Color.green, Color.WHITE, Color.yellow, Color.CYAN, Color.blue, Color.PINK};
+		Random rand = new Random();
+		
+		for (int i = 0; i < 6; i++) {
+			for (int j = 0; j < 5; j++) {
+				int prob = rand.nextInt(10);
+				if (prob < 8) {
+					obiettivo[i][j] = new Tessera(Color.BLACK);
+				}
+				else {
+					int coloreRand = rand.nextInt(6);
+					obiettivo[i][j] =new Tessera(colori[coloreRand]);
+				}
+			}
+		}
+		return obiettivo;
+	}
+	
+	
+
+	public Tessera[][] getObiettivo() {
+		return obiettivo;
+	}
+
+
+	public void setObiettivo(Tessera[][] obiettivo) {
+		this.obiettivo = obiettivo;
+	}
+
+
 	/**
 	 * Restituisce il nome del giocatore.
 	 * 
