@@ -13,20 +13,30 @@ public class Obiettivo1 extends ObiettivoComune{
 	}
 	
 	public boolean check(Tessera[][] libreria) {	
+		
 		int cont = 0;
-		// Scorro righe
-		for(int i = 0; i <= 5; i++) {
-			// scorro colonne.
-			for (int j = 0; j <= 5; j++) {
-				if (libreria[i][j].getColor() == libreria[i][j+1].getColor()) {
+		
+		for(int j = 0; j <= 5; j++) {
+			for(int i = 0; i <= 4; i++) {
+				
+				// Controllo tessera nella stessa colonna ma riga sotto.
+				if(libreria[i][j].getColor() == libreria[i+1][j].getColor()) {
 					cont++;
 					if(cont == 6) {
 						return true;
 					}
 				}
-			}
+				
+				// Controllo tessera nella stessa riga ma colonna a destra.
+				if(libreria[j][i].getColor() == libreria[j][i+1].getColor()) {
+					cont++;
+					if(cont == 6) {
+						return true;
+					}
+				}
+			}	
 		}
-		
+				
 		return false;
 	}
 
