@@ -281,7 +281,7 @@ public class FrontEnd extends JFrame {
 					Tavola.numPlayers = 4;
 					giocatori.clear(); // Pulisco la lista.
 					
-					Giocatore g1 = new Giocatore(txtNomeP1.getText(),01,1,true);
+					Giocatore g1 = new Giocatore(txtNomeP1.getText(),01,0,true);
 					Giocatore g2 = new Giocatore(txtNomeP2.getText(),02,0,false);
 					Giocatore g3 = new Giocatore(txtNomeP3.getText(),03,0,false);
 					Giocatore g4 = new Giocatore(txtNomeP4.getText(),04,0,false);
@@ -375,85 +375,93 @@ public class FrontEnd extends JFrame {
 
 				if (chckbxGiocatori2.isSelected() == true) {
 					Tavola.numPlayers = 2;
-					
+
 					giocatori.clear(); // Pulisco la lista.
-					
-					Giocatore g1 = new Giocatore(txtNomeP1.getText(),01,0,true);
-					Giocatore g2 = new Giocatore(txtNomeP2.getText(),02,0,false);
-					
+
+					Giocatore g1 = new Giocatore(txtNomeP1.getText(), 01, 0, true);
+					Giocatore g2 = new Giocatore(txtNomeP2.getText(), 02, 0, false);
+
 					giocatori.add(g1);
 					giocatori.add(g2);
-					
+
 					table.setVisible(true);
 					table_1.setVisible(true);
 					table_2.setVisible(false);
 					table_3.setVisible(false);
-					
-					for(int i = 0; i<4; i++) {
+
+					for (int i = 0; i < 4; i++) {
 						JTable tableVar = null;
-						
-						switch(i) {
-							case 0:
-								tableVar = table;
-								break;
-							case 1:
-								tableVar = table_1;
-								break;
+
+						switch (i) {
+						case 0:
+							tableVar = table;
+							break;
+						case 1:
+							tableVar = table_1;
+							break;
 						}
-						if(tableVar !=null) {
+						if (tableVar != null) {
 							for (int row = 0; row < 6; row++) {
-							    for (int col = 0; col < 5; col++) {
-							        Color cellColor = giocatori.get(i).getObiettivo()[row][col].getColor(); // Prendo il colore di una determinata posizione della matrice.
-							        tableVar.setValueAt(cellColor, row, col); // Imposto il colore desiderato alla giusta casella.
-							        tableVar.getColumnModel().getColumn(col).setCellRenderer(obiColora); // Applico il colore alla casella utilizzando la classe CustomCellColore.
-							    }
+								for (int col = 0; col < 5; col++) {
+									Color cellColor = giocatori.get(i).getObiettivo()[row][col].getColor(); // Prendo il colore di una determinata posizione della matrice.
+									tableVar.setValueAt(cellColor, row, col); // Imposto il colore desiderato alla giusta casella.
+									tableVar.getColumnModel().getColumn(col).setCellRenderer(obiColora); // Applico il colore allacasella utilizzando la classe CustomCellColore.
+								}
 							}
 						}
-						
-					}
-					
-					
-				
-				if (chckbxGiocatori4.isSelected() == false && chckbxGiocatori3.isSelected() == false && chckbxGiocatori2.isSelected() == false) {
-					System.out.println("errore, seleziona un numero di giocatori!");
+
+					}	
 				}
-				pnlSetPlayer.setVisible(false);
-				lblMostraPlayerNum.setText("Giocatori: " + Tavola.numPlayers);
-				tableTavola_1.setVisible(true);
 				
-				// Inizializzo la matrice tavola da gioco.
-				Tavola tavola = new Tavola();
-				TableCellRenderer cellColora = new CustomCellColore();
-				Tavola.generaTavola();
-				
-				// Scansiono tutta la matrice.
-				for (int row = 0; row < 9; row++) {
-				    for (int col = 0; col < 9; col++) {
-				        Color cellColor = tavola.tavolaDaGioco[row][col].getColor(); // Prendo il colore di una determinata posizione della matrice.
-				        tableTavola_1.setValueAt(cellColor, row, col); // Imposto il colore desiderato alla giusta casella.
-				        tableTavola_1.getColumnModel().getColumn(col).setCellRenderer(cellColora); // Applico il colore alla casella utilizzando la classe CustomCellColore.
-				    }
+					lblNomeP1.setText(giocatori.get(0).getNome());
+					lblNomeP2.setText(giocatori.get(1).getNome());				
+					lblPuntiP1.setText(""+giocatori.get(0).getPunti());
+					lblPuntiP2.setText(""+giocatori.get(1).getPunti());
+					
+					lblNomeP3.setVisible(false);
+					lblNomeP4.setVisible(false);
+					lblPuntiP3.setVisible(false);
+					lblPuntiP4.setVisible(false);
+					
+					if (giocatori.size() == 4) {
+						lblPuntiP3.setText("" + giocatori.get(2).getPunti());
+						lblPuntiP4.setText("" + giocatori.get(3).getPunti());
+						lblNomeP3.setText(giocatori.get(2).getNome());
+						lblNomeP4.setText(giocatori.get(3).getNome());
+						lblNomeP3.setVisible(true);
+						lblNomeP4.setVisible(true);
+						lblPuntiP3.setVisible(true);
+						lblPuntiP4.setVisible(true);
+					}
+					else if (giocatori.size() == 3){
+						lblPuntiP3.setText("" + giocatori.get(2).getPunti());
+						lblNomeP3.setText(giocatori.get(2).getNome());
+						lblPuntiP3.setVisible(true);
+						lblNomeP3.setVisible(true);
+					}
+					chckbxStartStop.setVisible(true);
+					
+					
+					pnlSetPlayer.setVisible(false);
+					lblMostraPlayerNum.setText("Giocatori: " + Tavola.numPlayers);
+					tableTavola_1.setVisible(true);
+					
+					// Inizializzo la matrice tavola da gioco.
+					Tavola tavola = new Tavola();
+					TableCellRenderer cellColora = new CustomCellColore();
+					Tavola.generaTavola();
+					
+					// Scansiono tutta la matrice.
+					for (int row = 0; row < 9; row++) {
+					    for (int col = 0; col < 9; col++) {
+					        Color cellColor = tavola.tavolaDaGioco[row][col].getColor(); // Prendo il colore di una determinata posizione della matrice.
+					        tableTavola_1.setValueAt(cellColor, row, col); // Imposto il colore desiderato alla giusta casella.
+					        tableTavola_1.getColumnModel().getColumn(col).setCellRenderer(cellColora); // Applico il colore alla casella utilizzando la classe CustomCellColore.
+					    }
+					}
 				}
 			
-				
-				lblNomeP1.setText(giocatori.get(0).getNome());
-				lblNomeP2.setText(giocatori.get(1).getNome());				
-				lblPuntiP1.setText(""+giocatori.get(0).getPunti());
-				lblPuntiP2.setText(""+giocatori.get(1).getPunti());
-				
-				if (giocatori.size() == 4) {
-					lblPuntiP3.setText("" + giocatori.get(2).getPunti());
-					lblPuntiP4.setText("" + giocatori.get(3).getPunti());
-					lblNomeP3.setText(giocatori.get(2).getNome());
-					lblNomeP4.setText(giocatori.get(3).getNome());
-				}
-				else if (giocatori.size() == 3){
-					lblPuntiP3.setText("" + giocatori.get(2).getPunti());
-					lblNomeP3.setText(giocatori.get(2).getNome());
-				}
-				chckbxStartStop.setVisible(true);
-				}
-			}
+			
 		});
 		
 		btnConfermaSetPlayer.setFont(new Font("Tahoma", Font.PLAIN, 16));
