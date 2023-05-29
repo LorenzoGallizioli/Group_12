@@ -9,15 +9,15 @@ import java.awt.Color;
  */
 public class Libreria {
 	
-	protected Tessera libreria[][] = new Tessera[6][6];
+	protected Tessera libreria[][] = new Tessera[6][5];
 	
 	/**
 	 * Il costruttore della classe.
 	 */
 	public Libreria() {
-		for(int i=0; i<=5; i++) {
-			for(int j=0; j<=5; j=j+1) {
-		        libreria[i][j].Colore=Color.YELLOW;
+		for(int rig = 0; rig < 5; rig++) {
+			for(int col = 0; col < 4; col++) {
+		        libreria[rig][col].Colore = Color.YELLOW;
 		    }
 		}
 	}
