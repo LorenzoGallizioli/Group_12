@@ -17,11 +17,10 @@ public class Obiettivo1 extends ObiettivoComune{
 	 * Controlla se nella libreria esistono 6 gruppi contenenti almeno 2 tessere dello stesso colore.
 	 */
 	public boolean check(Tessera[][] libreria) {	
-		
 		int cont = 0;
 		
-		for(int j = 0; j <= 5; j++) {
-			for(int i = 0; i <= 4; i++) {
+		for(int j = 0; j <= 4; j++) {
+			for(int i = 0; i <= 5; i++) {
 				
 				// Controllo tessera nella stessa colonna ma riga sotto.
 				if(libreria[i][j].getColor() != Color.BLACK && libreria[i][j].getColor() == libreria[i+1][j].getColor()) {

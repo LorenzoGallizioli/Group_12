@@ -8,19 +8,30 @@ import Game.Tessera;
 public class Obiettivo7 extends ObiettivoComune {
 	
 	/**
-	 * Controlla se la libreria ha gli stessi colori sulla diagonale.
+	 * Controlla se la libreria ha gli stessi colori su una od entrambe diagonali.
 	 */
 	public boolean check (Tessera[][] libreria) {
-		if(
-				libreria[0][0].getColor() == libreria[1][1].getColor() &&
-				libreria[1][1].getColor() == libreria[2][2].getColor() &&
-				libreria[2][2].getColor() == libreria[3][3].getColor() &&
-				libreria[3][3].getColor() == libreria[4][4].getColor()
-				)
-			return true;
 		
-		else
-			return false;
+		boolean coloriUguali = true;
+
+		// Controllo della prima diagonale
+		for (int i = 0; i < 4; i++) {
+		    if (libreria[i][i].getColor() != libreria[i+1][i+1].getColor()) {
+		        coloriUguali = false;
+		        break;
+		    }
+		}
+
+		// Controllo della seconda diagonale
+		for (int i = 0; i < 4; i++) {
+		    if (libreria[i][4-i].getColor() != libreria[i+1][3-i].getColor()) {
+		        coloriUguali = false;
+		        break;
+		    }
+		}
+
+		return coloriUguali;
+
 	}
 	
 }

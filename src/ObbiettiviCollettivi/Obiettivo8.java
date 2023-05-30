@@ -14,7 +14,7 @@ public class Obiettivo8 extends ObiettivoComune {
 
 		int counterDiverso = 0;
 		int colObiettivo = 0;
-		for (int rig = 0; rig < 5; rig++) {
+		for (int rig = 0; rig <= 5; rig++) {
 			int countVerdi = 0;
 			int countBlu = 0;
 			int countGialle = 0;
@@ -23,7 +23,7 @@ public class Obiettivo8 extends ObiettivoComune {
 			int countBianche = 0;
 			boolean colCompleta = true;
 
-			for (int col = 0; col < 4; col++) {
+			for (int col = 0; col <= 4; col++) {
 				if (libreria[rig][col] != null) {
 					if (libreria[rig][col].getColor() == Color.GREEN) {
 						countVerdi++;
