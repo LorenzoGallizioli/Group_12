@@ -155,6 +155,7 @@ public class Tavola{
 	 */
 	
 	public static void generaTavola() {
+		Tavola tavola = new Tavola();
 		Color[] colori = {Color.green, Color.WHITE, Color.yellow, Color.CYAN, Color.blue, Color.PINK};
 		Random rand = new Random();
 		for(int i =0;i<9;i++) {

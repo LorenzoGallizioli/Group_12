@@ -285,7 +285,7 @@ public class FrontEnd extends JFrame {
 		
 		
 		
-		Tavola tavola = new Tavola();
+		
 		
 		// Bottone conferma giocatori.
 		JButton btnConfermaSetPlayer = new JButton("Conferma");
@@ -475,14 +475,14 @@ public class FrontEnd extends JFrame {
 					// Scansiono tutta la matrice.
 					for (int row = 0; row < 9; row++) {
 					    for (int col = 0; col < 9; col++) {
-					        Color cellColor = tavola.tavolaDaGioco[row][col].getColor(); // Prendo il colore di una determinata posizione della matrice.
+					        Color cellColor = Tavola.tavolaDaGioco[row][col].getColor(); // Prendo il colore di una determinata posizione della matrice.
 					        tableTavola_1.setValueAt(cellColor, row, col); // Imposto il colore desiderato alla giusta casella.
 					        tableTavola_1.getColumnModel().getColumn(col).setCellRenderer(cellColora); // Applico il colore alla casella utilizzando la classe CustomCellColore.
 					        
 					        
 					        tableTavola_1.getColumnModel().getColumn(col).setCellRenderer(imageRenderer);//cambio da colare alla rispettiva immagine
-					        
-					        tableTavola_1.setIntercellSpacing(new Dimension(0, 0));
+					    
+					        tableTavola_1.setIntercellSpacing(new Dimension(0, 0));//rimuove il contorno binaco tra una casella e l'altra
 					    }
 					}
 				}
@@ -518,10 +518,10 @@ public class FrontEnd extends JFrame {
 	                if (row != -1 && col != -1) {
 	                    // Ottenere il valore della cella selezionata
 	                   
-	                    System.out.println("Valore della cella selezionata: " + tavola.tavolaDaGioco[row][col].getColor());
+	                    System.out.println("Valore della cella selezionata: " + Tavola.tavolaDaGioco[row][col].getColor());
 
 	                    // Esempio di utilizzo delle coordinate per ottenere un'immagine
-	                    ImageIcon pic = Images.Image.sceltaImmagine(tavola.tavolaDaGioco[row][col].getColor());
+	                    ImageIcon pic = Images.Image.sceltaImmagine(Tavola.tavolaDaGioco[row][col].getColor());
 	                    lblCellaSelezionata.setText("");
 	                    panel.setVisible(true);
 	                    ImageIcon picResized = Image.scaleImage(pic, 115, 115);  
