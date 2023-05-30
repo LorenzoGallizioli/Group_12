@@ -39,6 +39,9 @@ import javax.swing.JScrollPane;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JTextField;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.border.LineBorder;
 
 /**
  * Definisce l'interfaccia grafica e controlla i componenti del gioco.
@@ -472,9 +475,22 @@ public class FrontEnd extends JFrame {
 			
 		});
 		
+		JPanel panel = new JPanel();
+		panel.setBorder(new LineBorder(new Color(0, 0, 0)));
+		panel.setBounds(1032, 363, 191, 176);
+		formMyShelfie.getContentPane().add(panel);
+		panel.setLayout(null);
+		panel.setVisible(false);
+		
 		JLabel lblCellaSelezionata = new JLabel("");
-		lblCellaSelezionata.setBounds(1033, 404, 115, 115);
-		formMyShelfie.getContentPane().add(lblCellaSelezionata);
+		lblCellaSelezionata.setBounds(34, 50, 115, 115);
+		panel.add(lblCellaSelezionata);
+		
+		JLabel lblTitoloTessera = new JLabel("Tessera selezionata");
+		lblTitoloTessera.setBounds(10, 11, 171, 20);
+		panel.add(lblTitoloTessera);
+		lblTitoloTessera.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		
 		
 		tableTavola_1.addMouseListener(new MouseAdapter() {
 	            @Override
@@ -492,7 +508,7 @@ public class FrontEnd extends JFrame {
 	                    // Esempio di utilizzo delle coordinate per ottenere un'immagine
 	                    ImageIcon pic = Images.Image.sceltaImmagine(tavola.tavolaDaGioco[row][col].getColor());
 	                    lblCellaSelezionata.setText("");
-	                    
+	                    panel.setVisible(true);
 	                    ImageIcon picResized = Image.scaleImage(pic, 115, 115);  
 	                    lblCellaSelezionata.setIcon(picResized);
 	                }
@@ -531,13 +547,6 @@ public class FrontEnd extends JFrame {
 		txtNomeP4.setColumns(10);
 		txtNomeP4.setBounds(20, 189, 96, 19);
 		pnlSetPlayer.add(txtNomeP4);
-		
-		JLabel lblNewLabel = new JLabel("Tessera selezionata");
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblNewLabel.setBounds(1024, 382, 164, 20);
-		formMyShelfie.getContentPane().add(lblNewLabel);
-		
-		
 		
 		txtNomeP1.setVisible(false);
 		txtNomeP2.setVisible(false);
