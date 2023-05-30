@@ -36,7 +36,7 @@ public class Image {
 			image = new ImageIcon("./src/pics/Piante.png");
 		}
 		if(color == Color.black){
-			image = new ImageIcon("./src/pics/nero.jfif");
+			image = new ImageIcon("./src/pics/nero.jpg");
 		}
 		return image;
 		

@@ -32,7 +32,9 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
 
+import Images.CustomCellColore;
 import Images.Image;
+import Images.ImageRenderer;
 
 import javax.swing.JTable;
 import javax.swing.JScrollPane;
@@ -93,7 +95,7 @@ public class FrontEnd extends JFrame {
 		
 		formMyShelfie = new JFrame();
 		formMyShelfie.setTitle("MY SHELFIE");
-		formMyShelfie.setBounds(100, 100, 1265, 638);
+		formMyShelfie.setBounds(100, 100, 1280, 771);
 		formMyShelfie.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		formMyShelfie.getContentPane().setLayout(null);
 		
@@ -178,43 +180,43 @@ public class FrontEnd extends JFrame {
 		// Labels mostranti i nomi dei giocatori.
 		JLabel lblNomeP1 = new JLabel("");
 		lblNomeP1.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNomeP1.setBounds(256, 523, 110, 27);
+		lblNomeP1.setBounds(254, 602, 110, 27);
 		formMyShelfie.getContentPane().add(lblNomeP1);
 		
 		JLabel lblNomeP2 = new JLabel("");
 		lblNomeP2.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNomeP2.setBounds(420, 523, 110, 27);
+		lblNomeP2.setBounds(418, 602, 110, 27);
 		formMyShelfie.getContentPane().add(lblNomeP2);
 		
 		JLabel lblNomeP3 = new JLabel("");
 		lblNomeP3.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNomeP3.setBounds(568, 523, 110, 27);
+		lblNomeP3.setBounds(566, 602, 110, 27);
 		formMyShelfie.getContentPane().add(lblNomeP3);
 		
 		JLabel lblNomeP4 = new JLabel("");
 		lblNomeP4.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNomeP4.setBounds(758, 523, 110, 27);
+		lblNomeP4.setBounds(756, 602, 110, 27);
 		formMyShelfie.getContentPane().add(lblNomeP4);
 		
 		// Labels punti giocatori.
 		JLabel lblPuntiP1 = new JLabel("");
 		lblPuntiP1.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblPuntiP1.setBounds(256, 561, 110, 27);
+		lblPuntiP1.setBounds(254, 640, 110, 27);
 		formMyShelfie.getContentPane().add(lblPuntiP1);
 		
 		JLabel lblPuntiP2 = new JLabel("");
 		lblPuntiP2.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblPuntiP2.setBounds(420, 561, 110, 27);
+		lblPuntiP2.setBounds(418, 640, 110, 27);
 		formMyShelfie.getContentPane().add(lblPuntiP2);
 		
 		JLabel lblPuntiP3 = new JLabel("");
 		lblPuntiP3.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblPuntiP3.setBounds(568, 561, 110, 27);
+		lblPuntiP3.setBounds(566, 640, 110, 27);
 		formMyShelfie.getContentPane().add(lblPuntiP3);
 		
 		JLabel lblPuntiP4 = new JLabel("");
 		lblPuntiP4.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblPuntiP4.setBounds(758, 561, 110, 27);
+		lblPuntiP4.setBounds(756, 640, 110, 27);
 		formMyShelfie.getContentPane().add(lblPuntiP4);
 		
 		// Checkbox inizio/fine partita.
@@ -239,46 +241,49 @@ public class FrontEnd extends JFrame {
 		
 		// Librerie giocatori.
 		table = new JTable(6,5);
-		table.setBounds(875, 23, 147, 115);
+		table.setBounds(919, 20, 141, 158);
 		formMyShelfie.getContentPane().add(table);
-		table.setRowHeight(20);
+		table.setRowHeight(27);
 		table.doLayout();
 		
 		table_1 = new JTable(6,5);
-		table_1.setBounds(875, 150, 147, 115);
+		table_1.setBounds(919, 191, 141, 158);
 		formMyShelfie.getContentPane().add(table_1);
-		table_1.setRowHeight(20);
+		table_1.setRowHeight(27);
 		table_1.doLayout();
 		
 		table_2 = new JTable(6,5);
-		table_2.setBounds(875, 277, 147, 115);
+		table_2.setBounds(1086, 20, 141, 158);
 		formMyShelfie.getContentPane().add(table_2);
-		table_2.setRowHeight(20);
+		table_2.setRowHeight(27);
 		table_2.doLayout();
 		
 		table_3 = new JTable(6,5);
-		table_3.setBounds(875, 404, 147, 115);
+		table_3.setBounds(1086, 191, 141, 158);
 		formMyShelfie.getContentPane().add(table_3);
-		table_3.setRowHeight(20);
+		table_3.setRowHeight(27);
 		table_3.doLayout();
 
 		// Label mostrante il numero di giocatori selezionati.
 		JLabel lblMostraPlayerNum = new JLabel("");
 		lblMostraPlayerNum.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblMostraPlayerNum.setBounds(1054, 23, 187, 20);
+		lblMostraPlayerNum.setBounds(929, 557, 187, 20);
 		formMyShelfie.getContentPane().add(lblMostraPlayerNum);
 		pnlSetPlayer.setVisible(false);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(256, 25, 610, 487);
+		scrollPane.setBounds(221, 25, 688, 572);
 		formMyShelfie.getContentPane().add(scrollPane);
 		
 		// Tabella che mostra la tavola da gioco.
 		JTable tableTavola_1 = new JTable(9,9);
 		tableTavola_1.setShowGrid(false);
 		scrollPane.setViewportView(tableTavola_1);
-		tableTavola_1.setRowHeight(51);
+		tableTavola_1.setRowHeight(61);
 		tableTavola_1.doLayout();
+		tableTavola_1.setShowGrid(false);
+		
+		
 		
 		Tavola tavola = new Tavola();
 		
@@ -287,6 +292,7 @@ public class FrontEnd extends JFrame {
 		btnConfermaSetPlayer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				TableCellRenderer obiColora = new CustomCellColore();
+				ImageRenderer imageRenderer = new ImageRenderer();
 				
 				if (chckbxGiocatori4.isSelected() == true) {
 					Tavola.numPlayers = 4;
@@ -324,12 +330,14 @@ public class FrontEnd extends JFrame {
 								tableVar = table_3;
 								break;
 						}
+						
 						if(tableVar !=null) {
 							for (int row = 0; row < 6; row++) {
 							    for (int col = 0; col < 5; col++) {
 							        Color cellColor = giocatori.get(i).getObiettivo()[row][col].getColor(); // Prendo il colore di una determinata posizione della matrice.
 							        tableVar.setValueAt(cellColor, row, col); // Imposto il colore desiderato alla giusta casella.
 							        tableVar.getColumnModel().getColumn(col).setCellRenderer(obiColora); // Applico il colore alla casella utilizzando la classe CustomCellColore.
+							        tableVar.getColumnModel().getColumn(col).setCellRenderer(imageRenderer);//cambio da colare alla rispettiva immagine
 							    }
 							}
 						}
@@ -377,6 +385,7 @@ public class FrontEnd extends JFrame {
 							        Color cellColor = giocatori.get(i).getObiettivo()[row][col].getColor(); // Prendo il colore di una determinata posizione della matrice.
 							        tableVar.setValueAt(cellColor, row, col); // Imposto il colore desiderato alla giusta casella.
 							        tableVar.getColumnModel().getColumn(col).setCellRenderer(obiColora); // Applico il colore alla casella utilizzando la classe CustomCellColore.
+							        tableVar.getColumnModel().getColumn(col).setCellRenderer(imageRenderer);//cambio da colare alla rispettiva immagine
 							    }
 							}
 						}
@@ -417,6 +426,7 @@ public class FrontEnd extends JFrame {
 									Color cellColor = giocatori.get(i).getObiettivo()[row][col].getColor(); // Prendo il colore di una determinata posizione della matrice.
 									tableVar.setValueAt(cellColor, row, col); // Imposto il colore desiderato alla giusta casella.
 									tableVar.getColumnModel().getColumn(col).setCellRenderer(obiColora); // Applico il colore allacasella utilizzando la classe CustomCellColore.
+									tableVar.getColumnModel().getColumn(col).setCellRenderer(imageRenderer);//cambio da colare alla rispettiva immagine
 								}
 							}
 						}
@@ -468,6 +478,11 @@ public class FrontEnd extends JFrame {
 					        Color cellColor = tavola.tavolaDaGioco[row][col].getColor(); // Prendo il colore di una determinata posizione della matrice.
 					        tableTavola_1.setValueAt(cellColor, row, col); // Imposto il colore desiderato alla giusta casella.
 					        tableTavola_1.getColumnModel().getColumn(col).setCellRenderer(cellColora); // Applico il colore alla casella utilizzando la classe CustomCellColore.
+					        
+					        
+					        tableTavola_1.getColumnModel().getColumn(col).setCellRenderer(imageRenderer);//cambio da colare alla rispettiva immagine
+					        
+					        tableTavola_1.setIntercellSpacing(new Dimension(0, 0));
 					    }
 					}
 				}
@@ -477,7 +492,7 @@ public class FrontEnd extends JFrame {
 		
 		JPanel panel = new JPanel();
 		panel.setBorder(new LineBorder(new Color(0, 0, 0)));
-		panel.setBounds(1032, 363, 191, 176);
+		panel.setBounds(919, 370, 178, 176);
 		formMyShelfie.getContentPane().add(panel);
 		panel.setLayout(null);
 		panel.setVisible(false);

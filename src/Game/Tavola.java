@@ -153,6 +153,7 @@ public class Tavola{
 	/**
 	 * Metodo che permette di generatre la tavola in modo randomico. 
 	 */
+	
 	public static void generaTavola() {
 		Color[] colori = {Color.green, Color.WHITE, Color.yellow, Color.CYAN, Color.blue, Color.PINK};
 		Random rand = new Random();
