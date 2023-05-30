@@ -19,7 +19,7 @@ public class Obiettivo5 extends ObiettivoComune {
 			int countAzzurre = 0;
 			int countFucsia = 0;
 			int countBianche = 0;
-			boolean nonCompleta = false;
+			boolean colCompleta = true;
 
 			for(int rig = 0; rig < 5; rig++) {
 				if(libreria[rig][col]!= null) {
@@ -35,18 +35,18 @@ public class Obiettivo5 extends ObiettivoComune {
 					else if(libreria[rig][col].getColor() == Color.CYAN) {
 						countAzzurre++;
 					}
-					else if(libreria[rig][col].getColor() == Color.GREEN) {
+					else if(libreria[rig][col].getColor() == Color.PINK) {
 						countFucsia++;
 					}
-					else if(libreria[rig][col].getColor() == Color.GREEN) {
+					else if(libreria[rig][col].getColor() == Color.WHITE) {
 						countBianche++;
 					}
 				}
 				else {
-					nonCompleta = true;
+					colCompleta = false;
 				}
 			}
-			if (nonCompleta == false) {
+			if (colCompleta) {
 				if(countVerdi > 0) {
 					counterDiverso++;
 				}
