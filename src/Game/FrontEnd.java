@@ -10,11 +10,14 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.LayoutManager;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.SpringLayout;
 import javax.swing.SwingConstants;
 import javax.swing.JPanel;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
 import java.awt.event.ActionEvent;
@@ -28,6 +31,9 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
+
+import Images.Image;
+
 import javax.swing.JTable;
 import javax.swing.JScrollPane;
 import javax.swing.JMenuBar;
@@ -256,7 +262,7 @@ public class FrontEnd extends JFrame {
 		// Label mostrante il numero di giocatori selezionati.
 		JLabel lblMostraPlayerNum = new JLabel("");
 		lblMostraPlayerNum.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblMostraPlayerNum.setBounds(1042, 23, 187, 20);
+		lblMostraPlayerNum.setBounds(1054, 23, 187, 20);
 		formMyShelfie.getContentPane().add(lblMostraPlayerNum);
 		pnlSetPlayer.setVisible(false);
 		
@@ -270,6 +276,8 @@ public class FrontEnd extends JFrame {
 		scrollPane.setViewportView(tableTavola_1);
 		tableTavola_1.setRowHeight(51);
 		tableTavola_1.doLayout();
+		
+		Tavola tavola = new Tavola();
 		
 		// Bottone conferma giocatori.
 		JButton btnConfermaSetPlayer = new JButton("Conferma");
@@ -447,7 +455,7 @@ public class FrontEnd extends JFrame {
 					tableTavola_1.setVisible(true);
 					
 					// Inizializzo la matrice tavola da gioco.
-					Tavola tavola = new Tavola();
+					
 					TableCellRenderer cellColora = new CustomCellColore();
 					Tavola.generaTavola();
 					
@@ -463,6 +471,34 @@ public class FrontEnd extends JFrame {
 			
 			
 		});
+		
+		JLabel lblCellaSelezionata = new JLabel("");
+		lblCellaSelezionata.setBounds(1033, 404, 115, 115);
+		formMyShelfie.getContentPane().add(lblCellaSelezionata);
+		
+		tableTavola_1.addMouseListener(new MouseAdapter() {
+	            @Override
+	            public void mouseClicked(MouseEvent e) {
+	                // Ottenere l'indice di riga e colonna corrispondente al punto del clic
+	            	int row = tableTavola_1.rowAtPoint(e.getPoint());
+	                int col = tableTavola_1.columnAtPoint(e.getPoint());
+
+
+	                if (row != -1 && col != -1) {
+	                    // Ottenere il valore della cella selezionata
+	                   
+	                    System.out.println("Valore della cella selezionata: " + tavola.tavolaDaGioco[row][col].getColor());
+
+	                    // Esempio di utilizzo delle coordinate per ottenere un'immagine
+	                    ImageIcon pic = Images.Image.sceltaImmagine(tavola.tavolaDaGioco[row][col].getColor());
+	                    lblCellaSelezionata.setText("");
+	                    
+	                    ImageIcon picResized = Image.scaleImage(pic, 115, 115);  
+	                    lblCellaSelezionata.setIcon(picResized);
+	                }
+	                
+	            }
+	        });
 		
 		btnConfermaSetPlayer.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		btnConfermaSetPlayer.setBounds(47, 326, 101, 29);
@@ -495,6 +531,13 @@ public class FrontEnd extends JFrame {
 		txtNomeP4.setColumns(10);
 		txtNomeP4.setBounds(20, 189, 96, 19);
 		pnlSetPlayer.add(txtNomeP4);
+		
+		JLabel lblNewLabel = new JLabel("Tessera selezionata");
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblNewLabel.setBounds(1024, 382, 164, 20);
+		formMyShelfie.getContentPane().add(lblNewLabel);
+		
+		
 		
 		txtNomeP1.setVisible(false);
 		txtNomeP2.setVisible(false);

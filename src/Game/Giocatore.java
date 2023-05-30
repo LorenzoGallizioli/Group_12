@@ -45,7 +45,7 @@ public class Giocatore {
 		for (int i = 0; i < 6; i++) {
 			for (int j = 0; j < 5; j++) {
 				int prob = rand.nextInt(10);
-				if (prob < 8) {
+				if (prob < 9) {
 					obiettivo[i][j] = new Tessera(Color.BLACK);
 				}
 				else {
