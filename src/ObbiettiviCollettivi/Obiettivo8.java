@@ -21,7 +21,7 @@ public class Obiettivo8 extends ObiettivoComune {
 			int countAzzurre = 0;
 			int countFucsia = 0;
 			int countBianche = 0;
-			boolean nonCompleta = false;
+			boolean colCompleta = true;
 
 			for (int col = 0; col < 4; col++) {
 				if (libreria[rig][col] != null) {
@@ -39,10 +39,10 @@ public class Obiettivo8 extends ObiettivoComune {
 						countBianche++;
 					}
 				} else {
-					nonCompleta = true;
+					colCompleta = false;
 				}
 			}
-			if (nonCompleta == false) {
+			if (colCompleta == true) {
 				if (countVerdi > 0) {
 					counterDiverso++;
 				}
