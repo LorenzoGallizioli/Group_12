@@ -4,7 +4,11 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
 
 import java.awt.*;
-
+/**
+ * Applica l'immagine alla cella di una determinata tabella JTable
+ * @author Davide
+ *
+ */
 public class ImageRenderer extends DefaultTableCellRenderer {
     @Override
     public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
@@ -31,7 +35,7 @@ public class ImageRenderer extends DefaultTableCellRenderer {
         }
         
         
-        ImageIcon imgRes = Image.scaleImage(image, (table.getHeight()/table.getColumnCount()+16),(table.getWidth()/table.getRowCount()+5));  
+        ImageIcon imgRes = Image.scaleImage(image, (table.getHeight()/table.getColumnCount()+16),(table.getWidth()/table.getRowCount()+5));//scala l'immagine con una proporzione calcolata
         
         setIcon(imgRes);
         setText(null); // Rimuovi il testo per evitare sovrapposizioni

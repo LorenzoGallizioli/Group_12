@@ -6,15 +6,26 @@ import java.awt.image.BufferedImage;
 import javax.swing.ImageIcon;
 
 import Game.Tessera;
-
+/**
+ * 
+ * Classe che permette di abbinare ad il colore della tessera la corrisspettiva immagine
+ * @author DavideDell'Anno
+ */
 public class Image {
 	
 	 public static ImageIcon image;
 	
+	 
+	/**
+	* Costruttore della classe
+	* @param image 
+	*/ 	
 	public Image(ImageIcon image) {
 		this.image=image;
 	}
-
+	
+	
+	//selezione dell'immagine a seconda del colore della tessera
 	public static ImageIcon sceltaImmagine(Color color) {
 		
 		if(color==Color.white) {
@@ -42,6 +53,13 @@ public class Image {
 		
 	}
 	
+	/**
+	 * Metodo per ingrandire o rimpicciolire un'immagine
+	 * @param imageIcon
+	 * @param maxWidth
+	 * @param maxHeight
+	 * @return resizedImage
+	 */
 	public static ImageIcon scaleImage(ImageIcon imageIcon, int maxWidth, int maxHeight) {
         java.awt.Image image = imageIcon.getImage();
         int width = image.getWidth(null);

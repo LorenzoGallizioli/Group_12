@@ -50,6 +50,7 @@ import java.util.Random;
 import java.util.stream.IntStream;
 /**
  * Definisce l'interfaccia grafica e controlla i componenti del gioco.
+ * Gestice i turni, punti e giocatori
  * 
  * @author davidedellanno
  */
@@ -97,7 +98,7 @@ public class FrontEnd extends JFrame {
 	 */
 	private void initialize() {
 		
-		List<Giocatore> giocatori = new ArrayList<Giocatore>();
+		List<Giocatore> giocatori = new ArrayList<Giocatore>();//inizializza la lista dei giocatori
 		
 		formMyShelfie = new JFrame();
 		formMyShelfie.setTitle("MY SHELFIE");
@@ -265,6 +266,7 @@ public class FrontEnd extends JFrame {
 		tableTavola_1.doLayout();
 		tableTavola_1.setShowGrid(false);
 		
+		//bottone inizia partita
 		JButton btnIniziaPartita = new JButton("Inizia Partita");
 		btnIniziaPartita.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnIniziaPartita.setBounds(10, 10, 191, 47);
@@ -290,6 +292,7 @@ public class FrontEnd extends JFrame {
 					Tavola.numPlayers = 4;
 					giocatori.clear(); // Pulisco la lista.
 					
+					//inserisco i giocatori nella lista
 					Giocatore g1 = new Giocatore(txtNomeP1.getText(),01,0,true);
 					Giocatore g2 = new Giocatore(txtNomeP2.getText(),02,0,false);
 					Giocatore g3 = new Giocatore(txtNomeP3.getText(),03,0,false);
@@ -573,6 +576,7 @@ public class FrontEnd extends JFrame {
 		lblTurnoPlayer.setBounds(10, 602, 201, 27);
 		formMyShelfie.getContentPane().add(lblTurnoPlayer);
 		
+		//listener del bottone prossimo turno
 		JButton btnProxTurno = new JButton("Finisci il turno");
 		btnProxTurno.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		btnProxTurno.setBounds(10, 522, 201, 75);
@@ -580,15 +584,19 @@ public class FrontEnd extends JFrame {
 		formMyShelfie.getContentPane().add(btnProxTurno);
 		btnProxTurno.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				//controllo se tutti i giocatori hanno giocato il turno
 				if(player<giocatori.size()-1) {
+					//se non è stato completato il giro, incremento player, così da passare al prossimo giocatore
 					player++;
 				}
+				//se tutti i giocatori hanno svolto il loro turno
 				else if(player>=giocatori.size()-1) {
+					//se tutti i player hanno giocato il turno, resetto il counter player e incremento il turno di 1
 					turno++;
 					player=0;
 				}
-				lblTurnoPlayer.setText("Turno nr." + turno + " di: "+giocatori.get(player).getNome());
+				lblTurnoPlayer.setText("Turno nr." + turno + " di: "+giocatori.get(player).getNome());//label che mostra a chi tocca giocare
+				//switch per mostrare la tabella dell'obiettivo personale del player corrente
 				switch(player) {
 				case 0:
 					table.setVisible(true);
@@ -622,7 +630,7 @@ public class FrontEnd extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				player =0;
 				turno=1;
-				
+				//mostro l'obiettivo personale del primo player
 				table.setVisible(true);
 				table_1.setVisible(false);
 				table_2.setVisible(false);

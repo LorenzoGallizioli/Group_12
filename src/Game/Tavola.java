@@ -6,7 +6,7 @@ import java.util.Random;
 /**
  * Definisce la tavola da gioco.
  * 
- * @author davidedellanno
+ * @author DavideDell'Anno
  */
 public class Tavola{
 	

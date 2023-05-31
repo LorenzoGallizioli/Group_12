@@ -4,7 +4,11 @@ import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-
+/**
+ * Classe che definisce il giocatore
+ * @author Davide
+ *
+ */
 public class Giocatore {
 	
 	private String nome;
@@ -37,7 +41,7 @@ public class Giocatore {
 	
 	}
 	
-	
+	//metodo per generare ogni volta che viene chiamato un obiettivo personale
 	public Tessera[][] generaObiettivoPersonale() {
 		Color[] colori = {Color.green, Color.WHITE, Color.yellow, Color.CYAN, Color.blue, Color.PINK};
 		Random rand = new Random();
