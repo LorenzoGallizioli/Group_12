@@ -46,11 +46,11 @@ public class Giocatore {
 			for (int j = 0; j < 5; j++) {
 				int prob = rand.nextInt(10);
 				if (prob < 9) {
-					obiettivo[i][j] = new Tessera(Color.BLACK);
+					obiettivo[i][j] = new Tessera(Color.BLACK,false);
 				}
 				else {
 					int coloreRand = rand.nextInt(6);
-					obiettivo[i][j] =new Tessera(colori[coloreRand]);
+					obiettivo[i][j] =new Tessera(colori[coloreRand],true);
 				}
 			}
 		}
