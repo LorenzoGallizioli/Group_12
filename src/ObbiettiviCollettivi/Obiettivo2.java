@@ -2,13 +2,18 @@ package ObbiettiviCollettivi;
 
 import java.awt.Color;
 
+import javax.swing.ImageIcon;
+
 import Game.Tessera;
 
 /**
- * 4 gruppi contenenti almeno 4 tessere dello stesso colore.
+ * Four groups each containing at least 4 tiles of the same type (not necessarily in the depicted shape).
+ * The tiles of one group can be different from those of another group.
  */
 public class Obiettivo2 extends ObiettivoComune{
 
+	private ImageIcon immagine = new ImageIcon("./src/pics/Obiettivo2.png");
+	
 	public Obiettivo2() {
 		
 	}
@@ -50,6 +55,10 @@ public class Obiettivo2 extends ObiettivoComune{
 		}
 				
 		return false;
+	}
+
+	public ImageIcon getImage() {
+		return immagine;
 	}
 
 

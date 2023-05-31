@@ -1,5 +1,7 @@
 package ObbiettiviCollettivi;
 
+import javax.swing.ImageIcon;
+
 import Game.Tessera;
 
 /**
@@ -7,13 +9,13 @@ import Game.Tessera;
  */
 public class Obiettivo7 extends ObiettivoComune {
 	
+	private ImageIcon immagine = new ImageIcon("./src/pics/Obiettivo7.png");
+
+	
 	public Obiettivo7() {
 		
 	}
 	
-	/**
-	 * Controlla se la libreria ha gli stessi colori su una od entrambe diagonali.
-	 */
 	public boolean check (Tessera[][] libreria) {
 		
 		boolean coloriUguali = true;
@@ -36,6 +38,10 @@ public class Obiettivo7 extends ObiettivoComune {
 
 		return coloriUguali;
 
+	}
+
+	public ImageIcon getImage() {
+		return immagine;
 	}
 	
 }

@@ -2,6 +2,8 @@ package ObbiettiviCollettivi;
 
 import java.awt.Color;
 
+import javax.swing.ImageIcon;
+
 import Game.Tessera;
 
 /**
@@ -10,12 +12,13 @@ import Game.Tessera;
  */
 public class Obiettivo8 extends ObiettivoComune {
 
+	private ImageIcon immagine = new ImageIcon("./src/pics/Obiettivo.png");
+	
 	public Obiettivo8() {
 		
 	}
 	
 	public boolean check(Tessera[][] libreria) {
-
 		int counterDiverso = 0;
 		int rigaObiettivo = 0;
 		for (int rig = 0; rig <= 5; rig++) {
@@ -75,6 +78,10 @@ public class Obiettivo8 extends ObiettivoComune {
 			}
 		}
 		return false;
+	}
+
+	public ImageIcon getImage() {
+		return immagine;
 	}
 
 }

@@ -322,6 +322,13 @@ public class FrontEnd extends JFrame {
 					obc2 = generaObiettivoCollettivo();
 				} while(obc1.getClass().equals(obc2.getClass()));	// Provo a generare un secondo obiettivo comune finché non sono diversi.
 				
+				// Ricavo le immagini degli obiettivi estratti.
+				obc1.getImage();
+				obc2.getImage();
+				
+				//TODO: inserire nel frontend le immagini.
+				
+				
 				if (chckbxGiocatori4.isSelected() == true) {
 					Tavola.numPlayers = 4;
 					giocatori.clear(); // Pulisco la lista.

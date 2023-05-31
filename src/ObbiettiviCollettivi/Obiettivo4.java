@@ -2,6 +2,8 @@ package ObbiettiviCollettivi;
 
 import java.awt.Color;
 
+import javax.swing.ImageIcon;
+
 import Game.Tessera;
 
 /**
@@ -9,6 +11,9 @@ import Game.Tessera;
  * The tiles of one square can be different from those of the other square.
  */
 public class Obiettivo4 extends ObiettivoComune {
+	
+	private ImageIcon immagine = new ImageIcon("./src/pics/Obiettivo4.png");
+
 	public Obiettivo4() {
 		
 	}
@@ -38,6 +43,9 @@ public class Obiettivo4 extends ObiettivoComune {
 
 		return false;
 	}
-	
+
+	public ImageIcon getImage() {
+		return immagine;
+	}
 
 }

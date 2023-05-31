@@ -2,20 +2,22 @@ package ObbiettiviCollettivi;
 
 import java.awt.Color;
 
+import javax.swing.ImageIcon;
+
 import Game.Libreria;
 import Game.Tessera;
 
 /**
- * 6 gruppi contenenti almeno 2 tessere dello stesso colore.
+ * Six groups each containing at least 2 tiles of the same type (not necessarily in the depicted shape).
+ * The tiles of one group can be different from those of another group.
  */
 public class Obiettivo1 extends ObiettivoComune{
+	
+	private ImageIcon immagine = new ImageIcon("./src/pics/Obiettivo1.png");
 	
 	public Obiettivo1() {
 	}
 	
-	/*
-	 * Controlla se nella libreria esistono 6 gruppi contenenti almeno 2 tessere dello stesso colore.
-	 */
 	public boolean check(Tessera[][] libreria) {	
 		int cont = 0;
 		
@@ -49,6 +51,10 @@ public class Obiettivo1 extends ObiettivoComune{
 		}
 				
 		return false;
+	}
+	
+	public ImageIcon getImage() {
+		return immagine;
 	}
 
 }

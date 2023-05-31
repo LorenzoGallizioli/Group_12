@@ -2,12 +2,18 @@ package ObbiettiviCollettivi;
 
 import java.awt.Color;
 
+import javax.swing.ImageIcon;
+
 import Game.Tessera;
 
 /**
- * Tre colonne formate da 6 tessere di massimo 3 colori differenti. 
+ * Three columns each formed by 6 tiles of maximum three different types. 
+ * One column can show the same or a different combination of another column.
  */
 public class Obiettivo5 extends ObiettivoComune {
+	
+	private ImageIcon immagine = new ImageIcon("./src/pics/Obiettivo5.png");
+
 	
 	public Obiettivo5() {
 		
@@ -79,6 +85,10 @@ public class Obiettivo5 extends ObiettivoComune {
 			}
 		}
 		return false;
+	}
+
+	public ImageIcon getImage() {
+		return immagine;
 	}
 
 }
