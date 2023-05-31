@@ -1,5 +1,7 @@
 package ObbiettiviCollettivi;
 
+import java.awt.Color;
+
 import Game.Tessera;
 
 /**
@@ -8,8 +10,68 @@ import Game.Tessera;
 public class Obiettivo10 extends ObiettivoComune {
 	
 	public boolean check(Tessera[][] libreria) {
-		// TODO Auto-generated method stub
+		int counterDiverso = 0;
+		int rigaObiettivo = 0;
+		for (int rig = 0; rig <= 5; rig++) {
+			int countVerdi = 0;
+			int countBlu = 0;
+			int countGialle = 0;
+			int countAzzurre = 0;
+			int countFucsia = 0;
+			int countBianche = 0;
+			boolean colCompleta = true;
+
+			for (int col = 0; col <= 4; col++) {
+				if (libreria[rig][col] != null) {
+					if (libreria[rig][col].getColor() == Color.GREEN) {
+						countVerdi++;
+					} else if (libreria[rig][col].getColor() == Color.BLUE) {
+						countBlu++;
+					} else if (libreria[rig][col].getColor() == Color.YELLOW) {
+						countGialle++;
+					} else if (libreria[rig][col].getColor() == Color.CYAN) {
+						countAzzurre++;
+					} else if (libreria[rig][col].getColor() == Color.GREEN) {
+						countFucsia++;
+					} else if (libreria[rig][col].getColor() == Color.GREEN) {
+						countBianche++;
+					}
+				} else {
+					colCompleta = false;
+				}
+			}
+			if (colCompleta == true) {
+				if (countVerdi > 0) {
+					counterDiverso++;
+				}
+				if (countBlu > 0) {
+					counterDiverso++;
+				}
+				if (countGialle > 0) {
+					counterDiverso++;
+				}
+				if (countAzzurre > 0) {
+					counterDiverso++;
+				}
+				if (countFucsia > 0) {
+					counterDiverso++;
+				}
+				if (countBianche > 0) {
+					counterDiverso++;
+				}
+				
+				// Se esistono 5 colori diversi nella riga.
+				if (counterDiverso == 5) {
+					rigaObiettivo++;
+					// Se 2 righe centrano l'obiettivo.
+					if (rigaObiettivo == 2) {
+						return true;
+					}
+				}
+			}
+		}
 		return false;
+
 	}
 
 }

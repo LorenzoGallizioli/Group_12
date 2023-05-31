@@ -13,7 +13,7 @@ public class Obiettivo8 extends ObiettivoComune {
 	public boolean check(Tessera[][] libreria) {
 
 		int counterDiverso = 0;
-		int colObiettivo = 0;
+		int rigaObiettivo = 0;
 		for (int rig = 0; rig <= 5; rig++) {
 			int countVerdi = 0;
 			int countBlu = 0;
@@ -63,8 +63,8 @@ public class Obiettivo8 extends ObiettivoComune {
 				}
 
 				if (counterDiverso < 4) {
-					colObiettivo++;
-					if (colObiettivo == 3) {
+					rigaObiettivo++;
+					if (rigaObiettivo == 3) {
 						return true;
 					}
 				}
