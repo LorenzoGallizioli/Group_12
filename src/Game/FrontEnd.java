@@ -145,7 +145,7 @@ public class FrontEnd extends JFrame {
 		            chckbxGiocatori4.setSelected(false);
 		            chckbxGiocatori3.setSelected(false);
 		            
-		          // Textbox per l'inserimento dei nomi dei giocatori.
+		            // Textbox per l'inserimento dei nomi dei giocatori.
 					txtNomeP1.setVisible(true);
 					txtNomeP2.setVisible(true);
 					txtNomeP3.setVisible(false);
@@ -232,19 +232,19 @@ public class FrontEnd extends JFrame {
 		table.doLayout();
 		
 		table_1 = new JTable(6,5);
-		table_1.setBounds(919, 191, 141, 158);
+		table_1.setBounds(919, 20, 141, 158);
 		formMyShelfie.getContentPane().add(table_1);
 		table_1.setRowHeight(27);
 		table_1.doLayout();
 		
 		table_2 = new JTable(6,5);
-		table_2.setBounds(1086, 20, 141, 158);
+		table_2.setBounds(919, 20, 141, 158);
 		formMyShelfie.getContentPane().add(table_2);
 		table_2.setRowHeight(27);
 		table_2.doLayout();
 		
 		table_3 = new JTable(6,5);
-		table_3.setBounds(1086, 191, 141, 158);
+		table_3.setBounds(919, 20, 141, 158);
 		formMyShelfie.getContentPane().add(table_3);
 		table_3.setRowHeight(27);
 		table_3.doLayout();
@@ -290,11 +290,13 @@ public class FrontEnd extends JFrame {
 					giocatori.add(g3);
 					giocatori.add(g4);
 					
-					table.setVisible(true);
-					table_1.setVisible(true);
-					table_2.setVisible(true);
-					table_3.setVisible(true);
+					//tabelle 
+					table.setVisible(false);
+					table_1.setVisible(false);
+					table_2.setVisible(false);
+					table_3.setVisible(false);
 					
+					//generazione degli obiettivi personali per ogni player(in questo caso 4)
 					for(int i = 0; i<4; i++) {
 						JTable tableVar = null;
 						
@@ -342,9 +344,9 @@ public class FrontEnd extends JFrame {
 					giocatori.add(g2);
 					giocatori.add(g3);
 					
-					table.setVisible(true);
-					table_1.setVisible(true);
-					table_2.setVisible(true);
+					table.setVisible(false);
+					table_1.setVisible(false);
+					table_2.setVisible(false);
 					table_3.setVisible(false);
 					
 					for(int i = 0; i<3; i++) {
@@ -386,8 +388,8 @@ public class FrontEnd extends JFrame {
 					giocatori.add(g1);
 					giocatori.add(g2);
 
-					table.setVisible(true);
-					table_1.setVisible(true);
+					table.setVisible(false);
+					table_1.setVisible(false);
 					table_2.setVisible(false);
 					table_3.setVisible(false);
 
@@ -562,8 +564,6 @@ public class FrontEnd extends JFrame {
 		lblTurnoPlayer.setBounds(10, 602, 201, 27);
 		formMyShelfie.getContentPane().add(lblTurnoPlayer);
 		
-		
-		
 		JButton btnProxTurno = new JButton("Finisci il turno");
 		btnProxTurno.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		btnProxTurno.setBounds(10, 522, 201, 75);
@@ -571,6 +571,8 @@ public class FrontEnd extends JFrame {
 		formMyShelfie.getContentPane().add(btnProxTurno);
 		btnProxTurno.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				
 				
 				if(player<giocatori.size()-1) {
 					player++;
@@ -580,12 +582,34 @@ public class FrontEnd extends JFrame {
 					player=0;
 				}
 				lblTurnoPlayer.setText("Turno nr." + turno + " di: "+giocatori.get(player).getNome());
+				switch(player) {
+				case 0:
+					table.setVisible(true);
+					table_1.setVisible(false);
+					table_2.setVisible(false);
+					table_3.setVisible(false);
+					break;
+				case 1:
+					table.setVisible(false);
+					table_1.setVisible(true);
+					table_2.setVisible(false);
+					table_3.setVisible(false);
+					break;
+				case 2:
+					table.setVisible(false);
+					table_1.setVisible(false);
+					table_2.setVisible(true);
+					table_3.setVisible(false);
+					break;
+				case 3: 
+					table.setVisible(false);
+					table_1.setVisible(false);
+					table_2.setVisible(false);
+					table_3.setVisible(true);
+					break;
+			}
 			}
 		});
-		
-		
-		
-				
 		
 		
 		
@@ -593,6 +617,12 @@ public class FrontEnd extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				player =0;
 				turno=1;
+				
+				table.setVisible(true);
+				table_1.setVisible(false);
+				table_2.setVisible(false);
+				table_3.setVisible(false);
+				
 				lblTurnoPlayer.setText("Turno nr." + turno + " di: "+giocatori.get(player).getNome());
 				btnProxTurno.setVisible(true);
 			}
