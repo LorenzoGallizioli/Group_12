@@ -1,7 +1,14 @@
 package Game;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.util.Random;
+
+import javax.swing.JTable;
+import javax.swing.table.TableCellRenderer;
+
+import Images.CustomCellColore;
+import Images.ImageRenderer;
 
 /**
  * Definisce la tavola da gioco.
@@ -187,6 +194,24 @@ public class Tavola{
 					tavolaDaGioco[i][j].Colore = colori[coloreRand];
 				}
 			}
+		}
+	}
+	
+	public static void aggiornaTavola(JTable tableTavola_1, TableCellRenderer cellColora, TableCellRenderer imageRenderer) {	
+
+		
+		// Scansiono tutta la matrice.
+		for (int row = 0; row < 9; row++) {
+		    for (int col = 0; col < 9; col++) {
+		        Color cellColor = Tavola.tavolaDaGioco[row][col].getColor(); // Prendo il colore di una determinata posizione della matrice.
+		        tableTavola_1.setValueAt(cellColor, row, col); // Imposto il colore desiderato alla giusta casella.
+		        tableTavola_1.getColumnModel().getColumn(col).setCellRenderer(cellColora); // Applico il colore alla casella utilizzando la classe CustomCellColore.
+		        
+		        
+		        tableTavola_1.getColumnModel().getColumn(col).setCellRenderer(imageRenderer);//cambio da colare alla rispettiva immagine
+		    
+		        tableTavola_1.setIntercellSpacing(new Dimension(0, 0));//rimuove il contorno binaco tra una casella e l'altra
+		    }
 		}
 	}
 	

@@ -3,6 +3,8 @@ package Images;
 import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
 
+import Game.Tavola;
+
 import java.awt.*;
 /**
  * Applica l'immagine alla cella di una determinata tabella JTable
@@ -10,7 +12,7 @@ import java.awt.*;
  *
  */
 public class ImageRenderer extends DefaultTableCellRenderer {
-    @Override
+	
     public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
         super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
         
@@ -35,12 +37,12 @@ public class ImageRenderer extends DefaultTableCellRenderer {
         }
         
         
-        ImageIcon imgRes = Image.scaleImage(image, (table.getHeight()/table.getColumnCount()+16),(table.getWidth()/table.getRowCount()+5));//scala l'immagine con una proporzione calcolata
+        ImageIcon imgRes = Image.scaleImage(image, (table.getHeight()/table.getColumnCount()+16),(table.getWidth()/table.getRowCount()+5),Tavola.tavolaDaGioco[row][column].getDisponibile(), Tavola.tavolaDaGioco[row][column].getColor());//scala l'immagine con una proporzione calcolata
         
         setIcon(imgRes);
         setText(null); // Rimuovi il testo per evitare sovrapposizioni
         setHorizontalAlignment(SwingConstants.CENTER); // Centra l'immagine nella cella
-
+        
         return this;
     }
 }
