@@ -35,6 +35,7 @@ import javax.swing.table.TableCellRenderer;
 import Images.CustomCellColore;
 import Images.Image;
 import Images.ImageRenderer;
+import ObbiettiviCollettivi.*;
 
 import javax.swing.JTable;
 import javax.swing.JScrollPane;
@@ -45,6 +46,8 @@ import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.border.LineBorder;
 
+import java.util.Random;
+import java.util.stream.IntStream;
 /**
  * Definisce l'interfaccia grafica e controlla i componenti del gioco.
  * 
@@ -276,6 +279,13 @@ public class FrontEnd extends JFrame {
 				TableCellRenderer obiColora = new CustomCellColore();
 				ImageRenderer imageRenderer = new ImageRenderer();
 				
+				// Genero 2 obiettivi comuni.
+				ObiettivoComune obc1 = generaObiettivoCollettivo();
+				ObiettivoComune obc2;
+				do {
+					obc2 = generaObiettivoCollettivo();
+				} while(obc1.getClass().equals(obc2.getClass()));	// Provo a generare un secondo obiettivo comune finché non sono diversi.
+				
 				if (chckbxGiocatori4.isSelected() == true) {
 					Tavola.numPlayers = 4;
 					giocatori.clear(); // Pulisco la lista.
@@ -296,7 +306,7 @@ public class FrontEnd extends JFrame {
 					table_2.setVisible(false);
 					table_3.setVisible(false);
 					
-					//generazione degli obiettivi personali per ogni player(in questo caso 4)
+					// Generazione degli obiettivi personali per ogni player (in questo caso 4).
 					for(int i = 0; i<4; i++) {
 						JTable tableVar = null;
 						
@@ -324,9 +334,9 @@ public class FrontEnd extends JFrame {
 							        tableVar.getColumnModel().getColumn(col).setCellRenderer(imageRenderer);//cambio da colare alla rispettiva immagine
 							    }
 							}
-						}
-						
+						}	
 					}
+					
 				}		
 					
 					
@@ -372,8 +382,7 @@ public class FrontEnd extends JFrame {
 							        tableVar.getColumnModel().getColumn(col).setCellRenderer(imageRenderer);//cambio da colare alla rispettiva immagine
 							    }
 							}
-						}
-						
+						}						
 					}
 				}
 
@@ -629,4 +638,89 @@ public class FrontEnd extends JFrame {
 		});
 		
 	}
+	
+	/**
+	 * Genera un obiettivo collettivo randomicamente.
+	 */
+	private ObiettivoComune generaObiettivoCollettivo() {
+		Random rand = new Random();
+		int nObiettivo = rand.nextInt(1,13);
+		ObiettivoComune obiettivo = null;
+		switch(nObiettivo) {
+		case 1:
+			obiettivo = new Obiettivo1();
+			break;
+		case 2:
+			obiettivo = new Obiettivo2();
+			break;
+		case 3:
+			obiettivo = new Obiettivo3();
+			break;
+		case 4:
+			obiettivo = new Obiettivo4();
+			break;
+		case 5:
+			obiettivo = new Obiettivo5();
+			break;
+		case 6:
+			obiettivo = new Obiettivo6();
+			break;
+		case 7:
+			obiettivo = new Obiettivo7();
+			break;
+		case 8:
+			obiettivo = new Obiettivo8();
+			break;
+		case 9:
+			obiettivo = new Obiettivo9();
+			break;
+		case 10:
+			obiettivo = new Obiettivo10();
+			break;
+		case 11:
+			obiettivo = new Obiettivo11();
+			break;
+		case 12:
+			obiettivo = new Obiettivo12();
+			break;
+		}		
+		return obiettivo;
+	}
+	
+	private boolean obiettivo1(Tessera[][] libreria) {
+	int cont = 0;
+		
+		for(int j = 0; j <= 4; j++) {
+			for(int i = 0; i <= 5; i++) {
+				
+				// Controllo tessera nella stessa colonna ma riga sotto.
+				if(libreria[i][j].getColor() != Color.BLACK && libreria[i][j].getColor() == libreria[i+1][j].getColor()) {
+					cont++;
+					i++;
+					if(cont == 6) {
+						return true;
+					}
+				}
+				else {
+					cont = 0; // In questo modo se trova + di 2 adiacenti queste contano una volta sola.
+				}
+				
+				// Controllo tessera nella stessa riga ma colonna a destra.
+				if(libreria[j][i].getColor() != Color.BLACK && libreria[j][i].getColor() == libreria[j][i+1].getColor()) {
+					cont++;
+					i++;
+					if(cont == 6) {
+						return true;
+					}
+				}
+				else {
+					cont = 0;
+				}
+			}	
+		}
+				
+		return false;
+	
+	}
+	
 }

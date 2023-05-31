@@ -9,6 +9,9 @@ import Game.Tessera;
  * The tiles of one square can be different from those of the other square.
  */
 public class Obiettivo4 extends ObiettivoComune {
+	public Obiettivo4() {
+		
+	}
 	
 	public boolean check(Tessera[][] libreria) {
 		

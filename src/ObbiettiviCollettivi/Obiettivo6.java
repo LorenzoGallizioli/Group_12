@@ -9,6 +9,10 @@ import Game.Tessera;
  */
 public class Obiettivo6  extends ObiettivoComune{
 
+	public Obiettivo6() {
+		
+	}
+	
 	public boolean check(Tessera[][] libreria) {
 		int countVerdi = 0;
 		int countBlu = 0;

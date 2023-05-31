@@ -9,6 +9,10 @@ import Game.Tessera;
  */
 public class Obiettivo2 extends ObiettivoComune{
 
+	public Obiettivo2() {
+		
+	}
+	
 	public boolean check(Tessera[][] libreria) {
 		int contGruppi = 0;	// Numero di gruppi contenenti 4 tessere dello stesso colore.
 		

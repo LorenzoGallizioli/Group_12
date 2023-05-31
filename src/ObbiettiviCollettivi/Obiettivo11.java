@@ -9,6 +9,10 @@ import Game.Tessera;
  */
 public class Obiettivo11 extends ObiettivoComune {
 
+	public Obiettivo11() {
+		
+	}
+	
 	public boolean check(Tessera[][] libreria) {
 		
 		// Controlla se esiste una tessera che si trova al centro di una X formata da tessere dello stesso colore.

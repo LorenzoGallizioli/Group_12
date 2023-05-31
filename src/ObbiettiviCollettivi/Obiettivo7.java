@@ -7,6 +7,10 @@ import Game.Tessera;
  */
 public class Obiettivo7 extends ObiettivoComune {
 	
+	public Obiettivo7() {
+		
+	}
+	
 	/**
 	 * Controlla se la libreria ha gli stessi colori su una od entrambe diagonali.
 	 */

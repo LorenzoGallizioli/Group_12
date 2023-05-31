@@ -9,6 +9,10 @@ import Game.Tessera;
  */
 public class Obiettivo10 extends ObiettivoComune {
 	
+	public Obiettivo10() {
+		
+	}
+	
 	public boolean check(Tessera[][] libreria) {
 		int counterDiverso = 0;
 		int rigaObiettivo = 0;
