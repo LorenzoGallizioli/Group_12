@@ -25,6 +25,7 @@ public class Obiettivo12 extends ObiettivoComune {
 				start++;
 			}
 		}
+		return false;
 	}
 
 }

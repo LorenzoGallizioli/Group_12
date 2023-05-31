@@ -13,15 +13,16 @@ import javax.swing.JTable;
 public class Tessera{
 	
 	protected Color Colore;
-	
+	protected Boolean disponibile;
 	/**
 	 * Il costruttore della classe.
 	 * 
 	 * @param Color
 	 * 	 Il Color della tessera.
 	 */
-	public Tessera(Color Colore) {
-		this.Colore = Colore;	
+	public Tessera(Color Colore,Boolean disponibile) {
+		this.Colore = Colore;
+		this.disponibile = disponibile;
 	}
 	
 	
@@ -35,4 +36,11 @@ public class Tessera{
 		return Colore;
 	}
 
+	public Boolean getDisponibile() {
+		return disponibile;
+	}
+
+	public void setDisponibile(Boolean disponibile) {
+		this.disponibile = disponibile;
+	}
 }
