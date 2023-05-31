@@ -581,8 +581,6 @@ public class FrontEnd extends JFrame {
 		btnProxTurno.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				
-				
 				if(player<giocatori.size()-1) {
 					player++;
 				}
@@ -619,8 +617,6 @@ public class FrontEnd extends JFrame {
 			}
 			}
 		});
-		
-		
 		
 		btnIniziaPartita.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -685,42 +681,6 @@ public class FrontEnd extends JFrame {
 			break;
 		}		
 		return obiettivo;
-	}
-	
-	private boolean obiettivo1(Tessera[][] libreria) {
-	int cont = 0;
-		
-		for(int j = 0; j <= 4; j++) {
-			for(int i = 0; i <= 5; i++) {
-				
-				// Controllo tessera nella stessa colonna ma riga sotto.
-				if(libreria[i][j].getColor() != Color.BLACK && libreria[i][j].getColor() == libreria[i+1][j].getColor()) {
-					cont++;
-					i++;
-					if(cont == 6) {
-						return true;
-					}
-				}
-				else {
-					cont = 0; // In questo modo se trova + di 2 adiacenti queste contano una volta sola.
-				}
-				
-				// Controllo tessera nella stessa riga ma colonna a destra.
-				if(libreria[j][i].getColor() != Color.BLACK && libreria[j][i].getColor() == libreria[j][i+1].getColor()) {
-					cont++;
-					i++;
-					if(cont == 6) {
-						return true;
-					}
-				}
-				else {
-					cont = 0;
-				}
-			}	
-		}
-				
-		return false;
-	
 	}
 	
 }
