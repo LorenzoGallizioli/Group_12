@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 import java.awt.Window.Type;
 import javax.swing.JLabel;
 import java.awt.BorderLayout;
+import java.awt.CardLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.LayoutManager;
@@ -93,6 +94,9 @@ public class FrontEnd extends JFrame {
 	int turno = 1;
 	int player = 0;
 	
+	int row, col;//coordinate dela tessera
+	
+	
 	/**
 	 * Inizializza i contenuti della finestra.
 	 */
@@ -106,23 +110,53 @@ public class FrontEnd extends JFrame {
 		formMyShelfie.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		formMyShelfie.getContentPane().setLayout(null);
 		
-		// Pannello di sinistra.
+		// Pannello selezione giocatori.
 		JPanel pnlSetPlayer = new JPanel();
 		pnlSetPlayer.setBackground(new Color(255, 255, 255));
 		pnlSetPlayer.setBounds(10, 130, 201, 382);
-		formMyShelfie.getContentPane().add(pnlSetPlayer);
+		
+		
+		//panel mostra tessera selezionata
+		JPanel pnlMostraTessera = new JPanel();
+		pnlMostraTessera.setBorder(new LineBorder(new Color(0, 0, 0)));
+		pnlMostraTessera.setBounds(919, 320, 178, 277);
+		pnlMostraTessera.setLayout(null);
+		
+				
+		JLabel lblCellaSelezionata = new JLabel("");
+		lblCellaSelezionata.setBounds(10, 42, 181, 181);
+		pnlMostraTessera.add(lblCellaSelezionata);
+				
+		JLabel lblTitoloTessera = new JLabel("Tessera selezionata");
+		lblTitoloTessera.setBounds(10, 11, 158, 20);
+		pnlMostraTessera.add(lblTitoloTessera);
+		lblTitoloTessera.setFont(new Font("Tahoma", Font.PLAIN, 18));
+				
+		JLabel lblStatoTessera = new JLabel("");
+		lblStatoTessera.setBounds(10, 235, 158, 31);
+		pnlMostraTessera.add(lblStatoTessera);
+		
+		//panel main di sinistra che contiene mostra tessera e selezione giocatori
+		CardLayout cardLayout = new CardLayout();
+		JPanel pnlMainSx = new JPanel(cardLayout);
+		pnlMainSx.setBounds(10, 130, 201, 381);
+		formMyShelfie.getContentPane().add(pnlMainSx);
+		pnlMainSx.add(pnlSetPlayer, "pnlSetPlayer");
+		pnlMainSx.add(pnlMostraTessera, "pnlMostraTessera");
+		pnlMainSx.setVisible(false);
 		
 		// Bottone apertura pannello sinistro, dove si sceglie il numero di giocatori.
 		JButton btnSelezioneGiocatori = new JButton("Seleziona Giocatori"); // Bottone centrale, avvia una nuova partita.
-		btnSelezioneGiocatori.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				pnlSetPlayer.setVisible(true);
-			}
-		});
 		btnSelezioneGiocatori.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		btnSelezioneGiocatori.setBounds(10, 67, 191, 52);
+		btnSelezioneGiocatori.setBounds(10, 67, 201, 52);
 		formMyShelfie.getContentPane().add(btnSelezioneGiocatori);
 		pnlSetPlayer.setLayout(null);
+		btnSelezioneGiocatori.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				pnlMainSx.setVisible(true);
+				cardLayout.show(pnlMainSx, "pnlSetPlayer");
+			}
+		});
 		
 		// Crea checkbox 2 GIOCATORI.
 		JCheckBox chckbxGiocatori2 = new JCheckBox("2 giocatori");
@@ -269,7 +303,7 @@ public class FrontEnd extends JFrame {
 		//bottone inizia partita
 		JButton btnIniziaPartita = new JButton("Inizia Partita");
 		btnIniziaPartita.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		btnIniziaPartita.setBounds(10, 10, 191, 47);
+		btnIniziaPartita.setBounds(10, 10, 201, 47);
 		formMyShelfie.getContentPane().add(btnIniziaPartita);
 		btnIniziaPartita.setVisible(false);
 		
@@ -484,33 +518,12 @@ public class FrontEnd extends JFrame {
 			
 		});
 		
-		JPanel panel = new JPanel();
-		panel.setBorder(new LineBorder(new Color(0, 0, 0)));
-		panel.setBounds(919, 370, 178, 227);
-		formMyShelfie.getContentPane().add(panel);
-		panel.setLayout(null);
-		panel.setVisible(false);
-		
-		JLabel lblCellaSelezionata = new JLabel("");
-		lblCellaSelezionata.setBounds(34, 50, 115, 115);
-		panel.add(lblCellaSelezionata);
-		
-		JLabel lblTitoloTessera = new JLabel("Tessera selezionata");
-		lblTitoloTessera.setBounds(10, 11, 171, 20);
-		panel.add(lblTitoloTessera);
-		lblTitoloTessera.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		
-		JLabel lblStatoTessera = new JLabel("");
-		lblStatoTessera.setBounds(10, 191, 158, 26);
-		panel.add(lblStatoTessera);
-		
-		
 		tableTavola_1.addMouseListener(new MouseAdapter() {
 	            @Override
 	            public void mouseClicked(MouseEvent e) {
 	                // Ottenere l'indice di riga e colonna corrispondente al punto del clic
-	            	int row = tableTavola_1.rowAtPoint(e.getPoint());
-	                int col = tableTavola_1.columnAtPoint(e.getPoint());
+	            	row = tableTavola_1.rowAtPoint(e.getPoint());
+	                col = tableTavola_1.columnAtPoint(e.getPoint());
 
 
 	                if (row != -1 && col != -1) {
@@ -521,8 +534,8 @@ public class FrontEnd extends JFrame {
 	                    // Esempio di utilizzo delle coordinate per ottenere un'immagine
 	                    ImageIcon pic = Images.Image.sceltaImmagine(Tavola.tavolaDaGioco[row][col].getColor());
 	                    lblCellaSelezionata.setText("");
-	                    panel.setVisible(true);
-	                    ImageIcon picResized = Image.scaleImage(pic, 115, 115);  
+	                    pnlMostraTessera.setVisible(true);
+	                    ImageIcon picResized = Image.scaleImage(pic, 200, 200);  
 	                    lblCellaSelezionata.setIcon(picResized);
 	                    if(Tavola.tavolaDaGioco[row][col].getDisponibile()==true) {
 	                    	lblStatoTessera.setText("Può essere raccolta");    	
@@ -534,6 +547,16 @@ public class FrontEnd extends JFrame {
 	                
 	            }
 	        });
+		
+		JButton btnAggTessera = new JButton("Aggiungi alla tua libreria");
+		btnAggTessera.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		btnAggTessera.setBounds(10, 332, 181, 38);
+		pnlMostraTessera.add(btnAggTessera);
+		btnAggTessera.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
 		
 		btnConfermaSetPlayer.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		btnConfermaSetPlayer.setBounds(47, 326, 101, 29);
@@ -582,6 +605,9 @@ public class FrontEnd extends JFrame {
 		btnProxTurno.setBounds(10, 522, 201, 75);
 		btnProxTurno.setVisible(false);
 		formMyShelfie.getContentPane().add(btnProxTurno);
+		
+		
+		
 		btnProxTurno.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//controllo se tutti i giocatori hanno giocato il turno
@@ -625,9 +651,12 @@ public class FrontEnd extends JFrame {
 			}
 			}
 		});
-		
+
 		btnIniziaPartita.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+
+				cardLayout.show(pnlMainSx, "pnlMostraTessera");
+				
 				player =0;
 				turno=1;
 				//mostro l'obiettivo personale del primo player
@@ -640,6 +669,8 @@ public class FrontEnd extends JFrame {
 				btnProxTurno.setVisible(true);
 			}
 		});
+		
+		
 		
 	}
 	
@@ -690,5 +721,4 @@ public class FrontEnd extends JFrame {
 		}		
 		return obiettivo;
 	}
-	
 }
