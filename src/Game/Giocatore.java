@@ -17,6 +17,7 @@ public class Giocatore {
 	private Boolean giocatoreSedia;
 	
 	private Tessera[][] obiettivo = new Tessera[6][5];
+	private Tessera[][] libreria = new Tessera[6][5];
 	
 	/**
 	 * Il costruttore della classe Giocatore.
@@ -38,6 +39,7 @@ public class Giocatore {
 		this.punti = punti;
 		this.giocatoreSedia = giocatore_sedia;
 		this.obiettivo = generaObiettivoPersonale();
+		this.libreria = generaLibreria();
 	
 	}
 	
@@ -61,6 +63,17 @@ public class Giocatore {
 		return obiettivo;
 	}
 	
+	//genera la libreria personale
+	public Tessera[][] generaLibreria() {
+			
+			for (int i = 0; i < 6; i++) {
+				for (int j = 0; j < 5; j++) {
+					libreria[i][j]= new Tessera(Color.BLACK,false);
+				}
+			}
+			return libreria;
+	}
+	
 	
 
 	public Tessera[][] getObiettivo() {
@@ -71,7 +84,14 @@ public class Giocatore {
 	public void setObiettivo(Tessera[][] obiettivo) {
 		this.obiettivo = obiettivo;
 	}
+	
+	public Tessera[][] getLibreria() {
+		return libreria;
+	}
 
+	public void setLibreria(Tessera[][] libreria) {
+		this.libreria = libreria;
+	}
 
 	/**
 	 * Restituisce il nome del giocatore.

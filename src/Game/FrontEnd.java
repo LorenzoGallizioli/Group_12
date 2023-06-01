@@ -36,6 +36,7 @@ import javax.swing.table.TableCellRenderer;
 import Images.CustomCellColore;
 import Images.Image;
 import Images.ImageRenderer;
+import Images.ImageRendererGiocatori;
 import ObbiettiviCollettivi.*;
 
 import javax.swing.JTable;
@@ -49,6 +50,7 @@ import javax.swing.border.LineBorder;
 
 import java.util.Random;
 import java.util.stream.IntStream;
+import javax.swing.border.BevelBorder;
 /**
  * Definisce l'interfaccia grafica e controlla i componenti del gioco.
  * Gestice i turni, punti e giocatori
@@ -96,6 +98,12 @@ public class FrontEnd extends JFrame {
 	int countTessera=0;
 	
 	int row, col;//coordinate dela tessera
+	private JTable table_4;
+	private JTable tableLibreria;
+	private JTable tableLibreria_1;
+	private JTable tableLibreria_2;
+	private JTable tableLibreria_3;
+	private JTable tableLibreria_4;
 	
 	
 	/**
@@ -112,6 +120,8 @@ public class FrontEnd extends JFrame {
 		formMyShelfie.setBounds(100, 100, 1280, 771);
 		formMyShelfie.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		formMyShelfie.getContentPane().setLayout(null);
+		
+		
 		
 		// Pannello selezione giocatori.
 		JPanel pnlSetPlayer = new JPanel();
@@ -253,8 +263,7 @@ public class FrontEnd extends JFrame {
 		formMyShelfie.getContentPane().add(lblPuntiP4);
 		
 		
-		
-		// Librerie giocatori.
+		//Obiettivi personali giocatori.
 		table = new JTable(6,5);
 		table.setBounds(919, 20, 141, 158);
 		formMyShelfie.getContentPane().add(table);
@@ -280,6 +289,28 @@ public class FrontEnd extends JFrame {
 		table_3.doLayout();
 		pnlSetPlayer.setVisible(false);
 		
+		//librerie giocatori.
+		tableLibreria_1 = new JTable(6,5);
+		tableLibreria_1.setRowHeight(51);
+		tableLibreria_1.setBounds(919, 237, 320, 306);
+		formMyShelfie.getContentPane().add(tableLibreria_1);
+		
+		tableLibreria_2 = new JTable(6,5);
+		tableLibreria_2.setRowHeight(51);
+		tableLibreria_2.setBounds(919, 237, 320, 306);
+		formMyShelfie.getContentPane().add(tableLibreria_2);
+		
+		tableLibreria_3 = new JTable(6,5);
+		tableLibreria_3.setRowHeight(51);
+		tableLibreria_3.setBounds(919, 237, 320, 306);
+		formMyShelfie.getContentPane().add(tableLibreria_3);
+		
+		tableLibreria_4 = new JTable(6,5);
+		tableLibreria_4.setRowHeight(51);
+		tableLibreria_4.setBounds(919, 237, 320, 306);
+		formMyShelfie.getContentPane().add(tableLibreria_4);
+		
+		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(221, 25, 688, 572);
 		formMyShelfie.getContentPane().add(scrollPane);
@@ -303,7 +334,7 @@ public class FrontEnd extends JFrame {
 		JButton btnConfermaSetPlayer = new JButton("Conferma");
 		btnConfermaSetPlayer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				ImageRendererGiocatori imageRendObi = new ImageRendererGiocatori();
 				
 				// Genero 2 obiettivi comuni.
 				ObiettivoComune obc1 = generaObiettivoCollettivo();
@@ -334,41 +365,61 @@ public class FrontEnd extends JFrame {
 					giocatori.add(g3);
 					giocatori.add(g4);
 					
-					//tabelle 
+					//tabelle obiettivi personali
 					table.setVisible(false);
 					table_1.setVisible(false);
 					table_2.setVisible(false);
 					table_3.setVisible(false);
 					
+					tableLibreria_1.setVisible(false);
+					tableLibreria_2.setVisible(false);
+					tableLibreria_3.setVisible(false);
+					tableLibreria_4.setVisible(false);
+					
 					// Generazione degli obiettivi personali per ogni player (in questo caso 4).
 					for(int i = 0; i<4; i++) {
-						JTable tableVar = null;
+						JTable tableVarObiettivo = null;
+						JTable tableVarLibreria = null;
 						
 						switch(i) {
 							case 0:
-								tableVar = table;
+								tableVarObiettivo = table;
+								tableVarLibreria = tableLibreria_1;
 								break;
 							case 1:
-								tableVar = table_1;
+								tableVarObiettivo = table_1;
+								tableVarLibreria = tableLibreria_2;
 								break;
 							case 2:
-								tableVar = table_2;
+								tableVarObiettivo = table_2;
+								tableVarLibreria = tableLibreria_3;
 								break;
 							case 3: 
-								tableVar = table_3;
+								tableVarObiettivo = table_3;
+								tableVarLibreria = tableLibreria_4;
 								break;
 						}
 						
-						if(tableVar !=null) {
+						if(tableVarObiettivo !=null) {
 							for (int row = 0; row < 6; row++) {
 							    for (int col = 0; col < 5; col++) {
 							        Color cellColor = giocatori.get(i).getObiettivo()[row][col].getColor(); // Prendo il colore di una determinata posizione della matrice.
-							        tableVar.setValueAt(cellColor, row, col); // Imposto il colore desiderato alla giusta casella.
-							        tableVar.getColumnModel().getColumn(col).setCellRenderer(obiColora); // Applico il colore alla casella utilizzando la classe CustomCellColore.
-							        tableVar.getColumnModel().getColumn(col).setCellRenderer(imageRenderer);//cambio da colare alla rispettiva immagine
+							        tableVarObiettivo.setValueAt(cellColor, row, col); // Imposto il colore desiderato alla giusta casella.
+							        tableVarObiettivo.getColumnModel().getColumn(col).setCellRenderer(obiColora); // Applico il colore alla casella utilizzando la classe CustomCellColore.
+							        tableVarObiettivo.getColumnModel().getColumn(col).setCellRenderer(imageRendObi);//cambio da colare alla rispettiva immagine
 							    }
 							}
-						}	
+						}
+						if(tableVarLibreria !=null) {
+							for(int row = 0; row<6;row++) {
+								for(int col = 0; col<5;col++) {
+									Color cellColor2 = giocatori.get(i).getLibreria()[row][col].getColor();
+									tableVarLibreria.setValueAt(cellColor2, row, col);
+									tableVarLibreria.getColumnModel().getColumn(col).setCellRenderer(obiColora); // Applico il colore alla casella utilizzando la classe CustomCellColore.
+									tableVarLibreria.getColumnModel().getColumn(col).setCellRenderer(imageRendObi);//cambio da colare alla rispettiva immagine
+								}
+							}
+						}
 					}
 					
 				}		
@@ -413,7 +464,7 @@ public class FrontEnd extends JFrame {
 							        Color cellColor = giocatori.get(i).getObiettivo()[row][col].getColor(); // Prendo il colore di una determinata posizione della matrice.
 							        tableVar.setValueAt(cellColor, row, col); // Imposto il colore desiderato alla giusta casella.
 							        tableVar.getColumnModel().getColumn(col).setCellRenderer(obiColora); // Applico il colore alla casella utilizzando la classe CustomCellColore.
-							        tableVar.getColumnModel().getColumn(col).setCellRenderer(imageRenderer);//cambio da colare alla rispettiva immagine
+							        tableVar.getColumnModel().getColumn(col).setCellRenderer(imageRendObi);//cambio da colare alla rispettiva immagine
 							    }
 							}
 						}						
@@ -453,7 +504,7 @@ public class FrontEnd extends JFrame {
 									Color cellColor = giocatori.get(i).getObiettivo()[row][col].getColor(); // Prendo il colore di una determinata posizione della matrice.
 									tableVar.setValueAt(cellColor, row, col); // Imposto il colore desiderato alla giusta casella.
 									tableVar.getColumnModel().getColumn(col).setCellRenderer(obiColora); // Applico il colore allacasella utilizzando la classe CustomCellColore.
-									tableVar.getColumnModel().getColumn(col).setCellRenderer(imageRenderer);//cambio da colare alla rispettiva immagine
+									tableVar.getColumnModel().getColumn(col).setCellRenderer(imageRendObi);//cambio da colare alla rispettiva immagine
 								}
 							}
 						}
@@ -499,6 +550,11 @@ public class FrontEnd extends JFrame {
 			
 			
 		});
+		
+				
+				
+
+		
 				//listener del bottone prossimo turno
 				JButton btnProxTurno = new JButton("Finisci il turno");
 				btnProxTurno.setFont(new Font("Tahoma", Font.PLAIN, 16));
@@ -558,6 +614,7 @@ public class FrontEnd extends JFrame {
 	            }
 	        });
 				
+		int[][] coppieValori = new int[3][2];
 		
 		JButton btnAggTessera = new JButton("Aggiungi alla tua libreria");
 		btnAggTessera.setFont(new Font("Tahoma", Font.PLAIN, 11));
@@ -571,8 +628,11 @@ public class FrontEnd extends JFrame {
 				Tavola.tavolaDaGioco[row][col] = new Tessera(Color.black, false);
 				
 				Tavola.aggiornaTavola(tableTavola_1, null, imageRenderer);//aggiorno la tavola
-				countTessera++;
 				
+				coppieValori[countTessera][0] = row; // Salvataggio del valore di row nella posizione corretta del vettore
+				coppieValori[countTessera][1] = col; // Salvataggio del valore di col nella posizione corretta del vettore
+				
+				countTessera++;
 				
 			}
 			else{
@@ -614,6 +674,9 @@ public class FrontEnd extends JFrame {
 		txtNomeP4.setBounds(20, 189, 96, 19);
 		pnlSetPlayer.add(txtNomeP4);
 		
+
+		
+		
 		txtNomeP1.setVisible(false);
 		txtNomeP2.setVisible(false);
 		txtNomeP3.setVisible(false);
@@ -633,6 +696,7 @@ public class FrontEnd extends JFrame {
 					player=0;
 				}
 				lblTurnoPlayer.setText("Turno nr." + turno + " di: "+giocatori.get(player).getNome());//label che mostra a chi tocca giocare
+				
 				//switch per mostrare la tabella dell'obiettivo personale del player corrente
 				switch(player) {
 				case 0:
@@ -640,36 +704,66 @@ public class FrontEnd extends JFrame {
 					table_1.setVisible(false);
 					table_2.setVisible(false);
 					table_3.setVisible(false);
+					
+					tableLibreria_1.setVisible(true);
+					tableLibreria_2.setVisible(false);
+					tableLibreria_3.setVisible(false);
+					tableLibreria_4.setVisible(false);
 					break;
 				case 1:
 					table.setVisible(false);
 					table_1.setVisible(true);
 					table_2.setVisible(false);
 					table_3.setVisible(false);
+					
+					tableLibreria_1.setVisible(false);
+					tableLibreria_2.setVisible(true);
+					tableLibreria_3.setVisible(false);
+					tableLibreria_4.setVisible(false);
 					break;
 				case 2:
 					table.setVisible(false);
 					table_1.setVisible(false);
 					table_2.setVisible(true);
 					table_3.setVisible(false);
+					
+					tableLibreria_1.setVisible(false);
+					tableLibreria_2.setVisible(false);
+					tableLibreria_3.setVisible(true);
+					tableLibreria_4.setVisible(false);
 					break;
 				case 3: 
 					table.setVisible(false);
 					table_1.setVisible(false);
 					table_2.setVisible(false);
 					table_3.setVisible(true);
+					
+					tableLibreria_1.setVisible(false);
+					tableLibreria_2.setVisible(false);
+					tableLibreria_3.setVisible(false);
+					tableLibreria_4.setVisible(true);
 					break;
 			}
+				
+				
+				for(int i = 0; i<countTessera; i++) {
+					row = coppieValori[i][0];
+					col = coppieValori[i][1];
+					
+					if (row > 0 && Tavola.tavolaDaGioco[row - 1][col].getColor() != Color.BLACK) {
+			            Tavola.tavolaDaGioco[row - 1][col].setDisponibile(true);
+			        }
+			        if (row < Tavola.tavolaDaGioco.length - 1 && Tavola.tavolaDaGioco[row + 1][col].getColor() != Color.BLACK) {
+			            Tavola.tavolaDaGioco[row + 1][col].setDisponibile(true);
+			        }
+			        if (col > 0 && Tavola.tavolaDaGioco[row][col - 1].getColor() != Color.BLACK) {
+			            Tavola.tavolaDaGioco[row][col - 1].setDisponibile(true);
+			        }
+			        if (col < Tavola.tavolaDaGioco[0].length - 1 && Tavola.tavolaDaGioco[row][col + 1].getColor() != Color.BLACK) {
+			            Tavola.tavolaDaGioco[row][col + 1].setDisponibile(true);
+			        }
+				}
 				countTessera = 0;
-				for (int r = row - 1; r <= row + 1; r++) {
-		            for (int c = col - 1; c <= col + 1; c++) {
-		                if (r >= 0 && r < Tavola.tavolaDaGioco.length && c >= 0 && c < Tavola.tavolaDaGioco[0].length) {
-		                    if (Tavola.tavolaDaGioco[r][c].getColor() != Color.BLACK) {
-		                        Tavola.tavolaDaGioco[r][c].setDisponibile(true);
-		                    }
-		                }
-		            }
-		        }
 			}
 			
 		});
@@ -686,6 +780,11 @@ public class FrontEnd extends JFrame {
 				table_1.setVisible(false);
 				table_2.setVisible(false);
 				table_3.setVisible(false);
+				
+				tableLibreria_1.setVisible(true);
+				tableLibreria_2.setVisible(false);
+				tableLibreria_3.setVisible(false);
+				tableLibreria_4.setVisible(false);
 				
 				lblTurnoPlayer.setText("Turno nr." + turno + " di: "+giocatori.get(player).getNome());
 				btnProxTurno.setVisible(true);

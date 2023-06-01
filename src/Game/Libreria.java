@@ -15,11 +15,7 @@ public class Libreria {
 	 * Il costruttore della classe.
 	 */
 	public Libreria() {
-		for(int rig = 0; rig < 5; rig++) {
-			for(int col = 0; col < 4; col++) {
-		        libreria[rig][col].Colore = Color.YELLOW;
-		    }
-		}
+		
 	}
 
 	/**
@@ -46,4 +42,14 @@ public class Libreria {
 		return libreria;
 	}
 	
+	public Tessera[][] generaLibreria() {
+		
+		for (int i = 0; i < 6; i++) {
+			for (int j = 0; j < 5; j++) {
+				libreria[i][j].Colore = Color.black;
+				libreria[i][j].disponibile = false;
+			}
+		}
+		return libreria;
+	}
 }
