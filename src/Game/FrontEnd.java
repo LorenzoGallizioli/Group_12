@@ -51,6 +51,7 @@ import javax.swing.border.LineBorder;
 import java.util.Random;
 import java.util.stream.IntStream;
 import javax.swing.border.BevelBorder;
+
 /**
  * Definisce l'interfaccia grafica e controlla i componenti del gioco.
  * Gestice i turni, punti e giocatori
@@ -58,7 +59,7 @@ import javax.swing.border.BevelBorder;
  * @author davidedellanno
  */
 public class FrontEnd extends JFrame {
-
+	
 	private JFrame formMyShelfie;
 	private JTable tableTavola;
 	private JTextField txtNomeP1;
@@ -96,8 +97,7 @@ public class FrontEnd extends JFrame {
 	int turno = 1;
 	int player = 0;
 	int countTessera=0;
-	
-	int row, col;//coordinate dela tessera
+	int row, col; // Coordinate della tessera.
 	int row2, col2;
 	private JTable table_4;
 	private JTable tableLibreria;
@@ -106,13 +106,12 @@ public class FrontEnd extends JFrame {
 	private JTable tableLibreria_3;
 	private JTable tableLibreria_4;
 	
-	
 	/**
 	 * Inizializza i contenuti della finestra.
 	 */
 	private void initialize() {
 		
-		List<Giocatore> giocatori = new ArrayList<Giocatore>();//inizializza la lista dei giocatori
+		List<Giocatore> giocatori = new ArrayList<Giocatore>(); // Inizializza la lista dei giocatori.
 		TableCellRenderer obiColora = new CustomCellColore();
 		ImageRenderer imageRenderer = new ImageRenderer();
 		
@@ -120,22 +119,18 @@ public class FrontEnd extends JFrame {
 		formMyShelfie.setTitle("MY SHELFIE");
 		formMyShelfie.setBounds(100, 100, 1280, 771);
 		formMyShelfie.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		formMyShelfie.getContentPane().setLayout(null);
-		
-		
+		formMyShelfie.getContentPane().setLayout(null);	
 		
 		// Pannello selezione giocatori.
 		JPanel pnlSetPlayer = new JPanel();
 		pnlSetPlayer.setBackground(new Color(255, 255, 255));
 		pnlSetPlayer.setBounds(10, 130, 201, 382);
 		
-		
-		//panel mostra tessera selezionata
+		// Panel mostra tessera selezionata.
 		JPanel pnlMostraTessera = new JPanel();
 		pnlMostraTessera.setBorder(new LineBorder(new Color(0, 0, 0)));
 		pnlMostraTessera.setBounds(919, 320, 178, 277);
 		pnlMostraTessera.setLayout(null);
-		
 				
 		JLabel lblCellaSelezionata = new JLabel("");
 		lblCellaSelezionata.setBounds(10, 42, 181, 181);
@@ -150,7 +145,7 @@ public class FrontEnd extends JFrame {
 		lblStatoTessera.setBounds(10, 235, 158, 31);
 		pnlMostraTessera.add(lblStatoTessera);
 		
-		//panel main di sinistra che contiene mostra tessera e selezione giocatori
+		// Panel main di sinistra che contiene mostra tessera e selezione giocatori.
 		CardLayout cardLayout = new CardLayout();
 		JPanel pnlMainSx = new JPanel(cardLayout);
 		pnlMainSx.setBounds(10, 130, 201, 381);
@@ -158,8 +153,6 @@ public class FrontEnd extends JFrame {
 		pnlMainSx.add(pnlSetPlayer, "pnlSetPlayer");
 		pnlMainSx.add(pnlMostraTessera, "pnlMostraTessera");
 		pnlMainSx.setVisible(false);
-		
-		
 		
 		// Crea checkbox 2 GIOCATORI.
 		JCheckBox chckbxGiocatori2 = new JCheckBox("2 giocatori");
@@ -185,7 +178,6 @@ public class FrontEnd extends JFrame {
 		        if (chckbxGiocatori2.isSelected()) {
 		            chckbxGiocatori4.setSelected(false);
 		            chckbxGiocatori3.setSelected(false);
-		            
 		            // Textbox per l'inserimento dei nomi dei giocatori.
 					txtNomeP1.setVisible(true);
 					txtNomeP2.setVisible(true);
@@ -199,7 +191,6 @@ public class FrontEnd extends JFrame {
 		        if (chckbxGiocatori3.isSelected()) {
 		            chckbxGiocatori2.setSelected(false);
 		            chckbxGiocatori4.setSelected(false);
-		            
 					txtNomeP1.setVisible(true);
 					txtNomeP2.setVisible(true);
 					txtNomeP3.setVisible(true);
@@ -212,7 +203,6 @@ public class FrontEnd extends JFrame {
 		        if (chckbxGiocatori4.isSelected()) {
 		            chckbxGiocatori2.setSelected(false);
 		            chckbxGiocatori3.setSelected(false);
-		            
 					txtNomeP1.setVisible(true);
 					txtNomeP2.setVisible(true);
 					txtNomeP3.setVisible(true);
@@ -264,7 +254,7 @@ public class FrontEnd extends JFrame {
 		formMyShelfie.getContentPane().add(lblPuntiP4);
 		
 		
-		//Obiettivi personali giocatori.
+		// Obiettivi personali giocatori.
 		table = new JTable(6,5);
 		table.setBounds(919, 20, 141, 158);
 		formMyShelfie.getContentPane().add(table);
@@ -290,7 +280,7 @@ public class FrontEnd extends JFrame {
 		table_3.doLayout();
 		pnlSetPlayer.setVisible(false);
 		
-		//librerie giocatori.
+		// Librerie giocatori.
 		tableLibreria_1 = new JTable(6,5);
 		tableLibreria_1.setRowHeight(51);
 		tableLibreria_1.setBounds(919, 291, 308, 306);
@@ -311,7 +301,6 @@ public class FrontEnd extends JFrame {
 		tableLibreria_4.setBounds(919, 291, 308, 306);
 		formMyShelfie.getContentPane().add(tableLibreria_4);
 		
-		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(221, 25, 688, 572);
 		formMyShelfie.getContentPane().add(scrollPane);
@@ -324,7 +313,7 @@ public class FrontEnd extends JFrame {
 		tableTavola_1.doLayout();
 		tableTavola_1.setShowGrid(false);
 		
-		//bottone inizia partita
+		// Bottone inizia partita.
 		JButton btnIniziaPartita = new JButton("Inizia Partita");
 		btnIniziaPartita.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnIniziaPartita.setBounds(10, 10, 201, 47);
@@ -335,9 +324,7 @@ public class FrontEnd extends JFrame {
 		// Bottone conferma giocatori.
 		JButton btnConfermaSetPlayer = new JButton("Conferma");
 		btnConfermaSetPlayer.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				
+			public void actionPerformed(ActionEvent e) {		
 				// Genero 2 obiettivi comuni.
 				ObiettivoComune obc1 = generaObiettivoCollettivo();
 				ObiettivoComune obc2;
@@ -354,9 +341,9 @@ public class FrontEnd extends JFrame {
 				ImageRendererGiocatori renderer = new ImageRendererGiocatori();
 				if (chckbxGiocatori4.isSelected() == true) {
 					Tavola.numPlayers = 4;
-					giocatori.clear(); // Pulisco la lista.
+					giocatori.clear();
 					
-					//inserisco i giocatori nella lista
+					// Inserisco i giocatori nella lista.
 					Giocatore g1 = new Giocatore(txtNomeP1.getText(),01,0,true);
 					Giocatore g2 = new Giocatore(txtNomeP2.getText(),02,0,false);
 					Giocatore g3 = new Giocatore(txtNomeP3.getText(),03,0,false);
@@ -367,12 +354,13 @@ public class FrontEnd extends JFrame {
 					giocatori.add(g3);
 					giocatori.add(g4);
 					
-					//tabelle obiettivi personali
+					// Tabelle obiettivi personali.
 					table.setVisible(false);
 					table_1.setVisible(false);
 					table_2.setVisible(false);
 					table_3.setVisible(false);
 					
+					// Librerie.
 					tableLibreria_1.setVisible(false);
 					tableLibreria_2.setVisible(false);
 					tableLibreria_3.setVisible(false);
@@ -428,16 +416,12 @@ public class FrontEnd extends JFrame {
 								}
 							}
 						}
-					}
-					
+					}		
 				}		
 					
-					
-				
 				if (chckbxGiocatori3.isSelected() == true) {
 					Tavola.numPlayers = 3;
-					
-					giocatori.clear();// Pulisco la lista.
+					giocatori.clear();
 					
 					Giocatore g1 = new Giocatore(txtNomeP1.getText(),01,0,true);
 					Giocatore g2 = new Giocatore(txtNomeP2.getText(),02,0,false);
@@ -452,25 +436,25 @@ public class FrontEnd extends JFrame {
 					table_2.setVisible(false);
 					table_3.setVisible(false);
 					
-					for(int i = 0; i<3; i++) {
+					for (int i = 0; i<3; i++) {
 						JTable tableVarObiettivo = null;
 						JTable tableVarLibreria = null;
 						
 						switch(i) {
-						case 0:
-							tableVarObiettivo = table;
-							tableVarLibreria = tableLibreria_1;
-							break;
-						case 1:
-							tableVarObiettivo = table_1;
-							tableVarLibreria = tableLibreria_2;
-							break;
-						case 2:
-							tableVarObiettivo = table_2;
-							tableVarLibreria = tableLibreria_3;
-							break;
+							case 0:
+								tableVarObiettivo = table;
+								tableVarLibreria = tableLibreria_1;
+								break;
+							case 1:
+								tableVarObiettivo = table_1;
+								tableVarLibreria = tableLibreria_2;
+								break;
+							case 2:
+								tableVarObiettivo = table_2;
+								tableVarLibreria = tableLibreria_3;
+								break;
 						}
-						if(tableVarLibreria !=null) {
+						if (tableVarLibreria !=null) {
 							for (int row = 0; row < 6; row++) {
 							    for (int col = 0; col < 5; col++) {
 							        Color cellColor = giocatori.get(i).getObiettivo()[row][col].getColor(); // Prendo il colore di una determinata posizione della matrice.
@@ -483,7 +467,7 @@ public class FrontEnd extends JFrame {
 							    }
 							}
 						}
-						if(tableVarLibreria !=null) {
+						if (tableVarLibreria !=null) {
 							for(int row = 0; row<6;row++) {
 								for(int col = 0; col<5;col++) {
 									Color cellColor2 = giocatori.get(i).getLibreria()[row][col].getColor();
@@ -501,8 +485,8 @@ public class FrontEnd extends JFrame {
 
 				if (chckbxGiocatori2.isSelected() == true) {
 					Tavola.numPlayers = 2;
-
-					giocatori.clear(); // Pulisco la lista.
+					
+					giocatori.clear();
 
 					Giocatore g1 = new Giocatore(txtNomeP1.getText(), 01, 0, true);
 					Giocatore g2 = new Giocatore(txtNomeP2.getText(), 02, 0, false);
@@ -520,14 +504,14 @@ public class FrontEnd extends JFrame {
 						JTable tableVarLibreria = null;
 
 						switch (i) {
-						case 0:
-							tableVarObiettivo = table;
-							tableVarLibreria = tableLibreria_1;
-							break;
-						case 1:
-							tableVarObiettivo = table_1;
-							tableVarLibreria = tableLibreria_2;
-							break;
+							case 0:
+								tableVarObiettivo = table;
+								tableVarLibreria = tableLibreria_1;
+								break;
+							case 1:
+								tableVarObiettivo = table_1;
+								tableVarLibreria = tableLibreria_2;
+								break;
 						}
 						if (tableVarLibreria != null) {
 							for (int row = 0; row < 6; row++) {
@@ -542,9 +526,9 @@ public class FrontEnd extends JFrame {
 								}
 							}
 						}
-						if(tableVarLibreria !=null) {
-							for(int row = 0; row<6;row++) {
-								for(int col = 0; col<5;col++) {
+						if (tableVarLibreria !=null) {
+							for (int row = 0; row<6;row++) {
+								for (int col = 0; col<5;col++) {
 									Color cellColor2 = giocatori.get(i).getLibreria()[row][col].getColor();
 									tableVarLibreria.setValueAt(cellColor2, row, col);
 									tableVarLibreria.getColumnModel().getColumn(col).setCellRenderer(obiColora); // Applico il colore alla casella utilizzando la classe CustomCellColore.
@@ -586,23 +570,16 @@ public class FrontEnd extends JFrame {
 						lblNomeP3.setVisible(true);
 					}
 					
-					
 					pnlSetPlayer.setVisible(false);
 					tableTavola_1.setVisible(true);
 					
-					Tavola.generaTavola();//genero la tavola da gioco
-					Tavola.aggiornaTavola(tableTavola_1, obiColora, imageRenderer);//mostro a schermo la tavola da gioco
+					Tavola.generaTavola();// Genero la tavola da gioco.
+					Tavola.aggiornaTavola(tableTavola_1, obiColora, imageRenderer);// Mostro a schermo la tavola da gioco.
 					
 				}
-			
-			
 		});
 		
-				
-				
-
-		
-				//listener del bottone prossimo turno
+				// Listener del bottone prossimo turno.
 				JButton btnProxTurno = new JButton("Finisci il turno");
 				btnProxTurno.setFont(new Font("Tahoma", Font.PLAIN, 16));
 				btnProxTurno.setBounds(10, 522, 201, 75);
@@ -620,8 +597,8 @@ public class FrontEnd extends JFrame {
 				formMyShelfie.getContentPane().add(btnSelezioneGiocatori);
 				pnlSetPlayer.setLayout(null);
 				btnSelezioneGiocatori.addActionListener(new ActionListener() {
+					
 					public void actionPerformed(ActionEvent e) {
-						
 						pnlMainSx.setVisible(true);
 						cardLayout.show(pnlMainSx, "pnlSetPlayer");
 						
@@ -648,18 +625,16 @@ public class FrontEnd extends JFrame {
 				tableTavola_1.addMouseListener(new MouseAdapter() {
 	            @Override
 	            public void mouseClicked(MouseEvent e) {
-	                // Ottenere l'indice di riga e colonna corrispondente al punto del clic
+	            	
+	                // Ottenere l'indice di riga e colonna corrispondente al punto del clic.
 	            	row = tableTavola_1.rowAtPoint(e.getPoint());
 	                col = tableTavola_1.columnAtPoint(e.getPoint());
 	                
-	                
-	                
-	                if (row != -1 && col != -1) {
-	                    // Ottenere il valore della cella selezionata
-	                   
+	                if (row != -1 && col != -1) {	              
+	                	// Ottenere il valore della cella selezionata.
 	                    System.out.println("Valore della cella selezionata: " + Tavola.tavolaDaGioco[row][col].getColor());
 
-	                    // Esempio di utilizzo delle coordinate per ottenere un'immagine
+	                    // Esempio di utilizzo delle coordinate per ottenere un'immagine.
 	                    ImageIcon pic = Images.Image.sceltaImmagine(Tavola.tavolaDaGioco[row][col].getColor());
 	                    lblCellaSelezionata.setText("");
 	                    pnlMostraTessera.setVisible(true);
@@ -671,16 +646,11 @@ public class FrontEnd extends JFrame {
 	                    else {
 	                    	lblStatoTessera.setText("Non può essere raccolta");
 	                    }
-	                    
 	                }
-	                
-	                
-	                
-	                
 	            }
 	        });
 				ImageRendererGiocatori renderer = new ImageRendererGiocatori();
-				//gestione libreria player 1
+				// Gestione libreria player 1.
 				tableLibreria_1.addMouseListener(new MouseAdapter() {
 		            @Override
 		            public void mouseClicked(MouseEvent e) {
@@ -688,11 +658,10 @@ public class FrontEnd extends JFrame {
 		                col2 = tableLibreria_1.columnAtPoint(e.getPoint());
 
 		            	if (row2 != -1 && col2 != -1) {
-		                    // Ottenere il valore della cella selezionata
-		                   
+		            		// Ottenere il valore della cella selezionata.
 		                    System.out.println("Valore della cella libreria selezionata: " + Tavola.tavolaDaGioco[row][col].getColor());
 
-		                    // Esempio di utilizzo delle coordinate per ottenere un'immagine
+		                    // Esempio di utilizzo delle coordinate per ottenere un'immagine.
 		                    ImageIcon pic = Images.Image.sceltaImmagine(giocatori.get(player).getLibreria()[row2][col2].getColor());
 		                    lblCellaSelezionata.setText("");
 		                    pnlMostraTessera.setVisible(true);
@@ -710,11 +679,10 @@ public class FrontEnd extends JFrame {
 		                    	giocatori.get(player).getLibreria()[row2][col2+1].setDisponibile(true);
 		                    }
 		                }
-		            	
 		            }
 				});
 				
-				//gestione libreria player 2
+				// Gestione libreria player 2.
 				tableLibreria_2.addMouseListener(new MouseAdapter() {
 		            @Override
 		            public void mouseClicked(MouseEvent e) {
@@ -722,11 +690,10 @@ public class FrontEnd extends JFrame {
 		                col2 = tableLibreria_2.columnAtPoint(e.getPoint());
 
 		            	if (row2 != -1 && col2 != -1) {
-		                    // Ottenere il valore della cella selezionata
-		                   
+		            		// Ottenere il valore della cella selezionata.
 		                    System.out.println("Valore della cella libreria selezionata: " + Tavola.tavolaDaGioco[row][col].getColor());
 
-		                    // Esempio di utilizzo delle coordinate per ottenere un'immagine
+		                    // Esempio di utilizzo delle coordinate per ottenere un'immagine.
 		                    ImageIcon pic = Images.Image.sceltaImmagine(giocatori.get(player).getLibreria()[row2][col2].getColor());
 		                    lblCellaSelezionata.setText("");
 		                    pnlMostraTessera.setVisible(true);
@@ -742,15 +709,12 @@ public class FrontEnd extends JFrame {
 		                    }
 		                    if(col2+1<5) {
 		                    	giocatori.get(player).getLibreria()[row2][col2+1].setDisponibile(true);
-		                    }
-		                    
-		                    
+		                    }    
 		                }
-		            	
 		            }
 				});
 				
-				//gestione libreria player 3
+				// Gestione libreria player 3.
 				tableLibreria_3.addMouseListener(new MouseAdapter() {
 		            @Override
 		            public void mouseClicked(MouseEvent e) {
@@ -758,11 +722,10 @@ public class FrontEnd extends JFrame {
 		                col2 = tableLibreria_3.columnAtPoint(e.getPoint());
 
 		            	if (row2 != -1 && col2 != -1) {
-		                    // Ottenere il valore della cella selezionata
-		                   
+		            		// Ottenere il valore della cella selezionata.            
 		                    System.out.println("Valore della cella libreria selezionata: " + Tavola.tavolaDaGioco[row][col].getColor());
 
-		                    // Esempio di utilizzo delle coordinate per ottenere un'immagine
+		                    // Esempio di utilizzo delle coordinate per ottenere un'immagine.
 		                    ImageIcon pic = Images.Image.sceltaImmagine(giocatori.get(player).getLibreria()[row2][col2].getColor());
 		                    lblCellaSelezionata.setText("");
 		                    pnlMostraTessera.setVisible(true);
@@ -778,14 +741,12 @@ public class FrontEnd extends JFrame {
 		                    }
 		                    if(col2+1<5) {
 		                    	giocatori.get(player).getLibreria()[row2][col2+1].setDisponibile(true);
-		                    }
-		                    
+		                    }           
 		                }
-		            	
 		            }
 				});
 				
-				//gestione libreria player 4
+				// Gestione libreria player 4.
 				tableLibreria_4.addMouseListener(new MouseAdapter() {
 		            @Override
 		            public void mouseClicked(MouseEvent e) {
@@ -793,11 +754,10 @@ public class FrontEnd extends JFrame {
 		                col2 = tableLibreria_4.columnAtPoint(e.getPoint());
 
 		            	if (row2 != -1 && col2 != -1) {
-		                    // Ottenere il valore della cella selezionata
-		                   
+		            		// Ottenere il valore della cella selezionata.
 		                    System.out.println("Valore della cella libreria selezionata: " + Tavola.tavolaDaGioco[row][col].getColor());
 
-		                    // Esempio di utilizzo delle coordinate per ottenere un'immagine
+		                    // Esempio di utilizzo delle coordinate per ottenere un'immagine.
 		                    ImageIcon pic = Images.Image.sceltaImmagine(giocatori.get(player).getLibreria()[row2][col2].getColor());
 		                    lblCellaSelezionata.setText("");
 		                    pnlMostraTessera.setVisible(true);
@@ -815,60 +775,55 @@ public class FrontEnd extends JFrame {
 		                    if(col2+1<5) {
 		                    	giocatori.get(player).getLibreria()[row2][col2+1].setDisponibile(true);
 		                    }
-		                }
-		            	
+		                }      	
 		            }
-				});
-				
-				
+				});		
 				
 		int[][] coppieValori = new int[3][2];
-		
 		JButton btnAggTessera = new JButton("Aggiungi alla tua libreria");
 		btnAggTessera.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		btnAggTessera.setBounds(10, 332, 181, 38);
 		pnlMostraTessera.add(btnAggTessera);
+		
+		// Listener bottone "aggiungi alla tua libreria".
 		btnAggTessera.addActionListener(new ActionListener() {
-		public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent e) {
 			
-			if(Tavola.tavolaDaGioco[row][col].getDisponibile()==true && countTessera<3 && giocatori.get(player).getLibreria()[row2][col2].getDisponibile()==true) {
+				if (Tavola.tavolaDaGioco[row][col].getDisponibile()==true && countTessera<3 && giocatori.get(player).getLibreria()[row2][col2].getDisponibile()==true) {
 				
-				Tavola.tavolaDaGioco[row][col].setDisponibile(false);
-				giocatori.get(player).getLibreria()[row2][col2] = Tavola.tavolaDaGioco[row][col];
+					Tavola.tavolaDaGioco[row][col].setDisponibile(false);
+					giocatori.get(player).getLibreria()[row2][col2] = Tavola.tavolaDaGioco[row][col];
 				
+					switch(player) {
+						case 0:
+							giocatori.get(player).aggiornaLibreria(tableLibreria_1, obiColora, imageRendObi);
+							break;
+						case 1:
+							giocatori.get(player).aggiornaLibreria(tableLibreria_2, obiColora, imageRendObi);
+							break;
+						case 2:
+							giocatori.get(player).aggiornaLibreria(tableLibreria_3, obiColora, imageRendObi);
+							break;
+						case 3:
+							giocatori.get(player).aggiornaLibreria(tableLibreria_4, obiColora, imageRendObi);
+							break;
+					}
 				
-				switch(player) {
-				case 0:
-					giocatori.get(player).aggiornaLibreria(tableLibreria_1, obiColora, imageRendObi);
-					break;
-				case 1:
-					giocatori.get(player).aggiornaLibreria(tableLibreria_2, obiColora, imageRendObi);
-					break;
-				case 2:
-					giocatori.get(player).aggiornaLibreria(tableLibreria_3, obiColora, imageRendObi);
-					break;
-				case 3:
-					giocatori.get(player).aggiornaLibreria(tableLibreria_4, obiColora, imageRendObi);
-					break;
+					Tavola.tavolaDaGioco[row][col] = new Tessera(Color.black, false);
+					Tavola.aggiornaTavola(tableTavola_1, obiColora, imageRenderer);//aggiorno la tavola
+				
+					coppieValori[countTessera][0] = row; // Salvataggio del valore di row nella posizione corretta del vettore
+					coppieValori[countTessera][1] = col; // Salvataggio del valore di col nella posizione corretta del vettore
+				
+					ImageIcon pic = Images.Image.sceltaImmagine(Tavola.tavolaDaGioco[row][col].getColor());
+					ImageIcon picResized = Image.scaleImage(pic, 200, 200);  
+					lblCellaSelezionata.setIcon(picResized);
+					countTessera++;
 				}
-				
-				
-				Tavola.tavolaDaGioco[row][col] = new Tessera(Color.black, false);
-				Tavola.aggiornaTavola(tableTavola_1, obiColora, imageRenderer);//aggiorno la tavola
-				
-				coppieValori[countTessera][0] = row; // Salvataggio del valore di row nella posizione corretta del vettore
-				coppieValori[countTessera][1] = col; // Salvataggio del valore di col nella posizione corretta del vettore
-				
-				ImageIcon pic = Images.Image.sceltaImmagine(Tavola.tavolaDaGioco[row][col].getColor());
-				ImageIcon picResized = Image.scaleImage(pic, 200, 200);  
-				lblCellaSelezionata.setIcon(picResized);
-				countTessera++;
-				
-			}
-			else{
-				System.out.println("Tessera non raccoglibile o hai finito il nr. di tessere per il turno");
-			}
 			
+				else {
+					System.out.println("Tessera non raccoglibile o hai finito il nr. di tessere per il turno");
+				}
 			}
 		});
 		
@@ -902,80 +857,76 @@ public class FrontEnd extends JFrame {
 		txtNomeP4.setText("P4");
 		txtNomeP4.setColumns(10);
 		txtNomeP4.setBounds(20, 189, 96, 19);
-		pnlSetPlayer.add(txtNomeP4);
-		
-
-		
-
-		
+		pnlSetPlayer.add(txtNomeP4);		
 		
 		txtNomeP1.setVisible(false);
 		txtNomeP2.setVisible(false);
 		txtNomeP3.setVisible(false);
 		txtNomeP4.setVisible(false);
 		
+		// Listener bottone "prossimo turno".
 		btnProxTurno.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//controllo se tutti i giocatori hanno giocato il turno
+				// Controllo se tutti i giocatori hanno giocato il turno.
 				if(player<giocatori.size()-1) {
-					//se non è stato completato il giro, incremento player, così da passare al prossimo giocatore
+					// Se non è stato completato il giro, incremento player, così da passare al prossimo giocatore.
 					player++;
 				}
-				//se tutti i giocatori hanno svolto il loro turno
+				// Se tutti i giocatori hanno svolto il loro turno.
 				else if(player>=giocatori.size()-1) {
-					//se tutti i player hanno giocato il turno, resetto il counter player e incremento il turno di 1
+					// Se tutti i player hanno giocato il turno, resetto il counter player e incremento il turno di 1.
 					turno++;
 					player=0;
 				}
-				lblTurnoPlayer.setText("Turno nr." + turno + " di: "+giocatori.get(player).getNome());//label che mostra a chi tocca giocare
+				lblTurnoPlayer.setText("Turno nr." + turno + " di: "+giocatori.get(player).getNome());// Label che mostra a chi tocca giocare.
 				
-				//switch per mostrare la tabella dell'obiettivo personale del player corrente
+				// Switch per mostrare la tabella dell'obiettivo personale del player corrente.
 				switch(player) {
-				case 0:
-					table.setVisible(true);
-					table_1.setVisible(false);
-					table_2.setVisible(false);
-					table_3.setVisible(false);
+					case 0:
+						table.setVisible(true);
+						table_1.setVisible(false);
+						table_2.setVisible(false);
+						table_3.setVisible(false);
 					
-					tableLibreria_1.setVisible(true);
-					tableLibreria_2.setVisible(false);
-					tableLibreria_3.setVisible(false);
-					tableLibreria_4.setVisible(false);
-					break;
-				case 1:
-					table.setVisible(false);
-					table_1.setVisible(true);
-					table_2.setVisible(false);
-					table_3.setVisible(false);
+						tableLibreria_1.setVisible(true);
+						tableLibreria_2.setVisible(false);
+						tableLibreria_3.setVisible(false);
+						tableLibreria_4.setVisible(false);
+						break;
+					case 1:
+						table.setVisible(false);
+						table_1.setVisible(true);
+						table_2.setVisible(false);
+						table_3.setVisible(false);
 					
-					tableLibreria_1.setVisible(false);
-					tableLibreria_2.setVisible(true);
-					tableLibreria_3.setVisible(false);
-					tableLibreria_4.setVisible(false);
-					break;
-				case 2:
-					table.setVisible(false);
-					table_1.setVisible(false);
-					table_2.setVisible(true);
-					table_3.setVisible(false);
+						tableLibreria_1.setVisible(false);
+						tableLibreria_2.setVisible(true);
+						tableLibreria_3.setVisible(false);
+						tableLibreria_4.setVisible(false);
+						break;
+					case 2:
+						table.setVisible(false);
+						table_1.setVisible(false);
+						table_2.setVisible(true);
+						table_3.setVisible(false);
 					
-					tableLibreria_1.setVisible(false);
-					tableLibreria_2.setVisible(false);
-					tableLibreria_3.setVisible(true);
-					tableLibreria_4.setVisible(false);
-					break;
-				case 3: 
-					table.setVisible(false);
-					table_1.setVisible(false);
-					table_2.setVisible(false);
-					table_3.setVisible(true);
+						tableLibreria_1.setVisible(false);
+						tableLibreria_2.setVisible(false);
+						tableLibreria_3.setVisible(true);
+						tableLibreria_4.setVisible(false);
+						break;
+					case 3: 
+						table.setVisible(false);
+						table_1.setVisible(false);
+						table_2.setVisible(false);
+						table_3.setVisible(true);
 					
-					tableLibreria_1.setVisible(false);
-					tableLibreria_2.setVisible(false);
-					tableLibreria_3.setVisible(false);
-					tableLibreria_4.setVisible(true);
-					break;
-			}
+						tableLibreria_1.setVisible(false);
+						tableLibreria_2.setVisible(false);
+						tableLibreria_3.setVisible(false);
+						tableLibreria_4.setVisible(true);
+						break;
+				}
 				
 				
 				for(int i = 0; i<countTessera; i++) {
@@ -1000,14 +951,16 @@ public class FrontEnd extends JFrame {
 			
 		});
 
+		// Listener bottone "Inizia partita".
 		btnIniziaPartita.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
+				
 				cardLayout.show(pnlMainSx, "pnlMostraTessera");
 				
-				player =0;
-				turno=1;
-				//mostro l'obiettivo personale del primo player
+				player = 0;
+				turno = 1;
+				
+				// Mostro l'obiettivo personale del primo player.
 				table.setVisible(true);
 				table_1.setVisible(false);
 				table_2.setVisible(false);
@@ -1018,14 +971,11 @@ public class FrontEnd extends JFrame {
 				tableLibreria_3.setVisible(false);
 				tableLibreria_4.setVisible(false);
 				
-				lblTurnoPlayer.setText("Turno nr." + turno + " di: "+giocatori.get(player).getNome());
+				lblTurnoPlayer.setText("Turno nr." + turno + " di: " + giocatori.get(player).getNome());
 				btnProxTurno.setVisible(true);
 				lblTurnoPlayer.setVisible(true);
 			}
 		});
-		
-		
-		
 	}
 	
 	/**
@@ -1036,42 +986,42 @@ public class FrontEnd extends JFrame {
 		int nObiettivo = rand.nextInt(1,13);
 		ObiettivoComune obiettivo = null;
 		switch(nObiettivo) {
-		case 1:
-			obiettivo = new Obiettivo1();
-			break;
-		case 2:
-			obiettivo = new Obiettivo2();
-			break;
-		case 3:
-			obiettivo = new Obiettivo3();
-			break;
-		case 4:
-			obiettivo = new Obiettivo4();
-			break;
-		case 5:
-			obiettivo = new Obiettivo5();
-			break;
-		case 6:
-			obiettivo = new Obiettivo6();
-			break;
-		case 7:
-			obiettivo = new Obiettivo7();
-			break;
-		case 8:
-			obiettivo = new Obiettivo8();
-			break;
-		case 9:
-			obiettivo = new Obiettivo9();
-			break;
-		case 10:
-			obiettivo = new Obiettivo10();
-			break;
-		case 11:
-			obiettivo = new Obiettivo11();
-			break;
-		case 12:
-			obiettivo = new Obiettivo12();
-			break;
+			case 1:
+				obiettivo = new Obiettivo1();
+				break;
+			case 2:
+				obiettivo = new Obiettivo2();
+				break;
+			case 3:
+				obiettivo = new Obiettivo3();
+				break;
+			case 4:
+				obiettivo = new Obiettivo4();
+				break;
+			case 5:			
+				obiettivo = new Obiettivo5();
+				break;
+			case 6:	
+				obiettivo = new Obiettivo6();
+				break;
+			case 7:
+				obiettivo = new Obiettivo7();
+				break;
+			case 8:
+				obiettivo = new Obiettivo8();
+				break;
+			case 9:
+				obiettivo = new Obiettivo9();
+				break;
+			case 10:
+				obiettivo = new Obiettivo10();
+				break;
+			case 11:
+				obiettivo = new Obiettivo11();
+				break;
+			case 12:
+				obiettivo = new Obiettivo12();
+				break;
 		}		
 		return obiettivo;
 	}

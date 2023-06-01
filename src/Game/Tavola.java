@@ -20,6 +20,7 @@ public class Tavola{
 	static int  numPlayers = 0;
 	
 	public static Tessera[][] tavolaDaGioco = new Tessera[9][9];
+	
 	/**
 	 * Costruttore della classe Tavola.
 	 */
@@ -116,65 +117,64 @@ public class Tavola{
 		
 		// Definisco il campo da gioco a seconda del numero di giocatori.
 		switch(numPlayers) {
-		
-		// Se si gioca in 2 rimuovo le caselle destinate a 3 e 4 giocatori.
-		case 2:
-			tavolaDaGioco[4][0] = new Tessera(Color.BLACK,false);
-			tavolaDaGioco[3][1] = new Tessera(Color.BLACK,false);
-			tavolaDaGioco[7][3] = new Tessera(Color.BLACK,false);
-			tavolaDaGioco[0][4] = new Tessera(Color.BLACK,false);
-			tavolaDaGioco[8][4] = new Tessera(Color.BLACK,false);
-			tavolaDaGioco[1][5] = new Tessera(Color.BLACK,false);
-			tavolaDaGioco[5][7] = new Tessera(Color.BLACK,false);
-			tavolaDaGioco[4][8] = new Tessera(Color.BLACK,false);
-			tavolaDaGioco[5][0] = new Tessera(Color.BLACK,false);
-			tavolaDaGioco[2][2] = new Tessera(Color.BLACK,false);
-			tavolaDaGioco[6][2] = new Tessera(Color.BLACK,false);
-			tavolaDaGioco[0][3] = new Tessera(Color.BLACK,false);
-			tavolaDaGioco[8][5] = new Tessera(Color.BLACK,false);
-			tavolaDaGioco[2][6] = new Tessera(Color.BLACK,false);
-			tavolaDaGioco[6][6] = new Tessera(Color.BLACK,false);
-			tavolaDaGioco[3][8] = new Tessera(Color.BLACK,false);
+			// Se si gioca in 2 rimuovo le caselle destinate a 3 e 4 giocatori.
+			case 2:
+				tavolaDaGioco[4][0] = new Tessera(Color.BLACK,false);
+				tavolaDaGioco[3][1] = new Tessera(Color.BLACK,false);
+				tavolaDaGioco[7][3] = new Tessera(Color.BLACK,false);
+				tavolaDaGioco[0][4] = new Tessera(Color.BLACK,false);
+				tavolaDaGioco[8][4] = new Tessera(Color.BLACK,false);
+				tavolaDaGioco[1][5] = new Tessera(Color.BLACK,false);
+				tavolaDaGioco[5][7] = new Tessera(Color.BLACK,false);
+				tavolaDaGioco[4][8] = new Tessera(Color.BLACK,false);
+				tavolaDaGioco[5][0] = new Tessera(Color.BLACK,false);
+				tavolaDaGioco[2][2] = new Tessera(Color.BLACK,false);
+				tavolaDaGioco[6][2] = new Tessera(Color.BLACK,false);
+				tavolaDaGioco[0][3] = new Tessera(Color.BLACK,false);
+				tavolaDaGioco[8][5] = new Tessera(Color.BLACK,false);
+				tavolaDaGioco[2][6] = new Tessera(Color.BLACK,false);
+				tavolaDaGioco[6][6] = new Tessera(Color.BLACK,false);
+				tavolaDaGioco[3][8] = new Tessera(Color.BLACK,false);
 			
-			tavolaDaGioco[1][4] = new Tessera(Color.WHITE,true);
-			tavolaDaGioco[2][3] = new Tessera(Color.WHITE,true);
-			tavolaDaGioco[3][2] = new Tessera(Color.WHITE,true);
-			tavolaDaGioco[4][1] = new Tessera(Color.WHITE,true);
-			tavolaDaGioco[5][2] = new Tessera(Color.WHITE,true);
-			tavolaDaGioco[6][3] = new Tessera(Color.WHITE,true);
-			tavolaDaGioco[7][4] = new Tessera(Color.WHITE,true);
-			tavolaDaGioco[6][5] = new Tessera(Color.WHITE,true);
-			tavolaDaGioco[5][6] = new Tessera(Color.WHITE,true);
-			tavolaDaGioco[4][7] = new Tessera(Color.WHITE,true);
-			tavolaDaGioco[3][6] = new Tessera(Color.WHITE,true);
-			tavolaDaGioco[2][5] = new Tessera(Color.WHITE,true);
-			tavolaDaGioco[7][4] = new Tessera(Color.WHITE,true);
-			break;
+				tavolaDaGioco[1][4] = new Tessera(Color.WHITE,true);
+				tavolaDaGioco[2][3] = new Tessera(Color.WHITE,true);
+				tavolaDaGioco[3][2] = new Tessera(Color.WHITE,true);
+				tavolaDaGioco[4][1] = new Tessera(Color.WHITE,true);
+				tavolaDaGioco[5][2] = new Tessera(Color.WHITE,true);
+				tavolaDaGioco[6][3] = new Tessera(Color.WHITE,true);
+				tavolaDaGioco[7][4] = new Tessera(Color.WHITE,true);
+				tavolaDaGioco[6][5] = new Tessera(Color.WHITE,true);
+				tavolaDaGioco[5][6] = new Tessera(Color.WHITE,true);
+				tavolaDaGioco[4][7] = new Tessera(Color.WHITE,true);
+				tavolaDaGioco[3][6] = new Tessera(Color.WHITE,true);
+				tavolaDaGioco[2][5] = new Tessera(Color.WHITE,true);
+				tavolaDaGioco[7][4] = new Tessera(Color.WHITE,true);
+				break;
 			
-		// Se si gioca in 3 rimuovo le caselle destinate a 4 giocatori.
-		case 3:
-			tavolaDaGioco[4][0] = new Tessera(Color.BLACK,false);
-			tavolaDaGioco[3][1] = new Tessera(Color.BLACK,false);
-			tavolaDaGioco[7][3] = new Tessera(Color.BLACK,false);
-			tavolaDaGioco[0][4] = new Tessera(Color.BLACK,false);
-			tavolaDaGioco[8][4] = new Tessera(Color.BLACK,false);
-			tavolaDaGioco[1][5] = new Tessera(Color.BLACK,false);
-			tavolaDaGioco[5][7] = new Tessera(Color.BLACK,false);
-			tavolaDaGioco[4][8] = new Tessera(Color.BLACK,false);
+				// Se si gioca in 3 rimuovo le caselle destinate a 4 giocatori.
+			case 3:
+				tavolaDaGioco[4][0] = new Tessera(Color.BLACK,false);
+				tavolaDaGioco[3][1] = new Tessera(Color.BLACK,false);
+				tavolaDaGioco[7][3] = new Tessera(Color.BLACK,false);
+				tavolaDaGioco[0][4] = new Tessera(Color.BLACK,false);
+				tavolaDaGioco[8][4] = new Tessera(Color.BLACK,false);
+				tavolaDaGioco[1][5] = new Tessera(Color.BLACK,false);
+				tavolaDaGioco[5][7] = new Tessera(Color.BLACK,false);
+				tavolaDaGioco[4][8] = new Tessera(Color.BLACK,false);
 			
-			tavolaDaGioco[3][2] = new Tessera(Color.WHITE,true);
-			tavolaDaGioco[4][1] = new Tessera(Color.WHITE,true);
-			tavolaDaGioco[7][4] = new Tessera(Color.WHITE,true);
-			tavolaDaGioco[5][6] = new Tessera(Color.WHITE,true);
-			tavolaDaGioco[4][7] = new Tessera(Color.WHITE,true);
-			tavolaDaGioco[2][5] = new Tessera(Color.WHITE,true);
-			tavolaDaGioco[1][4] = new Tessera(Color.WHITE,true);
-			tavolaDaGioco[6][3] = new Tessera(Color.WHITE,true);
-			break;
+				tavolaDaGioco[3][2] = new Tessera(Color.WHITE,true);
+				tavolaDaGioco[4][1] = new Tessera(Color.WHITE,true);
+				tavolaDaGioco[7][4] = new Tessera(Color.WHITE,true);
+				tavolaDaGioco[5][6] = new Tessera(Color.WHITE,true);
+				tavolaDaGioco[4][7] = new Tessera(Color.WHITE,true);
+				tavolaDaGioco[2][5] = new Tessera(Color.WHITE,true);
+				tavolaDaGioco[1][4] = new Tessera(Color.WHITE,true);
+				tavolaDaGioco[6][3] = new Tessera(Color.WHITE,true);
+				break;
 			
-		// Se si gioca in 4 mantengo tutte le caselle.
-		default:		
-			break;
+			// Se si gioca in 4 mantengo tutte le caselle.
+			default:		
+				break;
 		}
 		
 	}
@@ -182,7 +182,6 @@ public class Tavola{
 	/**
 	 * Metodo che permette di generatre la tavola in modo randomico. 
 	 */
-	
 	public static void generaTavola() {
 		Tavola tavola = new Tavola();
 		Color[] colori = {Color.green, Color.WHITE, Color.yellow, Color.CYAN, Color.blue, Color.PINK};
@@ -197,9 +196,17 @@ public class Tavola{
 		}
 	}
 	
+	/**
+	 * Aggiorna la tavola.
+	 * 
+	 * @param tableTavola_1
+	 * 	 La JTable.
+	 * @param cellColora
+	 * 	 Il colore da applicare.
+	 * @param imageRenderer
+	 * 	 L'immagine.
+	 */
 	public static void aggiornaTavola(JTable tableTavola_1, TableCellRenderer cellColora, TableCellRenderer imageRenderer) {	
-
-		
 		// Scansiono tutta la matrice.
 		for (int row = 0; row < 9; row++) {
 		    for (int col = 0; col < 9; col++) {

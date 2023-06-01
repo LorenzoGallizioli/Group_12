@@ -36,14 +36,19 @@ public class Libreria {
 	 * Restituisce la libreria.
 	 * 
 	 * @return libreria
-	 * 	 La libreria
+	 * 	 La libreria.
 	 */
 	public Tessera[][] getLibreria() {
 		return libreria;
 	}
 	
-	public Tessera[][] generaLibreria() {
-		
+	/**
+	 * Genera una libreria vuota.
+	 * 
+	 * @return
+	 * 	 La libreria.
+	 */
+	public Tessera[][] generaLibreria() {	
 		for (int i = 0; i < 6; i++) {
 			for (int j = 0; j < 5; j++) {
 				libreria[i][j].Colore = Color.black;

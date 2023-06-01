@@ -14,6 +14,7 @@ public class Tessera{
 	
 	protected Color Colore;
 	protected Boolean disponibile;
+	
 	/**
 	 * Il costruttore della classe.
 	 * 
@@ -25,7 +26,6 @@ public class Tessera{
 		this.disponibile = disponibile;
 	}
 	
-	
 	/**
 	 * Restituisce il Color della tessera.
 	 * 
@@ -36,10 +36,22 @@ public class Tessera{
 		return Colore;
 	}
 
+	/**
+	 * Restituisce se la tessera è disponibile o no.
+	 * 
+	 * @return
+	 * 	 TRUE se disponibile, FALSE altrimenti.
+	 */
 	public Boolean getDisponibile() {
 		return disponibile;
 	}
 
+	/**
+	 * Imposta lo stato disponibile o non disponibile.
+	 * 
+	 * @param disponibile
+	 * 	 La disponibilità.	 
+	 */
 	public void setDisponibile(Boolean disponibile) {
 		this.disponibile = disponibile;
 	}
