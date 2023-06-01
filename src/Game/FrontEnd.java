@@ -812,8 +812,8 @@ public class FrontEnd extends JFrame {
 					Tavola.tavolaDaGioco[row][col] = new Tessera(Color.black, false);
 					Tavola.aggiornaTavola(tableTavola_1, obiColora, imageRenderer);//aggiorno la tavola
 				
-					coppieValori[countTessera][0] = row; // Salvataggio del valore di row nella posizione corretta del vettore
-					coppieValori[countTessera][1] = col; // Salvataggio del valore di col nella posizione corretta del vettore
+					coppieValori[countTessera][0] = row; // Salvataggio del valore di row nella posizione corretta del vettore.
+					coppieValori[countTessera][1] = col; // Salvataggio del valore di col nella posizione corretta del vettore.
 				
 					ImageIcon pic = Images.Image.sceltaImmagine(Tavola.tavolaDaGioco[row][col].getColor());
 					ImageIcon picResized = Image.scaleImage(pic, 200, 200);  
