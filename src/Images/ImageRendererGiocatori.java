@@ -3,6 +3,7 @@ package Images;
 import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
 
+import Game.Giocatore;
 import Game.Tavola;
 
 import java.awt.*;
@@ -13,6 +14,7 @@ import java.awt.*;
  */
 public class ImageRendererGiocatori extends DefaultTableCellRenderer {
 	private boolean disponibile;
+	private Giocatore giocatori;
 	
 	public void setDisponibile(boolean disponibile) {
         this.disponibile = disponibile;
@@ -24,33 +26,21 @@ public class ImageRendererGiocatori extends DefaultTableCellRenderer {
 		this.colore = colore;
 	}
 
+	public void setGiocatori(Giocatore giocatori) {
+		this.giocatori = giocatori;
+	}
+
+
 
 	public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
         super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
         
         Color cellColor = (Color) value; // Recupera il colore dalla cella direttamente dal valore
 
-        ImageIcon image = null;
-        
-        if(cellColor == Color.white) {
-            image = new ImageIcon("./src/pics/Libri.png");
-        } else if(cellColor == Color.green) {
-            image = new ImageIcon("./src/pics/Gatti.png");
-        } else if(cellColor == Color.yellow) {
-            image = new ImageIcon("./src/pics/Giochi.png");
-        } else if(cellColor == Color.blue) {
-            image = new ImageIcon("./src/pics/Cornici.png");
-        } else if(cellColor == Color.cyan) {
-            image = new ImageIcon("./src/pics/Trofei.png");
-        } else if(cellColor == Color.pink) {
-            image = new ImageIcon("./src/pics/Piante.png");
-        } else if(cellColor == Color.black) {
-            image = new ImageIcon("./src/pics/nero.jpg");
-        }
-        
+        ImageIcon image = Image.sceltaImmagine(cellColor);      
         
         ImageIcon imgRes = Image.scaleImage(image, (table.getHeight()/table.getColumnCount()+16),(table.getWidth()/table.getRowCount()+5));//scala l'immagine con una proporzione calcolata
-        if(colore == Color.BLACK && disponibile == false) {
+        if(colore == Color.BLACK && giocatori.getLibreria()[row][column].getDisponibile() == false) {
         	imgRes = Image.scurisciImage(imgRes);
         }
         setIcon(imgRes);

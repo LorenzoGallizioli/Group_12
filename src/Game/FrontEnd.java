@@ -340,6 +340,7 @@ public class FrontEnd extends JFrame {
 				btnSelezioneGiocatori.setBounds(10, 67, 201, 52);
 				formMyShelfie.getContentPane().add(btnSelezioneGiocatori);
 				pnlSetPlayer.setLayout(null);
+				
 				// Bottone conferma giocatori.
 				JButton btnConfermaSetPlayer = new JButton("Conferma");
 				btnConfermaSetPlayer.addActionListener(new ActionListener() {
@@ -429,8 +430,7 @@ public class FrontEnd extends JFrame {
 											tableVarLibreria.setValueAt(cellColor2, row, col);
 											tableVarLibreria.getColumnModel().getColumn(col).setCellRenderer(obiColora); // Applico il colore alla casella utilizzando la classe CustomCellColore.
 											
-											imageRendObi.setColore(giocatori.get(i).getLibreria()[row][col].getColor());
-											imageRendObi.setDisponibile(giocatori.get(i).getLibreria()[row][col].getDisponibile());
+											imageRendObi.setGiocatori(giocatori.get(i));
 											tableVarLibreria.getColumnModel().getColumn(col).setCellRenderer(imageRendObi);//cambio da colare alla rispettiva immagine
 										}
 									}
