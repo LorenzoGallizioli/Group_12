@@ -71,18 +71,16 @@ public class Giocatore {
 	
 	//genera la libreria personale
 	public Tessera[][] generaLibreria() {
-			
-			for (int i = 0; i < 6; i++) {
-				for (int j = 0; j < 5; j++) {
-					if(i == 5) {
-						libreria[i][j]= new Tessera(Color.BLACK,true);
-					}
-					else{
-					libreria[i][j]= new Tessera(Color.BLACK,false);
-					}
-				}
-			}
-			return libreria;
+	    for (int i = 0; i < 6; i++) {
+	        for (int j = 0; j < 5; j++) {
+	            if (i == 5) {
+	                libreria[i][j] = new Tessera(Color.BLACK, true);
+	            } else {
+	                libreria[i][j] = new Tessera(Color.BLACK, false);
+	            }
+	        }
+	    }
+	    return libreria;
 	}
 	
 	public Tessera[][] aggiornaLibreria(JTable table, TableCellRenderer cellColora, TableCellRenderer imageRenderer){

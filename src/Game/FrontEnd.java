@@ -334,6 +334,7 @@ public class FrontEnd extends JFrame {
 				lblTurnoPlayer.setBounds(1070, 20, 184, 27);
 				formMyShelfie.getContentPane().add(lblTurnoPlayer);
 				pnlSetPlayer.setLayout(null);
+				
 				// Bottone conferma giocatori.
 				JButton btnConfermaSetPlayer = new JButton("Conferma");
 				btnConfermaSetPlayer.addActionListener(new ActionListener() {
@@ -423,8 +424,7 @@ public class FrontEnd extends JFrame {
 											tableVarLibreria.setValueAt(cellColor2, row, col);
 											tableVarLibreria.getColumnModel().getColumn(col).setCellRenderer(obiColora); // Applico il colore alla casella utilizzando la classe CustomCellColore.
 											
-											imageRendObi.setColore(giocatori.get(i).getLibreria()[row][col].getColor());
-											imageRendObi.setDisponibile(giocatori.get(i).getLibreria()[row][col].getDisponibile());
+											imageRendObi.setGiocatori(giocatori.get(i));
 											tableVarLibreria.getColumnModel().getColumn(col).setCellRenderer(imageRendObi);//cambio da colare alla rispettiva immagine
 										}
 									}
@@ -678,9 +678,7 @@ public class FrontEnd extends JFrame {
 		                    else {
 		                    	lblStatoTesseraLibreria.setText("Non può essere raccolta");
 		                    }
-		                    if(col2+1<5) {
-		                    	giocatori.get(player).getLibreria()[row2][col2+1].setDisponibile(true);
-		                    }
+		                    
 		                }
 		            }
 				});
@@ -821,6 +819,8 @@ public class FrontEnd extends JFrame {
 					ImageIcon pic = Images.Image.sceltaImmagine(Tavola.tavolaDaGioco[row][col].getColor());
 					ImageIcon picResized = Image.scaleImage(pic, 200, 200);  
 					lblCellaSelezionata.setIcon(picResized);
+					
+					giocatori.get(player).getLibreria()[row2-1][col2].setDisponibile(true);
 					countTessera++;
 				}
 			
