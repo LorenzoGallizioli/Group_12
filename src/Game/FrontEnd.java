@@ -318,266 +318,10 @@ public class FrontEnd extends JFrame {
 		btnIniziaPartita.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnIniziaPartita.setBounds(10, 10, 201, 47);
 		formMyShelfie.getContentPane().add(btnIniziaPartita);
-		btnIniziaPartita.setVisible(false);
+		btnIniziaPartita.setVisible(true);
 		
 		ImageRendererGiocatori imageRendObi = new ImageRendererGiocatori();
-		// Bottone conferma giocatori.
-		JButton btnConfermaSetPlayer = new JButton("Conferma");
-		btnConfermaSetPlayer.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {		
-				// Genero 2 obiettivi comuni.
-				ObiettivoComune obc1 = generaObiettivoCollettivo();
-				ObiettivoComune obc2;
-				do {
-					obc2 = generaObiettivoCollettivo();
-				} while(obc1.getClass().equals(obc2.getClass()));	// Provo a generare un secondo obiettivo comune finché non sono diversi.
-				
-				// Ricavo le immagini degli obiettivi estratti.
-				obc1.getImage();
-				obc2.getImage();
-				
-				//TODO: inserire nel frontend le immagini.
-				
-				ImageRendererGiocatori renderer = new ImageRendererGiocatori();
-				if (chckbxGiocatori4.isSelected() == true) {
-					Tavola.numPlayers = 4;
-					giocatori.clear();
-					
-					// Inserisco i giocatori nella lista.
-					Giocatore g1 = new Giocatore(txtNomeP1.getText(),01,0,true);
-					Giocatore g2 = new Giocatore(txtNomeP2.getText(),02,0,false);
-					Giocatore g3 = new Giocatore(txtNomeP3.getText(),03,0,false);
-					Giocatore g4 = new Giocatore(txtNomeP4.getText(),04,0,false);
-					
-					giocatori.add(g1);
-					giocatori.add(g2);
-					giocatori.add(g3);
-					giocatori.add(g4);
-					
-					// Tabelle obiettivi personali.
-					table.setVisible(false);
-					table_1.setVisible(false);
-					table_2.setVisible(false);
-					table_3.setVisible(false);
-					
-					// Librerie.
-					tableLibreria_1.setVisible(false);
-					tableLibreria_2.setVisible(false);
-					tableLibreria_3.setVisible(false);
-					tableLibreria_4.setVisible(false);
-					
-					// Generazione degli obiettivi personali per ogni player (in questo caso 4).
-					for(int i = 0; i<4; i++) {
-						JTable tableVarObiettivo = null;
-						JTable tableVarLibreria = null;
-						
-						switch(i) {
-							case 0:
-								tableVarObiettivo = table;
-								tableVarLibreria = tableLibreria_1;
-								break;
-							case 1:
-								tableVarObiettivo = table_1;
-								tableVarLibreria = tableLibreria_2;
-								break;
-							case 2:
-								tableVarObiettivo = table_2;
-								tableVarLibreria = tableLibreria_3;
-								break;
-							case 3: 
-								tableVarObiettivo = table_3;
-								tableVarLibreria = tableLibreria_4;
-								break;
-						}
-						
-						if(tableVarObiettivo !=null) {
-							for (int row = 0; row < 6; row++) {
-							    for (int col = 0; col < 5; col++) {
-							        Color cellColor = giocatori.get(i).getObiettivo()[row][col].getColor(); // Prendo il colore di una determinata posizione della matrice.
-							        tableVarObiettivo.setValueAt(cellColor, row, col); // Imposto il colore desiderato alla giusta casella.
-							        tableVarObiettivo.getColumnModel().getColumn(col).setCellRenderer(obiColora); // Applico il colore alla casella utilizzando la classe CustomCellColore.
-							        
-							        imageRendObi.setColore(giocatori.get(i).getObiettivo()[row][col].getColor());
-							        imageRendObi.setDisponibile(giocatori.get(i).getObiettivo()[row][col].getDisponibile());
-							        tableVarObiettivo.getColumnModel().getColumn(col).setCellRenderer(imageRendObi);//cambio da colare alla rispettiva immagine
-							    }
-							}
-						}
-						if(tableVarLibreria !=null) {
-							for(int row = 0; row<6;row++) {
-								for(int col = 0; col<5;col++) {
-									Color cellColor2 = giocatori.get(i).getLibreria()[row][col].getColor();
-									tableVarLibreria.setValueAt(cellColor2, row, col);
-									tableVarLibreria.getColumnModel().getColumn(col).setCellRenderer(obiColora); // Applico il colore alla casella utilizzando la classe CustomCellColore.
-									
-									imageRendObi.setColore(giocatori.get(i).getLibreria()[row][col].getColor());
-									imageRendObi.setDisponibile(giocatori.get(i).getLibreria()[row][col].getDisponibile());
-									tableVarLibreria.getColumnModel().getColumn(col).setCellRenderer(imageRendObi);//cambio da colare alla rispettiva immagine
-								}
-							}
-						}
-					}		
-				}		
-					
-				if (chckbxGiocatori3.isSelected() == true) {
-					Tavola.numPlayers = 3;
-					giocatori.clear();
-					
-					Giocatore g1 = new Giocatore(txtNomeP1.getText(),01,0,true);
-					Giocatore g2 = new Giocatore(txtNomeP2.getText(),02,0,false);
-					Giocatore g3 = new Giocatore(txtNomeP3.getText(),03,0,false);
-					
-					giocatori.add(g1);
-					giocatori.add(g2);
-					giocatori.add(g3);
-					
-					table.setVisible(false);
-					table_1.setVisible(false);
-					table_2.setVisible(false);
-					table_3.setVisible(false);
-					
-					for (int i = 0; i<3; i++) {
-						JTable tableVarObiettivo = null;
-						JTable tableVarLibreria = null;
-						
-						switch(i) {
-							case 0:
-								tableVarObiettivo = table;
-								tableVarLibreria = tableLibreria_1;
-								break;
-							case 1:
-								tableVarObiettivo = table_1;
-								tableVarLibreria = tableLibreria_2;
-								break;
-							case 2:
-								tableVarObiettivo = table_2;
-								tableVarLibreria = tableLibreria_3;
-								break;
-						}
-						if (tableVarLibreria !=null) {
-							for (int row = 0; row < 6; row++) {
-							    for (int col = 0; col < 5; col++) {
-							        Color cellColor = giocatori.get(i).getObiettivo()[row][col].getColor(); // Prendo il colore di una determinata posizione della matrice.
-							        tableVarObiettivo.setValueAt(cellColor, row, col); // Imposto il colore desiderato alla giusta casella.
-							        tableVarObiettivo.getColumnModel().getColumn(col).setCellRenderer(obiColora); // Applico il colore alla casella utilizzando la classe CustomCellColore.
-							        
-							        imageRendObi.setColore(giocatori.get(i).getObiettivo()[row][col].getColor());
-							        imageRendObi.setDisponibile(giocatori.get(i).getObiettivo()[row][col].getDisponibile());
-							        tableVarObiettivo.getColumnModel().getColumn(col).setCellRenderer(imageRendObi);//cambio da colare alla rispettiva immagine
-							    }
-							}
-						}
-						if (tableVarLibreria !=null) {
-							for(int row = 0; row<6;row++) {
-								for(int col = 0; col<5;col++) {
-									Color cellColor2 = giocatori.get(i).getLibreria()[row][col].getColor();
-									tableVarLibreria.setValueAt(cellColor2, row, col);
-									tableVarLibreria.getColumnModel().getColumn(col).setCellRenderer(obiColora); // Applico il colore alla casella utilizzando la classe CustomCellColore.
-									
-									imageRendObi.setColore(giocatori.get(i).getLibreria()[row][col].getColor());
-									imageRendObi.setDisponibile(giocatori.get(i).getLibreria()[row][col].getDisponibile());
-									tableVarLibreria.getColumnModel().getColumn(col).setCellRenderer(imageRendObi);//cambio da colare alla rispettiva immagine
-								}
-							}
-						}
-					}
-				}
-
-				if (chckbxGiocatori2.isSelected() == true) {
-					Tavola.numPlayers = 2;
-					
-					giocatori.clear();
-
-					Giocatore g1 = new Giocatore(txtNomeP1.getText(), 01, 0, true);
-					Giocatore g2 = new Giocatore(txtNomeP2.getText(), 02, 0, false);
-
-					giocatori.add(g1);
-					giocatori.add(g2);
-
-					table.setVisible(false);
-					table_1.setVisible(false);
-					table_2.setVisible(false);
-					table_3.setVisible(false);
-
-					for (int i = 0; i < 4; i++) {
-						JTable tableVarObiettivo = null;
-						JTable tableVarLibreria = null;
-
-						switch (i) {
-							case 0:
-								tableVarObiettivo = table;
-								tableVarLibreria = tableLibreria_1;
-								break;
-							case 1:
-								tableVarObiettivo = table_1;
-								tableVarLibreria = tableLibreria_2;
-								break;
-						}
-						if (tableVarLibreria != null) {
-							for (int row = 0; row < 6; row++) {
-								for (int col = 0; col < 5; col++) {
-									Color cellColor = giocatori.get(i).getObiettivo()[row][col].getColor(); // Prendo il colore di una determinata posizione della matrice.
-									tableVarObiettivo.setValueAt(cellColor, row, col); // Imposto il colore desiderato alla giusta casella.
-									tableVarObiettivo.getColumnModel().getColumn(col).setCellRenderer(obiColora); // Applico il colore allacasella utilizzando la classe CustomCellColore.
-									
-									imageRendObi.setColore(giocatori.get(i).getObiettivo()[row][col].getColor());
-									imageRendObi.setDisponibile(giocatori.get(i).getObiettivo()[row][col].getDisponibile());
-									tableVarObiettivo.getColumnModel().getColumn(col).setCellRenderer(imageRendObi);//cambio da colare alla rispettiva immagine
-								}
-							}
-						}
-						if (tableVarLibreria !=null) {
-							for (int row = 0; row<6;row++) {
-								for (int col = 0; col<5;col++) {
-									Color cellColor2 = giocatori.get(i).getLibreria()[row][col].getColor();
-									tableVarLibreria.setValueAt(cellColor2, row, col);
-									tableVarLibreria.getColumnModel().getColumn(col).setCellRenderer(obiColora); // Applico il colore alla casella utilizzando la classe CustomCellColore.
-									
-									imageRendObi.setDisponibile(giocatori.get(i).getLibreria()[row][col].getDisponibile());
-									imageRendObi.setColore(giocatori.get(i).getLibreria()[row][col].getColor());
-									tableVarLibreria.getColumnModel().getColumn(col).setCellRenderer(imageRendObi);//cambio da colare alla rispettiva immagine
-								}
-							}
-						}
-
-					}	
-				}
-					btnIniziaPartita.setVisible(true);
-					lblNomeP1.setText(giocatori.get(0).getNome());
-					lblNomeP2.setText(giocatori.get(1).getNome());				
-					lblPuntiP1.setText(""+giocatori.get(0).getPunti());
-					lblPuntiP2.setText(""+giocatori.get(1).getPunti());
-					
-					lblNomeP3.setVisible(false);
-					lblNomeP4.setVisible(false);
-					lblPuntiP3.setVisible(false);
-					lblPuntiP4.setVisible(false);
-					
-					if (giocatori.size() == 4) {
-						lblPuntiP3.setText("" + giocatori.get(2).getPunti());
-						lblPuntiP4.setText("" + giocatori.get(3).getPunti());
-						lblNomeP3.setText(giocatori.get(2).getNome());
-						lblNomeP4.setText(giocatori.get(3).getNome());
-						lblNomeP3.setVisible(true);
-						lblNomeP4.setVisible(true);
-						lblPuntiP3.setVisible(true);
-						lblPuntiP4.setVisible(true);
-					}
-					else if (giocatori.size() == 3){
-						lblPuntiP3.setText("" + giocatori.get(2).getPunti());
-						lblNomeP3.setText(giocatori.get(2).getNome());
-						lblPuntiP3.setVisible(true);
-						lblNomeP3.setVisible(true);
-					}
-					
-					pnlSetPlayer.setVisible(false);
-					tableTavola_1.setVisible(true);
-					
-					Tavola.generaTavola();// Genero la tavola da gioco.
-					Tavola.aggiornaTavola(tableTavola_1, obiColora, imageRenderer);// Mostro a schermo la tavola da gioco.
-					
-				}
-		});
+		
 		
 				// Listener del bottone prossimo turno.
 				JButton btnProxTurno = new JButton("Finisci il turno");
@@ -596,15 +340,280 @@ public class FrontEnd extends JFrame {
 				btnSelezioneGiocatori.setBounds(10, 67, 201, 52);
 				formMyShelfie.getContentPane().add(btnSelezioneGiocatori);
 				pnlSetPlayer.setLayout(null);
-				btnSelezioneGiocatori.addActionListener(new ActionListener() {
-					
-					public void actionPerformed(ActionEvent e) {
-						pnlMainSx.setVisible(true);
-						cardLayout.show(pnlMainSx, "pnlSetPlayer");
+				// Bottone conferma giocatori.
+				JButton btnConfermaSetPlayer = new JButton("Conferma");
+				btnConfermaSetPlayer.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {		
+						// Genero 2 obiettivi comuni.
+						ObiettivoComune obc1 = generaObiettivoCollettivo();
+						ObiettivoComune obc2;
+						do {
+							obc2 = generaObiettivoCollettivo();
+						} while(obc1.getClass().equals(obc2.getClass()));	// Provo a generare un secondo obiettivo comune finché non sono diversi.
 						
-						btnIniziaPartita.setVisible(true);
-						btnProxTurno.setVisible(false);
-						lblTurnoPlayer.setVisible(false);
+						// Ricavo le immagini degli obiettivi estratti.
+						obc1.getImage();
+						obc2.getImage();
+						
+						//TODO: inserire nel frontend le immagini.
+						
+						ImageRendererGiocatori renderer = new ImageRendererGiocatori();
+						if (chckbxGiocatori4.isSelected() == true) {
+							Tavola.numPlayers = 4;
+							giocatori.clear();
+							
+							// Inserisco i giocatori nella lista.
+							Giocatore g1 = new Giocatore(txtNomeP1.getText(),01,0,true);
+							Giocatore g2 = new Giocatore(txtNomeP2.getText(),02,0,false);
+							Giocatore g3 = new Giocatore(txtNomeP3.getText(),03,0,false);
+							Giocatore g4 = new Giocatore(txtNomeP4.getText(),04,0,false);
+							
+							giocatori.add(g1);
+							giocatori.add(g2);
+							giocatori.add(g3);
+							giocatori.add(g4);
+							
+							// Tabelle obiettivi personali.
+							table.setVisible(false);
+							table_1.setVisible(false);
+							table_2.setVisible(false);
+							table_3.setVisible(false);
+							
+							// Librerie.
+							tableLibreria_1.setVisible(false);
+							tableLibreria_2.setVisible(false);
+							tableLibreria_3.setVisible(false);
+							tableLibreria_4.setVisible(false);
+							
+							// Generazione degli obiettivi personali per ogni player (in questo caso 4).
+							for(int i = 0; i<4; i++) {
+								JTable tableVarObiettivo = null;
+								JTable tableVarLibreria = null;
+								
+								switch(i) {
+									case 0:
+										tableVarObiettivo = table;
+										tableVarLibreria = tableLibreria_1;
+										break;
+									case 1:
+										tableVarObiettivo = table_1;
+										tableVarLibreria = tableLibreria_2;
+										break;
+									case 2:
+										tableVarObiettivo = table_2;
+										tableVarLibreria = tableLibreria_3;
+										break;
+									case 3: 
+										tableVarObiettivo = table_3;
+										tableVarLibreria = tableLibreria_4;
+										break;
+								}
+								
+								if(tableVarObiettivo !=null) {
+									for (int row = 0; row < 6; row++) {
+									    for (int col = 0; col < 5; col++) {
+									        Color cellColor = giocatori.get(i).getObiettivo()[row][col].getColor(); // Prendo il colore di una determinata posizione della matrice.
+									        tableVarObiettivo.setValueAt(cellColor, row, col); // Imposto il colore desiderato alla giusta casella.
+									        tableVarObiettivo.getColumnModel().getColumn(col).setCellRenderer(obiColora); // Applico il colore alla casella utilizzando la classe CustomCellColore.
+									        
+									        imageRendObi.setColore(giocatori.get(i).getObiettivo()[row][col].getColor());
+									        imageRendObi.setDisponibile(giocatori.get(i).getObiettivo()[row][col].getDisponibile());
+									        tableVarObiettivo.getColumnModel().getColumn(col).setCellRenderer(imageRendObi);//cambio da colare alla rispettiva immagine
+									    }
+									}
+								}
+								if(tableVarLibreria !=null) {
+									for(int row = 0; row<6;row++) {
+										for(int col = 0; col<5;col++) {
+											Color cellColor2 = giocatori.get(i).getLibreria()[row][col].getColor();
+											tableVarLibreria.setValueAt(cellColor2, row, col);
+											tableVarLibreria.getColumnModel().getColumn(col).setCellRenderer(obiColora); // Applico il colore alla casella utilizzando la classe CustomCellColore.
+											
+											imageRendObi.setColore(giocatori.get(i).getLibreria()[row][col].getColor());
+											imageRendObi.setDisponibile(giocatori.get(i).getLibreria()[row][col].getDisponibile());
+											tableVarLibreria.getColumnModel().getColumn(col).setCellRenderer(imageRendObi);//cambio da colare alla rispettiva immagine
+										}
+									}
+								}
+							}		
+						}		
+							
+						if (chckbxGiocatori3.isSelected() == true) {
+							Tavola.numPlayers = 3;
+							giocatori.clear();
+							
+							Giocatore g1 = new Giocatore(txtNomeP1.getText(),01,0,true);
+							Giocatore g2 = new Giocatore(txtNomeP2.getText(),02,0,false);
+							Giocatore g3 = new Giocatore(txtNomeP3.getText(),03,0,false);
+							
+							giocatori.add(g1);
+							giocatori.add(g2);
+							giocatori.add(g3);
+							
+							table.setVisible(false);
+							table_1.setVisible(false);
+							table_2.setVisible(false);
+							table_3.setVisible(false);
+							
+							for (int i = 0; i<3; i++) {
+								JTable tableVarObiettivo = null;
+								JTable tableVarLibreria = null;
+								
+								switch(i) {
+									case 0:
+										tableVarObiettivo = table;
+										tableVarLibreria = tableLibreria_1;
+										break;
+									case 1:
+										tableVarObiettivo = table_1;
+										tableVarLibreria = tableLibreria_2;
+										break;
+									case 2:
+										tableVarObiettivo = table_2;
+										tableVarLibreria = tableLibreria_3;
+										break;
+								}
+								if (tableVarLibreria !=null) {
+									for (int row = 0; row < 6; row++) {
+									    for (int col = 0; col < 5; col++) {
+									        Color cellColor = giocatori.get(i).getObiettivo()[row][col].getColor(); // Prendo il colore di una determinata posizione della matrice.
+									        tableVarObiettivo.setValueAt(cellColor, row, col); // Imposto il colore desiderato alla giusta casella.
+									        tableVarObiettivo.getColumnModel().getColumn(col).setCellRenderer(obiColora); // Applico il colore alla casella utilizzando la classe CustomCellColore.
+									        
+									        imageRendObi.setColore(giocatori.get(i).getObiettivo()[row][col].getColor());
+									        imageRendObi.setDisponibile(giocatori.get(i).getObiettivo()[row][col].getDisponibile());
+									        tableVarObiettivo.getColumnModel().getColumn(col).setCellRenderer(imageRendObi);//cambio da colare alla rispettiva immagine
+									    }
+									}
+								}
+								if (tableVarLibreria !=null) {
+									for(int row = 0; row<6;row++) {
+										for(int col = 0; col<5;col++) {
+											Color cellColor2 = giocatori.get(i).getLibreria()[row][col].getColor();
+											tableVarLibreria.setValueAt(cellColor2, row, col);
+											tableVarLibreria.getColumnModel().getColumn(col).setCellRenderer(obiColora); // Applico il colore alla casella utilizzando la classe CustomCellColore.
+											
+											imageRendObi.setColore(giocatori.get(i).getLibreria()[row][col].getColor());
+											imageRendObi.setDisponibile(giocatori.get(i).getLibreria()[row][col].getDisponibile());
+											tableVarLibreria.getColumnModel().getColumn(col).setCellRenderer(imageRendObi);//cambio da colare alla rispettiva immagine
+										}
+									}
+								}
+							}
+						}
+
+						if (chckbxGiocatori2.isSelected() == true) {
+							Tavola.numPlayers = 2;
+							
+							giocatori.clear();
+
+							Giocatore g1 = new Giocatore(txtNomeP1.getText(), 01, 0, true);
+							Giocatore g2 = new Giocatore(txtNomeP2.getText(), 02, 0, false);
+
+							giocatori.add(g1);
+							giocatori.add(g2);
+
+							table.setVisible(false);
+							table_1.setVisible(false);
+							table_2.setVisible(false);
+							table_3.setVisible(false);
+
+							for (int i = 0; i < 4; i++) {
+								JTable tableVarObiettivo = null;
+								JTable tableVarLibreria = null;
+
+								switch (i) {
+									case 0:
+										tableVarObiettivo = table;
+										tableVarLibreria = tableLibreria_1;
+										break;
+									case 1:
+										tableVarObiettivo = table_1;
+										tableVarLibreria = tableLibreria_2;
+										break;
+								}
+								if (tableVarLibreria != null) {
+									for (int row = 0; row < 6; row++) {
+										for (int col = 0; col < 5; col++) {
+											Color cellColor = giocatori.get(i).getObiettivo()[row][col].getColor(); // Prendo il colore di una determinata posizione della matrice.
+											tableVarObiettivo.setValueAt(cellColor, row, col); // Imposto il colore desiderato alla giusta casella.
+											tableVarObiettivo.getColumnModel().getColumn(col).setCellRenderer(obiColora); // Applico il colore allacasella utilizzando la classe CustomCellColore.
+											
+											imageRendObi.setColore(giocatori.get(i).getObiettivo()[row][col].getColor());
+											imageRendObi.setDisponibile(giocatori.get(i).getObiettivo()[row][col].getDisponibile());
+											tableVarObiettivo.getColumnModel().getColumn(col).setCellRenderer(imageRendObi);//cambio da colare alla rispettiva immagine
+										}
+									}
+								}
+								if (tableVarLibreria !=null) {
+									for (int row = 0; row<6;row++) {
+										for (int col = 0; col<5;col++) {
+											Color cellColor2 = giocatori.get(i).getLibreria()[row][col].getColor();
+											tableVarLibreria.setValueAt(cellColor2, row, col);
+											tableVarLibreria.getColumnModel().getColumn(col).setCellRenderer(obiColora); // Applico il colore alla casella utilizzando la classe CustomCellColore.
+											
+											imageRendObi.setDisponibile(giocatori.get(i).getLibreria()[row][col].getDisponibile());
+											imageRendObi.setColore(giocatori.get(i).getLibreria()[row][col].getColor());
+											tableVarLibreria.getColumnModel().getColumn(col).setCellRenderer(imageRendObi);//cambio da colare alla rispettiva immagine
+										}
+									}
+								}
+
+							}	
+						}
+							btnIniziaPartita.setVisible(true);
+							lblNomeP1.setText(giocatori.get(0).getNome());
+							lblNomeP2.setText(giocatori.get(1).getNome());				
+							lblPuntiP1.setText(""+giocatori.get(0).getPunti());
+							lblPuntiP2.setText(""+giocatori.get(1).getPunti());
+							
+							lblNomeP3.setVisible(false);
+							lblNomeP4.setVisible(false);
+							lblPuntiP3.setVisible(false);
+							lblPuntiP4.setVisible(false);
+							
+							if (giocatori.size() == 4) {
+								lblPuntiP3.setText("" + giocatori.get(2).getPunti());
+								lblPuntiP4.setText("" + giocatori.get(3).getPunti());
+								lblNomeP3.setText(giocatori.get(2).getNome());
+								lblNomeP4.setText(giocatori.get(3).getNome());
+								lblNomeP3.setVisible(true);
+								lblNomeP4.setVisible(true);
+								lblPuntiP3.setVisible(true);
+								lblPuntiP4.setVisible(true);
+							}
+							else if (giocatori.size() == 3){
+								lblPuntiP3.setText("" + giocatori.get(2).getPunti());
+								lblNomeP3.setText(giocatori.get(2).getNome());
+								lblPuntiP3.setVisible(true);
+								lblNomeP3.setVisible(true);
+							}
+							
+							pnlSetPlayer.setVisible(false);
+							tableTavola_1.setVisible(true);
+							
+							Tavola.generaTavola();// Genero la tavola da gioco.
+							Tavola.aggiornaTavola(tableTavola_1, obiColora, imageRenderer);// Mostro a schermo la tavola da gioco.
+							
+							cardLayout.show(pnlMainSx, "pnlMostraTessera");
+							
+							player = 0;
+							turno = 1;
+							
+							// Mostro l'obiettivo personale del primo player.
+							table.setVisible(true);
+							table_1.setVisible(false);
+							table_2.setVisible(false);
+							table_3.setVisible(false);
+							
+							tableLibreria_1.setVisible(true);
+							tableLibreria_2.setVisible(false);
+							tableLibreria_3.setVisible(false);
+							tableLibreria_4.setVisible(false);
+							
+							lblTurnoPlayer.setText("Turno nr." + turno + " di: " + giocatori.get(player).getNome());
+							btnProxTurno.setVisible(true);
+							lblTurnoPlayer.setVisible(true);	
 					}
 				});
 				
@@ -953,28 +962,16 @@ public class FrontEnd extends JFrame {
 
 		// Listener bottone "Inizia partita".
 		btnIniziaPartita.addActionListener(new ActionListener() {
+			
 			public void actionPerformed(ActionEvent e) {
+				pnlMainSx.setVisible(true);
+				cardLayout.show(pnlMainSx, "pnlSetPlayer");
 				
-				cardLayout.show(pnlMainSx, "pnlMostraTessera");
-				
-				player = 0;
-				turno = 1;
-				
-				// Mostro l'obiettivo personale del primo player.
-				table.setVisible(true);
-				table_1.setVisible(false);
-				table_2.setVisible(false);
-				table_3.setVisible(false);
-				
-				tableLibreria_1.setVisible(true);
-				tableLibreria_2.setVisible(false);
-				tableLibreria_3.setVisible(false);
-				tableLibreria_4.setVisible(false);
-				
-				lblTurnoPlayer.setText("Turno nr." + turno + " di: " + giocatori.get(player).getNome());
-				btnProxTurno.setVisible(true);
-				lblTurnoPlayer.setVisible(true);
+				btnIniziaPartita.setVisible(true);
+				btnProxTurno.setVisible(false);
+				lblTurnoPlayer.setVisible(false);
 			}
+
 		});
 	}
 	
