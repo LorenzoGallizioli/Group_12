@@ -1,9 +1,13 @@
 package Game;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+
+import javax.swing.JTable;
+import javax.swing.table.TableCellRenderer;
 /**
  * Classe che definisce il giocatore
  * @author Davide
@@ -68,10 +72,32 @@ public class Giocatore {
 			
 			for (int i = 0; i < 6; i++) {
 				for (int j = 0; j < 5; j++) {
+					if(i == 5) {
+						libreria[i][j]= new Tessera(Color.BLACK,true);
+					}
+					else{
 					libreria[i][j]= new Tessera(Color.BLACK,false);
+					}
 				}
 			}
 			return libreria;
+	}
+	
+	public Tessera[][] aggiornaLibreria(JTable table, TableCellRenderer cellColora, TableCellRenderer imageRenderer){
+		// Scansiono tutta la matrice.
+					for (int row = 0; row < 6; row++) {
+					    for (int col = 0; col < 5; col++) {
+					        Color cellColor = libreria[row][col].getColor(); // Prendo il colore di una determinata posizione della matrice.
+					        table.setValueAt(cellColor, row, col); // Imposto il colore desiderato alla giusta casella.
+					        table.getColumnModel().getColumn(col).setCellRenderer(cellColora); // Applico il colore alla casella utilizzando la classe CustomCellColore.
+					        
+					        
+					        table.getColumnModel().getColumn(col).setCellRenderer(imageRenderer);//cambio da colare alla rispettiva immagine
+					    
+					        table.setIntercellSpacing(new Dimension(0, 0));//rimuove il contorno binaco tra una casella e l'altra
+					    }
+					}
+					return libreria;
 	}
 	
 	
