@@ -53,8 +53,8 @@ import java.util.stream.IntStream;
 import javax.swing.border.BevelBorder;
 
 /**
- * Definisce l'interfaccia grafica e controlla i componenti del gioco. Gestice i
- * turni, punti e giocatori
+ * Definisce l'interfaccia grafica e controlla i componenti del gioco.
+ * Gestice i turni, punti e giocatori
  * 
  * @author davidedellanno
  */
@@ -96,7 +96,7 @@ public class FrontEnd extends JFrame {
 
 	int turno = 1;
 	int player = 0;
-	int countTessera = 0;
+	int countTessera=0;
 	int row, col; // Coordinate della tessera.
 	int row2, col2;
 	private JTable table_4;
@@ -119,7 +119,7 @@ public class FrontEnd extends JFrame {
 		formMyShelfie.setTitle("MY SHELFIE");
 		formMyShelfie.setBounds(100, 100, 1240, 700);
 		formMyShelfie.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		formMyShelfie.getContentPane().setLayout(null);
+		formMyShelfie.getContentPane().setLayout(null);	
 
 		// Pannello selezione giocatori.
 		JPanel pnlSetPlayer = new JPanel();
@@ -253,26 +253,27 @@ public class FrontEnd extends JFrame {
 		lblPuntiP4.setBounds(756, 640, 110, 27);
 		formMyShelfie.getContentPane().add(lblPuntiP4);
 
+
 		// Obiettivi personali giocatori.
-		table = new JTable(6, 5);
+		table = new JTable(6,5);
 		table.setBounds(919, 20, 141, 158);
 		formMyShelfie.getContentPane().add(table);
 		table.setRowHeight(27);
 		table.doLayout();
 
-		table_1 = new JTable(6, 5);
+		table_1 = new JTable(6,5);
 		table_1.setBounds(919, 20, 141, 158);
 		formMyShelfie.getContentPane().add(table_1);
 		table_1.setRowHeight(27);
 		table_1.doLayout();
 
-		table_2 = new JTable(6, 5);
+		table_2 = new JTable(6,5);
 		table_2.setBounds(919, 20, 141, 158);
 		formMyShelfie.getContentPane().add(table_2);
 		table_2.setRowHeight(27);
 		table_2.doLayout();
 
-		table_3 = new JTable(6, 5);
+		table_3 = new JTable(6,5);
 		table_3.setBounds(919, 20, 141, 158);
 		formMyShelfie.getContentPane().add(table_3);
 		table_3.setRowHeight(27);
@@ -280,22 +281,22 @@ public class FrontEnd extends JFrame {
 		pnlSetPlayer.setVisible(false);
 
 		// Librerie giocatori.
-		tableLibreria_1 = new JTable(6, 5);
+		tableLibreria_1 = new JTable(6,5);
 		tableLibreria_1.setRowHeight(51);
 		tableLibreria_1.setBounds(919, 291, 308, 306);
 		formMyShelfie.getContentPane().add(tableLibreria_1);
 
-		tableLibreria_2 = new JTable(6, 5);
+		tableLibreria_2 = new JTable(6,5);
 		tableLibreria_2.setRowHeight(51);
 		tableLibreria_2.setBounds(919, 291, 308, 306);
 		formMyShelfie.getContentPane().add(tableLibreria_2);
 
-		tableLibreria_3 = new JTable(6, 5);
+		tableLibreria_3 = new JTable(6,5);
 		tableLibreria_3.setRowHeight(51);
 		tableLibreria_3.setBounds(919, 291, 308, 306);
 		formMyShelfie.getContentPane().add(tableLibreria_3);
 
-		tableLibreria_4 = new JTable(6, 5);
+		tableLibreria_4 = new JTable(6,5);
 		tableLibreria_4.setRowHeight(51);
 		tableLibreria_4.setBounds(919, 291, 308, 306);
 		formMyShelfie.getContentPane().add(tableLibreria_4);
@@ -305,7 +306,7 @@ public class FrontEnd extends JFrame {
 		formMyShelfie.getContentPane().add(scrollPane);
 
 		// Tabella che mostra la tavola da gioco.
-		JTable tableTavola_1 = new JTable(9, 9);
+		JTable tableTavola_1 = new JTable(9,9);
 		tableTavola_1.setShowGrid(false);
 		scrollPane.setViewportView(tableTavola_1);
 		tableTavola_1.setRowHeight(61);
@@ -321,6 +322,7 @@ public class FrontEnd extends JFrame {
 
 		ImageRendererGiocatori imageRendObi = new ImageRendererGiocatori();
 
+
 		// Listener del bottone prossimo turno.
 		JButton btnProxTurno = new JButton("Finisci il turno");
 		btnProxTurno.setFont(new Font("Tahoma", Font.PLAIN, 16));
@@ -335,20 +337,19 @@ public class FrontEnd extends JFrame {
 		// Bottone conferma giocatori.
 		JButton btnConfermaSetPlayer = new JButton("Conferma");
 		btnConfermaSetPlayer.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent e) {		
 				// Genero 2 obiettivi comuni.
 				ObiettivoComune obc1 = generaObiettivoCollettivo();
 				ObiettivoComune obc2;
 				do {
 					obc2 = generaObiettivoCollettivo();
-				} while (obc1.getClass().equals(obc2.getClass())); // Provo a generare un secondo obiettivo comune
-																	// finché non sono diversi.
+				} while(obc1.getClass().equals(obc2.getClass()));	// Provo a generare un secondo obiettivo comune finché non sono diversi.
 
 				// Ricavo le immagini degli obiettivi estratti.
 				obc1.getImage();
 				obc2.getImage();
 
-				// TODO: inserire nel frontend le immagini.
+				//TODO: inserire nel frontend le immagini.
 
 				ImageRendererGiocatori renderer = new ImageRendererGiocatori();
 				if (chckbxGiocatori4.isSelected() == true) {
@@ -356,10 +357,10 @@ public class FrontEnd extends JFrame {
 					giocatori.clear();
 
 					// Inserisco i giocatori nella lista.
-					Giocatore g1 = new Giocatore(txtNomeP1.getText(), 01, 0, true);
-					Giocatore g2 = new Giocatore(txtNomeP2.getText(), 02, 0, false);
-					Giocatore g3 = new Giocatore(txtNomeP3.getText(), 03, 0, false);
-					Giocatore g4 = new Giocatore(txtNomeP4.getText(), 04, 0, false);
+					Giocatore g1 = new Giocatore(txtNomeP1.getText(),01,0,true);
+					Giocatore g2 = new Giocatore(txtNomeP2.getText(),02,0,false);
+					Giocatore g3 = new Giocatore(txtNomeP3.getText(),03,0,false);
+					Giocatore g4 = new Giocatore(txtNomeP4.getText(),04,0,false);
 
 					giocatori.add(g1);
 					giocatori.add(g2);
@@ -379,11 +380,11 @@ public class FrontEnd extends JFrame {
 					tableLibreria_4.setVisible(false);
 
 					// Generazione degli obiettivi personali per ogni player (in questo caso 4).
-					for (int i = 0; i < 4; i++) {
+					for(int i = 0; i<4; i++) {
 						JTable tableVarObiettivo = null;
 						JTable tableVarLibreria = null;
 
-						switch (i) {
+						switch(i) {
 						case 0:
 							tableVarObiettivo = table;
 							tableVarLibreria = tableLibreria_1;
@@ -396,83 +397,48 @@ public class FrontEnd extends JFrame {
 							tableVarObiettivo = table_2;
 							tableVarLibreria = tableLibreria_3;
 							break;
-						case 3:
+						case 3: 
 							tableVarObiettivo = table_3;
 							tableVarLibreria = tableLibreria_4;
 							break;
 						}
 
-						if (tableVarObiettivo != null) {
+						if(tableVarObiettivo !=null) {
 							for (int row = 0; row < 6; row++) {
 								for (int col = 0; col < 5; col++) {
-									Color cellColor = giocatori.get(i).getObiettivo()[row][col].getColor(); // Prendo il
-																											// colore di
-																											// una
-																											// determinata
-																											// posizione
-																											// della
-																											// matrice.
-									tableVarObiettivo.setValueAt(cellColor, row, col); // Imposto il colore desiderato
-																						// alla giusta casella.
-									tableVarObiettivo.getColumnModel().getColumn(col).setCellRenderer(obiColora); // Applico
-																													// il
-																													// colore
-																													// alla
-																													// casella
-																													// utilizzando
-																													// la
-																													// classe
-																													// CustomCellColore.
+									Color cellColor = giocatori.get(i).getObiettivo()[row][col].getColor(); // Prendo il colore di una determinata posizione della matrice.
+									tableVarObiettivo.setValueAt(cellColor, row, col); // Imposto il colore desiderato alla giusta casella.
+									tableVarObiettivo.getColumnModel().getColumn(col).setCellRenderer(obiColora); // Applico il colore alla casella utilizzando la classe CustomCellColore.
 
 									imageRendObi.setColore(giocatori.get(i).getObiettivo()[row][col].getColor());
-									imageRendObi
-											.setDisponibile(giocatori.get(i).getObiettivo()[row][col].getDisponibile());
-									tableVarObiettivo.getColumnModel().getColumn(col).setCellRenderer(imageRendObi);// cambio
-																													// da
-																													// colare
-																													// alla
-																													// rispettiva
-																													// immagine
+									imageRendObi.setDisponibile(giocatori.get(i).getObiettivo()[row][col].getDisponibile());
+									tableVarObiettivo.getColumnModel().getColumn(col).setCellRenderer(imageRendObi);//cambio da colare alla rispettiva immagine
 								}
 							}
 						}
-						if (tableVarLibreria != null) {
-							for (int row = 0; row < 6; row++) {
-								for (int col = 0; col < 5; col++) {
+						if(tableVarLibreria !=null) {
+							for(int row = 0; row<6;row++) {
+								for(int col = 0; col<5;col++) {
 									Color cellColor2 = giocatori.get(i).getLibreria()[row][col].getColor();
 									tableVarLibreria.setValueAt(cellColor2, row, col);
-									tableVarLibreria.getColumnModel().getColumn(col).setCellRenderer(obiColora); // Applico
-																													// il
-																													// colore
-																													// alla
-																													// casella
-																													// utilizzando
-																													// la
-																													// classe
-																													// CustomCellColore.
+									tableVarLibreria.getColumnModel().getColumn(col).setCellRenderer(obiColora); // Applico il colore alla casella utilizzando la classe CustomCellColore.
 
 									imageRendObi.setColore(giocatori.get(i).getLibreria()[row][col].getColor());
-									imageRendObi
-											.setDisponibile(giocatori.get(i).getLibreria()[row][col].getDisponibile());
-									tableVarLibreria.getColumnModel().getColumn(col).setCellRenderer(imageRendObi);// cambio
-																													// da
-																													// colare
-																													// alla
-																													// rispettiva
-																													// immagine
+									imageRendObi.setDisponibile(giocatori.get(i).getLibreria()[row][col].getDisponibile());
+									tableVarLibreria.getColumnModel().getColumn(col).setCellRenderer(imageRendObi);//cambio da colare alla rispettiva immagine
 								}
 							}
 						}
-					}
-				}
+					}		
+				}		
 
 				if (chckbxGiocatori3.isSelected() == true) {
 					Tavola.numPlayers = 3;
 					giocatori.clear();
 
-					Giocatore g1 = new Giocatore(txtNomeP1.getText(), 01, 0, true);
-					Giocatore g2 = new Giocatore(txtNomeP2.getText(), 02, 0, false);
-					Giocatore g3 = new Giocatore(txtNomeP3.getText(), 03, 0, false);
+					Giocatore g1 = new Giocatore(txtNomeP1.getText(),01,0,true);
+					Giocatore g2 = new Giocatore(txtNomeP2.getText(),02,0,false);
+					Giocatore g3 = new Giocatore(txtNomeP3.getText(),03,0,false);
 
 					giocatori.add(g1);
 					giocatori.add(g2);
@@ -483,11 +449,11 @@ public class FrontEnd extends JFrame {
 					table_2.setVisible(false);
 					table_3.setVisible(false);
 
-					for (int i = 0; i < 3; i++) {
+					for (int i = 0; i<3; i++) {
 						JTable tableVarObiettivo = null;
 						JTable tableVarLibreria = null;
 
-						switch (i) {
+						switch(i) {
 						case 0:
 							tableVarObiettivo = table;
 							tableVarLibreria = tableLibreria_1;
@@ -501,64 +467,29 @@ public class FrontEnd extends JFrame {
 							tableVarLibreria = tableLibreria_3;
 							break;
 						}
-						if (tableVarLibreria != null) {
+						if (tableVarLibreria !=null) {
 							for (int row = 0; row < 6; row++) {
 								for (int col = 0; col < 5; col++) {
-									Color cellColor = giocatori.get(i).getObiettivo()[row][col].getColor(); // Prendo il
-																											// colore di
-																											// una
-																											// determinata
-																											// posizione
-																											// della
-																											// matrice.
-									tableVarObiettivo.setValueAt(cellColor, row, col); // Imposto il colore desiderato
-																						// alla giusta casella.
-									tableVarObiettivo.getColumnModel().getColumn(col).setCellRenderer(obiColora); // Applico
-																													// il
-																													// colore
-																													// alla
-																													// casella
-																													// utilizzando
-																													// la
-																													// classe
-																													// CustomCellColore.
+									Color cellColor = giocatori.get(i).getObiettivo()[row][col].getColor(); // Prendo il colore di una determinata posizione della matrice.
+									tableVarObiettivo.setValueAt(cellColor, row, col); // Imposto il colore desiderato alla giusta casella.
+									tableVarObiettivo.getColumnModel().getColumn(col).setCellRenderer(obiColora); // Applico il colore alla casella utilizzando la classe CustomCellColore.
 
 									imageRendObi.setColore(giocatori.get(i).getObiettivo()[row][col].getColor());
-									imageRendObi
-											.setDisponibile(giocatori.get(i).getObiettivo()[row][col].getDisponibile());
-									tableVarObiettivo.getColumnModel().getColumn(col).setCellRenderer(imageRendObi);// cambio
-																													// da
-																													// colare
-																													// alla
-																													// rispettiva
-																													// immagine
+									imageRendObi.setDisponibile(giocatori.get(i).getObiettivo()[row][col].getDisponibile());
+									tableVarObiettivo.getColumnModel().getColumn(col).setCellRenderer(imageRendObi);//cambio da colare alla rispettiva immagine
 								}
 							}
 						}
-						if (tableVarLibreria != null) {
-							for (int row = 0; row < 6; row++) {
-								for (int col = 0; col < 5; col++) {
+						if (tableVarLibreria !=null) {
+							for(int row = 0; row<6;row++) {
+								for(int col = 0; col<5;col++) {
 									Color cellColor2 = giocatori.get(i).getLibreria()[row][col].getColor();
 									tableVarLibreria.setValueAt(cellColor2, row, col);
-									tableVarLibreria.getColumnModel().getColumn(col).setCellRenderer(obiColora); // Applico
-																													// il
-																													// colore
-																													// alla
-																													// casella
-																													// utilizzando
-																													// la
-																													// classe
-																													// CustomCellColore.
+									tableVarLibreria.getColumnModel().getColumn(col).setCellRenderer(obiColora); // Applico il colore alla casella utilizzando la classe CustomCellColore.
 
 									imageRendObi.setColore(giocatori.get(i).getLibreria()[row][col].getColor());
-									imageRendObi
-											.setDisponibile(giocatori.get(i).getLibreria()[row][col].getDisponibile());
-									tableVarLibreria.getColumnModel().getColumn(col).setCellRenderer(imageRendObi);// cambio
-																													// da
-																													// colare
-																													// alla
-																													// rispettiva
-																													// immagine
+									imageRendObi.setDisponibile(giocatori.get(i).getLibreria()[row][col].getDisponibile());
+									tableVarLibreria.getColumnModel().getColumn(col).setCellRenderer(imageRendObi);//cambio da colare alla rispettiva immagine
 								}
 							}
 						}
@@ -598,71 +529,37 @@ public class FrontEnd extends JFrame {
 						if (tableVarLibreria != null) {
 							for (int row = 0; row < 6; row++) {
 								for (int col = 0; col < 5; col++) {
-									Color cellColor = giocatori.get(i).getObiettivo()[row][col].getColor(); // Prendo il
-																											// colore di
-																											// una
-																											// determinata
-																											// posizione
-																											// della
-																											// matrice.
-									tableVarObiettivo.setValueAt(cellColor, row, col); // Imposto il colore desiderato
-																						// alla giusta casella.
-									tableVarObiettivo.getColumnModel().getColumn(col).setCellRenderer(obiColora); // Applico
-																													// il
-																													// colore
-																													// allacasella
-																													// utilizzando
-																													// la
-																													// classe
-																													// CustomCellColore.
+									Color cellColor = giocatori.get(i).getObiettivo()[row][col].getColor(); // Prendo il colore di una determinata posizione della matrice.
+									tableVarObiettivo.setValueAt(cellColor, row, col); // Imposto il colore desiderato alla giusta casella.
+									tableVarObiettivo.getColumnModel().getColumn(col).setCellRenderer(obiColora); // Applico il colore allacasella utilizzando la classe CustomCellColore.
 
 									imageRendObi.setColore(giocatori.get(i).getObiettivo()[row][col].getColor());
-									imageRendObi
-											.setDisponibile(giocatori.get(i).getObiettivo()[row][col].getDisponibile());
-									tableVarObiettivo.getColumnModel().getColumn(col).setCellRenderer(imageRendObi);// cambio
-																													// da
-																													// colare
-																													// alla
-																													// rispettiva
-																													// immagine
+									imageRendObi.setDisponibile(giocatori.get(i).getObiettivo()[row][col].getDisponibile());
+									tableVarObiettivo.getColumnModel().getColumn(col).setCellRenderer(imageRendObi);//cambio da colare alla rispettiva immagine
 								}
 							}
 						}
-						if (tableVarLibreria != null) {
-							for (int row = 0; row < 6; row++) {
-								for (int col = 0; col < 5; col++) {
+						if (tableVarLibreria !=null) {
+							for (int row = 0; row<6;row++) {
+								for (int col = 0; col<5;col++) {
 									Color cellColor2 = giocatori.get(i).getLibreria()[row][col].getColor();
 									tableVarLibreria.setValueAt(cellColor2, row, col);
-									tableVarLibreria.getColumnModel().getColumn(col).setCellRenderer(obiColora); // Applico
-																													// il
-																													// colore
-																													// alla
-																													// casella
-																													// utilizzando
-																													// la
-																													// classe
-																													// CustomCellColore.
+									tableVarLibreria.getColumnModel().getColumn(col).setCellRenderer(obiColora); // Applico il colore alla casella utilizzando la classe CustomCellColore.
 
-									imageRendObi
-											.setDisponibile(giocatori.get(i).getLibreria()[row][col].getDisponibile());
+									imageRendObi.setDisponibile(giocatori.get(i).getLibreria()[row][col].getDisponibile());
 									imageRendObi.setColore(giocatori.get(i).getLibreria()[row][col].getColor());
-									tableVarLibreria.getColumnModel().getColumn(col).setCellRenderer(imageRendObi);// cambio
-																													// da
-																													// colare
-																													// alla
-																													// rispettiva
-																													// immagine
+									tableVarLibreria.getColumnModel().getColumn(col).setCellRenderer(imageRendObi);//cambio da colare alla rispettiva immagine
 								}
 							}
 						}
 
-					}
+					}	
 				}
 				btnIniziaPartita.setVisible(true);
 				lblNomeP1.setText(giocatori.get(0).getNome());
-				lblNomeP2.setText(giocatori.get(1).getNome());
-				lblPuntiP1.setText("" + giocatori.get(0).getPunti());
-				lblPuntiP2.setText("" + giocatori.get(1).getPunti());
+				lblNomeP2.setText(giocatori.get(1).getNome());				
+				lblPuntiP1.setText(""+giocatori.get(0).getPunti());
+				lblPuntiP2.setText(""+giocatori.get(1).getPunti());
 
 				lblNomeP3.setVisible(false);
 				lblNomeP4.setVisible(false);
@@ -678,7 +575,8 @@ public class FrontEnd extends JFrame {
 					lblNomeP4.setVisible(true);
 					lblPuntiP3.setVisible(true);
 					lblPuntiP4.setVisible(true);
-				} else if (giocatori.size() == 3) {
+				}
+				else if (giocatori.size() == 3){
 					lblPuntiP3.setText("" + giocatori.get(2).getPunti());
 					lblNomeP3.setText(giocatori.get(2).getNome());
 					lblPuntiP3.setVisible(true);
@@ -709,7 +607,7 @@ public class FrontEnd extends JFrame {
 
 				lblTurnoPlayer.setText("Turno nr." + turno + " di: " + giocatori.get(player).getNome());
 				btnProxTurno.setVisible(true);
-				lblTurnoPlayer.setVisible(true);
+				lblTurnoPlayer.setVisible(true);	
 			}
 		});
 
@@ -735,7 +633,7 @@ public class FrontEnd extends JFrame {
 				row = tableTavola_1.rowAtPoint(e.getPoint());
 				col = tableTavola_1.columnAtPoint(e.getPoint());
 
-				if (row != -1 && col != -1) {
+				if (row != -1 && col != -1) {	              
 					// Ottenere il valore della cella selezionata.
 					System.out.println("Valore della cella selezionata: " + Tavola.tavolaDaGioco[row][col].getColor());
 
@@ -743,11 +641,12 @@ public class FrontEnd extends JFrame {
 					ImageIcon pic = Images.Image.sceltaImmagine(Tavola.tavolaDaGioco[row][col].getColor());
 					lblCellaSelezionata.setText("");
 					pnlMostraTessera.setVisible(true);
-					ImageIcon picResized = Image.scaleImage(pic, 200, 200);
+					ImageIcon picResized = Image.scaleImage(pic, 200, 200);  
 					lblCellaSelezionata.setIcon(picResized);
-					if (Tavola.tavolaDaGioco[row][col].getDisponibile() == true) {
-						lblStatoTessera.setText("Può essere raccolta");
-					} else {
+					if(Tavola.tavolaDaGioco[row][col].getDisponibile()==true) {
+						lblStatoTessera.setText("Può essere raccolta");    	
+					}
+					else {
 						lblStatoTessera.setText("Non può essere raccolta");
 					}
 				}
@@ -763,25 +662,24 @@ public class FrontEnd extends JFrame {
 
 				if (row2 != -1 && col2 != -1) {
 					// Ottenere il valore della cella selezionata.
-					System.out.println(
-							"Valore della cella libreria selezionata: " + Tavola.tavolaDaGioco[row][col].getColor());
+					System.out.println("Valore della cella libreria selezionata: " + Tavola.tavolaDaGioco[row][col].getColor());
 
 					// Esempio di utilizzo delle coordinate per ottenere un'immagine.
-					ImageIcon pic = Images.Image
-							.sceltaImmagine(giocatori.get(player).getLibreria()[row2][col2].getColor());
+					ImageIcon pic = Images.Image.sceltaImmagine(giocatori.get(player).getLibreria()[row2][col2].getColor());
 					lblCellaSelezionata.setText("");
 					pnlMostraTessera.setVisible(true);
 					renderer.setDisponibile(giocatori.get(player).getLibreria()[row2][col2].getDisponibile());
-					ImageIcon picResized = Image.scaleImage(pic, 70, 70);
+					ImageIcon picResized = Image.scaleImage(pic, 70, 70);  
 					lblTesseraLibreria.setIcon(picResized);
 
-					if (giocatori.get(player).getLibreria()[row2][col2].getDisponibile() == true) {
-						lblStatoTesseraLibreria.setText("Può essere raccolta");
-					} else {
+					if(giocatori.get(player).getLibreria()[row2][col2].getDisponibile()==true) {
+						lblStatoTesseraLibreria.setText("Può essere raccolta");    	
+					}
+					else {
 						lblStatoTesseraLibreria.setText("Non può essere raccolta");
 					}
-					if (col2 + 1 < 5) {
-						giocatori.get(player).getLibreria()[row2][col2 + 1].setDisponibile(true);
+					if(col2+1<5) {
+						giocatori.get(player).getLibreria()[row2][col2+1].setDisponibile(true);
 					}
 				}
 			}
@@ -796,26 +694,25 @@ public class FrontEnd extends JFrame {
 
 				if (row2 != -1 && col2 != -1) {
 					// Ottenere il valore della cella selezionata.
-					System.out.println(
-							"Valore della cella libreria selezionata: " + Tavola.tavolaDaGioco[row][col].getColor());
+					System.out.println("Valore della cella libreria selezionata: " + Tavola.tavolaDaGioco[row][col].getColor());
 
 					// Esempio di utilizzo delle coordinate per ottenere un'immagine.
-					ImageIcon pic = Images.Image
-							.sceltaImmagine(giocatori.get(player).getLibreria()[row2][col2].getColor());
+					ImageIcon pic = Images.Image.sceltaImmagine(giocatori.get(player).getLibreria()[row2][col2].getColor());
 					lblCellaSelezionata.setText("");
 					pnlMostraTessera.setVisible(true);
 					renderer.setDisponibile(giocatori.get(player).getLibreria()[row2][col2].getDisponibile());
-					ImageIcon picResized = Image.scaleImage(pic, 70, 70);
+					ImageIcon picResized = Image.scaleImage(pic, 70, 70);  
 					lblTesseraLibreria.setIcon(picResized);
 
-					if (giocatori.get(player).getLibreria()[row2][col2].getDisponibile() == true) {
-						lblStatoTesseraLibreria.setText("Può essere raccolta");
-					} else {
+					if(giocatori.get(player).getLibreria()[row2][col2].getDisponibile()==true) {
+						lblStatoTesseraLibreria.setText("Può essere raccolta");    	
+					}
+					else {
 						lblStatoTesseraLibreria.setText("Non può essere raccolta");
 					}
-					if (col2 + 1 < 5) {
-						giocatori.get(player).getLibreria()[row2][col2 + 1].setDisponibile(true);
-					}
+					if(col2+1<5) {
+						giocatori.get(player).getLibreria()[row2][col2+1].setDisponibile(true);
+					}    
 				}
 			}
 		});
@@ -828,27 +725,26 @@ public class FrontEnd extends JFrame {
 				col2 = tableLibreria_3.columnAtPoint(e.getPoint());
 
 				if (row2 != -1 && col2 != -1) {
-					// Ottenere il valore della cella selezionata.
-					System.out.println(
-							"Valore della cella libreria selezionata: " + Tavola.tavolaDaGioco[row][col].getColor());
+					// Ottenere il valore della cella selezionata.            
+					System.out.println("Valore della cella libreria selezionata: " + Tavola.tavolaDaGioco[row][col].getColor());
 
 					// Esempio di utilizzo delle coordinate per ottenere un'immagine.
-					ImageIcon pic = Images.Image
-							.sceltaImmagine(giocatori.get(player).getLibreria()[row2][col2].getColor());
+					ImageIcon pic = Images.Image.sceltaImmagine(giocatori.get(player).getLibreria()[row2][col2].getColor());
 					lblCellaSelezionata.setText("");
 					pnlMostraTessera.setVisible(true);
 					renderer.setDisponibile(giocatori.get(player).getLibreria()[row2][col2].getDisponibile());
-					ImageIcon picResized = Image.scaleImage(pic, 70, 70);
+					ImageIcon picResized = Image.scaleImage(pic, 70, 70);  
 					lblTesseraLibreria.setIcon(picResized);
 
-					if (giocatori.get(player).getLibreria()[row2][col2].getDisponibile() == true) {
-						lblStatoTesseraLibreria.setText("Può essere raccolta");
-					} else {
+					if(giocatori.get(player).getLibreria()[row2][col2].getDisponibile()==true) {
+						lblStatoTesseraLibreria.setText("Può essere raccolta");    	
+					}
+					else {
 						lblStatoTesseraLibreria.setText("Non può essere raccolta");
 					}
-					if (col2 + 1 < 5) {
-						giocatori.get(player).getLibreria()[row2][col2 + 1].setDisponibile(true);
-					}
+					if(col2+1<5) {
+						giocatori.get(player).getLibreria()[row2][col2+1].setDisponibile(true);
+					}           
 				}
 			}
 		});
@@ -862,30 +758,29 @@ public class FrontEnd extends JFrame {
 
 				if (row2 != -1 && col2 != -1) {
 					// Ottenere il valore della cella selezionata.
-					System.out.println(
-							"Valore della cella libreria selezionata: " + Tavola.tavolaDaGioco[row][col].getColor());
+					System.out.println("Valore della cella libreria selezionata: " + Tavola.tavolaDaGioco[row][col].getColor());
 
 					// Esempio di utilizzo delle coordinate per ottenere un'immagine.
-					ImageIcon pic = Images.Image
-							.sceltaImmagine(giocatori.get(player).getLibreria()[row2][col2].getColor());
+					ImageIcon pic = Images.Image.sceltaImmagine(giocatori.get(player).getLibreria()[row2][col2].getColor());
 					lblCellaSelezionata.setText("");
 					pnlMostraTessera.setVisible(true);
 					renderer.setDisponibile(giocatori.get(player).getLibreria()[row2][col2].getDisponibile());
-					ImageIcon picResized = Image.scaleImage(pic, 70, 70);
+					ImageIcon picResized = Image.scaleImage(pic, 70, 70);  
 					lblTesseraLibreria.setIcon(picResized);
 
-					if (giocatori.get(player).getLibreria()[row2][col2].getDisponibile() == true) {
-						lblStatoTesseraLibreria.setText("Può essere raccolta");
-					} else {
+					if(giocatori.get(player).getLibreria()[row2][col2].getDisponibile()==true) {
+						lblStatoTesseraLibreria.setText("Può essere raccolta");    	
+					}
+					else {
 						lblStatoTesseraLibreria.setText("Non può essere raccolta");
 					}
 
-					if (col2 + 1 < 5) {
-						giocatori.get(player).getLibreria()[row2][col2 + 1].setDisponibile(true);
+					if(col2+1<5) {
+						giocatori.get(player).getLibreria()[row2][col2+1].setDisponibile(true);
 					}
-				}
+				}      	
 			}
-		});
+		});		
 
 		int[][] coppieValori = new int[3][2];
 		JButton btnAggTessera = new JButton("Aggiungi alla tua libreria");
@@ -897,13 +792,12 @@ public class FrontEnd extends JFrame {
 		btnAggTessera.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				if (Tavola.tavolaDaGioco[row][col].getDisponibile() == true && countTessera < 3
-						&& giocatori.get(player).getLibreria()[row2][col2].getDisponibile() == true) {
+				if (Tavola.tavolaDaGioco[row][col].getDisponibile()==true && countTessera<3 && giocatori.get(player).getLibreria()[row2][col2].getDisponibile()==true) {
 
 					Tavola.tavolaDaGioco[row][col].setDisponibile(false);
 					giocatori.get(player).getLibreria()[row2][col2] = Tavola.tavolaDaGioco[row][col];
 
-					switch (player) {
+					switch(player) {
 					case 0:
 						giocatori.get(player).aggiornaLibreria(tableLibreria_1, obiColora, imageRendObi);
 						break;
@@ -919,15 +813,13 @@ public class FrontEnd extends JFrame {
 					}
 
 					Tavola.tavolaDaGioco[row][col] = new Tessera(Color.black, false);
-					Tavola.aggiornaTavola(tableTavola_1, obiColora, imageRenderer);// aggiorno la tavola
+					Tavola.aggiornaTavola(tableTavola_1, obiColora, imageRenderer);//aggiorno la tavola
 
-					coppieValori[countTessera][0] = row; // Salvataggio del valore di row nella posizione corretta del
-															// vettore.
-					coppieValori[countTessera][1] = col; // Salvataggio del valore di col nella posizione corretta del
-															// vettore.
+					coppieValori[countTessera][0] = row; // Salvataggio del valore di row nella posizione corretta del vettore.
+					coppieValori[countTessera][1] = col; // Salvataggio del valore di col nella posizione corretta del vettore.
 
 					ImageIcon pic = Images.Image.sceltaImmagine(Tavola.tavolaDaGioco[row][col].getColor());
-					ImageIcon picResized = Image.scaleImage(pic, 200, 200);
+					ImageIcon picResized = Image.scaleImage(pic, 200, 200);  
 					lblCellaSelezionata.setIcon(picResized);
 					countTessera++;
 				}
@@ -968,7 +860,7 @@ public class FrontEnd extends JFrame {
 		txtNomeP4.setText("P4");
 		txtNomeP4.setColumns(10);
 		txtNomeP4.setBounds(20, 189, 96, 19);
-		pnlSetPlayer.add(txtNomeP4);
+		pnlSetPlayer.add(txtNomeP4);		
 
 		txtNomeP1.setVisible(false);
 		txtNomeP2.setVisible(false);
@@ -979,25 +871,20 @@ public class FrontEnd extends JFrame {
 		btnProxTurno.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// Controllo se tutti i giocatori hanno giocato il turno.
-				if (player < giocatori.size() - 1) {
-					// Se non è stato completato il giro, incremento player, così da passare al
-					// prossimo giocatore.
+				if(player<giocatori.size()-1) {
+					// Se non è stato completato il giro, incremento player, così da passare al prossimo giocatore.
 					player++;
 				}
 				// Se tutti i giocatori hanno svolto il loro turno.
-				else if (player >= giocatori.size() - 1) {
-					// Se tutti i player hanno giocato il turno, resetto il counter player e
-					// incremento il turno di 1.
+				else if(player>=giocatori.size()-1) {
+					// Se tutti i player hanno giocato il turno, resetto il counter player e incremento il turno di 1.
 					turno++;
-					player = 0;
+					player=0;
 				}
-				lblTurnoPlayer.setText("Turno nr." + turno + " di: " + giocatori.get(player).getNome());// Label che
-																										// mostra a chi
-																										// tocca
-																										// giocare.
+				lblTurnoPlayer.setText("Turno nr." + turno + " di: "+giocatori.get(player).getNome());// Label che mostra a chi tocca giocare.
 
 				// Switch per mostrare la tabella dell'obiettivo personale del player corrente.
-				switch (player) {
+				switch(player) {
 				case 0:
 					table.setVisible(true);
 					table_1.setVisible(false);
@@ -1031,7 +918,7 @@ public class FrontEnd extends JFrame {
 					tableLibreria_3.setVisible(true);
 					tableLibreria_4.setVisible(false);
 					break;
-				case 3:
+				case 3: 
 					table.setVisible(false);
 					table_1.setVisible(false);
 					table_2.setVisible(false);
@@ -1044,22 +931,21 @@ public class FrontEnd extends JFrame {
 					break;
 				}
 
-				for (int i = 0; i < countTessera; i++) {
+
+				for(int i = 0; i<countTessera; i++) {
 					row = coppieValori[i][0];
 					col = coppieValori[i][1];
 
 					if (row > 0 && Tavola.tavolaDaGioco[row - 1][col].getColor() != Color.BLACK) {
 						Tavola.tavolaDaGioco[row - 1][col].setDisponibile(true);
 					}
-					if (row < Tavola.tavolaDaGioco.length - 1
-							&& Tavola.tavolaDaGioco[row + 1][col].getColor() != Color.BLACK) {
+					if (row < Tavola.tavolaDaGioco.length - 1 && Tavola.tavolaDaGioco[row + 1][col].getColor() != Color.BLACK) {
 						Tavola.tavolaDaGioco[row + 1][col].setDisponibile(true);
 					}
 					if (col > 0 && Tavola.tavolaDaGioco[row][col - 1].getColor() != Color.BLACK) {
 						Tavola.tavolaDaGioco[row][col - 1].setDisponibile(true);
 					}
-					if (col < Tavola.tavolaDaGioco[0].length - 1
-							&& Tavola.tavolaDaGioco[row][col + 1].getColor() != Color.BLACK) {
+					if (col < Tavola.tavolaDaGioco[0].length - 1 && Tavola.tavolaDaGioco[row][col + 1].getColor() != Color.BLACK) {
 						Tavola.tavolaDaGioco[row][col + 1].setDisponibile(true);
 					}
 				}
@@ -1088,9 +974,9 @@ public class FrontEnd extends JFrame {
 	 */
 	private ObiettivoComune generaObiettivoCollettivo() {
 		Random rand = new Random();
-		int nObiettivo = rand.nextInt(1, 13);
+		int nObiettivo = rand.nextInt(1,13);
 		ObiettivoComune obiettivo = null;
-		switch (nObiettivo) {
+		switch(nObiettivo) {
 		case 1:
 			obiettivo = new Obiettivo1();
 			break;
@@ -1103,10 +989,10 @@ public class FrontEnd extends JFrame {
 		case 4:
 			obiettivo = new Obiettivo4();
 			break;
-		case 5:
+		case 5:			
 			obiettivo = new Obiettivo5();
 			break;
-		case 6:
+		case 6:	
 			obiettivo = new Obiettivo6();
 			break;
 		case 7:
@@ -1127,7 +1013,7 @@ public class FrontEnd extends JFrame {
 		case 12:
 			obiettivo = new Obiettivo12();
 			break;
-		}
+		}		
 		return obiettivo;
 	}
 }
