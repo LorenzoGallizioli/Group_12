@@ -684,9 +684,7 @@ public class FrontEnd extends JFrame {
 		                    else {
 		                    	lblStatoTesseraLibreria.setText("Non può essere raccolta");
 		                    }
-		                    if(col2+1<5) {
-		                    	giocatori.get(player).getLibreria()[row2][col2+1].setDisponibile(true);
-		                    }
+		                    
 		                }
 		            }
 				});
@@ -827,6 +825,8 @@ public class FrontEnd extends JFrame {
 					ImageIcon pic = Images.Image.sceltaImmagine(Tavola.tavolaDaGioco[row][col].getColor());
 					ImageIcon picResized = Image.scaleImage(pic, 200, 200);  
 					lblCellaSelezionata.setIcon(picResized);
+					
+					giocatori.get(player).getLibreria()[row2-1][col2].setDisponibile(true);
 					countTessera++;
 				}
 			
