@@ -8,6 +8,8 @@ import java.util.Random;
 
 import javax.swing.JTable;
 import javax.swing.table.TableCellRenderer;
+
+import Images.ImageRendererGiocatori;
 /**
  * Classe che definisce il giocatore
  * @author Davide
@@ -90,8 +92,7 @@ public class Giocatore {
 					        Color cellColor = libreria[row][col].getColor(); // Prendo il colore di una determinata posizione della matrice.
 					        table.setValueAt(cellColor, row, col); // Imposto il colore desiderato alla giusta casella.
 					        table.getColumnModel().getColumn(col).setCellRenderer(cellColora); // Applico il colore alla casella utilizzando la classe CustomCellColore.
-					        
-					        
+			
 					        table.getColumnModel().getColumn(col).setCellRenderer(imageRenderer);//cambio da colare alla rispettiva immagine
 					    
 					        table.setIntercellSpacing(new Dimension(0, 0));//rimuove il contorno binaco tra una casella e l'altra

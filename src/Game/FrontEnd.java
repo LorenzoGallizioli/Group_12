@@ -351,7 +351,7 @@ public class FrontEnd extends JFrame {
 				
 				//TODO: inserire nel frontend le immagini.
 				
-				
+				ImageRendererGiocatori renderer = new ImageRendererGiocatori();
 				if (chckbxGiocatori4.isSelected() == true) {
 					Tavola.numPlayers = 4;
 					giocatori.clear(); // Pulisco la lista.
@@ -408,6 +408,9 @@ public class FrontEnd extends JFrame {
 							        Color cellColor = giocatori.get(i).getObiettivo()[row][col].getColor(); // Prendo il colore di una determinata posizione della matrice.
 							        tableVarObiettivo.setValueAt(cellColor, row, col); // Imposto il colore desiderato alla giusta casella.
 							        tableVarObiettivo.getColumnModel().getColumn(col).setCellRenderer(obiColora); // Applico il colore alla casella utilizzando la classe CustomCellColore.
+							        
+							        imageRendObi.setColore(giocatori.get(i).getObiettivo()[row][col].getColor());
+							        imageRendObi.setDisponibile(giocatori.get(i).getObiettivo()[row][col].getDisponibile());
 							        tableVarObiettivo.getColumnModel().getColumn(col).setCellRenderer(imageRendObi);//cambio da colare alla rispettiva immagine
 							    }
 							}
@@ -418,6 +421,9 @@ public class FrontEnd extends JFrame {
 									Color cellColor2 = giocatori.get(i).getLibreria()[row][col].getColor();
 									tableVarLibreria.setValueAt(cellColor2, row, col);
 									tableVarLibreria.getColumnModel().getColumn(col).setCellRenderer(obiColora); // Applico il colore alla casella utilizzando la classe CustomCellColore.
+									
+									imageRendObi.setColore(giocatori.get(i).getLibreria()[row][col].getColor());
+									imageRendObi.setDisponibile(giocatori.get(i).getLibreria()[row][col].getDisponibile());
 									tableVarLibreria.getColumnModel().getColumn(col).setCellRenderer(imageRendObi);//cambio da colare alla rispettiva immagine
 								}
 							}
@@ -470,6 +476,9 @@ public class FrontEnd extends JFrame {
 							        Color cellColor = giocatori.get(i).getObiettivo()[row][col].getColor(); // Prendo il colore di una determinata posizione della matrice.
 							        tableVarObiettivo.setValueAt(cellColor, row, col); // Imposto il colore desiderato alla giusta casella.
 							        tableVarObiettivo.getColumnModel().getColumn(col).setCellRenderer(obiColora); // Applico il colore alla casella utilizzando la classe CustomCellColore.
+							        
+							        imageRendObi.setColore(giocatori.get(i).getObiettivo()[row][col].getColor());
+							        imageRendObi.setDisponibile(giocatori.get(i).getObiettivo()[row][col].getDisponibile());
 							        tableVarObiettivo.getColumnModel().getColumn(col).setCellRenderer(imageRendObi);//cambio da colare alla rispettiva immagine
 							    }
 							}
@@ -480,6 +489,9 @@ public class FrontEnd extends JFrame {
 									Color cellColor2 = giocatori.get(i).getLibreria()[row][col].getColor();
 									tableVarLibreria.setValueAt(cellColor2, row, col);
 									tableVarLibreria.getColumnModel().getColumn(col).setCellRenderer(obiColora); // Applico il colore alla casella utilizzando la classe CustomCellColore.
+									
+									imageRendObi.setColore(giocatori.get(i).getLibreria()[row][col].getColor());
+									imageRendObi.setDisponibile(giocatori.get(i).getLibreria()[row][col].getDisponibile());
 									tableVarLibreria.getColumnModel().getColumn(col).setCellRenderer(imageRendObi);//cambio da colare alla rispettiva immagine
 								}
 							}
@@ -523,6 +535,9 @@ public class FrontEnd extends JFrame {
 									Color cellColor = giocatori.get(i).getObiettivo()[row][col].getColor(); // Prendo il colore di una determinata posizione della matrice.
 									tableVarObiettivo.setValueAt(cellColor, row, col); // Imposto il colore desiderato alla giusta casella.
 									tableVarObiettivo.getColumnModel().getColumn(col).setCellRenderer(obiColora); // Applico il colore allacasella utilizzando la classe CustomCellColore.
+									
+									imageRendObi.setColore(giocatori.get(i).getObiettivo()[row][col].getColor());
+									imageRendObi.setDisponibile(giocatori.get(i).getObiettivo()[row][col].getDisponibile());
 									tableVarObiettivo.getColumnModel().getColumn(col).setCellRenderer(imageRendObi);//cambio da colare alla rispettiva immagine
 								}
 							}
@@ -533,6 +548,9 @@ public class FrontEnd extends JFrame {
 									Color cellColor2 = giocatori.get(i).getLibreria()[row][col].getColor();
 									tableVarLibreria.setValueAt(cellColor2, row, col);
 									tableVarLibreria.getColumnModel().getColumn(col).setCellRenderer(obiColora); // Applico il colore alla casella utilizzando la classe CustomCellColore.
+									
+									imageRendObi.setDisponibile(giocatori.get(i).getLibreria()[row][col].getDisponibile());
+									imageRendObi.setColore(giocatori.get(i).getLibreria()[row][col].getColor());
 									tableVarLibreria.getColumnModel().getColumn(col).setCellRenderer(imageRendObi);//cambio da colare alla rispettiva immagine
 								}
 							}
@@ -645,7 +663,7 @@ public class FrontEnd extends JFrame {
 	                    ImageIcon pic = Images.Image.sceltaImmagine(Tavola.tavolaDaGioco[row][col].getColor());
 	                    lblCellaSelezionata.setText("");
 	                    pnlMostraTessera.setVisible(true);
-	                    ImageIcon picResized = Image.scaleImage(pic, 200, 200,Tavola.tavolaDaGioco[row][col].getDisponibile(),Tavola.tavolaDaGioco[row][col].getColor());  
+	                    ImageIcon picResized = Image.scaleImage(pic, 200, 200);  
 	                    lblCellaSelezionata.setIcon(picResized);
 	                    if(Tavola.tavolaDaGioco[row][col].getDisponibile()==true) {
 	                    	lblStatoTessera.setText("Può essere raccolta");    	
@@ -661,7 +679,8 @@ public class FrontEnd extends JFrame {
 	                
 	            }
 	        });
-				
+				ImageRendererGiocatori renderer = new ImageRendererGiocatori();
+				//gestione libreria player 1
 				tableLibreria_1.addMouseListener(new MouseAdapter() {
 		            @Override
 		            public void mouseClicked(MouseEvent e) {
@@ -677,7 +696,113 @@ public class FrontEnd extends JFrame {
 		                    ImageIcon pic = Images.Image.sceltaImmagine(giocatori.get(player).getLibreria()[row2][col2].getColor());
 		                    lblCellaSelezionata.setText("");
 		                    pnlMostraTessera.setVisible(true);
-		                    ImageIcon picResized = Image.scaleImage(pic, 70, 70,giocatori.get(player).getLibreria()[row2][col2].getDisponibile(),giocatori.get(player).getLibreria()[row2][col2].getColor());  
+		                    renderer.setDisponibile(giocatori.get(player).getLibreria()[row2][col2].getDisponibile());
+		                    ImageIcon picResized = Image.scaleImage(pic, 70, 70);  
+		                    lblTesseraLibreria.setIcon(picResized);
+		                    
+		                    if(giocatori.get(player).getLibreria()[row2][col2].getDisponibile()==true) {
+		                    	lblStatoTesseraLibreria.setText("Può essere raccolta");    	
+		                    }
+		                    else {
+		                    	lblStatoTesseraLibreria.setText("Non può essere raccolta");
+		                    }
+		                    if(col2+1<5) {
+		                    	giocatori.get(player).getLibreria()[row2][col2+1].setDisponibile(true);
+		                    }
+		                }
+		            	
+		            }
+				});
+				
+				//gestione libreria player 2
+				tableLibreria_2.addMouseListener(new MouseAdapter() {
+		            @Override
+		            public void mouseClicked(MouseEvent e) {
+		            	row2 = tableLibreria_2.rowAtPoint(e.getPoint());
+		                col2 = tableLibreria_2.columnAtPoint(e.getPoint());
+
+		            	if (row2 != -1 && col2 != -1) {
+		                    // Ottenere il valore della cella selezionata
+		                   
+		                    System.out.println("Valore della cella libreria selezionata: " + Tavola.tavolaDaGioco[row][col].getColor());
+
+		                    // Esempio di utilizzo delle coordinate per ottenere un'immagine
+		                    ImageIcon pic = Images.Image.sceltaImmagine(giocatori.get(player).getLibreria()[row2][col2].getColor());
+		                    lblCellaSelezionata.setText("");
+		                    pnlMostraTessera.setVisible(true);
+		                    renderer.setDisponibile(giocatori.get(player).getLibreria()[row2][col2].getDisponibile());
+		                    ImageIcon picResized = Image.scaleImage(pic, 70, 70);  
+		                    lblTesseraLibreria.setIcon(picResized);
+		                    
+		                    if(giocatori.get(player).getLibreria()[row2][col2].getDisponibile()==true) {
+		                    	lblStatoTesseraLibreria.setText("Può essere raccolta");    	
+		                    }
+		                    else {
+		                    	lblStatoTesseraLibreria.setText("Non può essere raccolta");
+		                    }
+		                    if(col2+1<5) {
+		                    	giocatori.get(player).getLibreria()[row2][col2+1].setDisponibile(true);
+		                    }
+		                    
+		                    
+		                }
+		            	
+		            }
+				});
+				
+				//gestione libreria player 3
+				tableLibreria_3.addMouseListener(new MouseAdapter() {
+		            @Override
+		            public void mouseClicked(MouseEvent e) {
+		            	row2 = tableLibreria_3.rowAtPoint(e.getPoint());
+		                col2 = tableLibreria_3.columnAtPoint(e.getPoint());
+
+		            	if (row2 != -1 && col2 != -1) {
+		                    // Ottenere il valore della cella selezionata
+		                   
+		                    System.out.println("Valore della cella libreria selezionata: " + Tavola.tavolaDaGioco[row][col].getColor());
+
+		                    // Esempio di utilizzo delle coordinate per ottenere un'immagine
+		                    ImageIcon pic = Images.Image.sceltaImmagine(giocatori.get(player).getLibreria()[row2][col2].getColor());
+		                    lblCellaSelezionata.setText("");
+		                    pnlMostraTessera.setVisible(true);
+		                    renderer.setDisponibile(giocatori.get(player).getLibreria()[row2][col2].getDisponibile());
+		                    ImageIcon picResized = Image.scaleImage(pic, 70, 70);  
+		                    lblTesseraLibreria.setIcon(picResized);
+		                    
+		                    if(giocatori.get(player).getLibreria()[row2][col2].getDisponibile()==true) {
+		                    	lblStatoTesseraLibreria.setText("Può essere raccolta");    	
+		                    }
+		                    else {
+		                    	lblStatoTesseraLibreria.setText("Non può essere raccolta");
+		                    }
+		                    if(col2+1<5) {
+		                    	giocatori.get(player).getLibreria()[row2][col2+1].setDisponibile(true);
+		                    }
+		                    
+		                }
+		            	
+		            }
+				});
+				
+				//gestione libreria player 4
+				tableLibreria_4.addMouseListener(new MouseAdapter() {
+		            @Override
+		            public void mouseClicked(MouseEvent e) {
+		            	row2 = tableLibreria_4.rowAtPoint(e.getPoint());
+		                col2 = tableLibreria_4.columnAtPoint(e.getPoint());
+
+		            	if (row2 != -1 && col2 != -1) {
+		                    // Ottenere il valore della cella selezionata
+		                   
+		                    System.out.println("Valore della cella libreria selezionata: " + Tavola.tavolaDaGioco[row][col].getColor());
+
+		                    // Esempio di utilizzo delle coordinate per ottenere un'immagine
+		                    ImageIcon pic = Images.Image.sceltaImmagine(giocatori.get(player).getLibreria()[row2][col2].getColor());
+		                    lblCellaSelezionata.setText("");
+		                    pnlMostraTessera.setVisible(true);
+		                    renderer.setDisponibile(giocatori.get(player).getLibreria()[row2][col2].getDisponibile());
+		                    ImageIcon picResized = Image.scaleImage(pic, 70, 70);  
 		                    lblTesseraLibreria.setIcon(picResized);
 		                    
 		                    if(giocatori.get(player).getLibreria()[row2][col2].getDisponibile()==true) {
@@ -687,11 +812,14 @@ public class FrontEnd extends JFrame {
 		                    	lblStatoTesseraLibreria.setText("Non può essere raccolta");
 		                    }
 		                    
-		                    
+		                    if(col2+1<5) {
+		                    	giocatori.get(player).getLibreria()[row2][col2+1].setDisponibile(true);
+		                    }
 		                }
 		            	
 		            }
 				});
+				
 				
 				
 		int[][] coppieValori = new int[3][2];
@@ -705,8 +833,25 @@ public class FrontEnd extends JFrame {
 			
 			if(Tavola.tavolaDaGioco[row][col].getDisponibile()==true && countTessera<3 && giocatori.get(player).getLibreria()[row2][col2].getDisponibile()==true) {
 				
+				Tavola.tavolaDaGioco[row][col].setDisponibile(false);
 				giocatori.get(player).getLibreria()[row2][col2] = Tavola.tavolaDaGioco[row][col];
-				giocatori.get(player).aggiornaLibreria(tableLibreria_1, obiColora, imageRendObi);
+				
+				
+				switch(player) {
+				case 0:
+					giocatori.get(player).aggiornaLibreria(tableLibreria_1, obiColora, imageRendObi);
+					break;
+				case 1:
+					giocatori.get(player).aggiornaLibreria(tableLibreria_2, obiColora, imageRendObi);
+					break;
+				case 2:
+					giocatori.get(player).aggiornaLibreria(tableLibreria_3, obiColora, imageRendObi);
+					break;
+				case 3:
+					giocatori.get(player).aggiornaLibreria(tableLibreria_4, obiColora, imageRendObi);
+					break;
+				}
+				
 				
 				Tavola.tavolaDaGioco[row][col] = new Tessera(Color.black, false);
 				Tavola.aggiornaTavola(tableTavola_1, obiColora, imageRenderer);//aggiorno la tavola
@@ -714,11 +859,14 @@ public class FrontEnd extends JFrame {
 				coppieValori[countTessera][0] = row; // Salvataggio del valore di row nella posizione corretta del vettore
 				coppieValori[countTessera][1] = col; // Salvataggio del valore di col nella posizione corretta del vettore
 				
+				ImageIcon pic = Images.Image.sceltaImmagine(Tavola.tavolaDaGioco[row][col].getColor());
+				ImageIcon picResized = Image.scaleImage(pic, 200, 200);  
+				lblCellaSelezionata.setIcon(picResized);
 				countTessera++;
 				
 			}
 			else{
-				System.out.println("Tessera non raccoglibile");
+				System.out.println("Tessera non raccoglibile o hai finito il nr. di tessere per il turno");
 			}
 			
 			}

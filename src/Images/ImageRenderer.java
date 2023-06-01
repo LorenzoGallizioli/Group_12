@@ -37,8 +37,10 @@ public class ImageRenderer extends DefaultTableCellRenderer {
         }
         
         
-        ImageIcon imgRes = Image.scaleImage(image, (table.getHeight()/table.getColumnCount()+16),(table.getWidth()/table.getRowCount()+5),Tavola.tavolaDaGioco[row][column].getDisponibile(), Tavola.tavolaDaGioco[row][column].getColor());//scala l'immagine con una proporzione calcolata
-        
+        ImageIcon imgRes = Image.scaleImage(image, (table.getHeight()/table.getColumnCount()+16),(table.getWidth()/table.getRowCount()+5));//scala l'immagine con una proporzione calcolata
+        if(cellColor != Color.BLACK && Tavola.tavolaDaGioco[row][column].getDisponibile()==false) {
+        	imgRes = Image.scurisciImage(imgRes);
+        }
         setIcon(imgRes);
         setText(null); // Rimuovi il testo per evitare sovrapposizioni
         setHorizontalAlignment(SwingConstants.CENTER); // Centra l'immagine nella cella

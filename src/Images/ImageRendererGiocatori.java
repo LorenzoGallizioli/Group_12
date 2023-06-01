@@ -12,8 +12,20 @@ import java.awt.*;
  *
  */
 public class ImageRendererGiocatori extends DefaultTableCellRenderer {
+	private boolean disponibile;
 	
-    public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
+	public void setDisponibile(boolean disponibile) {
+        this.disponibile = disponibile;
+    }
+	
+	private Color colore;
+	
+    public void setColore(Color colore) {
+		this.colore = colore;
+	}
+
+
+	public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
         super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
         
         Color cellColor = (Color) value; // Recupera il colore dalla cella direttamente dal valore
@@ -37,8 +49,10 @@ public class ImageRendererGiocatori extends DefaultTableCellRenderer {
         }
         
         
-        ImageIcon imgRes = Image.scaleImage(image, (table.getHeight()/table.getColumnCount()+16),(table.getWidth()/table.getRowCount()+5),true,Color.WHITE);//scala l'immagine con una proporzione calcolata
-        
+        ImageIcon imgRes = Image.scaleImage(image, (table.getHeight()/table.getColumnCount()+16),(table.getWidth()/table.getRowCount()+5));//scala l'immagine con una proporzione calcolata
+        if(colore == Color.BLACK && disponibile == false) {
+        	imgRes = Image.scurisciImage(imgRes);
+        }
         setIcon(imgRes);
         setText(null); // Rimuovi il testo per evitare sovrapposizioni
         setHorizontalAlignment(SwingConstants.CENTER); // Centra l'immagine nella cella

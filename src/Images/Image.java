@@ -62,7 +62,7 @@ public class Image {
 	 * @param maxHeight
 	 * @return resizedImage
 	 */
-	public static ImageIcon scaleImage(ImageIcon imageIcon, int maxWidth, int maxHeight, Boolean disponibile, Color colore) {
+	public static ImageIcon scaleImage(ImageIcon imageIcon, int maxWidth, int maxHeight) {
         java.awt.Image image = imageIcon.getImage();
         int width = image.getWidth(null);
         int height = image.getHeight(null);
@@ -75,22 +75,28 @@ public class Image {
         BufferedImage resizedImage = new BufferedImage(newWidth, newHeight, BufferedImage.TYPE_INT_RGB);
         java.awt.Graphics2D g2 = resizedImage.createGraphics();
         g2.drawImage(image, 0, 0, newWidth, newHeight, null);
-        g2.dispose();
+        g2.dispose();  
         
-        if(disponibile == false && colore != Color.BLACK) {
-        	// Applica il filtro che rende l'immagine più scura
-            float scaleFactor = 0.5f; // Modifica la sfumatura dell'immagine
-            RescaleOp rescaleOp = new RescaleOp(scaleFactor, 0, null);
-
-            BufferedImage darkenedImage = new BufferedImage(resizedImage.getWidth(), resizedImage.getHeight(), BufferedImage.TYPE_INT_ARGB);
-            Graphics2D graphics = darkenedImage.createGraphics();
-            graphics.drawImage(resizedImage, rescaleOp, 0, 0);
-            graphics.dispose();
-
-            resizedImage = darkenedImage;
-        }
-
         return new ImageIcon(resizedImage);
     }
+	
+	public static ImageIcon scurisciImage(ImageIcon imgRes) {
+	    java.awt.Image image = imgRes.getImage();
+	    BufferedImage bufferedImage = new BufferedImage(image.getWidth(null), image.getHeight(null), BufferedImage.TYPE_INT_ARGB);
+	    Graphics2D graphics = bufferedImage.createGraphics();
+	    graphics.drawImage(image, 0, 0, null);
+	    graphics.dispose();
+
+	    float scaleFactor = 0.5f; // Modifica la sfumatura dell'immagine
+	    RescaleOp rescaleOp = new RescaleOp(scaleFactor, 0, null);
+
+	    BufferedImage darkenedImage = new BufferedImage(bufferedImage.getWidth(), bufferedImage.getHeight(), BufferedImage.TYPE_INT_ARGB);
+	    Graphics2D darkenedGraphics = darkenedImage.createGraphics();
+	    darkenedGraphics.drawImage(bufferedImage, rescaleOp, 0, 0);
+	    darkenedGraphics.dispose();
+
+	    return new ImageIcon(darkenedImage);
+	}
+
 	
 }
