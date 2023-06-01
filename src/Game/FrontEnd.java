@@ -117,7 +117,7 @@ public class FrontEnd extends JFrame {
 		
 		formMyShelfie = new JFrame();
 		formMyShelfie.setTitle("MY SHELFIE");
-		formMyShelfie.setBounds(100, 100, 1280, 771);
+		formMyShelfie.setBounds(100, 100, 1240, 700);
 		formMyShelfie.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		formMyShelfie.getContentPane().setLayout(null);	
 		
@@ -333,12 +333,6 @@ public class FrontEnd extends JFrame {
 				JLabel lblTurnoPlayer = new JLabel(".");
 				lblTurnoPlayer.setBounds(1070, 20, 184, 27);
 				formMyShelfie.getContentPane().add(lblTurnoPlayer);
-		
-				// Bottone apertura pannello sinistro, dove si sceglie il numero di giocatori.
-				JButton btnSelezioneGiocatori = new JButton("Seleziona Giocatori"); // Bottone centrale, avvia una nuova partita.
-				btnSelezioneGiocatori.setFont(new Font("Tahoma", Font.PLAIN, 16));
-				btnSelezioneGiocatori.setBounds(10, 67, 201, 52);
-				formMyShelfie.getContentPane().add(btnSelezioneGiocatori);
 				pnlSetPlayer.setLayout(null);
 				// Bottone conferma giocatori.
 				JButton btnConfermaSetPlayer = new JButton("Conferma");
