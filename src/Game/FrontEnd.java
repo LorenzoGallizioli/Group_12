@@ -97,6 +97,9 @@ public class FrontEnd extends JFrame {
 	int countTessera=0;
 	int row, col; // Coordinate della tessera.
 	int row2, col2;
+	ObiettivoComune obc1 = null;
+	ObiettivoComune obc2 = null;
+	
 	private JTable table_4;
 	private JTable tableLibreria;
 	private JTable tableLibreria_1;
@@ -113,6 +116,8 @@ public class FrontEnd extends JFrame {
 		List<Giocatore> giocatori = new ArrayList<Giocatore>(); // Inizializza la lista dei giocatori.
 		CustomCellColore obiColora = new CustomCellColore();
 		ImageRenderer imageRenderer = new ImageRenderer();
+		
+		
 		
 		formMyShelfie = new JFrame();
 		formMyShelfie.setTitle("MY SHELFIE");
@@ -391,8 +396,7 @@ public class FrontEnd extends JFrame {
 					public void actionPerformed(ActionEvent e) {
 						
 						// Genero 2 obiettivi comuni.
-						ObiettivoComune obc1 = generaObiettivoCollettivo();
-						ObiettivoComune obc2;
+						obc1 = generaObiettivoCollettivo();
 						do {
 							obc2 = generaObiettivoCollettivo();
 						} while(obc1.getClass().equals(obc2.getClass()));	// Provo a generare un secondo obiettivo comune finché non sono diversi.
@@ -874,7 +878,10 @@ public class FrontEnd extends JFrame {
 					Tavola.tavolaDaGioco[row][col].setDisponibile(false);
 					giocatori.get(player).getLibreria()[row2][col2] = Tavola.tavolaDaGioco[row][col];
 				
-					giocatori.get(player).getLibreria()[row2-1][col2].setDisponibile(true);
+					if(row2-1>0) {
+						giocatori.get(player).getLibreria()[row2-1][col2].setDisponibile(true);
+					}
+					
 					
 					Tavola.tavolaDaGioco[row][col] = new Tessera(Color.black, false);
 					Tavola.aggiornaTavola(tableTavola_1, obiColora, imageRenderer);//aggiorno la tavola
@@ -945,6 +952,7 @@ public class FrontEnd extends JFrame {
 		txtNomeP4.setColumns(10);
 		txtNomeP4.setBounds(20, 189, 96, 19);
 		pnlSetPlayer.add(txtNomeP4);
+		
 		
 		
 		txtNomeP1.setVisible(false);
@@ -1052,6 +1060,34 @@ public class FrontEnd extends JFrame {
 			}
 
 		});
+		
+		//bottone fine partita
+		JButton btnFinePartita = new JButton("Fine partita");	
+		btnFinePartita.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		btnFinePartita.setBounds(10, 608, 201, 75);
+		formMyShelfie.getContentPane().add(btnFinePartita);
+		btnFinePartita.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				for(int i = 0;i<giocatori.size();i++) {
+					if(obc1.check(giocatori.get(i).getLibreria())==true) {
+						giocatori.get(i).addPunti(10);
+					}
+					if(obc2.check(giocatori.get(i).getLibreria())==true) {
+						giocatori.get(i).addPunti(5);
+					}											
+				}
+				
+				lblPuntiP1.setText(""+giocatori.get(0).getPunti());
+				lblPuntiP2.setText(""+giocatori.get(1).getPunti());
+				if(player>1) {
+					lblPuntiP3.setText(""+giocatori.get(2).getPunti());
+				}
+				if(player>2) {
+					lblPuntiP4.setText(""+giocatori.get(3).getPunti());
+				}
+			}
+		});	
 	}
 	
 	/**
