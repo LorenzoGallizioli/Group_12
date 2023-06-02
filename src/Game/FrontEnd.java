@@ -36,8 +36,8 @@ import javax.swing.table.TableCellRenderer;
 import Images.CustomCellColore;
 import Images.Image;
 import Images.ImageRenderer;
-import Images.ImageRendererLibreria;
-import Images.ImageRendererLibreria;
+import Images.ImageRendererLibOb;
+import Images.ImageRendererLibOb;
 import ObbiettiviCollettivi.*;
 
 import javax.swing.JTable;
@@ -325,7 +325,7 @@ public class FrontEnd extends JFrame {
 		formMyShelfie.getContentPane().add(btnIniziaPartita);
 		btnIniziaPartita.setVisible(true);
 		
-		ImageRendererLibreria imageRendObi = new ImageRendererLibreria();
+		ImageRendererLibOb imageRendObi = new ImageRendererLibOb();
 		
 		
 				// Listener del bottone prossimo turno.
@@ -336,7 +336,7 @@ public class FrontEnd extends JFrame {
 				formMyShelfie.getContentPane().add(btnProxTurno);
 				
 				JLabel lblTurnoPlayer = new JLabel(".");
-				lblTurnoPlayer.setBounds(1070, 20, 184, 27);
+				lblTurnoPlayer.setBounds(919, 253, 184, 27);
 				formMyShelfie.getContentPane().add(lblTurnoPlayer);
 				pnlSetPlayer.setLayout(null);
 				
@@ -357,7 +357,7 @@ public class FrontEnd extends JFrame {
 						
 						//TODO: inserire nel frontend le immagini.
 						
-						ImageRendererLibreria renderer = new ImageRendererLibreria();
+						ImageRendererLibOb renderer = new ImageRendererLibOb();
 						if (chckbxGiocatori4.isSelected() == true) {
 							
 							Tavola.numPlayers = 4;
@@ -615,15 +615,10 @@ public class FrontEnd extends JFrame {
 					}
 				});
 				
-				JPanel panelDx = new JPanel();
-				panelDx.setBounds(919, 187, 308, 97);
-				formMyShelfie.getContentPane().add(panelDx);
-				panelDx.setLayout(null);
-				
-				JLabel lblStatoTesseraLibreria = new JLabel("");
+				JLabel lblStatoTesseraLibreria = new JLabel("Seleziona una casella della libreria");
 				lblStatoTesseraLibreria.setBounds(10, 353, 181, 30);
 				pnlMostraTessera.add(lblStatoTesseraLibreria);
-				lblStatoTesseraLibreria.setFont(new Font("Tahoma", Font.PLAIN, 13));
+				lblStatoTesseraLibreria.setFont(new Font("Tahoma", Font.PLAIN, 12));
 				
 				JLabel lblTesseraLibreria = new JLabel("");
 				lblTesseraLibreria.setBounds(10, 272, 75, 75);
@@ -667,7 +662,7 @@ public class FrontEnd extends JFrame {
 	                }
 	            }
 	        });
-				ImageRendererLibreria renderer = new ImageRendererLibreria();
+				ImageRendererLibOb renderer = new ImageRendererLibOb();
 				// Gestione libreria player 1.
 				tableLibreria_1.addMouseListener(new MouseAdapter() {
 		            @Override
@@ -677,14 +672,12 @@ public class FrontEnd extends JFrame {
 
 		            	if (row2 != -1 && col2 != -1) {
 		            		// Ottenere il valore della cella selezionata.
-		                    System.out.println("Valore della cella libreria selezionata: " + Tavola.tavolaDaGioco[row][col].getColor());
+		                    System.out.println("Valore della cella libreria selezionata: " + giocatori.get(player).getLibreria()[row2][col2].getDisponibile());
 
 		                    // Esempio di utilizzo delle coordinate per ottenere un'immagine.
 		                    ImageIcon pic = Images.Image.sceltaImmagine(giocatori.get(player).getLibreria()[row2][col2].getColor());
 		                    lblCellaSelezionata.setText("");
-		                    pnlMostraTessera.setVisible(true);
-		                    
-		                   
+		                    pnlMostraTessera.setVisible(true);		                    
 		                    
 		                    if(giocatori.get(player).getLibreria()[row2][col2].getDisponibile()==true) {
 		                    	lblStatoTesseraLibreria.setText("Può essere impostata qui");    	
@@ -824,21 +817,6 @@ public class FrontEnd extends JFrame {
 				
 					giocatori.get(player).getLibreria()[row2-1][col2].setDisponibile(true);
 					
-					switch(player) {
-						case 0:
-							giocatori.get(player).aggiornaLibreria(tableLibreria_1, obiColora, imageRendObi);
-							break;
-						case 1:
-							giocatori.get(player).aggiornaLibreria(tableLibreria_2, obiColora, imageRendObi);
-							break;
-						case 2:
-							giocatori.get(player).aggiornaLibreria(tableLibreria_3, obiColora, imageRendObi);
-							break;
-						case 3:
-							giocatori.get(player).aggiornaLibreria(tableLibreria_4, obiColora, imageRendObi);
-							break;
-					}
-				
 					Tavola.tavolaDaGioco[row][col] = new Tessera(Color.black, false);
 					Tavola.aggiornaTavola(tableTavola_1, obiColora, imageRenderer);//aggiorno la tavola
 				
@@ -849,6 +827,23 @@ public class FrontEnd extends JFrame {
 					ImageIcon picResized = Image.scaleImage(pic, 200, 200);  
 					lblCellaSelezionata.setIcon(picResized);
 					
+					switch(player) {
+						case 0:
+							giocatori.get(player).aggiornaLibreria(tableLibreria_1, obiColora, imageRendObi);
+							break;
+						case 1:
+							giocatori.get(player).aggiornaLibreria(tableLibreria_2, obiColora, imageRendObi);
+							
+							break;
+						case 2:
+							giocatori.get(player).aggiornaLibreria(tableLibreria_3, obiColora, imageRendObi);
+							
+							break;
+						case 3:
+							giocatori.get(player).aggiornaLibreria(tableLibreria_4, obiColora, imageRendObi);
+							
+							break;
+					}
 					
 					countTessera++;
 				}

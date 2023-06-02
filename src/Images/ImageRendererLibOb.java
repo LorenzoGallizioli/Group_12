@@ -12,15 +12,14 @@ import java.awt.*;
  * @author Davide
  *
  */
-public class ImageRendererLibreria extends DefaultTableCellRenderer {
+public class ImageRendererLibOb extends DefaultTableCellRenderer {
+	
 	private Giocatore giocatori;
-
+	
 	public void setGiocatori(Giocatore giocatori) {
 		this.giocatori = giocatori;
 		
 	}
-
-
 
 	public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
         super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);

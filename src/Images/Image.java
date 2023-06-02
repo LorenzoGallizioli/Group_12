@@ -97,6 +97,25 @@ public class Image {
 
 	    return new ImageIcon(darkenedImage);
 	}
+	
+	public static ImageIcon togliScurisciImage(ImageIcon imgRes) {
+	    java.awt.Image image = imgRes.getImage();
+	    BufferedImage bufferedImage = new BufferedImage(image.getWidth(null), image.getHeight(null), BufferedImage.TYPE_INT_ARGB);
+	    Graphics2D graphics = bufferedImage.createGraphics();
+	    graphics.drawImage(image, 0, 0, null);
+	    graphics.dispose();
+
+	    float scaleFactor = 1f; // Modifica la sfumatura dell'immagine - se impostato a uno l'immgine è chiara, se a 0 è completamente nera
+	    RescaleOp rescaleOp = new RescaleOp(scaleFactor, 0, null);
+
+	    BufferedImage darkenedImage = new BufferedImage(bufferedImage.getWidth(), bufferedImage.getHeight(), BufferedImage.TYPE_INT_ARGB);
+	    Graphics2D darkenedGraphics = darkenedImage.createGraphics();
+	    darkenedGraphics.drawImage(bufferedImage, rescaleOp, 0, 0);
+	    darkenedGraphics.dispose();
+
+	    return new ImageIcon(darkenedImage);
+	}
+	
 
 	
 }
