@@ -143,13 +143,13 @@ public class FrontEnd extends JFrame {
 		lblTitoloTessera.setFont(new Font("Tahoma", Font.PLAIN, 18));
 				
 		JLabel lblStatoTessera = new JLabel("");
-		lblStatoTessera.setBounds(10, 235, 158, 31);
+		lblStatoTessera.setBounds(10, 232, 158, 31);
 		pnlMostraTessera.add(lblStatoTessera);
 		
 		// Panel main di sinistra che contiene mostra tessera e selezione giocatori.
 		CardLayout cardLayout = new CardLayout();
 		JPanel pnlMainSx = new JPanel(cardLayout);
-		pnlMainSx.setBounds(10, 130, 201, 381);
+		pnlMainSx.setBounds(10, 68, 201, 443);
 		formMyShelfie.getContentPane().add(pnlMainSx);
 		pnlMainSx.add(pnlSetPlayer, "pnlSetPlayer");
 		pnlMainSx.add(pnlMostraTessera, "pnlMostraTessera");
@@ -338,12 +338,6 @@ public class FrontEnd extends JFrame {
 				JLabel lblTurnoPlayer = new JLabel(".");
 				lblTurnoPlayer.setBounds(1070, 20, 184, 27);
 				formMyShelfie.getContentPane().add(lblTurnoPlayer);
-		
-				// Bottone apertura pannello sinistro, dove si sceglie il numero di giocatori.
-				JButton btnSelezioneGiocatori = new JButton("Seleziona Giocatori"); // Bottone centrale, avvia una nuova partita.
-				btnSelezioneGiocatori.setFont(new Font("Tahoma", Font.PLAIN, 16));
-				btnSelezioneGiocatori.setBounds(10, 67, 201, 52);
-				formMyShelfie.getContentPane().add(btnSelezioneGiocatori);
 				pnlSetPlayer.setLayout(null);
 				
 				// Bottone conferma giocatori.
@@ -626,14 +620,20 @@ public class FrontEnd extends JFrame {
 				formMyShelfie.getContentPane().add(panelDx);
 				panelDx.setLayout(null);
 				
-				JLabel lblTesseraLibreria = new JLabel("");
-				lblTesseraLibreria.setBounds(10, 11, 75, 75);
-				panelDx.add(lblTesseraLibreria);
-				
 				JLabel lblStatoTesseraLibreria = new JLabel("");
+				lblStatoTesseraLibreria.setBounds(10, 353, 181, 30);
+				pnlMostraTessera.add(lblStatoTesseraLibreria);
 				lblStatoTesseraLibreria.setFont(new Font("Tahoma", Font.PLAIN, 13));
-				lblStatoTesseraLibreria.setBounds(109, 11, 149, 30);
-				panelDx.add(lblStatoTesseraLibreria);
+				
+				JLabel lblTesseraLibreria = new JLabel("");
+				lblTesseraLibreria.setBounds(10, 272, 75, 75);
+				pnlMostraTessera.add(lblTesseraLibreria);
+				
+				JButton btnAggTessera = new JButton("Aggiungi alla tua libreria");
+				btnAggTessera.setFont(new Font("Tahoma", Font.PLAIN, 11));
+				btnAggTessera.setBounds(10, 394, 181, 38);
+				pnlMostraTessera.add(btnAggTessera);
+				btnAggTessera.setEnabled(false);
 				
 				tableTavola_1.addMouseListener(new MouseAdapter() {
 	            @Override
@@ -653,11 +653,16 @@ public class FrontEnd extends JFrame {
 	                    pnlMostraTessera.setVisible(true);
 	                    ImageIcon picResized = Image.scaleImage(pic, 200, 200);  
 	                    lblCellaSelezionata.setIcon(picResized);
+	                    
 	                    if(Tavola.tavolaDaGioco[row][col].getDisponibile()==true) {
 	                    	lblStatoTessera.setText("Può essere raccolta");    	
+	                    	
 	                    }
 	                    else {
 	                    	lblStatoTessera.setText("Non può essere raccolta");
+	                    }
+	                    if (Tavola.tavolaDaGioco[row][col].getDisponibile()==true && countTessera<3 && giocatori.get(player).getLibreria()[row2][col2].getDisponibile()==true) {
+	                    	btnAggTessera.setEnabled(true);
 	                    }
 	                }
 	            }
@@ -682,15 +687,19 @@ public class FrontEnd extends JFrame {
 		                   
 		                    
 		                    if(giocatori.get(player).getLibreria()[row2][col2].getDisponibile()==true) {
-		                    	lblStatoTesseraLibreria.setText("Può essere raccolta");    	
+		                    	lblStatoTesseraLibreria.setText("Può essere impostata qui");    	
 		                    }
 		                    else {
-		                    	lblStatoTesseraLibreria.setText("Non può essere raccolta");
+		                    	lblStatoTesseraLibreria.setText("Non può essere impostata qui");
 		                    	Image.scurisciImage(pic);
 		                    }
 		                    
 		                    ImageIcon picResized = Image.scaleImage(pic, 70, 70);  
 		                    lblTesseraLibreria.setIcon(picResized);
+		                    
+		                    if (Tavola.tavolaDaGioco[row][col].getDisponibile()==true && countTessera<3 && giocatori.get(player).getLibreria()[row2][col2].getDisponibile()==true) {
+		                    	btnAggTessera.setEnabled(true);
+		                    }
 		                }
 		            }
 				});
@@ -714,14 +723,18 @@ public class FrontEnd extends JFrame {
 		                    
 		                    
 		                    if(giocatori.get(player).getLibreria()[row2][col2].getDisponibile()==true) {
-		                    	lblStatoTesseraLibreria.setText("Può essere raccolta");    	
+		                    	lblStatoTesseraLibreria.setText("Può essere impostata qui");    	
 		                    }
 		                    else {
-		                    	lblStatoTesseraLibreria.setText("Non può essere raccolta");
+		                    	lblStatoTesseraLibreria.setText("Non può essere impostata qui");
 		                    	Image.scurisciImage(pic);
 		                    }
 		                    ImageIcon picResized = Image.scaleImage(pic, 70, 70);  
 		                    lblTesseraLibreria.setIcon(picResized);
+		                    
+		                    if (Tavola.tavolaDaGioco[row][col].getDisponibile()==true && countTessera<3 && giocatori.get(player).getLibreria()[row2][col2].getDisponibile()==true) {
+		                    	btnAggTessera.setEnabled(true);
+		                    }
 		                }
 		            }
 				});
@@ -743,14 +756,18 @@ public class FrontEnd extends JFrame {
 		                    pnlMostraTessera.setVisible(true);
 		                    
 		                    if(giocatori.get(player).getLibreria()[row2][col2].getDisponibile()==true) {
-		                    	lblStatoTesseraLibreria.setText("Può essere raccolta");    	
+		                    	lblStatoTesseraLibreria.setText("Può essere impostata qui");    	
 		                    }
 		                    else {
-		                    	lblStatoTesseraLibreria.setText("Non può essere raccolta");
+		                    	lblStatoTesseraLibreria.setText("Non può essere impostata qui");
 		                    	Image.scurisciImage(pic);
 		                    }
 		                    ImageIcon picResized = Image.scaleImage(pic, 70, 70);  
-		                    lblTesseraLibreria.setIcon(picResized);           
+		                    lblTesseraLibreria.setIcon(picResized); 
+		                    
+		                    if (Tavola.tavolaDaGioco[row][col].getDisponibile()==true && countTessera<3 && giocatori.get(player).getLibreria()[row2][col2].getDisponibile()==true) {
+		                    	btnAggTessera.setEnabled(true);
+		                    }
 		                }
 		            }
 				});
@@ -774,31 +791,34 @@ public class FrontEnd extends JFrame {
 		                    
 		                    
 		                    if(giocatori.get(player).getLibreria()[row2][col2].getDisponibile()==true) {
-		                    	lblStatoTesseraLibreria.setText("Può essere raccolta");    	
+		                    	lblStatoTesseraLibreria.setText("Può essere impostata qui");    	
 		                    }
 		                    else {
-		                    	lblStatoTesseraLibreria.setText("Non può essere raccolta");
+		                    	lblStatoTesseraLibreria.setText("Non può essere impostata qui");
 		                    	Image.scurisciImage(pic);
 		                    }
 		                    
 		                    ImageIcon picResized = Image.scaleImage(pic, 70, 70);  
 		                    lblTesseraLibreria.setIcon(picResized);
+		                    
+		                    if (Tavola.tavolaDaGioco[row][col].getDisponibile()==true && countTessera<3 && giocatori.get(player).getLibreria()[row2][col2].getDisponibile()==true) {
+		                    	btnAggTessera.setEnabled(true);
+		                    }
 		                }      	
 		            }
 				});		
 				
 		int[][] coppieValori = new int[3][2];
-		JButton btnAggTessera = new JButton("Aggiungi alla tua libreria");
-		btnAggTessera.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		btnAggTessera.setBounds(10, 332, 181, 38);
-		pnlMostraTessera.add(btnAggTessera);
+		
+		
+	
 		
 		// Listener bottone "aggiungi alla tua libreria".
 		btnAggTessera.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			
-				if (Tavola.tavolaDaGioco[row][col].getDisponibile()==true && countTessera<3 && giocatori.get(player).getLibreria()[row2][col2].getDisponibile()==true) {
 				
+				if (Tavola.tavolaDaGioco[row][col].getDisponibile()==true && countTessera<3 && giocatori.get(player).getLibreria()[row2][col2].getDisponibile()==true) {
+					
 					Tavola.tavolaDaGioco[row][col].setDisponibile(false);
 					giocatori.get(player).getLibreria()[row2][col2] = Tavola.tavolaDaGioco[row][col];
 				
@@ -836,6 +856,7 @@ public class FrontEnd extends JFrame {
 				else {
 					System.out.println("Tessera non raccoglibile o hai finito il nr. di tessere per il turno");
 				}
+				btnAggTessera.setEnabled(false);
 			}
 		});
 		
