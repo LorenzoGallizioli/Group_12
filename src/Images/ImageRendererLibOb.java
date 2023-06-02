@@ -27,8 +27,15 @@ public class ImageRendererLibOb extends DefaultTableCellRenderer {
         Color cellColor = (Color) value; // Recupera il colore dalla cella direttamente dal valore
 
         ImageIcon image = Image.sceltaImmagine(cellColor);      
+        ImageIcon imgRes = null;
         
-        ImageIcon imgRes = Image.scaleImage(image, (table.getHeight()/table.getColumnCount()+16),(table.getWidth()/table.getRowCount()+5));//scala l'immagine con una proporzione calcolata
+        if(table.getRowSelectionAllowed()==true) {//
+        	 imgRes = Image.scaleImage(image, (table.getHeight()/table.getColumnCount()),(table.getWidth()/table.getRowCount()+25));
+        }
+        else {
+        	imgRes = Image.scaleImage(image, (table.getHeight()/table.getColumnCount()),(table.getWidth()+10/table.getRowCount()+20));
+        }
+        
         if(table.getRowSelectionAllowed()==true && cellColor == Color.BLACK && giocatori.getLibreria()[row][column].getDisponibile() == false) {
         	imgRes = Image.scurisciImage(imgRes);
         }

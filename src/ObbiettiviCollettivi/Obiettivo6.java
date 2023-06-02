@@ -11,7 +11,7 @@ import Game.Tessera;
  */
 public class Obiettivo6  extends ObiettivoComune{
 
-	private ImageIcon immagine = new ImageIcon("./src/pics/Obiettivo6.png");
+	private ImageIcon immagine = new ImageIcon("./src/pics/Obiettivo6.jpg");
 	
 	public Obiettivo6() {
 		

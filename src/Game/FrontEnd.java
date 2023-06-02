@@ -37,6 +37,7 @@ import Images.*;
 import ObbiettiviCollettivi.*;
 
 import javax.swing.JTable;
+import javax.swing.JTextArea;
 import javax.swing.JScrollPane;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -102,6 +103,7 @@ public class FrontEnd extends JFrame {
 	private JTable tableLibreria_2;
 	private JTable tableLibreria_3;
 	private JTable tableLibreria_4;
+	private JTable table_5;
 	
 	/**
 	 * Inizializza i contenuti della finestra.
@@ -117,6 +119,15 @@ public class FrontEnd extends JFrame {
 		formMyShelfie.setBounds(100, 100, 1280, 771);
 		formMyShelfie.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		formMyShelfie.getContentPane().setLayout(null);	
+		
+		//tavola da gioco
+		JTable tableTavola_1 = new JTable(9, 9);
+		tableTavola_1.setShowGrid(false);
+		tableTavola_1.setRowHeight(61);
+		tableTavola_1.setBounds(221, 11, 715, 630);
+		formMyShelfie.getContentPane().add(tableTavola_1);
+		tableTavola_1.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
+		tableTavola_1.setRowHeight(70);
 		
 		// Pannello selezione giocatori.
 		JPanel pnlSetPlayer = new JPanel();
@@ -169,6 +180,56 @@ public class FrontEnd extends JFrame {
 		chckbxGiocatori4.setBounds(3, 64, 113, 27);
 		pnlSetPlayer.add(chckbxGiocatori4);
 		
+		// Labels mostranti i nomi dei giocatori.
+		JPanel pnlPunteggi = new JPanel();
+		pnlPunteggi.setBorder(new LineBorder(new Color(0, 0, 0)));
+		pnlPunteggi.setBounds(946, 242, 308, 82);
+		formMyShelfie.getContentPane().add(pnlPunteggi);
+		pnlPunteggi.setLayout(null);
+		pnlPunteggi.setVisible(false);
+		
+				JLabel lblNomeP1 = new JLabel("");
+				lblNomeP1.setBounds(10, 11, 53, 27);
+				pnlPunteggi.add(lblNomeP1);
+				lblNomeP1.setFont(new Font("Tahoma", Font.PLAIN, 16));
+				
+				// Labels punti giocatori.
+				JLabel lblPuntiP1 = new JLabel("");
+				lblPuntiP1.setBounds(10, 49, 53, 27);
+				pnlPunteggi.add(lblPuntiP1);
+				lblPuntiP1.setFont(new Font("Tahoma", Font.PLAIN, 16));
+				
+				JLabel lblNomeP2 = new JLabel("");
+				lblNomeP2.setBounds(73, 11, 53, 27);
+				pnlPunteggi.add(lblNomeP2);
+				lblNomeP2.setFont(new Font("Tahoma", Font.PLAIN, 16));
+				
+				JLabel lblPuntiP2 = new JLabel("");
+				lblPuntiP2.setBounds(73, 49, 53, 27);
+				pnlPunteggi.add(lblPuntiP2);
+				lblPuntiP2.setFont(new Font("Tahoma", Font.PLAIN, 16));
+				
+				JLabel lblNomeP3 = new JLabel("");
+				lblNomeP3.setBounds(136, 11, 53, 27);
+				pnlPunteggi.add(lblNomeP3);
+				lblNomeP3.setFont(new Font("Tahoma", Font.PLAIN, 16));
+				
+				JLabel lblPuntiP3 = new JLabel("");
+				lblPuntiP3.setBounds(136, 49, 53, 27);
+				pnlPunteggi.add(lblPuntiP3);
+				lblPuntiP3.setFont(new Font("Tahoma", Font.PLAIN, 16));
+				
+				JLabel lblNomeP4 = new JLabel("");
+				lblNomeP4.setBounds(199, 11, 53, 27);
+				pnlPunteggi.add(lblNomeP4);
+				lblNomeP4.setFont(new Font("Tahoma", Font.PLAIN, 16));
+				
+				JLabel lblPuntiP4 = new JLabel("");
+				lblPuntiP4.setBounds(199, 49, 53, 27);
+				pnlPunteggi.add(lblPuntiP4);
+				lblPuntiP4.setFont(new Font("Tahoma", Font.PLAIN, 16));
+				
+				
 		// Metodi che definiscono i listener delle checkbox.
 		chckbxGiocatori2.addActionListener(new ActionListener() {
 		    public void actionPerformed(ActionEvent e) {
@@ -208,117 +269,80 @@ public class FrontEnd extends JFrame {
 		    }
 		});
 		
-		// Labels mostranti i nomi dei giocatori.
-		JLabel lblNomeP1 = new JLabel("");
-		lblNomeP1.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNomeP1.setBounds(254, 602, 110, 27);
-		formMyShelfie.getContentPane().add(lblNomeP1);
-		
-		JLabel lblNomeP2 = new JLabel("");
-		lblNomeP2.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNomeP2.setBounds(418, 602, 110, 27);
-		formMyShelfie.getContentPane().add(lblNomeP2);
-		
-		JLabel lblNomeP3 = new JLabel("");
-		lblNomeP3.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNomeP3.setBounds(566, 602, 110, 27);
-		formMyShelfie.getContentPane().add(lblNomeP3);
-		
-		JLabel lblNomeP4 = new JLabel("");
-		lblNomeP4.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNomeP4.setBounds(756, 602, 110, 27);
-		formMyShelfie.getContentPane().add(lblNomeP4);
-		
-		// Labels punti giocatori.
-		JLabel lblPuntiP1 = new JLabel("");
-		lblPuntiP1.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblPuntiP1.setBounds(254, 640, 110, 27);
-		formMyShelfie.getContentPane().add(lblPuntiP1);
-		
-		JLabel lblPuntiP2 = new JLabel("");
-		lblPuntiP2.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblPuntiP2.setBounds(418, 640, 110, 27);
-		formMyShelfie.getContentPane().add(lblPuntiP2);
-		
-		JLabel lblPuntiP3 = new JLabel("");
-		lblPuntiP3.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblPuntiP3.setBounds(566, 640, 110, 27);
-		formMyShelfie.getContentPane().add(lblPuntiP3);
-		
-		JLabel lblPuntiP4 = new JLabel("");
-		lblPuntiP4.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblPuntiP4.setBounds(756, 640, 110, 27);
-		formMyShelfie.getContentPane().add(lblPuntiP4);
-		
 		
 		// Obiettivi personali giocatori.
 		table = new JTable(6,5);
-		table.setBounds(919, 20, 141, 158);
+		table.setShowGrid(false);
+		table.setBounds(946, 11, 210, 209);
 		formMyShelfie.getContentPane().add(table);
-		table.setRowHeight(27);
+		table.setRowHeight(35);
 		table.doLayout();
 		table.setRowSelectionAllowed(false);
+		table.setIntercellSpacing(new Dimension(0, 0));
 		
 		table_1 = new JTable(6,5);
-		table_1.setBounds(919, 20, 141, 158);
+		table_1.setShowGrid(false);
+		table_1.setBounds(946, 11, 210, 209);
 		formMyShelfie.getContentPane().add(table_1);
-		table_1.setRowHeight(27);
+		table_1.setRowHeight(35);
 		table_1.doLayout();
 		table_1.setRowSelectionAllowed(false);
+		table_1.setIntercellSpacing(new Dimension(0, 0));
 		
 		table_2 = new JTable(6,5);
-		table_2.setBounds(919, 20, 141, 158);
+		table_2.setShowGrid(false);
+		table_2.setBounds(946, 11, 210, 209);
 		formMyShelfie.getContentPane().add(table_2);
-		table_2.setRowHeight(27);
+		table_2.setRowHeight(35);
 		table_2.doLayout();
 		table_2.setRowSelectionAllowed(false);
+		table_2.setIntercellSpacing(new Dimension(0, 0));
 		
 		table_3 = new JTable(6,5);
-		table_3.setBounds(919, 20, 141, 158);
+		table_3.setShowGrid(false);
+		table_3.setBounds(946, 11, 210, 209);
 		formMyShelfie.getContentPane().add(table_3);
-		table_3.setRowHeight(27);
+		table_3.setRowHeight(35);
 		table_3.doLayout();
 		table_3.setRowSelectionAllowed(false);
 		pnlSetPlayer.setVisible(false);
+		table_3.setIntercellSpacing(new Dimension(0, 0));
+		
+		table.setVisible(false);
+		table_1.setVisible(false);
+		table_2.setVisible(false);
+		table_3.setVisible(false);
 		
 		// Librerie giocatori.
 		tableLibreria_1 = new JTable(6,5);
+		tableLibreria_1.setShowGrid(false);
 		tableLibreria_1.setRowHeight(51);
-		tableLibreria_1.setBounds(919, 291, 308, 306);
+		tableLibreria_1.setBounds(946, 335, 308, 306);
 		formMyShelfie.getContentPane().add(tableLibreria_1);
 		
+		
 		tableLibreria_2 = new JTable(6,5);
+		tableLibreria_2.setShowGrid(false);
 		tableLibreria_2.setRowHeight(51);
-		tableLibreria_2.setBounds(919, 291, 308, 306);
+		tableLibreria_2.setBounds(946, 335, 308, 306);
 		formMyShelfie.getContentPane().add(tableLibreria_2);
 		
 		tableLibreria_3 = new JTable(6,5);
+		tableLibreria_3.setShowGrid(false);
 		tableLibreria_3.setRowHeight(51);
-		tableLibreria_3.setBounds(919, 291, 308, 306);
+		tableLibreria_3.setBounds(946, 335, 308, 306);
 		formMyShelfie.getContentPane().add(tableLibreria_3);
 		
 		tableLibreria_4 = new JTable(6,5);
+		tableLibreria_4.setShowGrid(false);
 		tableLibreria_4.setRowHeight(51);
-		tableLibreria_4.setBounds(919, 291, 308, 306);
+		tableLibreria_4.setBounds(946, 335, 308, 306);
 		formMyShelfie.getContentPane().add(tableLibreria_4);
 		
-
-		// Pannello obiettivi comuni.
-		JPanel pnlObiettiviComuni = new JPanel();
-		pnlObiettiviComuni.setBounds(1072, 20, 150, 158);
-		formMyShelfie.getContentPane().add(pnlObiettiviComuni);
-		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(221, 25, 688, 572);
-		formMyShelfie.getContentPane().add(scrollPane);
-		
-		// Tabella che mostra la tavola da gioco.
-		JTable tableTavola_1 = new JTable(9,9);
-		tableTavola_1.setShowGrid(false);
-		scrollPane.setViewportView(tableTavola_1);
-		tableTavola_1.setRowHeight(61);
-		tableTavola_1.doLayout();
-		tableTavola_1.setShowGrid(false);		
+		tableLibreria_1.setVisible(false);
+		tableLibreria_2.setVisible(false);
+		tableLibreria_3.setVisible(false);
+		tableLibreria_4.setVisible(false);
 		
 		// Bottone inizia partita.
 		JButton btnIniziaPartita = new JButton("Inizia Partita");
@@ -337,15 +361,35 @@ public class FrontEnd extends JFrame {
 				btnProxTurno.setVisible(false);
 				formMyShelfie.getContentPane().add(btnProxTurno);
 				
-				JLabel lblTurnoPlayer = new JLabel(".");
-				lblTurnoPlayer.setBounds(919, 253, 184, 27);
+				
+				JTextArea lblTurnoPlayer = new JTextArea();
+				lblTurnoPlayer.setText("");
+				lblTurnoPlayer.setLineWrap(true);
+				lblTurnoPlayer.setWrapStyleWord(true);
+				lblTurnoPlayer.setEditable(false);
+				
+				lblTurnoPlayer.setBorder(null);
+				lblTurnoPlayer.setBackground(null);
+				
+				lblTurnoPlayer.setBounds(1164, 11, 90, 82);
 				formMyShelfie.getContentPane().add(lblTurnoPlayer);
 				pnlSetPlayer.setLayout(null);
+
+				
+				JLabel lblObiCom1 = new JLabel("");
+				lblObiCom1.setBounds(956, 623, 120, 109);
+				formMyShelfie.getContentPane().add(lblObiCom1);
+				
+				JLabel lblObiCom2 = new JLabel("");
+				lblObiCom2.setBounds(1086, 623, 120, 109);
+				formMyShelfie.getContentPane().add(lblObiCom2);
+				
 				
 				// Bottone conferma giocatori.
 				JButton btnConfermaSetPlayer = new JButton("Conferma");
 				btnConfermaSetPlayer.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {		
+					public void actionPerformed(ActionEvent e) {
+						
 						// Genero 2 obiettivi comuni.
 						ObiettivoComune obc1 = generaObiettivoCollettivo();
 						ObiettivoComune obc2;
@@ -357,12 +401,25 @@ public class FrontEnd extends JFrame {
 						ImageIcon imgObc1 = obc1.getImage();
 						ImageIcon imgObc2 = obc2.getImage();
 						
-						//TODO: inserire nel frontend le immagini.
-				        ImageComponent imageComponent = new ImageComponent(imgObc1);
-				        pnlObiettiviComuni.add(imageComponent);
-				        pnlObiettiviComuni.setVisible(true);
+						lblObiCom1.setIcon(Image.scaleImage(imgObc2, 120, 120));
+						lblObiCom2.setIcon(Image.scaleImage(imgObc1, 120, 120));
 						
-						ImageRendererLibOb renderer = new ImageRendererLibOb();
+						System.out.println(imgObc1.getDescription());
+						System.out.println(imgObc2.getDescription());
+						
+						//mostro le tabelle obiettivi, librerie e punteggi
+						table.setVisible(true);
+						table_1.setVisible(true);
+						table_2.setVisible(true);
+						table_3.setVisible(true);
+						
+						tableLibreria_1.setVisible(true);
+						tableLibreria_2.setVisible(true);
+						tableLibreria_3.setVisible(true);
+						tableLibreria_4.setVisible(true);
+						
+						pnlPunteggi.setVisible(true);
+						
 						if (chckbxGiocatori4.isSelected() == true) {
 							
 							Tavola.numPlayers = 4;
@@ -564,6 +621,7 @@ public class FrontEnd extends JFrame {
 
 							}	
 						}
+						
 							btnIniziaPartita.setVisible(true);
 							lblNomeP1.setText(giocatori.get(0).getNome());
 							lblNomeP2.setText(giocatori.get(1).getNome());				
@@ -634,40 +692,36 @@ public class FrontEnd extends JFrame {
 				btnAggTessera.setBounds(10, 394, 181, 38);
 				pnlMostraTessera.add(btnAggTessera);
 				btnAggTessera.setEnabled(false);
+				ImageRendererLibOb renderer = new ImageRendererLibOb();
 				
 				tableTavola_1.addMouseListener(new MouseAdapter() {
-	            @Override
-	            public void mouseClicked(MouseEvent e) {
-	            	
-	                // Ottenere l'indice di riga e colonna corrispondente al punto del clic.
-	            	row = tableTavola_1.rowAtPoint(e.getPoint());
-	                col = tableTavola_1.columnAtPoint(e.getPoint());
-	                
-	                if (row != -1 && col != -1) {	              
-	                	// Ottenere il valore della cella selezionata.
-	                    System.out.println("Valore della cella selezionata: " + Tavola.tavolaDaGioco[row][col].getColor());
+		            @Override
+		            public void mouseClicked(MouseEvent e) {
+		            	
+		                // Ottenere l'indice di riga e colonna corrispondente al punto del clic.
+		            	row = tableTavola_1.rowAtPoint(e.getPoint());
+		                col = tableTavola_1.columnAtPoint(e.getPoint());
+		                
+		                if (row != -1 && col != -1) {	              
+		                	// Ottenere il valore della cella selezionata.
+		                    System.out.println("Valore della cella selezionata: " + Tavola.tavolaDaGioco[row][col].getColor());
 
-	                    // Esempio di utilizzo delle coordinate per ottenere un'immagine.
-	                    ImageIcon pic = Images.Image.sceltaImmagine(Tavola.tavolaDaGioco[row][col].getColor());
-	                    lblCellaSelezionata.setText("");
-	                    pnlMostraTessera.setVisible(true);
-	                    ImageIcon picResized = Image.scaleImage(pic, 200, 200);  
-	                    lblCellaSelezionata.setIcon(picResized);
-	                    
-	                    if(Tavola.tavolaDaGioco[row][col].getDisponibile()==true) {
-	                    	lblStatoTessera.setText("Può essere raccolta");    	
-	                    	
-	                    }
-	                    else {
-	                    	lblStatoTessera.setText("Non può essere raccolta");
-	                    }
-	                    if (Tavola.tavolaDaGioco[row][col].getDisponibile()==true && countTessera<3 && giocatori.get(player).getLibreria()[row2][col2].getDisponibile()==true) {
-	                    	btnAggTessera.setEnabled(true);
-	                    }
-	                }
-	            }
-	        });
-				ImageRendererLibOb renderer = new ImageRendererLibOb();
+		                    // Esempio di utilizzo delle coordinate per ottenere un'immagine.
+		                    ImageIcon pic = Images.Image.sceltaImmagine(Tavola.tavolaDaGioco[row][col].getColor());
+		                    lblCellaSelezionata.setText("");
+		                    pnlMostraTessera.setVisible(true);
+		                    ImageIcon picResized = Image.scaleImage(pic, 200, 200);  
+		                    lblCellaSelezionata.setIcon(picResized);
+		                    if(Tavola.tavolaDaGioco[row][col].getDisponibile()==true) {
+		                    	lblStatoTessera.setText("Può essere raccolta");    	
+		                    }
+		                    else {
+		                    	lblStatoTessera.setText("Non può essere raccolta");
+		                    }
+		                }
+		            }
+		        });
+				
 				// Gestione libreria player 1.
 				tableLibreria_1.addMouseListener(new MouseAdapter() {
 		            @Override
@@ -692,7 +746,7 @@ public class FrontEnd extends JFrame {
 		                    	Image.scurisciImage(pic);
 		                    }
 		                    
-		                    ImageIcon picResized = Image.scaleImage(pic, 70, 70);  
+		                    ImageIcon picResized = Image.scaleImage(pic, 80, 80);  
 		                    lblTesseraLibreria.setIcon(picResized);
 		                    
 		                    if (Tavola.tavolaDaGioco[row][col].getDisponibile()==true && countTessera<3 && giocatori.get(player).getLibreria()[row2][col2].getDisponibile()==true) {
@@ -861,7 +915,7 @@ public class FrontEnd extends JFrame {
 		});
 		
 		btnConfermaSetPlayer.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		btnConfermaSetPlayer.setBounds(47, 326, 101, 29);
+		btnConfermaSetPlayer.setBounds(20, 219, 101, 29);
 		pnlSetPlayer.add(btnConfermaSetPlayer);
 		
 		txtNomeP1 = new JTextField();
@@ -891,6 +945,7 @@ public class FrontEnd extends JFrame {
 		txtNomeP4.setColumns(10);
 		txtNomeP4.setBounds(20, 189, 96, 19);
 		pnlSetPlayer.add(txtNomeP4);
+		
 		
 		txtNomeP1.setVisible(false);
 		txtNomeP2.setVisible(false);
