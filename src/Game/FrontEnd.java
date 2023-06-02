@@ -33,11 +33,7 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
 
-import Images.CustomCellColore;
-import Images.Image;
-import Images.ImageRenderer;
-import Images.ImageRendererLibOb;
-import Images.ImageRendererLibOb;
+import Images.*;
 import ObbiettiviCollettivi.*;
 
 import javax.swing.JTable;
@@ -132,7 +128,7 @@ public class FrontEnd extends JFrame {
 		pnlMostraTessera.setBorder(new LineBorder(new Color(0, 0, 0)));
 		pnlMostraTessera.setBounds(919, 320, 178, 277);
 		pnlMostraTessera.setLayout(null);
-				
+		
 		JLabel lblCellaSelezionata = new JLabel("");
 		lblCellaSelezionata.setBounds(10, 42, 181, 181);
 		pnlMostraTessera.add(lblCellaSelezionata);
@@ -306,6 +302,12 @@ public class FrontEnd extends JFrame {
 		tableLibreria_4.setBounds(919, 291, 308, 306);
 		formMyShelfie.getContentPane().add(tableLibreria_4);
 		
+
+		// Pannello obiettivi comuni.
+		JPanel pnlObiettiviComuni = new JPanel();
+		pnlObiettiviComuni.setBounds(1072, 20, 150, 158);
+		formMyShelfie.getContentPane().add(pnlObiettiviComuni);
+		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(221, 25, 688, 572);
 		formMyShelfie.getContentPane().add(scrollPane);
@@ -316,7 +318,7 @@ public class FrontEnd extends JFrame {
 		scrollPane.setViewportView(tableTavola_1);
 		tableTavola_1.setRowHeight(61);
 		tableTavola_1.doLayout();
-		tableTavola_1.setShowGrid(false);
+		tableTavola_1.setShowGrid(false);		
 		
 		// Bottone inizia partita.
 		JButton btnIniziaPartita = new JButton("Inizia Partita");
@@ -352,10 +354,13 @@ public class FrontEnd extends JFrame {
 						} while(obc1.getClass().equals(obc2.getClass()));	// Provo a generare un secondo obiettivo comune finché non sono diversi.
 						
 						// Ricavo le immagini degli obiettivi estratti.
-						obc1.getImage();
-						obc2.getImage();
+						ImageIcon imgObc1 = obc1.getImage();
+						ImageIcon imgObc2 = obc2.getImage();
 						
 						//TODO: inserire nel frontend le immagini.
+				        ImageComponent imageComponent = new ImageComponent(imgObc1);
+				        pnlObiettiviComuni.add(imageComponent);
+				        pnlObiettiviComuni.setVisible(true);
 						
 						ImageRendererLibOb renderer = new ImageRendererLibOb();
 						if (chckbxGiocatori4.isSelected() == true) {
@@ -885,7 +890,7 @@ public class FrontEnd extends JFrame {
 		txtNomeP4.setText("P4");
 		txtNomeP4.setColumns(10);
 		txtNomeP4.setBounds(20, 189, 96, 19);
-		pnlSetPlayer.add(txtNomeP4);		
+		pnlSetPlayer.add(txtNomeP4);
 		
 		txtNomeP1.setVisible(false);
 		txtNomeP2.setVisible(false);
