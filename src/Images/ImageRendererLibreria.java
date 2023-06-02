@@ -12,22 +12,12 @@ import java.awt.*;
  * @author Davide
  *
  */
-public class ImageRendererGiocatori extends DefaultTableCellRenderer {
-	private boolean disponibile;
+public class ImageRendererLibreria extends DefaultTableCellRenderer {
 	private Giocatore giocatori;
-	
-	public void setDisponibile(boolean disponibile) {
-        this.disponibile = disponibile;
-    }
-	
-	private Color colore;
-	
-    public void setColore(Color colore) {
-		this.colore = colore;
-	}
 
 	public void setGiocatori(Giocatore giocatori) {
 		this.giocatori = giocatori;
+		
 	}
 
 
@@ -40,7 +30,7 @@ public class ImageRendererGiocatori extends DefaultTableCellRenderer {
         ImageIcon image = Image.sceltaImmagine(cellColor);      
         
         ImageIcon imgRes = Image.scaleImage(image, (table.getHeight()/table.getColumnCount()+16),(table.getWidth()/table.getRowCount()+5));//scala l'immagine con una proporzione calcolata
-        if(colore == Color.BLACK && giocatori.getLibreria()[row][column].getDisponibile() == false) {
+        if(table.getRowSelectionAllowed()==true && cellColor == Color.BLACK && giocatori.getLibreria()[row][column].getDisponibile() == false) {
         	imgRes = Image.scurisciImage(imgRes);
         }
         setIcon(imgRes);
