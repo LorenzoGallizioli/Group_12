@@ -18,9 +18,9 @@ public class Obiettivo10 extends ObiettivoComune {
 	}
 	
 	public boolean check(Tessera[][] libreria) {
-		int counterDiverso = 0;
 		int rigaObiettivo = 0;
 		for (int rig = 0; rig <= 5; rig++) {
+			int counterDiverso = 0;
 			int countVerdi = 0;
 			int countBlu = 0;
 			int countGialle = 0;
@@ -30,7 +30,7 @@ public class Obiettivo10 extends ObiettivoComune {
 			boolean colCompleta = true;
 
 			for (int col = 0; col <= 4; col++) {
-				if (libreria[rig][col] != null) {
+				if (libreria[rig][col].getColor() != Color.BLACK) {
 					if (libreria[rig][col].getColor() == Color.GREEN) {
 						countVerdi++;
 					} else if (libreria[rig][col].getColor() == Color.BLUE) {
@@ -39,9 +39,9 @@ public class Obiettivo10 extends ObiettivoComune {
 						countGialle++;
 					} else if (libreria[rig][col].getColor() == Color.CYAN) {
 						countAzzurre++;
-					} else if (libreria[rig][col].getColor() == Color.GREEN) {
+					} else if (libreria[rig][col].getColor() == Color.PINK) {
 						countFucsia++;
-					} else if (libreria[rig][col].getColor() == Color.GREEN) {
+					} else if (libreria[rig][col].getColor() == Color.WHITE) {
 						countBianche++;
 					}
 				} else {

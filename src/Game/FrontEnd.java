@@ -1005,9 +1005,11 @@ public class FrontEnd extends JFrame {
 									
 									if(obc1.check(giocatori.get(i).getLibreria())==true) {
 										giocatori.get(i).addPunti(10);
+										System.out.println("Obiettivo 1 Completato");
 									}
 									if(obc2.check(giocatori.get(i).getLibreria())==true) {
 										giocatori.get(i).addPunti(5);
+										System.out.println("Obiettivo 2 completato");
 									}											
 								}
 								
