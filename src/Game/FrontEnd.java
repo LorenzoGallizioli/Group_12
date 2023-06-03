@@ -123,9 +123,9 @@ public class FrontEnd extends JFrame {
 		
 		formMyShelfie = new JFrame();
         formMyShelfie.setTitle("MY SHELFIE");
-        formMyShelfie.setBounds(100, 100, 1920, 1080);
+        formMyShelfie.setBounds(100, 100, 1600, 1000);
         formMyShelfie.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        formMyShelfie.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        formMyShelfie.setLocationRelativeTo(null);
         
         // Crea il pannello personalizzato con l'immagine di sfondo
         SfondoImage backgroundPanel = new SfondoImage();
