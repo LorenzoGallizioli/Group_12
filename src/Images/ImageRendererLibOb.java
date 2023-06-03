@@ -29,16 +29,16 @@ public class ImageRendererLibOb extends DefaultTableCellRenderer {
         ImageIcon image = Image.sceltaImmagine(cellColor);      
         ImageIcon imgRes = null;
         
-        if(table.getRowSelectionAllowed()==true) {//
-        	 imgRes = Image.scaleImage(image, (table.getHeight()/table.getColumnCount()),(table.getWidth()/table.getRowCount()+25));
+        if(table.getRowSelectionAllowed()==true ) {//libreria
+       	 imgRes = Image.scaleImage(image, (table.getHeight()/table.getColumnCount()),(table.getWidth()/table.getRowCount()+25));
         }
-        else {
+        if (table.getRowSelectionAllowed()==true && cellColor == Color.BLACK && giocatori.getLibreria()[row][column].getDisponibile()==false) {            
+            imgRes = Image.scaleImage(Image.scurisciImage(image), (table.getHeight() / table.getColumnCount()), (table.getWidth() / table.getRowCount() + 25));
+        }     
+        if (table.getRowSelectionAllowed()==false){//obiettivi personali
         	imgRes = Image.scaleImage(image, (table.getHeight()/table.getColumnCount()),(table.getWidth()+10/table.getRowCount()+20));
-        }
+        }  
         
-        if(table.getRowSelectionAllowed()==true && cellColor == Color.BLACK && giocatori.getLibreria()[row][column].getDisponibile() == false) {
-        	imgRes = Image.scurisciImage(imgRes);
-        }
         setIcon(imgRes);
         setText(null); // Rimuovi il testo per evitare sovrapposizioni
         setHorizontalAlignment(SwingConstants.CENTER); // Centra l'immagine nella cella

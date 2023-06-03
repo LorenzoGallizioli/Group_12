@@ -4,6 +4,11 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import java.awt.Window.Type;
+import java.awt.datatransfer.DataFlavor;
+import java.awt.datatransfer.StringSelection;
+import java.awt.datatransfer.Transferable;
+import java.awt.datatransfer.UnsupportedFlavorException;
+
 import javax.swing.JLabel;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
@@ -11,11 +16,13 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.awt.LayoutManager;
+import java.awt.Point;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.SpringLayout;
 import javax.swing.SwingConstants;
+import javax.swing.TransferHandler;
 import javax.swing.JPanel;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -30,7 +37,7 @@ import java.awt.Component;
 import java.awt.Dimension;
 
 import javax.swing.JCheckBox;
-
+import javax.swing.JComponent;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
@@ -45,6 +52,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JTextField;
+import javax.swing.DropMode;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.border.LineBorder;
@@ -123,7 +131,7 @@ public class FrontEnd extends JFrame {
 		
 		formMyShelfie = new JFrame();
         formMyShelfie.setTitle("MY SHELFIE");
-        formMyShelfie.setBounds(100, 100, 1600, 1000);
+        formMyShelfie.setBounds(100, 100, 1423, 845);
         formMyShelfie.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         formMyShelfie.setLocationRelativeTo(null);
         
@@ -152,7 +160,7 @@ public class FrontEnd extends JFrame {
 		tableTavola_1.setRowHeight(70);
 		
 		JPanel pnlDx = new JPanel();
-		pnlDx.setBounds(974, 0, 583, 800);
+		pnlDx.setBounds(974, 0, 428, 800);
 		backgroundPanel.add(pnlDx);
 		pnlDx.setLayout(null);
 		pnlDx.setOpaque(false);
@@ -349,157 +357,6 @@ public class FrontEnd extends JFrame {
 				pnlDx.add(lblObiCom2);
 				tableLibreria_4.setVisible(false);
 				
-				// Gestione libreria player 4.
-				tableLibreria_4.addMouseListener(new MouseAdapter() {
-		            @Override
-		            public void mouseClicked(MouseEvent e) {
-		            	row2 = tableLibreria_4.rowAtPoint(e.getPoint());
-		                col2 = tableLibreria_4.columnAtPoint(e.getPoint());
-
-		            	if (row2 != -1 && col2 != -1) {
-		            		// Ottenere il valore della cella selezionata.
-		            		System.out.println("Valore della cella libreria del player: "+ player + "selezionata: " + giocatori.get(player).getLibreria()[row2][col2].getColor());
-
-		                    // Esempio di utilizzo delle coordinate per ottenere un'immagine.
-		                    ImageIcon pic = Images.Image.sceltaImmagine(giocatori.get(player).getLibreria()[row2][col2].getColor());
-		                    lblCellaSelezionata.setText("");
-		                    pnlMostraTessera.setVisible(true);
-		                    
-		                    
-		                    
-		                    if(giocatori.get(player).getLibreria()[row2][col2].getDisponibile()==true) {
-		                    	lblStatoTesseraLibreria.setText("Può essere impostata qui");    	
-		                    }
-		                    else {
-		                    	lblStatoTesseraLibreria.setText("Non può essere impostata qui");
-		                    	Image.scurisciImage(pic);
-		                    }
-		                    
-		                    ImageIcon picResized = Image.scaleImage(pic, 70, 70);  
-		                    lblTesseraLibreria.setIcon(picResized);
-		                    
-		                    if (Tavola.tavolaDaGioco[row][col].getDisponibile()==true && countTessera<3 && giocatori.get(player).getLibreria()[row2][col2].getDisponibile()==true) {
-		                    	btnAggTessera.setEnabled(true);
-		                    }
-		                }      	
-		            }
-				});		
-				tableLibreria_3.setVisible(false);
-				
-				// Gestione libreria player 3.
-				tableLibreria_3.addMouseListener(new MouseAdapter() {
-		            @Override
-		            public void mouseClicked(MouseEvent e) {
-		            	row2 = tableLibreria_3.rowAtPoint(e.getPoint());
-		                col2 = tableLibreria_3.columnAtPoint(e.getPoint());
-
-		            	if (row2 != -1 && col2 != -1) {
-		            		// Ottenere il valore della cella selezionata.            
-		            		System.out.println("Valore della cella libreria del player: "+ player + "selezionata: " + giocatori.get(player).getLibreria()[row2][col2].getColor());
-
-		                    // Esempio di utilizzo delle coordinate per ottenere un'immagine.
-		                    ImageIcon pic = Images.Image.sceltaImmagine(giocatori.get(player).getLibreria()[row2][col2].getColor());
-		                    lblCellaSelezionata.setText("");
-		                    pnlMostraTessera.setVisible(true);
-		                    
-		                    if(giocatori.get(player).getLibreria()[row2][col2].getDisponibile()==true) {
-		                    	lblStatoTesseraLibreria.setText("Può essere impostata qui");    	
-		                    }
-		                    else {
-		                    	lblStatoTesseraLibreria.setText("Non può essere impostata qui");
-		                    	Image.scurisciImage(pic);
-		                    }
-		                    ImageIcon picResized = Image.scaleImage(pic, 70, 70);  
-		                    lblTesseraLibreria.setIcon(picResized); 
-		                    
-		                    if (Tavola.tavolaDaGioco[row][col].getDisponibile()==true && countTessera<3 && giocatori.get(player).getLibreria()[row2][col2].getDisponibile()==true) {
-		                    	btnAggTessera.setEnabled(true);
-		                    }
-		                }
-		            }
-				});
-				tableLibreria_2.setVisible(false);
-				
-				// Gestione libreria player 2.
-				tableLibreria_2.addMouseListener(new MouseAdapter() {
-		            @Override
-		            public void mouseClicked(MouseEvent e) {
-		            	row2 = tableLibreria_2.rowAtPoint(e.getPoint());
-		                col2 = tableLibreria_2.columnAtPoint(e.getPoint());
-
-		            	if (row2 != -1 && col2 != -1) {
-		            		// Ottenere il valore della cella selezionata.
-		            		System.out.println("Valore della cella libreria del player: "+ player + "selezionata: " + giocatori.get(player).getLibreria()[row2][col2].getColor());
-
-		                    // Esempio di utilizzo delle coordinate per ottenere un'immagine.
-		                    ImageIcon pic = Images.Image.sceltaImmagine(giocatori.get(player).getLibreria()[row2][col2].getColor());
-		                    lblCellaSelezionata.setText("");
-		                    pnlMostraTessera.setVisible(true);
-		                    
-		                    
-		                    
-		                    if(giocatori.get(player).getLibreria()[row2][col2].getDisponibile()==true) {
-		                    	lblStatoTesseraLibreria.setText("Può essere impostata qui");    	
-		                    }
-		                    else {
-		                    	lblStatoTesseraLibreria.setText("Non può essere impostata qui");
-		                    	Image.scurisciImage(pic);
-		                    }
-		                    ImageIcon picResized = Image.scaleImage(pic, 70, 70);  
-		                    lblTesseraLibreria.setIcon(picResized);
-		                    
-		                    if (Tavola.tavolaDaGioco[row][col].getDisponibile()==true && countTessera<3 && giocatori.get(player).getLibreria()[row2][col2].getDisponibile()==true) {
-		                    	btnAggTessera.setEnabled(true);
-		                    }
-		                }
-		            }
-				});
-				
-				tableLibreria_1.setVisible(false);
-				
-				// Gestione libreria player 1.
-				tableLibreria_1.addMouseListener(new MouseAdapter() {
-		            @Override
-		            public void mouseClicked(MouseEvent e) {
-		            	row2 = tableLibreria_1.rowAtPoint(e.getPoint());
-		                col2 = tableLibreria_1.columnAtPoint(e.getPoint());
-
-		            	if (row2 != -1 && col2 != -1) {
-		            		// Ottenere il valore della cella selezionata.
-		                    System.out.println("Valore della cella libreria del player: "+ player + "selezionata: " + giocatori.get(player).getLibreria()[row2][col2].getColor());
-
-		                    // Esempio di utilizzo delle coordinate per ottenere un'immagine.
-		                    ImageIcon pic = Images.Image.sceltaImmagine(giocatori.get(player).getLibreria()[row2][col2].getColor());
-		                    lblCellaSelezionata.setText("");
-		                    pnlMostraTessera.setVisible(true);		                    
-		                    
-		                    if(giocatori.get(player).getLibreria()[row2][col2].getDisponibile()==true) {
-		                    	lblStatoTesseraLibreria.setText("Può essere collocata qui");    	
-		                    }
-		                    else {
-		                    	lblStatoTesseraLibreria.setText("Non può essere collocata qui");
-		                    	Image.scurisciImage(pic);
-		                    }
-		                    
-		                    ImageIcon picResized = Image.scaleImage(pic, 80, 80);  
-		                    lblTesseraLibreria.setIcon(picResized);
-		                    
-		                    if (Tavola.tavolaDaGioco[row][col].getDisponibile()==true && countTessera<3 && giocatori.get(player).getLibreria()[row2][col2].getDisponibile()==true) {
-		                    	btnAggTessera.setEnabled(true);
-		                    }
-		                }
-		            }
-				});
-				table_3.setVisible(false);
-				table_2.setVisible(false);
-				table_1.setVisible(false);
-				
-				table.setVisible(false);
-		
-		ImageRendererLibOb imageRendObi = new ImageRendererLibOb();
-				
-				ImageRendererLibOb renderer = new ImageRendererLibOb();
-				
 				tableTavola_1.addMouseListener(new MouseAdapter() {
 		            @Override
 		            public void mouseClicked(MouseEvent e) {
@@ -527,6 +384,160 @@ public class FrontEnd extends JFrame {
 		                }
 		            }
 		        });
+				
+				// Gestione libreria player 4.
+				tableLibreria_4.addMouseListener(new MouseAdapter() {
+		            @Override
+		            public void mouseClicked(MouseEvent e) {
+		            	row2 = tableLibreria_4.rowAtPoint(e.getPoint());
+		                col2 = tableLibreria_4.columnAtPoint(e.getPoint());
+
+		            	if (row2 != -1 && col2 != -1) {
+		            		// Ottenere il valore della cella selezionata.
+		            		System.out.println("Valore della cella libreria del player: "+ player + "selezionata: " + giocatori.get(3).getLibreria()[row2][col2].getColor());
+
+		                    // Esempio di utilizzo delle coordinate per ottenere un'immagine.
+		                    ImageIcon pic = Images.Image.sceltaImmagine(giocatori.get(3).getLibreria()[row2][col2].getColor());
+		                    lblCellaSelezionata.setText("");
+		                    pnlMostraTessera.setVisible(true);
+		                    
+		                    
+		                    
+		                    if(giocatori.get(3).getLibreria()[row2][col2].getDisponibile()==true) {
+		                    	lblStatoTesseraLibreria.setText("Può essere impostata qui");    	
+		                    }
+		                    else {
+		                    	lblStatoTesseraLibreria.setText("Non può essere impostata qui");
+		                    	Image.scurisciImage(pic);
+		                    }
+		                    
+		                    ImageIcon picResized = Image.scaleImage(pic, 70, 70);  
+		                    lblTesseraLibreria.setIcon(picResized);
+		                    
+		                    if (Tavola.tavolaDaGioco[row][col].getDisponibile()==true && countTessera<3 && giocatori.get(3).getLibreria()[row2][col2].getDisponibile()==true) {
+		                    	btnAggTessera.setEnabled(true);
+		                    }
+		                }      	
+		            }
+				});		
+				tableLibreria_3.setVisible(false);
+				
+				// Gestione libreria player 3.
+				tableLibreria_3.addMouseListener(new MouseAdapter() {
+		            @Override
+		            public void mouseClicked(MouseEvent e) {
+		            	row2 = tableLibreria_3.rowAtPoint(e.getPoint());
+		                col2 = tableLibreria_3.columnAtPoint(e.getPoint());
+
+		            	if (row2 != -1 && col2 != -1) {
+		            		// Ottenere il valore della cella selezionata.            
+		            		System.out.println("Valore della cella libreria del player: "+ player + "selezionata: " + giocatori.get(2).getLibreria()[row2][col2].getColor());
+
+		                    // Esempio di utilizzo delle coordinate per ottenere un'immagine.
+		                    ImageIcon pic = Images.Image.sceltaImmagine(giocatori.get(2).getLibreria()[row2][col2].getColor());
+		                    lblCellaSelezionata.setText("");
+		                    pnlMostraTessera.setVisible(true);
+		                    
+		                    if(giocatori.get(2).getLibreria()[row2][col2].getDisponibile()==true) {
+		                    	lblStatoTesseraLibreria.setText("Può essere impostata qui");    	
+		                    }	         
+		                    else {
+		                    	lblStatoTesseraLibreria.setText("Non può essere impostata qui");
+		                    	Image.scurisciImage(pic);
+		                    }
+		                    ImageIcon picResized = Image.scaleImage(pic, 70, 70);  
+		                    lblTesseraLibreria.setIcon(picResized); 
+		                    
+		                    if (Tavola.tavolaDaGioco[row][col].getDisponibile()==true && countTessera<3 && giocatori.get(2).getLibreria()[row2][col2].getDisponibile()==true) {
+		                    	btnAggTessera.setEnabled(true);
+		                    }
+		                }
+		            }
+				});
+				tableLibreria_2.setVisible(false);
+				
+				// Gestione libreria player 2.
+				tableLibreria_2.addMouseListener(new MouseAdapter() {
+		            @Override
+		            public void mouseClicked(MouseEvent e) {
+		            	row2 = tableLibreria_2.rowAtPoint(e.getPoint());
+		                col2 = tableLibreria_2.columnAtPoint(e.getPoint());
+
+		            	if (row2 != -1 && col2 != -1) {
+		            		// Ottenere il valore della cella selezionata.
+		            		System.out.println("Valore della cella libreria del player: "+ player + "selezionata: " + giocatori.get(1).getLibreria()[row2][col2].getColor());
+
+		                    // Esempio di utilizzo delle coordinate per ottenere un'immagine.
+		                    ImageIcon pic = Images.Image.sceltaImmagine(giocatori.get(1).getLibreria()[row2][col2].getColor());
+		                    lblCellaSelezionata.setText("");
+		                    pnlMostraTessera.setVisible(true);
+		                    
+		                    
+		                    
+		                    if(giocatori.get(1).getLibreria()[row2][col2].getDisponibile()==true) {
+		                    	lblStatoTesseraLibreria.setText("Può essere impostata qui");    	
+		                    }
+		                    else {
+		                    	lblStatoTesseraLibreria.setText("Non può essere impostata qui");
+		                    	Image.scurisciImage(pic);
+		                    }
+		                    ImageIcon picResized = Image.scaleImage(pic, 70, 70);  
+		                    lblTesseraLibreria.setIcon(picResized);
+		                    
+		                    if (Tavola.tavolaDaGioco[row][col].getDisponibile()==true && countTessera<3 && giocatori.get(1).getLibreria()[row2][col2].getDisponibile()==true) {
+		                    	btnAggTessera.setEnabled(true);
+		                    }
+		                }
+		            }
+				});
+				
+				tableLibreria_1.setVisible(false);
+				
+				// Gestione libreria player 1.
+				tableLibreria_1.addMouseListener(new MouseAdapter() {
+		            @Override
+		            public void mouseClicked(MouseEvent e) {
+		            	row2 = tableLibreria_1.rowAtPoint(e.getPoint());
+		                col2 = tableLibreria_1.columnAtPoint(e.getPoint());
+
+		            	if (row2 != -1 && col2 != -1) {
+		            		// Ottenere il valore della cella selezionata.
+		            		System.out.println("Valore della cella libreria del player: "+ player + "selezionata: " + giocatori.get(0).getLibreria()[row2][col2].getColor());
+
+		                    // Esempio di utilizzo delle coordinate per ottenere un'immagine.
+		                    ImageIcon pic = Images.Image.sceltaImmagine(giocatori.get(0).getLibreria()[row2][col2].getColor());
+		                    lblCellaSelezionata.setText("");
+		                    pnlMostraTessera.setVisible(true);
+		                    
+		                    
+		                    
+		                    if(giocatori.get(0).getLibreria()[row2][col2].getDisponibile()==true) {
+		                    	lblStatoTesseraLibreria.setText("Può essere impostata qui");    	
+		                    }
+		                    else {
+		                    	lblStatoTesseraLibreria.setText("Non può essere impostata qui");
+		                    	Image.scurisciImage(pic);
+		                    }
+		                    ImageIcon picResized = Image.scaleImage(pic, 70, 70);  
+		                    lblTesseraLibreria.setIcon(picResized);
+		                    
+		                    if (Tavola.tavolaDaGioco[row][col].getDisponibile()==true && countTessera<3 && giocatori.get(0).getLibreria()[row2][col2].getDisponibile()==true) {
+		                    	btnAggTessera.setEnabled(true);
+		                    }
+		                }
+		            }
+				});
+				
+				table_3.setVisible(false);
+				table_2.setVisible(false);
+				table_1.setVisible(false);
+				
+				table.setVisible(false);
+		
+		ImageRendererLibOb imageRendObi = new ImageRendererLibOb();
+				
+				
+				
 				
 		int[][] coppieValori = new int[3][2];
 							
@@ -925,16 +936,14 @@ public class FrontEnd extends JFrame {
 					ImageIcon pic = Images.Image.sceltaImmagine(Tavola.tavolaDaGioco[row][col].getColor());
 					ImageIcon picResized = Image.scaleImage(pic, 200, 200);  
 					lblCellaSelezionata.setIcon(picResized);
-					
-					
-					
-					giocatori.get(0).aggiornaLibreria(tableLibreria_1, obiColora, imageRendObi);					
-					giocatori.get(1).aggiornaLibreria(tableLibreria_2, obiColora, imageRendObi);
+										
+					giocatori.get(0).aggiornaLibreria(tableLibreria_1, obiColora, imageRendObi,giocatori.get(0));					
+					giocatori.get(1).aggiornaLibreria(tableLibreria_2, obiColora, imageRendObi,giocatori.get(1));
 					if(player>1) {
-						giocatori.get(2).aggiornaLibreria(tableLibreria_3, obiColora, imageRendObi);
+						giocatori.get(2).aggiornaLibreria(tableLibreria_3, obiColora, imageRendObi,giocatori.get(2));
 					}
 					if(player>2) {
-						giocatori.get(3).aggiornaLibreria(tableLibreria_4, obiColora, imageRendObi);
+						giocatori.get(3).aggiornaLibreria(tableLibreria_4, obiColora, imageRendObi,giocatori.get(3));
 					}
 						
 					
@@ -1108,10 +1117,19 @@ public class FrontEnd extends JFrame {
 					        }
 						}
 						countTessera = 0;
+						
+						giocatori.get(0).aggiornaLibreria(tableLibreria_1, obiColora, imageRendObi,giocatori.get(0));					
+						giocatori.get(1).aggiornaLibreria(tableLibreria_2, obiColora, imageRendObi,giocatori.get(1));
+						if(player>1) {
+							giocatori.get(2).aggiornaLibreria(tableLibreria_3, obiColora, imageRendObi,giocatori.get(2));
+						}
+						if(player>2) {
+							giocatori.get(3).aggiornaLibreria(tableLibreria_4, obiColora, imageRendObi,giocatori.get(3));
+						}
 					}
 					
 				});
-		btnIniziaPartita.setVisible(true);
+				btnIniziaPartita.setVisible(true);
 		
 				// Listener bottone "Inizia partita".
 				btnIniziaPartita.addActionListener(new ActionListener() {
@@ -1135,7 +1153,11 @@ public class FrontEnd extends JFrame {
 		txtNomeP3.setVisible(false);
 		txtNomeP4.setVisible(false);
 	}
-	
+	private Tessera convertColorToTessera(Color color) {
+	    // Esegui la conversione del colore in un oggetto Tessera secondo le tue specifiche
+	    // Restituisci l'oggetto Tessera risultante
+	    return new Tessera(color, true); // Esempio di creazione di un oggetto Tessera con il colore e la disponibilità appropriati
+	}
 	/**
 	 * Genera un obiettivo collettivo randomicamente.
 	 */

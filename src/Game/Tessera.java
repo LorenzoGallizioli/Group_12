@@ -55,4 +55,6 @@ public class Tessera{
 	public void setDisponibile(Boolean disponibile) {
 		this.disponibile = disponibile;
 	}
+	
+	
 }

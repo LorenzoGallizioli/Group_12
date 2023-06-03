@@ -85,7 +85,7 @@ public class Giocatore {
 	    return libreria;
 	}
 	
-	public Tessera[][] aggiornaLibreria(JTable table, CustomCellColore cellColora, ImageRendererLibOb imageRenderer){
+	public Tessera[][] aggiornaLibreria(JTable table, CustomCellColore cellColora, ImageRendererLibOb imageRenderer,Giocatore giocatore){
 		// Scansiono tutta la matrice.
 					for (int row = 0; row < 6; row++) {
 					    for (int col = 0; col < 5; col++) {
@@ -93,6 +93,7 @@ public class Giocatore {
 					        table.setValueAt(cellColor, row, col); // Imposto il colore desiderato alla giusta casella.
 					        table.getColumnModel().getColumn(col).setCellRenderer(cellColora); // Applico il colore alla casella utilizzando la classe CustomCellColore.
 					        
+					        imageRenderer.setGiocatori(giocatore);
 					        table.getColumnModel().getColumn(col).setCellRenderer(imageRenderer);//cambio da colare alla rispettiva immagine
 					        
 					        table.setIntercellSpacing(new Dimension(0, 0));//rimuove il contorno binaco tra una casella e l'altra
