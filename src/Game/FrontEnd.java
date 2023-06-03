@@ -283,7 +283,7 @@ public class FrontEnd extends JFrame {
 				table_1.setBounds(166, 11, 250, 270);
 				pnlDx.add(table_1);
 				table_1.setShowGrid(false);
-				table_1.setRowHeight(40);
+				table_1.setRowHeight(45);
 				table_1.doLayout();
 				table_1.setRowSelectionAllowed(false);
 				table_1.setIntercellSpacing(new Dimension(0, 0));
@@ -292,7 +292,7 @@ public class FrontEnd extends JFrame {
 				table_2.setBounds(166, 11, 250, 270);
 				pnlDx.add(table_2);
 				table_2.setShowGrid(false);
-				table_2.setRowHeight(40);
+				table_2.setRowHeight(45);
 				table_2.doLayout();
 				table_2.setRowSelectionAllowed(false);
 				table_2.setIntercellSpacing(new Dimension(0, 0));
@@ -301,7 +301,7 @@ public class FrontEnd extends JFrame {
 				table_3.setBounds(166, 11, 250, 270);
 				pnlDx.add(table_3);
 				table_3.setShowGrid(false);
-				table_3.setRowHeight(40);
+				table_3.setRowHeight(45);
 				table_3.doLayout();
 				table_3.setRowSelectionAllowed(false);
 				table_3.setIntercellSpacing(new Dimension(0, 0));
