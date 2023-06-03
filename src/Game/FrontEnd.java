@@ -8,6 +8,7 @@ import javax.swing.JLabel;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.awt.LayoutManager;
 
@@ -19,6 +20,8 @@ import javax.swing.JPanel;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.awt.event.ActionEvent;
@@ -118,12 +121,26 @@ public class FrontEnd extends JFrame {
 		ImageRenderer imageRenderer = new ImageRenderer();
 		
 		
-		
 		formMyShelfie = new JFrame();
-		formMyShelfie.setTitle("MY SHELFIE");
-		formMyShelfie.setBounds(100, 100, 1280, 771);
-		formMyShelfie.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		formMyShelfie.getContentPane().setLayout(null);	
+        formMyShelfie.setTitle("MY SHELFIE");
+        formMyShelfie.setBounds(100, 100, 1920, 1080);
+        formMyShelfie.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        formMyShelfie.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        
+        // Crea il pannello personalizzato con l'immagine di sfondo
+        SfondoImage backgroundPanel = new SfondoImage();
+        backgroundPanel.setLayout(null);
+        
+        // Carica l'immagine di sfondo
+        ImageIcon imageIcon = new ImageIcon("./src/pics/base_pagina.jpg");
+        java.awt.Image backgroundImage = imageIcon.getImage();
+        backgroundPanel.setBackgroundImage(backgroundImage);        
+        
+        
+        // Aggiungi il pannello personalizzato alla finestra
+        formMyShelfie.setContentPane(backgroundPanel);
+        formMyShelfie.setVisible(true);
+		
 		
 		//tavola da gioco
 		JTable tableTavola_1 = new JTable(9, 9);
@@ -135,9 +152,9 @@ public class FrontEnd extends JFrame {
 		tableTavola_1.setRowHeight(70);
 		
 		// Pannello selezione giocatori.
-		JPanel pnlSetPlayer = new JPanel();
-		pnlSetPlayer.setBackground(new Color(255, 255, 255));
+		SfondoImage pnlSetPlayer = new SfondoImage();
 		pnlSetPlayer.setBounds(10, 130, 201, 382);
+		pnlSetPlayer.setBackgroundImage(new ImageIcon("./src/pics/parquet.jpg").getImage());
 		
 		// Panel mostra tessera selezionata.
 		JPanel pnlMostraTessera = new JPanel();
@@ -188,7 +205,7 @@ public class FrontEnd extends JFrame {
 		// Labels mostranti i nomi dei giocatori.
 		JPanel pnlPunteggi = new JPanel();
 		pnlPunteggi.setBorder(new LineBorder(new Color(0, 0, 0)));
-		pnlPunteggi.setBounds(946, 242, 308, 82);
+		pnlPunteggi.setBounds(1586, 933, 308, 75);
 		formMyShelfie.getContentPane().add(pnlPunteggi);
 		pnlPunteggi.setLayout(null);
 		pnlPunteggi.setVisible(false);
@@ -278,36 +295,37 @@ public class FrontEnd extends JFrame {
 		// Obiettivi personali giocatori.
 		table = new JTable(6,5);
 		table.setShowGrid(false);
-		table.setBounds(946, 11, 210, 209);
+		table.setBounds(1469, 11, 420, 420);
 		formMyShelfie.getContentPane().add(table);
-		table.setRowHeight(35);
+		table.setRowHeight(70);
 		table.doLayout();
 		table.setRowSelectionAllowed(false);
 		table.setIntercellSpacing(new Dimension(0, 0));
 		
+		
 		table_1 = new JTable(6,5);
 		table_1.setShowGrid(false);
-		table_1.setBounds(946, 11, 210, 209);
+		table_1.setBounds(1469, 11, 420, 420);
 		formMyShelfie.getContentPane().add(table_1);
-		table_1.setRowHeight(35);
+		table_1.setRowHeight(70);
 		table_1.doLayout();
 		table_1.setRowSelectionAllowed(false);
 		table_1.setIntercellSpacing(new Dimension(0, 0));
 		
 		table_2 = new JTable(6,5);
 		table_2.setShowGrid(false);
-		table_2.setBounds(946, 11, 210, 209);
+		table_2.setBounds(1469, 11, 420, 420);
 		formMyShelfie.getContentPane().add(table_2);
-		table_2.setRowHeight(35);
+		table_2.setRowHeight(70);
 		table_2.doLayout();
 		table_2.setRowSelectionAllowed(false);
 		table_2.setIntercellSpacing(new Dimension(0, 0));
 		
 		table_3 = new JTable(6,5);
 		table_3.setShowGrid(false);
-		table_3.setBounds(946, 11, 210, 209);
+		table_3.setBounds(1469, 11, 420, 420);
 		formMyShelfie.getContentPane().add(table_3);
-		table_3.setRowHeight(35);
+		table_3.setRowHeight(70);
 		table_3.doLayout();
 		table_3.setRowSelectionAllowed(false);
 		pnlSetPlayer.setVisible(false);
@@ -321,27 +339,27 @@ public class FrontEnd extends JFrame {
 		// Librerie giocatori.
 		tableLibreria_1 = new JTable(6,5);
 		tableLibreria_1.setShowGrid(false);
-		tableLibreria_1.setRowHeight(51);
-		tableLibreria_1.setBounds(946, 335, 308, 306);
+		tableLibreria_1.setRowHeight(80);
+		tableLibreria_1.setBounds(1432, 447, 460, 480);
 		formMyShelfie.getContentPane().add(tableLibreria_1);
-		
+		tableLibreria_1.setIntercellSpacing(new Dimension(0, 0));
 		
 		tableLibreria_2 = new JTable(6,5);
 		tableLibreria_2.setShowGrid(false);
 		tableLibreria_2.setRowHeight(51);
-		tableLibreria_2.setBounds(946, 335, 308, 306);
+		tableLibreria_2.setBounds(1432, 447, 462, 462);
 		formMyShelfie.getContentPane().add(tableLibreria_2);
 		
 		tableLibreria_3 = new JTable(6,5);
 		tableLibreria_3.setShowGrid(false);
 		tableLibreria_3.setRowHeight(51);
-		tableLibreria_3.setBounds(946, 335, 308, 306);
+		tableLibreria_3.setBounds(1432, 447, 462, 462);
 		formMyShelfie.getContentPane().add(tableLibreria_3);
 		
 		tableLibreria_4 = new JTable(6,5);
 		tableLibreria_4.setShowGrid(false);
 		tableLibreria_4.setRowHeight(51);
-		tableLibreria_4.setBounds(946, 335, 308, 306);
+		tableLibreria_4.setBounds(1432, 447, 462, 462);
 		formMyShelfie.getContentPane().add(tableLibreria_4);
 		
 		tableLibreria_1.setVisible(false);
@@ -374,19 +392,19 @@ public class FrontEnd extends JFrame {
 				lblTurnoPlayer.setEditable(false);
 				
 				lblTurnoPlayer.setBorder(null);
-				lblTurnoPlayer.setBackground(null);
 				
-				lblTurnoPlayer.setBounds(1164, 11, 90, 82);
+				
+				lblTurnoPlayer.setBounds(1341, 11, 90, 82);
 				formMyShelfie.getContentPane().add(lblTurnoPlayer);
 				pnlSetPlayer.setLayout(null);
 
 				
 				JLabel lblObiCom1 = new JLabel("");
-				lblObiCom1.setBounds(956, 623, 120, 109);
+				lblObiCom1.setBounds(946, 215, 120, 109);
 				formMyShelfie.getContentPane().add(lblObiCom1);
 				
 				JLabel lblObiCom2 = new JLabel("");
-				lblObiCom2.setBounds(1086, 623, 120, 109);
+				lblObiCom2.setBounds(1076, 215, 120, 109);
 				formMyShelfie.getContentPane().add(lblObiCom2);
 				
 				
@@ -893,23 +911,17 @@ public class FrontEnd extends JFrame {
 					ImageIcon picResized = Image.scaleImage(pic, 200, 200);  
 					lblCellaSelezionata.setIcon(picResized);
 					
-					switch(player) {
-						case 0:
-							giocatori.get(player).aggiornaLibreria(tableLibreria_1, obiColora, imageRendObi);
-							break;
-						case 1:
-							giocatori.get(player).aggiornaLibreria(tableLibreria_2, obiColora, imageRendObi);
-							
-							break;
-						case 2:
-							giocatori.get(player).aggiornaLibreria(tableLibreria_3, obiColora, imageRendObi);
-							
-							break;
-						case 3:
-							giocatori.get(player).aggiornaLibreria(tableLibreria_4, obiColora, imageRendObi);
-							
-							break;
+					
+					
+					giocatori.get(0).aggiornaLibreria(tableLibreria_1, obiColora, imageRendObi);					
+					giocatori.get(1).aggiornaLibreria(tableLibreria_2, obiColora, imageRendObi);
+					if(player>1) {
+						giocatori.get(2).aggiornaLibreria(tableLibreria_3, obiColora, imageRendObi);
 					}
+					if(player>2) {
+						giocatori.get(3).aggiornaLibreria(tableLibreria_4, obiColora, imageRendObi);
+					}
+						
 					
 					countTessera++;
 				}
@@ -1046,6 +1058,12 @@ public class FrontEnd extends JFrame {
 			}
 			
 		});
+		//bottone fine partita
+				JButton btnFinePartita = new JButton("Fine partita");	
+				btnFinePartita.setFont(new Font("Tahoma", Font.PLAIN, 16));
+				btnFinePartita.setBounds(10, 608, 201, 75);
+				formMyShelfie.getContentPane().add(btnFinePartita);
+				btnFinePartita.setVisible(false);
 
 		// Listener bottone "Inizia partita".
 		btnIniziaPartita.addActionListener(new ActionListener() {
@@ -1057,15 +1075,12 @@ public class FrontEnd extends JFrame {
 				btnIniziaPartita.setVisible(true);
 				btnProxTurno.setVisible(false);
 				lblTurnoPlayer.setVisible(false);
+				btnFinePartita.setVisible(true);
 			}
 
 		});
 		
-		//bottone fine partita
-		JButton btnFinePartita = new JButton("Fine partita");	
-		btnFinePartita.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		btnFinePartita.setBounds(10, 608, 201, 75);
-		formMyShelfie.getContentPane().add(btnFinePartita);
+		//listener fine partita
 		btnFinePartita.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -1082,10 +1097,10 @@ public class FrontEnd extends JFrame {
 				
 				lblPuntiP1.setText(""+(giocatori.get(0).getPunti()+giocatori.get(0).punteggioObiettivoPersonale()));
 				lblPuntiP2.setText(""+(giocatori.get(1).getPunti()+giocatori.get(1).punteggioObiettivoPersonale()));
-				if(player>1) {
+				if(giocatori.size()>2) {
 					lblPuntiP3.setText(""+(giocatori.get(2).getPunti()+giocatori.get(2).punteggioObiettivoPersonale()));
 				}
-				if(player>2) {
+				if(giocatori.size()>3) {
 					lblPuntiP4.setText(""+(giocatori.get(3).getPunti()+giocatori.get(3).punteggioObiettivoPersonale()));
 				}
 			}
