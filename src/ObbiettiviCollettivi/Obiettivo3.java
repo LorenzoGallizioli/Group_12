@@ -1,5 +1,7 @@
 package ObbiettiviCollettivi;
 
+import java.awt.Color;
+
 import javax.swing.ImageIcon;
 
 import Game.Tessera;
@@ -17,7 +19,7 @@ public class Obiettivo3 extends ObiettivoComune {
 	}
 	
 	public boolean check(Tessera[][] libreria) {
-		if ( libreria[0][0].getColor() == libreria[0][4].getColor() && libreria[0][4].getColor() == libreria[5][0].getColor()
+		if (libreria[0][0].getColor() != Color.BLACK && libreria[0][0].getColor() == libreria[0][4].getColor() && libreria[0][4].getColor() == libreria[5][0].getColor()
 				&& libreria[5][0].getColor() == libreria[5][4].getColor())
 			return true;
 

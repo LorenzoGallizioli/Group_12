@@ -22,9 +22,9 @@ public class Obiettivo2 extends ObiettivoComune{
 		int contGruppi = 0;	// Numero di gruppi contenenti 4 tessere dello stesso colore.
 		
 		// Controlla se nelle colonne esistono gruppi da 4.
-		for(int col = 0; col <= 5; col++) { // 5 colonne.
+		for(int col = 0; col < 5; col++) { // 5 colonne.
 			int contTessere = 0;
-			for(int rig = 0; rig < 4; rig++) { // 6 righe.
+			for(int rig = 0; rig < 5; rig++) { // 6 righe.
 				// Controllo tessera nella stessa colonna ma riga sotto.
 				if(libreria[rig][col].getColor() != Color.BLACK && libreria[rig][col].getColor() == libreria[rig+1][col].getColor()) {
 					contTessere++;

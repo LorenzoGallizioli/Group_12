@@ -23,7 +23,7 @@ public class Obiettivo4 extends ObiettivoComune {
 	int contGruppi = 0;	// Numero di gruppi contenenti 4 tessere dello stesso colore in un quadrato.
 		
 		// Controlla se esistono quadrati da 4 tessere.
-		for(int col = 0; col <= 4; col++) { // 5 colonne.
+		for(int col = 0; col < 4; col++) { // 5 colonne.
 			int contTessere = 0;
 			for(int rig = 0; rig < 5; rig++) { // 6 righe.
 				if (libreria[rig][col].getColor() != Color.BLACK &&
