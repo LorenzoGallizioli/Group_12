@@ -152,7 +152,7 @@ public class FrontEnd extends JFrame {
 		tableTavola_1.setRowHeight(70);
 		
 		JPanel pnlDx = new JPanel();
-		pnlDx.setBounds(974, 11, 583, 998);
+		pnlDx.setBounds(974, 0, 583, 800);
 		backgroundPanel.add(pnlDx);
 		pnlDx.setLayout(null);
 		pnlDx.setOpaque(false);
@@ -161,7 +161,7 @@ public class FrontEnd extends JFrame {
 		
 		// Labels mostranti i nomi dei giocatori.
 		JPanel pnlPunteggi = new JPanel();
-		pnlPunteggi.setBounds(265, 915, 308, 75);
+		pnlPunteggi.setBounds(148, 292, 268, 75);
 		pnlDx.add(pnlPunteggi);
 		pnlPunteggi.setBorder(new LineBorder(new Color(0, 0, 0)));
 		pnlPunteggi.setLayout(null);
@@ -234,7 +234,7 @@ public class FrontEnd extends JFrame {
 				btnAggTessera.setEnabled(false);
 				
 				JPanel pnlSx = new JPanel();
-				pnlSx.setBounds(10, 11, 226, 949);
+				pnlSx.setBounds(10, 11, 226, 690);
 				backgroundPanel.add(pnlSx);
 				pnlSx.setLayout(null);
 				pnlSx.setOpaque(false);
@@ -252,7 +252,7 @@ public class FrontEnd extends JFrame {
 				
 				// Listener del bottone prossimo turno.
 				JButton btnProxTurno = new JButton("Finisci il turno");
-				btnProxTurno.setBounds(10, 763, 201, 75);
+				btnProxTurno.setBounds(10, 518, 201, 75);
 				pnlSx.add(btnProxTurno);
 				btnProxTurno.setFont(new Font("Tahoma", Font.PLAIN, 16));
 				
@@ -260,17 +260,9 @@ public class FrontEnd extends JFrame {
 				lblStatoTessera.setBounds(10, 232, 158, 31);
 				pnlMostraTessera.add(lblStatoTessera);
 				
-				JLabel lblObiCom1 = new JLabel("");
-				lblObiCom1.setBounds(10, 523, 120, 109);
-				pnlSx.add(lblObiCom1);
-				
-				JLabel lblObiCom2 = new JLabel("");
-				lblObiCom2.setBounds(10, 643, 120, 109);
-				pnlSx.add(lblObiCom2);
-				
 				// Obiettivi personali giocatori.
 				table = new JTable(6,5);
-				table.setBounds(22, 60, 250, 270);
+				table.setBounds(166, 11, 250, 270);
 				pnlDx.add(table);
 				table.setShowGrid(false);
 				table.setRowHeight(45);
@@ -280,7 +272,7 @@ public class FrontEnd extends JFrame {
 				
 				
 				table_1 = new JTable(6,5);
-				table_1.setBounds(22, 60, 250, 270);
+				table_1.setBounds(166, 11, 250, 270);
 				pnlDx.add(table_1);
 				table_1.setShowGrid(false);
 				table_1.setRowHeight(40);
@@ -289,7 +281,7 @@ public class FrontEnd extends JFrame {
 				table_1.setIntercellSpacing(new Dimension(0, 0));
 				
 				table_2 = new JTable(6,5);
-				table_2.setBounds(22, 60, 250, 270);
+				table_2.setBounds(166, 11, 250, 270);
 				pnlDx.add(table_2);
 				table_2.setShowGrid(false);
 				table_2.setRowHeight(40);
@@ -298,7 +290,7 @@ public class FrontEnd extends JFrame {
 				table_2.setIntercellSpacing(new Dimension(0, 0));
 				
 				table_3 = new JTable(6,5);
-				table_3.setBounds(22, 60, 250, 270);
+				table_3.setBounds(166, 11, 250, 270);
 				pnlDx.add(table_3);
 				table_3.setShowGrid(false);
 				table_3.setRowHeight(40);
@@ -308,28 +300,28 @@ public class FrontEnd extends JFrame {
 				
 				// Librerie giocatori.
 				tableLibreria_1 = new JTable(6,5);
-				tableLibreria_1.setBounds(20, 429, 396, 396);
+				tableLibreria_1.setBounds(20, 378, 396, 396);
 				pnlDx.add(tableLibreria_1);
 				tableLibreria_1.setShowGrid(false);
 				tableLibreria_1.setRowHeight(66);
 				tableLibreria_1.setIntercellSpacing(new Dimension(0, 0));
 				
 				tableLibreria_2 = new JTable(6,5);
-				tableLibreria_2.setBounds(20, 429, 396, 396);
+				tableLibreria_2.setBounds(20, 378, 396, 396);
 				pnlDx.add(tableLibreria_2);
 				tableLibreria_2.setShowGrid(false);
 				tableLibreria_2.setRowHeight(66);
 				tableLibreria_1.setIntercellSpacing(new Dimension(0, 0));
 				
 				tableLibreria_3 = new JTable(6,5);
-				tableLibreria_3.setBounds(20, 429, 396, 396);
+				tableLibreria_3.setBounds(20, 378, 396, 396);
 				pnlDx.add(tableLibreria_3);
 				tableLibreria_3.setShowGrid(false);
 				tableLibreria_3.setRowHeight(66);
 				tableLibreria_1.setIntercellSpacing(new Dimension(0, 0));
 				
 				tableLibreria_4 = new JTable(6,5);
-				tableLibreria_4.setBounds(20, 429, 396, 396);
+				tableLibreria_4.setBounds(20, 378, 396, 396);
 				pnlDx.add(tableLibreria_4);
 				tableLibreria_4.setShowGrid(false);
 				tableLibreria_4.setRowHeight(66);
@@ -338,7 +330,7 @@ public class FrontEnd extends JFrame {
 				
 				JTextArea lblTurnoPlayer = new JTextArea();
 				lblTurnoPlayer.setForeground(new Color(255, 255, 255));
-				lblTurnoPlayer.setBounds(20, 11, 90, 82);
+				lblTurnoPlayer.setBounds(20, 251, 120, 116);
 				pnlDx.add(lblTurnoPlayer);
 				lblTurnoPlayer.setText("");
 				lblTurnoPlayer.setLineWrap(true);
@@ -347,6 +339,14 @@ public class FrontEnd extends JFrame {
 				lblTurnoPlayer.setOpaque(false);
 				
 				lblTurnoPlayer.setBorder(null);
+				
+				JLabel lblObiCom1 = new JLabel("");
+				lblObiCom1.setBounds(20, 11, 120, 109);
+				pnlDx.add(lblObiCom1);
+				
+				JLabel lblObiCom2 = new JLabel("");
+				lblObiCom2.setBounds(20, 131, 120, 109);
+				pnlDx.add(lblObiCom2);
 				tableLibreria_4.setVisible(false);
 				
 				// Gestione libreria player 4.
@@ -986,7 +986,7 @@ public class FrontEnd extends JFrame {
 				
 				//bottone fine partita
 						JButton btnFinePartita = new JButton("Fine partita");	
-						btnFinePartita.setBounds(10, 849, 201, 75);
+						btnFinePartita.setBounds(10, 604, 201, 75);
 						pnlSx.add(btnFinePartita);
 						btnFinePartita.setFont(new Font("Tahoma", Font.PLAIN, 16));
 						
