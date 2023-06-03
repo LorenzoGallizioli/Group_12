@@ -1,4 +1,4 @@
-package ObbiettiviCollettivi;
+package ObbiettiviComuni;
 
 import java.awt.Color;
 
