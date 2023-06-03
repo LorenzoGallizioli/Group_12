@@ -743,10 +743,10 @@ public class FrontEnd extends JFrame {
 		                    pnlMostraTessera.setVisible(true);		                    
 		                    
 		                    if(giocatori.get(player).getLibreria()[row2][col2].getDisponibile()==true) {
-		                    	lblStatoTesseraLibreria.setText("Può essere impostata qui");    	
+		                    	lblStatoTesseraLibreria.setText("Può essere collocata qui");    	
 		                    }
 		                    else {
-		                    	lblStatoTesseraLibreria.setText("Non può essere impostata qui");
+		                    	lblStatoTesseraLibreria.setText("Non può essere collocata qui");
 		                    	Image.scurisciImage(pic);
 		                    }
 		                    
