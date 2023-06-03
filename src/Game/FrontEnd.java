@@ -735,7 +735,7 @@ public class FrontEnd extends JFrame {
 
 		            	if (row2 != -1 && col2 != -1) {
 		            		// Ottenere il valore della cella selezionata.
-		                    System.out.println("Valore della cella libreria selezionata: " + giocatori.get(player).getLibreria()[row2][col2].getDisponibile());
+		                    System.out.println("Valore della cella libreria del player: "+ player + "selezionata: " + giocatori.get(player).getLibreria()[row2][col2].getColor());
 
 		                    // Esempio di utilizzo delle coordinate per ottenere un'immagine.
 		                    ImageIcon pic = Images.Image.sceltaImmagine(giocatori.get(player).getLibreria()[row2][col2].getColor());
@@ -769,7 +769,7 @@ public class FrontEnd extends JFrame {
 
 		            	if (row2 != -1 && col2 != -1) {
 		            		// Ottenere il valore della cella selezionata.
-		                    System.out.println("Valore della cella libreria selezionata: " + Tavola.tavolaDaGioco[row][col].getColor());
+		            		System.out.println("Valore della cella libreria del player: "+ player + "selezionata: " + giocatori.get(player).getLibreria()[row2][col2].getColor());
 
 		                    // Esempio di utilizzo delle coordinate per ottenere un'immagine.
 		                    ImageIcon pic = Images.Image.sceltaImmagine(giocatori.get(player).getLibreria()[row2][col2].getColor());
@@ -804,7 +804,7 @@ public class FrontEnd extends JFrame {
 
 		            	if (row2 != -1 && col2 != -1) {
 		            		// Ottenere il valore della cella selezionata.            
-		                    System.out.println("Valore della cella libreria selezionata: " + Tavola.tavolaDaGioco[row][col].getColor());
+		            		System.out.println("Valore della cella libreria del player: "+ player + "selezionata: " + giocatori.get(player).getLibreria()[row2][col2].getColor());
 
 		                    // Esempio di utilizzo delle coordinate per ottenere un'immagine.
 		                    ImageIcon pic = Images.Image.sceltaImmagine(giocatori.get(player).getLibreria()[row2][col2].getColor());
@@ -837,7 +837,7 @@ public class FrontEnd extends JFrame {
 
 		            	if (row2 != -1 && col2 != -1) {
 		            		// Ottenere il valore della cella selezionata.
-		                    System.out.println("Valore della cella libreria selezionata: " + Tavola.tavolaDaGioco[row][col].getColor());
+		            		System.out.println("Valore della cella libreria del player: "+ player + "selezionata: " + giocatori.get(player).getLibreria()[row2][col2].getColor());
 
 		                    // Esempio di utilizzo delle coordinate per ottenere un'immagine.
 		                    ImageIcon pic = Images.Image.sceltaImmagine(giocatori.get(player).getLibreria()[row2][col2].getColor());
@@ -1070,6 +1070,8 @@ public class FrontEnd extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 				for(int i = 0;i<giocatori.size();i++) {
+					
+					
 					if(obc1.check(giocatori.get(i).getLibreria())==true) {
 						giocatori.get(i).addPunti(10);
 					}
@@ -1078,13 +1080,13 @@ public class FrontEnd extends JFrame {
 					}											
 				}
 				
-				lblPuntiP1.setText(""+giocatori.get(0).getPunti());
-				lblPuntiP2.setText(""+giocatori.get(1).getPunti());
+				lblPuntiP1.setText(""+(giocatori.get(0).getPunti()+giocatori.get(0).punteggioObiettivoPersonale()));
+				lblPuntiP2.setText(""+(giocatori.get(1).getPunti()+giocatori.get(1).punteggioObiettivoPersonale()));
 				if(player>1) {
-					lblPuntiP3.setText(""+giocatori.get(2).getPunti());
+					lblPuntiP3.setText(""+(giocatori.get(2).getPunti()+giocatori.get(2).punteggioObiettivoPersonale()));
 				}
 				if(player>2) {
-					lblPuntiP4.setText(""+giocatori.get(3).getPunti());
+					lblPuntiP4.setText(""+(giocatori.get(3).getPunti()+giocatori.get(3).punteggioObiettivoPersonale()));
 				}
 			}
 		});	

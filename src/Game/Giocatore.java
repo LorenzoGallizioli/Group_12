@@ -101,6 +101,18 @@ public class Giocatore {
 					return libreria;
 	}
 	
+	public int punteggioObiettivoPersonale() {
+		int punteggioObiettivo = 0;
+		for(int i = 0; i<6;i++) {
+			for(int j = 0; j<5; j++){
+				if(libreria[i][j].getColor() == obiettivo[i][j].getColor() && obiettivo[i][j].getColor()!=Color.BLACK) {
+					punteggioObiettivo++;
+				}
+			}
+		}
+		return punteggioObiettivo;
+	}
+	
 	
 
 	public Tessera[][] getObiettivo() {
