@@ -610,6 +610,7 @@ public class FrontEnd extends JFrame {
 		// Metodi che definiscono i listener delle checkbox.
 		chckbxGiocatori2.addActionListener(new ActionListener() {
 		    public void actionPerformed(ActionEvent e) {
+				Tavola.numPlayers = 2;
 		        if (chckbxGiocatori2.isSelected()) {
 		            chckbxGiocatori4.setSelected(false);
 		            chckbxGiocatori3.setSelected(false);
@@ -626,6 +627,7 @@ public class FrontEnd extends JFrame {
 		});
 		chckbxGiocatori3.addActionListener(new ActionListener() {
 		    public void actionPerformed(ActionEvent e) {
+				Tavola.numPlayers = 3;
 		        if (chckbxGiocatori3.isSelected()) {
 		            chckbxGiocatori2.setSelected(false);
 		            chckbxGiocatori4.setSelected(false);
@@ -641,6 +643,7 @@ public class FrontEnd extends JFrame {
 		});
 		chckbxGiocatori4.addActionListener(new ActionListener() {
 		    public void actionPerformed(ActionEvent e) {
+				Tavola.numPlayers = 4;
 		        if (chckbxGiocatori4.isSelected()) {
 		            chckbxGiocatori2.setSelected(false);
 		            chckbxGiocatori3.setSelected(false);
@@ -694,9 +697,7 @@ public class FrontEnd extends JFrame {
 				
 				pnlPunteggi.setVisible(true);
 				
-				if (chckbxGiocatori4.isSelected() == true) {
-					
-					Tavola.numPlayers = 4;
+				if (chckbxGiocatori4.isSelected() == true) {	
 					giocatori.clear();
 					
 					// Inserisco i giocatori nella lista.
@@ -774,7 +775,6 @@ public class FrontEnd extends JFrame {
 				}		
 					
 				if (chckbxGiocatori3.isSelected() == true) {
-					Tavola.numPlayers = 3;
 					giocatori.clear();
 					
 					Giocatore g1 = new Giocatore(txtNomeP1.getText(),01,0,true);
@@ -837,9 +837,7 @@ public class FrontEnd extends JFrame {
 					}
 				}
 
-				if (chckbxGiocatori2.isSelected() == true) {
-					Tavola.numPlayers = 2;
-					
+				if (chckbxGiocatori2.isSelected() == true) {					
 					giocatori.clear();
 
 					Giocatore g1 = new Giocatore(txtNomeP1.getText(), 01, 0, true);
