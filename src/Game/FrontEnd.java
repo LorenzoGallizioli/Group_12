@@ -52,6 +52,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JTextField;
+import javax.swing.BorderFactory;
 import javax.swing.DropMode;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
@@ -169,58 +170,69 @@ public class FrontEnd extends JFrame {
 		
 		// Labels mostranti i nomi dei giocatori.
 		JPanel pnlPunteggi = new JPanel();
-		pnlPunteggi.setBounds(148, 292, 268, 75);
+		pnlPunteggi.setBounds(148, 292, 268, 80);
 		pnlDx.add(pnlPunteggi);
 		pnlPunteggi.setBorder(new LineBorder(new Color(0, 0, 0)));
 		pnlPunteggi.setLayout(null);
 		pnlPunteggi.setVisible(false);
+		pnlPunteggi.setOpaque(false);
 		
 				JLabel lblNomeP1 = new JLabel("");
-				lblNomeP1.setBounds(10, 11, 53, 27);
+				lblNomeP1.setForeground(new Color(255, 255, 255));
+				lblNomeP1.setBounds(16, 11, 53, 27);
 				pnlPunteggi.add(lblNomeP1);
 				lblNomeP1.setFont(new Font("Tahoma", Font.PLAIN, 16));
+				lblNomeP1.setOpaque(false);
 				
 				// Labels punti giocatori.
 				JLabel lblPuntiP1 = new JLabel("");
-				lblPuntiP1.setBounds(10, 49, 53, 27);
+				lblPuntiP1.setForeground(new Color(255, 255, 255));
+				lblPuntiP1.setBounds(16, 49, 53, 27);
 				pnlPunteggi.add(lblPuntiP1);
 				lblPuntiP1.setFont(new Font("Tahoma", Font.PLAIN, 16));
 				
 				JLabel lblNomeP2 = new JLabel("");
-				lblNomeP2.setBounds(73, 11, 53, 27);
+				lblNomeP2.setForeground(new Color(255, 255, 255));
+				lblNomeP2.setBounds(79, 11, 53, 27);
 				pnlPunteggi.add(lblNomeP2);
 				lblNomeP2.setFont(new Font("Tahoma", Font.PLAIN, 16));
 				
 				JLabel lblPuntiP2 = new JLabel("");
-				lblPuntiP2.setBounds(73, 49, 53, 27);
+				lblPuntiP2.setForeground(new Color(255, 255, 255));
+				lblPuntiP2.setBounds(79, 49, 53, 27);
 				pnlPunteggi.add(lblPuntiP2);
 				lblPuntiP2.setFont(new Font("Tahoma", Font.PLAIN, 16));
 				
 				JLabel lblNomeP3 = new JLabel("");
-				lblNomeP3.setBounds(136, 11, 53, 27);
+				lblNomeP3.setForeground(new Color(255, 255, 255));
+				lblNomeP3.setBounds(142, 11, 53, 27);
 				pnlPunteggi.add(lblNomeP3);
 				lblNomeP3.setFont(new Font("Tahoma", Font.PLAIN, 16));
 				
 				JLabel lblPuntiP3 = new JLabel("");
-				lblPuntiP3.setBounds(136, 49, 53, 27);
+				lblPuntiP3.setForeground(new Color(255, 255, 255));
+				lblPuntiP3.setBounds(142, 49, 53, 27);
 				pnlPunteggi.add(lblPuntiP3);
 				lblPuntiP3.setFont(new Font("Tahoma", Font.PLAIN, 16));
 				
 				JLabel lblNomeP4 = new JLabel("");
-				lblNomeP4.setBounds(199, 11, 53, 27);
+				lblNomeP4.setForeground(new Color(255, 255, 255));
+				lblNomeP4.setBounds(205, 11, 53, 27);
 				pnlPunteggi.add(lblNomeP4);
 				lblNomeP4.setFont(new Font("Tahoma", Font.PLAIN, 16));
 				
 				JLabel lblPuntiP4 = new JLabel("");
-				lblPuntiP4.setBounds(199, 49, 53, 27);
+				lblPuntiP4.setForeground(new Color(255, 255, 255));
+				lblPuntiP4.setBounds(205, 49, 53, 27);
 				pnlPunteggi.add(lblPuntiP4);
 				lblPuntiP4.setFont(new Font("Tahoma", Font.PLAIN, 16));
 				
 				// Panel mostra tessera selezionata.
-				JPanel pnlMostraTessera = new JPanel();
+				SfondoImage pnlMostraTessera = new SfondoImage();
 				pnlMostraTessera.setBorder(new LineBorder(new Color(0, 0, 0)));
 				pnlMostraTessera.setBounds(919, 320, 178, 277);
 				pnlMostraTessera.setLayout(null);
+				pnlMostraTessera.setBackgroundImage(new ImageIcon("./src/pics/parquet.jpg").getImage());
 				
 				JLabel lblCellaSelezionata = new JLabel("");
 				lblCellaSelezionata.setBounds(10, 42, 181, 181);
@@ -231,15 +243,18 @@ public class FrontEnd extends JFrame {
 				pnlMostraTessera.add(lblTesseraLibreria);
 				
 				JLabel lblStatoTesseraLibreria = new JLabel("Seleziona una casella della libreria");
-				lblStatoTesseraLibreria.setBounds(10, 353, 181, 30);
+				lblStatoTesseraLibreria.setBounds(10, 345, 181, 30);
 				pnlMostraTessera.add(lblStatoTesseraLibreria);
 				lblStatoTesseraLibreria.setFont(new Font("Tahoma", Font.PLAIN, 12));
 				
+				ImageIcon imgBtnAggTessera = new ImageIcon("./src/pics/btnAggTessera.png");
 				JButton btnAggTessera = new JButton("Aggiungi alla tua libreria");
 				btnAggTessera.setFont(new Font("Tahoma", Font.PLAIN, 11));
-				btnAggTessera.setBounds(10, 394, 181, 38);
+				btnAggTessera.setBounds(10, 376, 181, 56);
 				pnlMostraTessera.add(btnAggTessera);
 				btnAggTessera.setEnabled(false);
+				btnAggTessera.setIcon(imgBtnAggTessera);
+				
 				
 				JPanel pnlSx = new JPanel();
 				pnlSx.setBounds(10, 11, 226, 690);
@@ -253,16 +268,20 @@ public class FrontEnd extends JFrame {
 				pnlSetPlayer.setBackgroundImage(new ImageIcon("./src/pics/parquet.jpg").getImage());
 				
 				// Bottone inizia partita.
+				ImageIcon imgBtn = new ImageIcon("./src/pics/btnIniziaPartita.png");				
 				JButton btnIniziaPartita = new JButton("Inizia Partita");
 				btnIniziaPartita.setBounds(10, 11, 201, 47);
 				pnlSx.add(btnIniziaPartita);
 				btnIniziaPartita.setFont(new Font("Tahoma", Font.PLAIN, 18));
+				btnIniziaPartita.setIcon(imgBtn);
 				
 				// Listener del bottone prossimo turno.
+				ImageIcon imgBtnProxTurno = new ImageIcon("./src/pics/btnProxTurno.png");
 				JButton btnProxTurno = new JButton("Finisci il turno");
 				btnProxTurno.setBounds(10, 518, 201, 75);
 				pnlSx.add(btnProxTurno);
 				btnProxTurno.setFont(new Font("Tahoma", Font.PLAIN, 16));
+				btnProxTurno.setIcon(imgBtnProxTurno);
 				
 				JLabel lblStatoTessera = new JLabel("");
 				lblStatoTessera.setBounds(10, 232, 158, 31);
@@ -380,6 +399,9 @@ public class FrontEnd extends JFrame {
 		                    }
 		                    else {
 		                    	lblStatoTessera.setText("Non può essere raccolta");
+		                    }
+		                    if (Tavola.tavolaDaGioco[row][col].getDisponibile()==true && countTessera<3 && giocatori.get(0).getLibreria()[row2][col2].getDisponibile()==true) {
+		                    	btnAggTessera.setEnabled(true);
 		                    }
 		                }
 		            }
@@ -558,23 +580,26 @@ public class FrontEnd extends JFrame {
 		pnlMainSx.setVisible(false);
 		
 		// Crea checkbox 2 GIOCATORI.
-		JCheckBox chckbxGiocatori2 = new JCheckBox("2 giocatori");
+		JCheckBox chckbxGiocatori2 = new JCheckBox("2 GIOCATORI");
 		chckbxGiocatori2.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		chckbxGiocatori2.setBounds(3, 5, 113, 27);
+		chckbxGiocatori2.setBounds(20, 7, 148, 27);
 		pnlSetPlayer.add(chckbxGiocatori2);
+		chckbxGiocatori2.setOpaque(false);
+		
 		
 		// Crea checkbox 3 GIOCATORI.
-		JCheckBox chckbxGiocatori3 = new JCheckBox("3 giocatori");
+		JCheckBox chckbxGiocatori3 = new JCheckBox("3 GIOCATORI");
 		chckbxGiocatori3.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		chckbxGiocatori3.setBounds(3, 35, 131, 27);
+		chckbxGiocatori3.setBounds(20, 37, 131, 27);
 		pnlSetPlayer.add(chckbxGiocatori3);
+		chckbxGiocatori3.setOpaque(false);
 		
 		// Crea checkbox 4 GIOCATORI.
-		JCheckBox chckbxGiocatori4 = new JCheckBox("4 giocatori");
+		JCheckBox chckbxGiocatori4 = new JCheckBox("4 GIOCATORI");
 		chckbxGiocatori4.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		chckbxGiocatori4.setBounds(3, 64, 113, 27);
+		chckbxGiocatori4.setBounds(20, 66, 131, 27);
 		pnlSetPlayer.add(chckbxGiocatori4);
-		
+		chckbxGiocatori4.setOpaque(false);
 		
 		// Metodi che definiscono i listener delle checkbox.
 		chckbxGiocatori2.addActionListener(new ActionListener() {
@@ -587,6 +612,8 @@ public class FrontEnd extends JFrame {
 			txtNomeP2.setVisible(true);
 			txtNomeP3.setVisible(false);
 			txtNomeP4.setVisible(false);
+			Tavola.generaTavola();// Genero la tavola da gioco.
+			Tavola.aggiornaTavola(tableTavola_1, obiColora, imageRenderer);// Mostro a schermo la tavola da gioco.
 		        }
 		    }
 		});
@@ -599,6 +626,8 @@ public class FrontEnd extends JFrame {
 					txtNomeP2.setVisible(true);
 					txtNomeP3.setVisible(true);
 					txtNomeP4.setVisible(false);
+					Tavola.generaTavola();// Genero la tavola da gioco.
+					Tavola.aggiornaTavola(tableTavola_1, obiColora, imageRenderer);// Mostro a schermo la tavola da gioco.
 		        }
 		    }
 		});
@@ -611,6 +640,8 @@ public class FrontEnd extends JFrame {
 					txtNomeP2.setVisible(true);
 					txtNomeP3.setVisible(true);
 					txtNomeP4.setVisible(true);
+					Tavola.generaTavola();// Genero la tavola da gioco.
+					Tavola.aggiornaTavola(tableTavola_1, obiColora, imageRenderer);// Mostro a schermo la tavola da gioco.
 		        }
 		    }
 		});
@@ -619,7 +650,9 @@ public class FrontEnd extends JFrame {
 		
 		
 		// Bottone conferma giocatori.
+		ImageIcon imgBtnConferma = new ImageIcon("./src/pics/btnConferma.png");
 		JButton btnConfermaSetPlayer = new JButton("Conferma");
+		btnConfermaSetPlayer.setIcon(imgBtnConferma);
 		btnConfermaSetPlayer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -883,10 +916,7 @@ public class FrontEnd extends JFrame {
 					}
 					
 					pnlSetPlayer.setVisible(false);
-					tableTavola_1.setVisible(true);
-					
-					Tavola.generaTavola();// Genero la tavola da gioco.
-					Tavola.aggiornaTavola(tableTavola_1, obiColora, imageRenderer);// Mostro a schermo la tavola da gioco.
+					tableTavola_1.setVisible(true);				
 					
 					cardLayout.show(pnlMainSx, "pnlMostraTessera");
 					
@@ -958,47 +988,60 @@ public class FrontEnd extends JFrame {
 		});
 		
 		btnConfermaSetPlayer.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		btnConfermaSetPlayer.setBounds(20, 219, 101, 29);
+		btnConfermaSetPlayer.setBounds(10, 384, 181, 48);
 		pnlSetPlayer.add(btnConfermaSetPlayer);
 		
 		txtNomeP1 = new JTextField();
 		txtNomeP1.setText("P1");
 		txtNomeP1.setToolTipText("Giocatore1\n");
-		txtNomeP1.setBounds(20, 103, 96, 19);
+		txtNomeP1.setBounds(20, 129, 96, 19);
 		pnlSetPlayer.add(txtNomeP1);
 		txtNomeP1.setColumns(10);
-		
+		txtNomeP1.setOpaque(false);
+		txtNomeP1.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+
+	        
 		txtNomeP2 = new JTextField();
 		txtNomeP2.setToolTipText("Giocatore2");
 		txtNomeP2.setText("P2");
 		txtNomeP2.setColumns(10);
-		txtNomeP2.setBounds(20, 131, 96, 19);
+		txtNomeP2.setBounds(20, 157, 96, 19);
 		pnlSetPlayer.add(txtNomeP2);
+		txtNomeP2.setOpaque(false);
+		txtNomeP2.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+
 		
 		txtNomeP3 = new JTextField();
 		txtNomeP3.setToolTipText("Giocatore3");
 		txtNomeP3.setText("P3");
 		txtNomeP3.setColumns(10);
-		txtNomeP3.setBounds(20, 160, 96, 19);
+		txtNomeP3.setBounds(20, 186, 96, 19);
 		pnlSetPlayer.add(txtNomeP3);
+		txtNomeP3.setOpaque(false);
+		txtNomeP3.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+
 		
 		txtNomeP4 = new JTextField();
 		txtNomeP4.setToolTipText("Giocatore4");
 		txtNomeP4.setText("P4");
 		txtNomeP4.setColumns(10);
-		txtNomeP4.setBounds(20, 189, 96, 19);
+		txtNomeP4.setBounds(20, 215, 96, 19);
 		pnlSetPlayer.add(txtNomeP4);
+		txtNomeP4.setOpaque(false);
+		txtNomeP4.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+
 		
 		
 		
 		
 				
-				//bottone fine partita
+						//bottone fine partita
+						ImageIcon imageBtnFinePartita = new ImageIcon("./src/pics/btnFinePartita.png");
 						JButton btnFinePartita = new JButton("Fine partita");	
 						btnFinePartita.setBounds(10, 604, 201, 75);
 						pnlSx.add(btnFinePartita);
 						btnFinePartita.setFont(new Font("Tahoma", Font.PLAIN, 16));
-						
+						btnFinePartita.setIcon(imageBtnFinePartita);
 										
 										
 						
