@@ -622,8 +622,8 @@ public class FrontEnd extends JFrame {
 				ImageIcon imgObc1 = obc1.getImage();
 				ImageIcon imgObc2 = obc2.getImage();
 				
-				lblObiCom1.setIcon(Image.scaleImage(imgObc2, 120, 120));
-				lblObiCom2.setIcon(Image.scaleImage(imgObc1, 120, 120));
+				lblObiCom1.setIcon(Image.scaleImage(imgObc1, 120, 120));
+				lblObiCom2.setIcon(Image.scaleImage(imgObc2, 120, 120));
 				
 				System.out.println(imgObc1.getDescription());
 				System.out.println(imgObc2.getDescription());
