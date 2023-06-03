@@ -22,7 +22,7 @@ public class Obiettivo1 extends ObiettivoComune{
 		int cont = 0;
 		
 		for(int j = 0; j <= 4; j++) {
-			for(int i = 0; i <= 5; i++) {
+			for(int i = 0; i < 5; i++) {
 				
 				// Controllo tessera nella stessa colonna ma riga sotto.
 				if(libreria[i][j].getColor() != Color.BLACK && libreria[i][j].getColor() == libreria[i+1][j].getColor()) {

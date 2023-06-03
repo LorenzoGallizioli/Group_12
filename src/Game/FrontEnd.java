@@ -896,7 +896,7 @@ public class FrontEnd extends JFrame {
 					Tavola.tavolaDaGioco[row][col].setDisponibile(false);
 					giocatori.get(player).getLibreria()[row2][col2] = Tavola.tavolaDaGioco[row][col];
 				
-					if(row2-1>0) {
+					if(row2-1>=0) {
 						giocatori.get(player).getLibreria()[row2-1][col2].setDisponibile(true);
 					}
 					

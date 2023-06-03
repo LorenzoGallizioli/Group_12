@@ -20,9 +20,9 @@ public class Obiettivo5 extends ObiettivoComune {
 	}
 	
 	public boolean check (Tessera[][] libreria) {
-		int counterDiverso = 0;
 		int colObiettivo = 0;
 		for(int col = 0; col <= 4; col++) {
+			int counterDiverso = 0;
 			int countVerdi = 0;
 			int countBlu = 0;
 			int countGialle = 0;
@@ -32,7 +32,7 @@ public class Obiettivo5 extends ObiettivoComune {
 			boolean colCompleta = true;
 
 			for(int rig = 0; rig <= 5; rig++) {
-				if(libreria[rig][col]!= null) {
+				if(libreria[rig][col].getColor()!= Color.BLACK) {
 					if(libreria[rig][col].getColor() == Color.GREEN) {
 						countVerdi++;
 					}
