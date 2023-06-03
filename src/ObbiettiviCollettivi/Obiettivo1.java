@@ -36,8 +36,15 @@ public class Obiettivo1 extends ObiettivoComune{
 					cont = 0; // In questo modo se trova + di 2 adiacenti queste contano una volta sola.
 				}
 				
+				
+			}	
+
+			
+		}
+		for(int j = 0; j < 4; j++ ) {
+			for(int i = 0; i <= 5; i++) {
 				// Controllo tessera nella stessa riga ma colonna a destra.
-				if(libreria[j][i].getColor() != Color.BLACK && libreria[j][i].getColor() == libreria[j][i+1].getColor()) {
+				if(libreria[i][j].getColor() != Color.BLACK && libreria[i][j].getColor() == libreria[i][j+1].getColor()) {
 					cont++;
 					i++;
 					if(cont == 6) {
@@ -47,7 +54,7 @@ public class Obiettivo1 extends ObiettivoComune{
 				else {
 					cont = 0;
 				}
-			}	
+			}
 		}
 				
 		return false;

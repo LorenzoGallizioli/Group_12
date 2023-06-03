@@ -41,7 +41,7 @@ public class Obiettivo2 extends ObiettivoComune{
 		// Controlla se nelle righe esistono gruppi da 4.
 		for(int rig = 0; rig <= 4; rig++) {
 			int contTessere = 0;
-			for (int col = 0; col < 5; col++) {
+			for (int col = 0; col < 4; col++) {
 				if(libreria[rig][col].getColor() != Color.BLACK && libreria[rig][col].getColor() == libreria[rig][col+1].getColor()) {
 					contTessere++;
 					if(contTessere == 3) {

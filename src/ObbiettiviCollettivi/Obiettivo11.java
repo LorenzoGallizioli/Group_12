@@ -21,7 +21,7 @@ public class Obiettivo11 extends ObiettivoComune {
 		
 		// Controlla se esiste una tessera che si trova al centro di una X formata da tessere dello stesso colore.
 		for(int col = 1; col < 3; col++) { 
-			for(int rig = 1; rig < 4; rig++) { 
+			for(int rig = 1; rig < 5; rig++) { 
 				if (libreria[rig][col].getColor() != Color.BLACK &&
 					libreria[rig-1][col-1].getColor() != Color.BLACK &&
 					libreria[rig+1][col-1].getColor() != Color.BLACK &&
