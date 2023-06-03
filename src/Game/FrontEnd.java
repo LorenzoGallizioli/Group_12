@@ -149,7 +149,14 @@ public class FrontEnd extends JFrame {
         // Aggiungi il pannello personalizzato alla finestra
         formMyShelfie.setContentPane(backgroundPanel);
         formMyShelfie.setVisible(true);
-		
+        
+		//label fine turno     
+        JLabel lblFineTurno = new JLabel("");
+        lblFineTurno.setForeground(new Color(255, 255, 255));
+        lblFineTurno.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblFineTurno.setBounds(20, 712, 210, 20);
+		backgroundPanel.add(lblFineTurno);
+		 
 		
 		//tavola da gioco
 		JTable tableTavola_1 = new JTable(9, 9);
@@ -159,73 +166,13 @@ public class FrontEnd extends JFrame {
 		formMyShelfie.getContentPane().add(tableTavola_1);
 		tableTavola_1.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
 		tableTavola_1.setRowHeight(70);
+		tableTavola_1.setVisible(false);
 		
 		JPanel pnlDx = new JPanel();
 		pnlDx.setBounds(974, 0, 428, 800);
 		backgroundPanel.add(pnlDx);
 		pnlDx.setLayout(null);
 		pnlDx.setOpaque(false);
-		
-		
-		
-		// Labels mostranti i nomi dei giocatori.
-		JPanel pnlPunteggi = new JPanel();
-		pnlPunteggi.setBounds(148, 292, 268, 80);
-		pnlDx.add(pnlPunteggi);
-		pnlPunteggi.setBorder(new LineBorder(new Color(0, 0, 0)));
-		pnlPunteggi.setLayout(null);
-		pnlPunteggi.setVisible(false);
-		pnlPunteggi.setOpaque(false);
-		
-				JLabel lblNomeP1 = new JLabel("");
-				lblNomeP1.setForeground(new Color(255, 255, 255));
-				lblNomeP1.setBounds(16, 11, 53, 27);
-				pnlPunteggi.add(lblNomeP1);
-				lblNomeP1.setFont(new Font("Tahoma", Font.PLAIN, 16));
-				lblNomeP1.setOpaque(false);
-				
-				// Labels punti giocatori.
-				JLabel lblPuntiP1 = new JLabel("");
-				lblPuntiP1.setForeground(new Color(255, 255, 255));
-				lblPuntiP1.setBounds(16, 49, 53, 27);
-				pnlPunteggi.add(lblPuntiP1);
-				lblPuntiP1.setFont(new Font("Tahoma", Font.PLAIN, 16));
-				
-				JLabel lblNomeP2 = new JLabel("");
-				lblNomeP2.setForeground(new Color(255, 255, 255));
-				lblNomeP2.setBounds(79, 11, 53, 27);
-				pnlPunteggi.add(lblNomeP2);
-				lblNomeP2.setFont(new Font("Tahoma", Font.PLAIN, 16));
-				
-				JLabel lblPuntiP2 = new JLabel("");
-				lblPuntiP2.setForeground(new Color(255, 255, 255));
-				lblPuntiP2.setBounds(79, 49, 53, 27);
-				pnlPunteggi.add(lblPuntiP2);
-				lblPuntiP2.setFont(new Font("Tahoma", Font.PLAIN, 16));
-				
-				JLabel lblNomeP3 = new JLabel("");
-				lblNomeP3.setForeground(new Color(255, 255, 255));
-				lblNomeP3.setBounds(142, 11, 53, 27);
-				pnlPunteggi.add(lblNomeP3);
-				lblNomeP3.setFont(new Font("Tahoma", Font.PLAIN, 16));
-				
-				JLabel lblPuntiP3 = new JLabel("");
-				lblPuntiP3.setForeground(new Color(255, 255, 255));
-				lblPuntiP3.setBounds(142, 49, 53, 27);
-				pnlPunteggi.add(lblPuntiP3);
-				lblPuntiP3.setFont(new Font("Tahoma", Font.PLAIN, 16));
-				
-				JLabel lblNomeP4 = new JLabel("");
-				lblNomeP4.setForeground(new Color(255, 255, 255));
-				lblNomeP4.setBounds(205, 11, 53, 27);
-				pnlPunteggi.add(lblNomeP4);
-				lblNomeP4.setFont(new Font("Tahoma", Font.PLAIN, 16));
-				
-				JLabel lblPuntiP4 = new JLabel("");
-				lblPuntiP4.setForeground(new Color(255, 255, 255));
-				lblPuntiP4.setBounds(205, 49, 53, 27);
-				pnlPunteggi.add(lblPuntiP4);
-				lblPuntiP4.setFont(new Font("Tahoma", Font.PLAIN, 16));
 				
 				// Panel mostra tessera selezionata.
 				SfondoImage pnlMostraTessera = new SfondoImage();
@@ -289,38 +236,38 @@ public class FrontEnd extends JFrame {
 				
 				// Obiettivi personali giocatori.
 				table = new JTable(6,5);
-				table.setBounds(166, 11, 250, 270);
+				table.setBounds(80, 11, 335, 336);
 				pnlDx.add(table);
 				table.setShowGrid(false);
-				table.setRowHeight(45);
+				table.setRowHeight(56);
 				table.doLayout();
 				table.setRowSelectionAllowed(false);
 				table.setIntercellSpacing(new Dimension(0, 0));
 				
 				
 				table_1 = new JTable(6,5);
-				table_1.setBounds(166, 11, 250, 270);
+				table_1.setBounds(80, 11, 335, 336);
 				pnlDx.add(table_1);
 				table_1.setShowGrid(false);
-				table_1.setRowHeight(45);
+				table_1.setRowHeight(56);
 				table_1.doLayout();
 				table_1.setRowSelectionAllowed(false);
 				table_1.setIntercellSpacing(new Dimension(0, 0));
 				
 				table_2 = new JTable(6,5);
-				table_2.setBounds(166, 11, 250, 270);
+				table_2.setBounds(80, 11, 335, 336);
 				pnlDx.add(table_2);
 				table_2.setShowGrid(false);
-				table_2.setRowHeight(45);
+				table_2.setRowHeight(56);
 				table_2.doLayout();
 				table_2.setRowSelectionAllowed(false);
 				table_2.setIntercellSpacing(new Dimension(0, 0));
 				
 				table_3 = new JTable(6,5);
-				table_3.setBounds(166, 11, 250, 270);
+				table_3.setBounds(80, 11, 335, 336);
 				pnlDx.add(table_3);
 				table_3.setShowGrid(false);
-				table_3.setRowHeight(45);
+				table_3.setRowHeight(56);
 				table_3.doLayout();
 				table_3.setRowSelectionAllowed(false);
 				table_3.setIntercellSpacing(new Dimension(0, 0));
@@ -354,10 +301,71 @@ public class FrontEnd extends JFrame {
 				tableLibreria_4.setRowHeight(66);
 				tableLibreria_1.setIntercellSpacing(new Dimension(0, 0));
 				
+				// Labels mostranti i nomi dei giocatori.
+				JPanel pnlPunteggi = new JPanel();
+				pnlPunteggi.setBounds(249, 652, 268, 80);
+				backgroundPanel.add(pnlPunteggi);
+				pnlPunteggi.setBorder(new LineBorder(new Color(0, 0, 0)));
+				pnlPunteggi.setLayout(null);
+				pnlPunteggi.setVisible(false);
+				pnlPunteggi.setOpaque(false);
+				
+				JLabel lblNomeP1 = new JLabel("");
+				lblNomeP1.setForeground(new Color(255, 255, 255));
+				lblNomeP1.setBounds(16, 11, 53, 27);
+				pnlPunteggi.add(lblNomeP1);
+				lblNomeP1.setFont(new Font("Tahoma", Font.PLAIN, 16));
+				lblNomeP1.setOpaque(false);
+				
+				// Labels punti giocatori.
+				JLabel lblPuntiP1 = new JLabel("");
+				lblPuntiP1.setForeground(new Color(255, 255, 255));
+				lblPuntiP1.setBounds(16, 49, 53, 27);
+				pnlPunteggi.add(lblPuntiP1);
+				lblPuntiP1.setFont(new Font("Tahoma", Font.PLAIN, 16));
+				
+				JLabel lblNomeP2 = new JLabel("");
+				lblNomeP2.setForeground(new Color(255, 255, 255));
+				lblNomeP2.setBounds(79, 11, 53, 27);
+				pnlPunteggi.add(lblNomeP2);
+				lblNomeP2.setFont(new Font("Tahoma", Font.PLAIN, 16));
+				
+				JLabel lblPuntiP2 = new JLabel("");
+				lblPuntiP2.setForeground(new Color(255, 255, 255));
+				lblPuntiP2.setBounds(79, 49, 53, 27);
+				pnlPunteggi.add(lblPuntiP2);
+				lblPuntiP2.setFont(new Font("Tahoma", Font.PLAIN, 16));
+				
+				JLabel lblNomeP3 = new JLabel("");
+				lblNomeP3.setForeground(new Color(255, 255, 255));
+				lblNomeP3.setBounds(142, 11, 53, 27);
+				pnlPunteggi.add(lblNomeP3);
+				lblNomeP3.setFont(new Font("Tahoma", Font.PLAIN, 16));
+				
+				JLabel lblPuntiP3 = new JLabel("");
+				lblPuntiP3.setForeground(new Color(255, 255, 255));
+				lblPuntiP3.setBounds(142, 49, 53, 27);
+				pnlPunteggi.add(lblPuntiP3);
+				lblPuntiP3.setFont(new Font("Tahoma", Font.PLAIN, 16));
+				
+				JLabel lblNomeP4 = new JLabel("");
+				lblNomeP4.setForeground(new Color(255, 255, 255));
+				lblNomeP4.setBounds(205, 11, 53, 27);
+				pnlPunteggi.add(lblNomeP4);
+				lblNomeP4.setFont(new Font("Tahoma", Font.PLAIN, 16));
+				
+				JLabel lblPuntiP4 = new JLabel("");
+				lblPuntiP4.setForeground(new Color(255, 255, 255));
+				lblPuntiP4.setBounds(205, 49, 53, 27);
+				pnlPunteggi.add(lblPuntiP4);
+				lblPuntiP4.setFont(new Font("Tahoma", Font.PLAIN, 16));
+								
+								
+				
 				
 				JTextArea lblTurnoPlayer = new JTextArea();
 				lblTurnoPlayer.setForeground(new Color(255, 255, 255));
-				lblTurnoPlayer.setBounds(20, 251, 120, 116);
+				lblTurnoPlayer.setBounds(20, 352, 396, 26);
 				pnlDx.add(lblTurnoPlayer);
 				lblTurnoPlayer.setText("");
 				lblTurnoPlayer.setLineWrap(true);
@@ -366,14 +374,6 @@ public class FrontEnd extends JFrame {
 				lblTurnoPlayer.setOpaque(false);
 				
 				lblTurnoPlayer.setBorder(null);
-				
-				JLabel lblObiCom1 = new JLabel("");
-				lblObiCom1.setBounds(20, 11, 120, 109);
-				pnlDx.add(lblObiCom1);
-				
-				JLabel lblObiCom2 = new JLabel("");
-				lblObiCom2.setBounds(20, 131, 120, 109);
-				pnlDx.add(lblObiCom2);
 				tableLibreria_4.setVisible(false);
 				
 				tableTavola_1.addMouseListener(new MouseAdapter() {
@@ -403,6 +403,9 @@ public class FrontEnd extends JFrame {
 		                    if (Tavola.tavolaDaGioco[row][col].getDisponibile()==true && countTessera<3 && giocatori.get(0).getLibreria()[row2][col2].getDisponibile()==true) {
 		                    	btnAggTessera.setEnabled(true);
 		                    }
+		                    if(countTessera==3) {
+		             			lblFineTurno.setText("HAI FINITO IL TURNO!");
+		             		}
 		                }
 		            }
 		        });
@@ -421,9 +424,7 @@ public class FrontEnd extends JFrame {
 		                    // Esempio di utilizzo delle coordinate per ottenere un'immagine.
 		                    ImageIcon pic = Images.Image.sceltaImmagine(giocatori.get(3).getLibreria()[row2][col2].getColor());
 		                    lblCellaSelezionata.setText("");
-		                    pnlMostraTessera.setVisible(true);
-		                    
-		                    
+		                    pnlMostraTessera.setVisible(true);		                                 
 		                    
 		                    if(giocatori.get(3).getLibreria()[row2][col2].getDisponibile()==true) {
 		                    	lblStatoTesseraLibreria.setText("Può essere impostata qui");    	
@@ -432,6 +433,7 @@ public class FrontEnd extends JFrame {
 		                    	lblStatoTesseraLibreria.setText("Non può essere impostata qui");
 		                    	Image.scurisciImage(pic);
 		                    }
+		                   
 		                    
 		                    ImageIcon picResized = Image.scaleImage(pic, 70, 70);  
 		                    lblTesseraLibreria.setIcon(picResized);
@@ -557,10 +559,7 @@ public class FrontEnd extends JFrame {
 				table.setVisible(false);
 		
 		ImageRendererLibOb imageRendObi = new ImageRendererLibOb();
-				
-				
-				
-				
+
 		int[][] coppieValori = new int[3][2];
 							
 		JLabel lblTitoloTessera = new JLabel("Tessera selezionata");
@@ -568,6 +567,13 @@ public class FrontEnd extends JFrame {
 		pnlMostraTessera.add(lblTitoloTessera);
 		lblTitoloTessera.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		
+		JLabel lblObiCom1 = new JLabel("");
+		lblObiCom1.setBounds(568, 652, 190, 121);
+		backgroundPanel.add(lblObiCom1);
+		
+		JLabel lblObiCom2 = new JLabel("");
+		lblObiCom2.setBounds(774, 652, 190, 119);
+		backgroundPanel.add(lblObiCom2);
 		
 		
 		// Panel main di sinistra che contiene mostra tessera e selezione giocatori.
@@ -614,6 +620,7 @@ public class FrontEnd extends JFrame {
 			txtNomeP4.setVisible(false);
 			Tavola.generaTavola();// Genero la tavola da gioco.
 			Tavola.aggiornaTavola(tableTavola_1, obiColora, imageRenderer);// Mostro a schermo la tavola da gioco.
+			tableTavola_1.setVisible(true);
 		        }
 		    }
 		});
@@ -628,6 +635,7 @@ public class FrontEnd extends JFrame {
 					txtNomeP4.setVisible(false);
 					Tavola.generaTavola();// Genero la tavola da gioco.
 					Tavola.aggiornaTavola(tableTavola_1, obiColora, imageRenderer);// Mostro a schermo la tavola da gioco.
+					tableTavola_1.setVisible(true);
 		        }
 		    }
 		});
@@ -642,6 +650,7 @@ public class FrontEnd extends JFrame {
 					txtNomeP4.setVisible(true);
 					Tavola.generaTavola();// Genero la tavola da gioco.
 					Tavola.aggiornaTavola(tableTavola_1, obiColora, imageRenderer);// Mostro a schermo la tavola da gioco.
+					tableTavola_1.setVisible(true);
 		        }
 		    }
 		});
@@ -666,8 +675,8 @@ public class FrontEnd extends JFrame {
 				ImageIcon imgObc1 = obc1.getImage();
 				ImageIcon imgObc2 = obc2.getImage();
 				
-				lblObiCom1.setIcon(Image.scaleImage(imgObc1, 120, 120));
-				lblObiCom2.setIcon(Image.scaleImage(imgObc2, 120, 120));
+				lblObiCom1.setIcon(Image.scaleImage(imgObc1, 190, 121));
+				lblObiCom2.setIcon(Image.scaleImage(imgObc2, 190, 121));
 				
 				System.out.println(imgObc1.getDescription());
 				System.out.println(imgObc2.getDescription());
@@ -979,13 +988,15 @@ public class FrontEnd extends JFrame {
 					
 					countTessera++;
 				}
-			
-				else {
+				
+				else {				
 					System.out.println("Tessera non raccoglibile o hai finito il nr. di tessere per il turno");
 				}
 				btnAggTessera.setEnabled(false);
 			}
 		});
+		
+		
 		
 		btnConfermaSetPlayer.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		btnConfermaSetPlayer.setBounds(10, 384, 181, 48);
@@ -1042,10 +1053,9 @@ public class FrontEnd extends JFrame {
 						pnlSx.add(btnFinePartita);
 						btnFinePartita.setFont(new Font("Tahoma", Font.PLAIN, 16));
 						btnFinePartita.setIcon(imageBtnFinePartita);
-										
-										
 						
 						
+							
 						btnFinePartita.setVisible(false);
 						
 						//listener fine partita
@@ -1080,6 +1090,9 @@ public class FrontEnd extends JFrame {
 				// Listener bottone "prossimo turno".
 				btnProxTurno.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
+						
+	             		lblFineTurno.setText("");
+	             		
 						// Controllo se tutti i giocatori hanno giocato il turno.
 						if(player<giocatori.size()-1) {
 							// Se non è stato completato il giro, incremento player, così da passare al prossimo giocatore.
