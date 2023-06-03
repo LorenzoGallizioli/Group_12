@@ -1,4 +1,4 @@
-package ObbiettiviCollettivi;
+package ObbiettiviComuni;
 
 import javax.swing.ImageIcon;
 

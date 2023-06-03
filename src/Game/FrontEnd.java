@@ -44,7 +44,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
 
 import Images.*;
-import ObbiettiviCollettivi.*;
+import ObbiettiviComuni.*;
 
 import javax.swing.JTable;
 import javax.swing.JTextArea;

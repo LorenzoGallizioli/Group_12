@@ -1,4 +1,4 @@
-package ObbiettiviCollettivi;
+package ObbiettiviComuni;
 
 import java.awt.Color;
 
@@ -7,13 +7,14 @@ import javax.swing.ImageIcon;
 import Game.Tessera;
 
 /**
- * Two lines each formed by 5 different types of tiles. One line can show the same or a different combination of the other line.
+ * Four lines each formed by 5 tiles of maximum three different types. One line
+ * can show the same or a different combination of another line.
  */
-public class Obiettivo10 extends ObiettivoComune {
+public class Obiettivo8 extends ObiettivoComune {
 
-	private ImageIcon immagine = new ImageIcon("./src/pics/Obiettivo10.jpg");
-
-	public Obiettivo10() {
+	private ImageIcon immagine = new ImageIcon("./src/pics/Obiettivo8.jpg");
+	
+	public Obiettivo8() {
 		
 	}
 	
@@ -30,7 +31,7 @@ public class Obiettivo10 extends ObiettivoComune {
 			boolean colCompleta = true;
 
 			for (int col = 0; col <= 4; col++) {
-				if (libreria[rig][col].getColor() != Color.BLACK) {
+				if (libreria[rig][col] != null) {
 					if (libreria[rig][col].getColor() == Color.GREEN) {
 						countVerdi++;
 					} else if (libreria[rig][col].getColor() == Color.BLUE) {
@@ -39,9 +40,9 @@ public class Obiettivo10 extends ObiettivoComune {
 						countGialle++;
 					} else if (libreria[rig][col].getColor() == Color.CYAN) {
 						countAzzurre++;
-					} else if (libreria[rig][col].getColor() == Color.PINK) {
+					} else if (libreria[rig][col].getColor() == Color.GREEN) {
 						countFucsia++;
-					} else if (libreria[rig][col].getColor() == Color.WHITE) {
+					} else if (libreria[rig][col].getColor() == Color.GREEN) {
 						countBianche++;
 					}
 				} else {
@@ -67,19 +68,16 @@ public class Obiettivo10 extends ObiettivoComune {
 				if (countBianche > 0) {
 					counterDiverso++;
 				}
-				
-				// Se esistono 5 colori diversi nella riga.
-				if (counterDiverso == 5) {
+
+				if (counterDiverso < 4) {
 					rigaObiettivo++;
-					// Se 2 righe centrano l'obiettivo.
-					if (rigaObiettivo == 2) {
+					if (rigaObiettivo == 3) {
 						return true;
 					}
 				}
 			}
 		}
 		return false;
-
 	}
 
 	public ImageIcon getImage() {
