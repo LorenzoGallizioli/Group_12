@@ -270,69 +270,69 @@ public class FrontEnd extends JFrame {
 				
 				// Obiettivi personali giocatori.
 				table = new JTable(6,5);
-				table.setBounds(148, 11, 420, 420);
+				table.setBounds(22, 60, 250, 270);
 				pnlDx.add(table);
 				table.setShowGrid(false);
-				table.setRowHeight(70);
+				table.setRowHeight(45);
 				table.doLayout();
 				table.setRowSelectionAllowed(false);
 				table.setIntercellSpacing(new Dimension(0, 0));
 				
 				
 				table_1 = new JTable(6,5);
-				table_1.setBounds(148, 11, 420, 420);
+				table_1.setBounds(22, 60, 250, 270);
 				pnlDx.add(table_1);
 				table_1.setShowGrid(false);
-				table_1.setRowHeight(70);
+				table_1.setRowHeight(40);
 				table_1.doLayout();
 				table_1.setRowSelectionAllowed(false);
 				table_1.setIntercellSpacing(new Dimension(0, 0));
 				
 				table_2 = new JTable(6,5);
-				table_2.setBounds(148, 11, 420, 420);
+				table_2.setBounds(22, 60, 250, 270);
 				pnlDx.add(table_2);
 				table_2.setShowGrid(false);
-				table_2.setRowHeight(70);
+				table_2.setRowHeight(40);
 				table_2.doLayout();
 				table_2.setRowSelectionAllowed(false);
 				table_2.setIntercellSpacing(new Dimension(0, 0));
 				
 				table_3 = new JTable(6,5);
-				table_3.setBounds(148, 11, 420, 420);
+				table_3.setBounds(22, 60, 250, 270);
 				pnlDx.add(table_3);
 				table_3.setShowGrid(false);
-				table_3.setRowHeight(70);
+				table_3.setRowHeight(40);
 				table_3.doLayout();
 				table_3.setRowSelectionAllowed(false);
 				table_3.setIntercellSpacing(new Dimension(0, 0));
 				
 				// Librerie giocatori.
 				tableLibreria_1 = new JTable(6,5);
-				tableLibreria_1.setBounds(111, 442, 460, 462);
+				tableLibreria_1.setBounds(20, 429, 396, 396);
 				pnlDx.add(tableLibreria_1);
 				tableLibreria_1.setShowGrid(false);
-				tableLibreria_1.setRowHeight(77);
+				tableLibreria_1.setRowHeight(66);
 				tableLibreria_1.setIntercellSpacing(new Dimension(0, 0));
 				
 				tableLibreria_2 = new JTable(6,5);
-				tableLibreria_2.setBounds(111, 442, 462, 462);
+				tableLibreria_2.setBounds(20, 429, 396, 396);
 				pnlDx.add(tableLibreria_2);
 				tableLibreria_2.setShowGrid(false);
-				tableLibreria_2.setRowHeight(77);
+				tableLibreria_2.setRowHeight(66);
 				tableLibreria_1.setIntercellSpacing(new Dimension(0, 0));
 				
 				tableLibreria_3 = new JTable(6,5);
-				tableLibreria_3.setBounds(111, 442, 462, 462);
+				tableLibreria_3.setBounds(20, 429, 396, 396);
 				pnlDx.add(tableLibreria_3);
 				tableLibreria_3.setShowGrid(false);
-				tableLibreria_3.setRowHeight(77);
+				tableLibreria_3.setRowHeight(66);
 				tableLibreria_1.setIntercellSpacing(new Dimension(0, 0));
 				
 				tableLibreria_4 = new JTable(6,5);
-				tableLibreria_4.setBounds(111, 442, 462, 462);
+				tableLibreria_4.setBounds(20, 429, 396, 396);
 				pnlDx.add(tableLibreria_4);
 				tableLibreria_4.setShowGrid(false);
-				tableLibreria_4.setRowHeight(77);
+				tableLibreria_4.setRowHeight(66);
 				tableLibreria_1.setIntercellSpacing(new Dimension(0, 0));
 				
 				
