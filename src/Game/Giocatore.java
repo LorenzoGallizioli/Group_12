@@ -11,6 +11,7 @@ import javax.swing.table.TableCellRenderer;
 
 import Images.CustomCellColore;
 import Images.ImageRendererLibOb;
+import Images.ImageRendererLibOb;
 /**
  * Classe che definisce il giocatore
  * @author Davide
