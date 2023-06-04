@@ -7,28 +7,28 @@ import javax.swing.ImageIcon;
 import Game.Tessera;
 
 /**
- * Four lines each formed by 5 tiles of maximum three different types. One line
- * can show the same or a different combination of another line.
+ * Obiettivo 8: Four lines each formed by 5 tiles of maximum three different
+ * types.
  */
 public class Obiettivo8 extends ObiettivoComune {
 
 	private ImageIcon immagine = new ImageIcon("./src/pics/Obiettivo8.jpg");
-	
+
 	public Obiettivo8() {
-		
+
 	}
-	
+
 	public boolean check(Tessera[][] libreria) {
-		int rigaObiettivo = 0;
+		int rigaObiettivo = 0; // Numero righe che rispettano l'obiettivo.
 		for (int rig = 0; rig <= 5; rig++) {
-			int counterDiverso = 0;
+			int countColori = 0; // Numero colori diversi.
 			int countVerdi = 0;
 			int countBlu = 0;
 			int countGialle = 0;
 			int countAzzurre = 0;
 			int countFucsia = 0;
 			int countBianche = 0;
-			boolean colCompleta = true;
+			boolean rigCompleta = true;
 
 			for (int col = 0; col <= 4; col++) {
 				if (libreria[rig][col] != null) {
@@ -46,30 +46,30 @@ public class Obiettivo8 extends ObiettivoComune {
 						countBianche++;
 					}
 				} else {
-					colCompleta = false;
+					rigCompleta = false;
 				}
 			}
-			if (colCompleta == true) {
+			if (rigCompleta == true) {
 				if (countVerdi > 0) {
-					counterDiverso++;
+					countColori++;
 				}
 				if (countBlu > 0) {
-					counterDiverso++;
+					countColori++;
 				}
 				if (countGialle > 0) {
-					counterDiverso++;
+					countColori++;
 				}
 				if (countAzzurre > 0) {
-					counterDiverso++;
+					countColori++;
 				}
 				if (countFucsia > 0) {
-					counterDiverso++;
+					countColori++;
 				}
 				if (countBianche > 0) {
-					counterDiverso++;
+					countColori++;
 				}
 
-				if (counterDiverso < 4) {
+				if (countColori < 4) {
 					rigaObiettivo++;
 					if (rigaObiettivo == 3) {
 						return true;

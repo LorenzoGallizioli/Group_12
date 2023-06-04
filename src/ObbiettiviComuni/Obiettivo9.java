@@ -7,7 +7,7 @@ import javax.swing.ImageIcon;
 import Game.Tessera;
 
 /**
- * Two columns each formed by 6 different types of tiles.
+ * Obiettivo 9: Two columns each formed by 6 different types of tiles.
  */
 public class Obiettivo9 extends ObiettivoComune {
 	
@@ -18,9 +18,9 @@ public class Obiettivo9 extends ObiettivoComune {
 	}
 	
 	public boolean check (Tessera[][] libreria) {
-		int colObiettivo = 0;
+		int colObiettivo = 0; // Numero di colonne che rispettano l'obiettivo.
 		for(int col = 0; col <= 4; col++) {
-			int counterDiverso = 0;
+			int countColori = 0; // Numero colori diversi.
 			int countVerdi = 0;
 			int countBlu = 0;
 			int countGialle = 0;
@@ -56,26 +56,26 @@ public class Obiettivo9 extends ObiettivoComune {
 			}
 			if (colCompleta) {
 				if(countVerdi == 1) {
-					counterDiverso++;
+					countColori++;
 				}
 				if(countBlu == 1) {
-					counterDiverso++;
+					countColori++;
 				}
 				if(countGialle == 1) {
-					counterDiverso++;
+					countColori++;
 				}
 				if(countAzzurre == 1) {
-					counterDiverso++;
+					countColori++;
 				}
 				if(countFucsia == 1) {
-					counterDiverso++;
+					countColori++;
 				}
 				if(countBianche == 1) {
-					counterDiverso++;
+					countColori++;
 				}
 				
 				// Se esistono 6 colori diversi nella colonna.
-				if(counterDiverso == 6) {
+				if(countColori == 6) {
 					colObiettivo++;
 					// Se 2 colonne centrano l'obiettivo.
 					if(colObiettivo == 2) {

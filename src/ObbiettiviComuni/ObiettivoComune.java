@@ -5,10 +5,11 @@ import javax.swing.ImageIcon;
 import Game.Tessera;
 
 /**
- * Classe madre degli obiettivi.
+ * Obiettivo che qualsiasi giocatore può completare.
  */
 public abstract class ObiettivoComune {
 
+	// Immagine che rappresenta l'obiettivo.
 	private ImageIcon immagine;
 	
 	/**

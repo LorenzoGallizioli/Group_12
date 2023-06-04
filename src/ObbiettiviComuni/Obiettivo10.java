@@ -7,7 +7,7 @@ import javax.swing.ImageIcon;
 import Game.Tessera;
 
 /**
- * Two lines each formed by 5 different types of tiles. One line can show the same or a different combination of the other line.
+ * Obiettivo 10: Two lines each formed by 5 different types of tiles.
  */
 public class Obiettivo10 extends ObiettivoComune {
 
@@ -18,9 +18,9 @@ public class Obiettivo10 extends ObiettivoComune {
 	}
 	
 	public boolean check(Tessera[][] libreria) {
-		int rigaObiettivo = 0;
+		int rigaObiettivo = 0; // Numero righe che rispettano l'obiettivo.
 		for (int rig = 0; rig <= 5; rig++) {
-			int counterDiverso = 0;
+			int countColori = 0; // Numero colori diversi.
 			int countVerdi = 0;
 			int countBlu = 0;
 			int countGialle = 0;
@@ -50,26 +50,26 @@ public class Obiettivo10 extends ObiettivoComune {
 			}
 			if (colCompleta == true) {
 				if (countVerdi > 0) {
-					counterDiverso++;
+					countColori++;
 				}
 				if (countBlu > 0) {
-					counterDiverso++;
+					countColori++;
 				}
 				if (countGialle > 0) {
-					counterDiverso++;
+					countColori++;
 				}
 				if (countAzzurre > 0) {
-					counterDiverso++;
+					countColori++;
 				}
 				if (countFucsia > 0) {
-					counterDiverso++;
+					countColori++;
 				}
 				if (countBianche > 0) {
-					counterDiverso++;
+					countColori++;
 				}
 				
 				// Se esistono 5 colori diversi nella riga.
-				if (counterDiverso == 5) {
+				if (countColori == 5) {
 					rigaObiettivo++;
 					// Se 2 righe centrano l'obiettivo.
 					if (rigaObiettivo == 2) {

@@ -7,7 +7,7 @@ import javax.swing.ImageIcon;
 import Game.Tessera;
 
 /**
- * Five tiles of the same type forming an X.
+ * Obiettivo 11: Five tiles of the same type forming an X.
  */
 public class Obiettivo11 extends ObiettivoComune {
 

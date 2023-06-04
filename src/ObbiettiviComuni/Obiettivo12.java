@@ -7,9 +7,7 @@ import javax.swing.ImageIcon;
 import Game.Tessera;
 
 /**
- * Five columns of increasing or decreasing height. 
- * Starting from the first column on the left or on the right, each next column must be made of exactly one more tile. 
- * Tiles can be of any type.
+ * Obiettivo 12: Five columns of increasing or decreasing height, of any type. 
  */
 public class Obiettivo12 extends ObiettivoComune {
 	
@@ -24,7 +22,7 @@ public class Obiettivo12 extends ObiettivoComune {
 		int counter = 0;
 		int rig = 0;
 		
-		// Decrescente.
+		// Ordine decrescente.
 		for(int col = 0; col < 5; col++) {
 			
 			if(libreria[rig][col].getColor() != Color.BLACK) {
@@ -41,7 +39,7 @@ public class Obiettivo12 extends ObiettivoComune {
 			}
 		}
 		
-		// Crescente.
+		// Ordine crescente.
 		counter = 0;
 		rig = 4;
 		for(int col = 0; col < 5; col++) {

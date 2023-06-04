@@ -7,7 +7,7 @@ import javax.swing.ImageIcon;
 import Game.Tessera;
 
 /**
- * Eight tiles of the same type. There’s no restriction about the position of these tiles.
+ * Obiettivo 6: Eight tiles of the same type.
  */
 public class Obiettivo6  extends ObiettivoComune{
 

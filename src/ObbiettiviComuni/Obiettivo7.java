@@ -7,12 +7,11 @@ import javax.swing.ImageIcon;
 import Game.Tessera;
 
 /**
- * Five tiles of the same type forming a diagonal.
+ * Obiettivo 7: Five tiles of the same type forming a diagonal.
  */
 public class Obiettivo7 extends ObiettivoComune {
 	
 	private ImageIcon immagine = new ImageIcon("./src/pics/Obiettivo7.jpg");
-
 	
 	public Obiettivo7() {
 		
@@ -29,9 +28,16 @@ public class Obiettivo7 extends ObiettivoComune {
 		
 	}
 
+	/**
+	 * Controllo della prima diagonale (da 0,0 a 4,4).
+	 * 
+	 * @param libreria
+	 * 	 La libreria.
+	 * @return
+	 * 	 TRUE se trova la diagonale, FALSE altrimenti.
+	 */
 	public boolean diagonale1(Tessera[][] libreria) {	
 		int count=0;
-		// Controllo della prima diagonale
 		for (int i = 0; i < 4; i++) {
 		    if (libreria[i][i].getColor() != Color.BLACK && libreria[i][i].getColor() == libreria[i+1][i+1].getColor()) {
 		        count++;
@@ -43,9 +49,16 @@ public class Obiettivo7 extends ObiettivoComune {
 		return false;
 	}
 	
+	/**
+	 * Controllo della seconda diagonale (da 0,4 a 4,0).
+	 * 
+	 * @param libreria
+	 * 	 La libreria.
+	 * @return
+	 * 	 TRUE se trova la diagonale, FALSE altrimenti.
+	 */
 	public boolean diagonale2(Tessera[][] libreria) {
 		int count=0;
-		// Controllo della seconda diagonale
 		for (int i = 0; i < 4; i++) {
 		    if (libreria[i][4-i].getColor() != Color.BLACK && libreria[i][4-i].getColor() == libreria[i+1][3-i].getColor()) {
 		        count++;
@@ -57,6 +70,14 @@ public class Obiettivo7 extends ObiettivoComune {
 		return false;
 	}
 	
+	/**
+	 * Controllo della terza diagonale (da 5,0 a 1,4).
+	 * 
+	 * @param libreria
+	 * 	 La libreria.
+	 * @return
+	 * 	 TRUE se trova la diagonale, FALSE altrimenti.
+	 */
 	public boolean diagonale3(Tessera[][] libreria) {
 		int count = 0;
 		// Controllo della terza diagonale
@@ -72,6 +93,14 @@ public class Obiettivo7 extends ObiettivoComune {
 		return false;
 	}
 
+	/**
+	 * Controllo della quarta diagonale (da 5,4 a 1,0).
+	 * 
+	 * @param libreria
+	 * 	 La libreria.
+	 * @return
+	 * 	 TRUE se trova la diagonale, FALSE altrimenti.
+	 */
 	public boolean diagonale4(Tessera[][] libreria) {
 		int count = 0;
 		// Controllo della quarta diagonale

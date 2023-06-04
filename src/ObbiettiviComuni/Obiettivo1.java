@@ -8,8 +8,7 @@ import Game.Libreria;
 import Game.Tessera;
 
 /**
- * Six groups each containing at least 2 tiles of the same type (not necessarily in the depicted shape).
- * The tiles of one group can be different from those of another group.
+ * Obiettivo 1: Six groups each containing at least 2 tiles of the same type.
  */
 public class Obiettivo1 extends ObiettivoComune{
 	

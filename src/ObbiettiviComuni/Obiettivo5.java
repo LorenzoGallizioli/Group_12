@@ -7,22 +7,20 @@ import javax.swing.ImageIcon;
 import Game.Tessera;
 
 /**
- * Three columns each formed by 6 tiles of maximum three different types. 
- * One column can show the same or a different combination of another column.
+ * Obiettivo 5: Three columns each formed by 6 tiles of maximum three different types.
  */
 public class Obiettivo5 extends ObiettivoComune {
-	
+
 	private ImageIcon immagine = new ImageIcon("./src/pics/Obiettivo5.jpg");
 
-	
 	public Obiettivo5() {
-		
+
 	}
-	
-	public boolean check (Tessera[][] libreria) {
-		int colObiettivo = 0;
-		for(int col = 0; col <= 4; col++) {
-			int counterDiverso = 0;
+
+	public boolean check(Tessera[][] libreria) {
+		int colObiettivo = 0; // Numero di colonne che rispettano l'obiettivo.
+		for (int col = 0; col <= 4; col++) {
+			int countColori = 0; // Numero colori diversi.
 			int countVerdi = 0;
 			int countBlu = 0;
 			int countGialle = 0;
@@ -31,54 +29,48 @@ public class Obiettivo5 extends ObiettivoComune {
 			int countBianche = 0;
 			boolean colCompleta = true;
 
-			for(int rig = 0; rig <= 5; rig++) {
-				if(libreria[rig][col].getColor()!= Color.BLACK) {
-					if(libreria[rig][col].getColor() == Color.GREEN) {
+			for (int rig = 0; rig <= 5; rig++) {
+				if (libreria[rig][col].getColor() != Color.BLACK) {
+					if (libreria[rig][col].getColor() == Color.GREEN) {
 						countVerdi++;
-					}
-					else if(libreria[rig][col].getColor() == Color.BLUE) {
+					} else if (libreria[rig][col].getColor() == Color.BLUE) {
 						countBlu++;
-					}
-					else if(libreria[rig][col].getColor() == Color.YELLOW) {
+					} else if (libreria[rig][col].getColor() == Color.YELLOW) {
 						countGialle++;
-					}
-					else if(libreria[rig][col].getColor() == Color.CYAN) {
+					} else if (libreria[rig][col].getColor() == Color.CYAN) {
 						countAzzurre++;
-					}
-					else if(libreria[rig][col].getColor() == Color.PINK) {
+					} else if (libreria[rig][col].getColor() == Color.PINK) {
 						countFucsia++;
-					}
-					else if(libreria[rig][col].getColor() == Color.WHITE) {
+					} else if (libreria[rig][col].getColor() == Color.WHITE) {
 						countBianche++;
 					}
-				}
-				else {
+				} else {
 					colCompleta = false;
 				}
 			}
 			if (colCompleta) {
-				if(countVerdi > 0) {
-					counterDiverso++;
+				if (countVerdi > 0) {
+					countColori++;
 				}
-				if(countBlu > 0) {
-					counterDiverso++;
+				if (countBlu > 0) {
+					countColori++;
 				}
-				if(countGialle > 0) {
-					counterDiverso++;
+				if (countGialle > 0) {
+					countColori++;
 				}
-				if(countAzzurre > 0) {
-					counterDiverso++;
+				if (countAzzurre > 0) {
+					countColori++;
 				}
-				if(countFucsia > 0) {
-					counterDiverso++;
+				if (countFucsia > 0) {
+					countColori++;
 				}
-				if(countBianche > 0) {
-					counterDiverso++;
+				if (countBianche > 0) {
+					countColori++;
 				}
-				
-				if(counterDiverso < 4) {
+
+				if (countColori < 4) {
 					colObiettivo++;
-					if(colObiettivo == 3) {
+					if (colObiettivo == 3) {
 						return true;
 					}
 				}

@@ -7,8 +7,7 @@ import javax.swing.ImageIcon;
 import Game.Tessera;
 
 /**
- * Four groups each containing at least 4 tiles of the same type (not necessarily in the depicted shape).
- * The tiles of one group can be different from those of another group.
+ * Obiettivo 2: Four groups each containing at least 4 tiles of the same type.
  */
 public class Obiettivo2 extends ObiettivoComune{
 
