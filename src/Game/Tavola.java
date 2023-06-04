@@ -13,7 +13,7 @@ import Images.ImageRenderer;
 /**
  * Definisce la tavola da gioco.
  * 
- * @author DavideDell'Anno
+ * @author davidedellanno
  */
 public class Tavola{
 	

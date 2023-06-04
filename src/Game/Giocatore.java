@@ -14,8 +14,8 @@ import Images.ImageRendererLibOb;
 import Images.ImageRendererLibOb;
 /**
  * Classe che definisce il giocatore
- * @author Davide
- *
+ * 
+ * @author davidedellanno
  */
 public class Giocatore {
 	
