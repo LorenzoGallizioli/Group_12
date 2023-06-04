@@ -192,7 +192,7 @@ public class FrontEnd extends JFrame {
 		pnlMostraTessera.add(lblTesseraLibreria);
 
 		// Label indicante cosa fare.
-		JLabel lblStatoTesseraLibreria = new JLabel("Seleziona una casella della libreria");
+		JLabel lblStatoTesseraLibreria = new JLabel("Seleziona una tessera \n e uno slot della libreria");
 		lblStatoTesseraLibreria.setBounds(10, 345, 181, 30);
 		pnlMostraTessera.add(lblStatoTesseraLibreria);
 		lblStatoTesseraLibreria.setFont(new Font("Tahoma", Font.PLAIN, 12));
