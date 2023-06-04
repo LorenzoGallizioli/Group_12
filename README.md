@@ -31,3 +31,10 @@
 7. Selezionare dalla libreria la cella dove si vuole collocare la tessera, anche in questo caso una label e l'attivazione del bottone "AGGIUNGI ALLA TUA LIBRERIA" indicheranno se è possibile posizionarla in quel determiato slot;
 8. E' possibile ripetere l'operazione per 3 tessere poi sarà obbligatorio passare al prossimo turno, in cui compariranno l'obiettivo personale e la libreria dell'altro giocatore;
 9. Una volta che vogliamo che il gioco finisca e che ci vengano conteggiati i punti clicchiamo sul bottone "FINE PARTITA";
+
+-----------------------------------
+
+## CRITICITA'
+
+1. Cliccando due volte sulle tessere viene mostrato l'rgb del colore della tessera;
+2. La libreria del primo player non illumina correttamente gli slot disponibili; 
