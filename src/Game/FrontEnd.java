@@ -241,69 +241,97 @@ public class FrontEnd extends JFrame {
 
 		// Obiettivi personali giocatori.
 		table = new JTable(6,5);
-		table.setBounds(80, 11, 335, 336);
+		table.setBounds(106, 11, 305, 315);
 		pnlDx.add(table);
 		table.setShowGrid(false);
-		table.setRowHeight(56);
+		table.setRowHeight(53);
 		table.doLayout();
 		table.setRowSelectionAllowed(false);
 		table.setIntercellSpacing(new Dimension(0, 0));
 		
 		table_1 = new JTable(6,5);
-		table_1.setBounds(80, 11, 335, 336);
+		table_1.setBounds(106, 11, 305, 315);
 		pnlDx.add(table_1);
 		table_1.setShowGrid(false);
-		table_1.setRowHeight(56);
+		table_1.setRowHeight(53);
 		table_1.doLayout();
 		table_1.setRowSelectionAllowed(false);
 		table_1.setIntercellSpacing(new Dimension(0, 0));
 
 		table_2 = new JTable(6,5);
-		table_2.setBounds(80, 11, 335, 336);
+		table_2.setBounds(106, 11, 305, 315);
 		pnlDx.add(table_2);
 		table_2.setShowGrid(false);
-		table_2.setRowHeight(56);
+		table_2.setRowHeight(53);
 		table_2.doLayout();
 		table_2.setRowSelectionAllowed(false);
 		table_2.setIntercellSpacing(new Dimension(0, 0));
+		
+				// Librerie giocatori.
+				tableLibreria_1 = new JTable(6,5);
+				tableLibreria_1.setBounds(20, 378, 395, 396);
+				pnlDx.add(tableLibreria_1);
+				tableLibreria_1.setShowGrid(false);
+				tableLibreria_1.setRowHeight(66);
+				tableLibreria_1.setIntercellSpacing(new Dimension(0, 0));
+				tableLibreria_1.setIntercellSpacing(new Dimension(0, 0));
+				tableLibreria_1.setIntercellSpacing(new Dimension(0, 0));
+				tableLibreria_1.setIntercellSpacing(new Dimension(0, 0));
+				tableLibreria_1.setVisible(false);
+				
+				table_3 = new JTable(6,5);
+				table_3.setBounds(106, 11, 305, 315);
+				pnlDx.add(table_3);
+				table_3.setShowGrid(false);
+				table_3.setRowHeight(53);
+				table_3.doLayout();
+				table_3.setRowSelectionAllowed(false);
+				table_3.setIntercellSpacing(new Dimension(0, 0));
 
-		table_3 = new JTable(6,5);
-		table_3.setBounds(80, 11, 335, 336);
-		pnlDx.add(table_3);
-		table_3.setShowGrid(false);
-		table_3.setRowHeight(56);
-		table_3.doLayout();
-		table_3.setRowSelectionAllowed(false);
-		table_3.setIntercellSpacing(new Dimension(0, 0));
+				tableLibreria_2 = new JTable(6,5);
+				tableLibreria_2.setBounds(20, 378, 395, 396);
+				pnlDx.add(tableLibreria_2);
+				tableLibreria_2.setShowGrid(false);
+				tableLibreria_2.setRowHeight(66);
 
-		// Librerie giocatori.
-		tableLibreria_1 = new JTable(6,5);
-		tableLibreria_1.setBounds(20, 378, 396, 396);
-		pnlDx.add(tableLibreria_1);
-		tableLibreria_1.setShowGrid(false);
-		tableLibreria_1.setRowHeight(66);
-		tableLibreria_1.setIntercellSpacing(new Dimension(0, 0));
+				tableLibreria_3 = new JTable(6,5);
+				tableLibreria_3.setBounds(20, 378, 395, 396);
+				pnlDx.add(tableLibreria_3);
+				tableLibreria_3.setShowGrid(false);
+				tableLibreria_3.setRowHeight(66);
 
-		tableLibreria_2 = new JTable(6,5);
-		tableLibreria_2.setBounds(20, 378, 396, 396);
-		pnlDx.add(tableLibreria_2);
-		tableLibreria_2.setShowGrid(false);
-		tableLibreria_2.setRowHeight(66);
-		tableLibreria_1.setIntercellSpacing(new Dimension(0, 0));
-
-		tableLibreria_3 = new JTable(6,5);
-		tableLibreria_3.setBounds(20, 378, 396, 396);
-		pnlDx.add(tableLibreria_3);
-		tableLibreria_3.setShowGrid(false);
-		tableLibreria_3.setRowHeight(66);
-		tableLibreria_1.setIntercellSpacing(new Dimension(0, 0));
-
-		tableLibreria_4 = new JTable(6,5);
-		tableLibreria_4.setBounds(20, 378, 396, 396);
-		pnlDx.add(tableLibreria_4);
-		tableLibreria_4.setShowGrid(false);
-		tableLibreria_4.setRowHeight(66);
-		tableLibreria_1.setIntercellSpacing(new Dimension(0, 0));
+				tableLibreria_4 = new JTable(6,5);
+				tableLibreria_4.setBounds(20, 378, 395, 396);
+				pnlDx.add(tableLibreria_4);
+				tableLibreria_4.setShowGrid(false);
+				tableLibreria_4.setRowHeight(66);
+				
+				// Gestione libreria player 1.
+				tableLibreria_1.addMouseListener(new MouseAdapter() {
+					@Override
+					public void mouseClicked(MouseEvent e) {
+						row2 = tableLibreria_1.rowAtPoint(e.getPoint());
+						col2 = tableLibreria_1.columnAtPoint(e.getPoint());
+		
+						if (row2 != -1 && col2 != -1) {
+							ImageIcon pic = Images.Image.sceltaImmagine(giocatori.get(0).getLibreria()[row2][col2].getColor());
+							lblCellaSelezionata.setText("");
+							pnlMostraTessera.setVisible(true);
+							if(giocatori.get(0).getLibreria()[row2][col2].getDisponibile()==true) {
+								lblStatoTesseraLibreria.setText("Può essere impostata qui");    	
+							}
+							else {
+								lblStatoTesseraLibreria.setText("Non può essere impostata qui");
+								Image.scurisciImage(pic);
+							}
+							ImageIcon picResized = Image.scaleImage(pic, 70, 70);  
+							lblTesseraLibreria.setIcon(picResized);
+							if (Tavola.tavolaDaGioco[row][col].getDisponibile()==true && countTessera<3 && giocatori.get(0).getLibreria()[row2][col2].getDisponibile()==true) {
+								btnAggTessera.setEnabled(true);
+							}
+						}
+					}
+				});								
 		
 		// Pannello contenente i punteggi.
 		JPanel pnlPunteggi = new JPanel();
@@ -313,6 +341,7 @@ public class FrontEnd extends JFrame {
 		pnlPunteggi.setLayout(null);
 		pnlPunteggi.setVisible(false);
 		pnlPunteggi.setOpaque(false);
+		pnlPunteggi.setVisible(false);
 		
 		// Labels mostranti i nomi dei giocatori.
 		JLabel lblNomeP1 = new JLabel("");
@@ -367,8 +396,9 @@ public class FrontEnd extends JFrame {
 
 		// Label indicante il turno e il giocatore corrente.
 		JTextArea lblTurnoPlayer = new JTextArea();
+		lblTurnoPlayer.setFont(new Font("Monospaced", Font.PLAIN, 16));
 		lblTurnoPlayer.setForeground(new Color(255, 255, 255));
-		lblTurnoPlayer.setBounds(20, 352, 396, 26);
+		lblTurnoPlayer.setBounds(20, 11, 79, 123);
 		pnlDx.add(lblTurnoPlayer);
 		lblTurnoPlayer.setText("");
 		lblTurnoPlayer.setLineWrap(true);
@@ -376,6 +406,8 @@ public class FrontEnd extends JFrame {
 		lblTurnoPlayer.setEditable(false);
 		lblTurnoPlayer.setOpaque(false);
 		lblTurnoPlayer.setBorder(null);
+		
+		ImageIcon imgLibreria = new ImageIcon("./src/pics/bookshelf.png");
 		
 		tableLibreria_4.setVisible(false);
 
@@ -496,34 +528,6 @@ public class FrontEnd extends JFrame {
 					lblTesseraLibreria.setIcon(picResized);
 
 					if (Tavola.tavolaDaGioco[row][col].getDisponibile()==true && countTessera<3 && giocatori.get(1).getLibreria()[row2][col2].getDisponibile()==true) {
-						btnAggTessera.setEnabled(true);
-					}
-				}
-			}
-		});
-		tableLibreria_1.setVisible(false);
-
-		// Gestione libreria player 1.
-		tableLibreria_1.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				row2 = tableLibreria_1.rowAtPoint(e.getPoint());
-				col2 = tableLibreria_1.columnAtPoint(e.getPoint());
-
-				if (row2 != -1 && col2 != -1) {
-					ImageIcon pic = Images.Image.sceltaImmagine(giocatori.get(0).getLibreria()[row2][col2].getColor());
-					lblCellaSelezionata.setText("");
-					pnlMostraTessera.setVisible(true);
-					if(giocatori.get(0).getLibreria()[row2][col2].getDisponibile()==true) {
-						lblStatoTesseraLibreria.setText("Può essere impostata qui");    	
-					}
-					else {
-						lblStatoTesseraLibreria.setText("Non può essere impostata qui");
-						Image.scurisciImage(pic);
-					}
-					ImageIcon picResized = Image.scaleImage(pic, 70, 70);  
-					lblTesseraLibreria.setIcon(picResized);
-					if (Tavola.tavolaDaGioco[row][col].getDisponibile()==true && countTessera<3 && giocatori.get(0).getLibreria()[row2][col2].getDisponibile()==true) {
 						btnAggTessera.setEnabled(true);
 					}
 				}
@@ -1014,6 +1018,7 @@ public class FrontEnd extends JFrame {
 		// Listener bottone fine partita.
 		btnFinePartita.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				pnlPunteggi.setVisible(true);
 				// Controllo il completamento degli obiettivi comuni.
 				for(int i = 0;i<giocatori.size();i++) {
 					if(obc1.check(giocatori.get(i).getLibreria())==true) {
