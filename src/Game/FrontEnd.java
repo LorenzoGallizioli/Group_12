@@ -407,7 +407,7 @@ public class FrontEnd extends JFrame {
 		lblTurnoPlayer.setOpaque(false);
 		lblTurnoPlayer.setBorder(null);
 		
-		ImageIcon imgLibreria = new ImageIcon("./src/pics/bookshelf.png");
+		
 		
 		tableLibreria_4.setVisible(false);
 

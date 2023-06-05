@@ -193,7 +193,7 @@ public class Tavola{
 					tavolaDaGioco[i][j].Colore = colori[coloreRand];
 				}
 			}
-		}
+		}		
 	}
 	
 	/**
@@ -207,9 +207,13 @@ public class Tavola{
 	 * 	 L'immagine.
 	 */
 	public static void aggiornaTavola(JTable tableTavola_1, TableCellRenderer cellColora, TableCellRenderer imageRenderer) {	
+		boolean tavolaVuota = sonoVuote(tableTavola_1);
+	    if (tavolaVuota==true) {
+	        Tavola.generaTavola();	    
+	    }
 		// Scansiono tutta la matrice.
 		for (int row = 0; row < 9; row++) {
-		    for (int col = 0; col < 9; col++) {
+		    for (int col = 0; col < 9; col++) {		    	
 		        Color cellColor = Tavola.tavolaDaGioco[row][col].getColor(); // Prendo il colore di una determinata posizione della matrice.
 		        tableTavola_1.setValueAt(cellColor, row, col); // Imposto il colore desiderato alla giusta casella.
 		        tableTavola_1.getColumnModel().getColumn(col).setCellRenderer(cellColora); // Applico il colore alla casella utilizzando la classe CustomCellColore.
@@ -218,8 +222,30 @@ public class Tavola{
 		        tableTavola_1.getColumnModel().getColumn(col).setCellRenderer(imageRenderer);//cambio da colare alla rispettiva immagine
 		    
 		        tableTavola_1.setIntercellSpacing(new Dimension(0, 0));//rimuove il contorno binaco tra una casella e l'altra
+		        
 		    }
 		}
+		
+			
 	}
+	
+	public static boolean sonoVuote(JTable tableTavola_1) {
+		int count =0;
+	    for (int row = 0; row < 9; row++) {
+	        for (int col = 0; col < 9; col++) {
+	            Color cellColor = (Color) tableTavola_1.getValueAt(row, col);
+	            if (cellColor == Color.black) {
+	                count++;
+	            }
+	        }
+	    }
+	    if(count >= 80) {
+	    	return true;
+	    }
+	    else {return  false;}
+	    
+	}
+	
+	
 	
 }
