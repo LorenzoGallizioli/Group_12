@@ -14,7 +14,7 @@
 - Al centro si trova la board principale, il numero di tessere presenti dipende dal numero di giocatori;
 
 - A destra troviamo:
-  - In alto l'obiettivo personale che dà n punti per n tessere posizionate nel posto giusto ;
+  - In alto l'obiettivo personale (generato randomicamente) che dà n punti per n tessere posizionate nel posto giusto ;
   - In basso la libreria del giocatore corrente;
   - Tra i due troviamo il giocatore e il turno corrente;
 
@@ -36,5 +36,7 @@
 
 ## CRITICITA'
 
+Le seguenti cose non sono state fixate per dare priorità al funzionamento delle logiche del gioco, a causa del poco tempo rimasto:
 1. Cliccando due volte sulle tessere viene mostrato l'rgb del colore della tessera;
 2. La libreria del primo player non illumina correttamente gli slot disponibili; 
+3. Le tessere nella board non vengono rigenerate una volta terminate.
