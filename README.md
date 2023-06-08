@@ -39,3 +39,4 @@
 Le seguenti cose non sono state fixate per dare priorità al funzionamento delle logiche del gioco, a causa del poco tempo rimasto:
 1. Cliccando due volte sulle tessere viene mostrato l'rgb del colore della tessera;
 2. La libreria del primo player non illumina correttamente gli slot disponibili; 
+3. Possono verificarsi problemi a causa dell'utilizzo del mouse listener (Se il pc utilizza il doppio click necessiterà del doppio click per la selezione).
